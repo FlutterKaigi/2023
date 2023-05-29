@@ -86,7 +86,7 @@ class Assets {
   static const $AssetsPhotoGen photo = $AssetsPhotoGen();
   static const $AssetsSponsorGen sponsor = $AssetsSponsorGen();
   static const String twitterLogo = 'assets/twitter_logo.svg';
-  static const String twitterWhite = 'assets/twitter_white.svg';
+  static const String twitterWhite = 'assets/twitter_logo_white.svg';
 }
 
 class AssetGenImage extends AssetImage {
