@@ -1,5 +1,5 @@
+import 'package:confwebsite2023/core/hooks/use_cms.dart';
 import 'package:confwebsite2023/core/widgets/divider_with_title.dart';
-import 'package:confwebsite2023/data/staff.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,7 +13,8 @@ class StaffSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
-    kStaffList.sort((a, b) => (a['name'] ?? '').compareTo(b['name'] ?? ''));
+
+    final cmsHook = useCMS();
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -22,21 +23,33 @@ class StaffSection extends StatelessWidget {
           DividerWithTitle(text: appLocalizations.executive_committee),
           Container(
             alignment: Alignment.center,
-            child: Wrap(
-              children: kStaffList
-                  .map(
-                    (e) => SizedBox(
-                      height: 128,
-                      width: 128,
-                      child: StaffItem(
-                        name: e['name'] ?? '',
-                        photo: e['photo'] ?? '',
-                        url: e['url'] ?? '',
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
+            child: FutureBuilder<List<dynamic>>(
+                future: cmsHook.fetchItems('staff'),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<dynamic>> snapshot) {
+                  if (snapshot.connectionState != ConnectionState.done) {
+                    return const CircularProgressIndicator();
+                  }
+                  if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  }
+
+                  return Wrap(
+                    children: snapshot.data!
+                        .map(
+                          (e) => SizedBox(
+                            height: 128,
+                            width: 128,
+                            child: StaffItem(
+                              name: e['displayName'] ?? '',
+                              photo: e['image']['src'] ?? '',
+                              url: 'https://twitter.com/${e['twitter']}',
+                            ),
+                          ),
+                        )
+                        .toList(),
+                  );
+                }),
           ),
         ],
       ),
