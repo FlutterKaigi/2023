@@ -18,8 +18,9 @@ jobs:
 
       - name: create .env
         run: |
-          touch .env
-          echo NEWT_CDN_API_TOKEN=${{secrets.NEWT_CDN_API_TOKEN}} >> .env
+          cat > .env <<EOF
+          NEWT_CDN_API_TOKEN=${{secrets.NEWT_CDN_API_TOKEN}}
+          EOF
 
       - name: Transpile
         run: |
