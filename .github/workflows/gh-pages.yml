@@ -23,6 +23,11 @@ jobs:
         run: |
           flutter pub get
 
+      - name: create .env
+        run: |
+          touch .env
+          echo NEWT_CDN_API_TOKEN=${{secrets.NEWT_CDN_API_TOKEN}} >> .env
+
       - name: Transpile
         run: |
           flutter build web --web-renderer html --base-href "/2023/"
