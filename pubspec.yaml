@@ -23,7 +23,7 @@ dependencies:
   go_router: ^5.2.1
   google_fonts:
   http: ^0.13.5
-  intl: ^0.17.0
+  intl: 0.17.0
   styled_text: ^6.0.0
   transparent_image: ^2.0.0
 
