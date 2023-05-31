@@ -108,5 +108,6 @@
     "titleBar.activeForeground": "#b2b2b2",
     "titleBar.inactiveBackground": "#042B59",
     "titleBar.inactiveForeground": "#b2b2b2"
-  }
+  },
+  "cmake.sourceDirectory": "/Users/yuukit/project/confwebsite2023/linux"
 }
