@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+
+# https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
+analyzer:
+  errors:
+    # allow for asset_does_not_exist
+    unrecognized_error_code: ignore
+    # ignore this in pubspec.yaml
+    asset_does_not_exist: ignore

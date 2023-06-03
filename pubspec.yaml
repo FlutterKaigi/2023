@@ -1,0 +1,35 @@
+name: confwebsite2023
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.2 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.0.2
+  flutter_localizations:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  http: ^1.0.0
+  transparent_image: ^2.0.1
+
+dev_dependencies:
+  build_runner:
+  flutter_gen_runner:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  url_launcher: ^6.1.11
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - .env

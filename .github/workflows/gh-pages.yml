@@ -1,0 +1,39 @@
+name: Deploy to Github pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'beta'
+          cache: true
+
+      - name: Install dependencies
+        run: |
+          flutter pub get
+
+      - name: create .env
+        run: |
+          touch .env
+          echo NEWT_CDN_API_TOKEN=${{secrets.NEWT_CDN_API_TOKEN}} >> .env
+
+      - name: Transpile
+        run: |
+          flutter build web --web-renderer html --base-href "/2023/"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
