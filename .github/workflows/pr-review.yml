@@ -10,10 +10,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Fetch flutter config
+        uses: kuhnroyal/flutter-fvm-config-action@v1
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'beta'
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: ${{ env.FLUTTER_CHANNEL }}
           cache: true
       - name: Install dependencies
         run: |
