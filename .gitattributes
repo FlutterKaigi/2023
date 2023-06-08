@@ -1,0 +1,4 @@
+*.freezed.dart linguist-generated=true
+*.g.dart linguist-generated=true
+*.gen.dart linguist-generated=true
+*.gr.dart linguist-generated=true
