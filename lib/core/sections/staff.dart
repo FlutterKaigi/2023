@@ -22,7 +22,7 @@ class StaffSection extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: FutureBuilder<List<dynamic>>(
-              future: cmsHook.fetchItems('staff'),
+              future:  cmsHook.fetchItems('staff'),
               builder: (
                 BuildContext context,
                 AsyncSnapshot<List<dynamic>> snapshot,

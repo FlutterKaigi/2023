@@ -8,7 +8,8 @@ part of 'staff.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_StaffItem _$$_StaffItemFromJson(Map<String, dynamic> json) => _$_StaffItem(
+_$_StaffItemModel _$$_StaffItemModelFromJson(Map<String, dynamic> json) =>
+    _$_StaffItemModel(
       id: json['id'] as String,
       displayName: json['displayName'] as String,
       twitter: json['twitter'] as String,
@@ -17,7 +18,7 @@ _$_StaffItem _$$_StaffItemFromJson(Map<String, dynamic> json) => _$_StaffItem(
       image: json['image'],
     );
 
-Map<String, dynamic> _$$_StaffItemToJson(_$_StaffItem instance) =>
+Map<String, dynamic> _$$_StaffItemModelToJson(_$_StaffItemModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'displayName': instance.displayName,

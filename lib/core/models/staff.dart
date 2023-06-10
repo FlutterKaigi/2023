@@ -3,16 +3,16 @@ part 'staff.freezed.dart';
 part 'staff.g.dart';
 
 @freezed
-class StaffItem with _$StaffItem {
-  const factory StaffItem({
+class StaffItemModel with _$StaffItemModel {
+  const factory StaffItemModel({
     required String id,
     required String displayName,
     required String twitter,
     required DateTime createdAt,
     required DateTime updatedAt,
     required dynamic image,
-  }) = _StaffItem;
+  }) = _StaffItemModel;
 
-  factory StaffItem.fromJson(Map<String, dynamic> json) =>
-      _$StaffItemFromJson(json);
+  factory StaffItemModel.fromJson(Map<String, dynamic> json) =>
+      _$StaffItemModelFromJson(json);
 }

@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-StaffItem _$StaffItemFromJson(Map<String, dynamic> json) {
-  return _StaffItem.fromJson(json);
+StaffItemModel _$StaffItemModelFromJson(Map<String, dynamic> json) {
+  return _StaffItemModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$StaffItem {
+mixin _$StaffItemModel {
   String get id => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String get twitter => throw _privateConstructorUsedError;
@@ -29,14 +29,15 @@ mixin _$StaffItem {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $StaffItemCopyWith<StaffItem> get copyWith =>
+  $StaffItemModelCopyWith<StaffItemModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StaffItemCopyWith<$Res> {
-  factory $StaffItemCopyWith(StaffItem value, $Res Function(StaffItem) then) =
-      _$StaffItemCopyWithImpl<$Res, StaffItem>;
+abstract class $StaffItemModelCopyWith<$Res> {
+  factory $StaffItemModelCopyWith(
+          StaffItemModel value, $Res Function(StaffItemModel) then) =
+      _$StaffItemModelCopyWithImpl<$Res, StaffItemModel>;
   @useResult
   $Res call(
       {String id,
@@ -48,9 +49,9 @@ abstract class $StaffItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StaffItemCopyWithImpl<$Res, $Val extends StaffItem>
-    implements $StaffItemCopyWith<$Res> {
-  _$StaffItemCopyWithImpl(this._value, this._then);
+class _$StaffItemModelCopyWithImpl<$Res, $Val extends StaffItemModel>
+    implements $StaffItemModelCopyWith<$Res> {
+  _$StaffItemModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -97,10 +98,11 @@ class _$StaffItemCopyWithImpl<$Res, $Val extends StaffItem>
 }
 
 /// @nodoc
-abstract class _$$_StaffItemCopyWith<$Res> implements $StaffItemCopyWith<$Res> {
-  factory _$$_StaffItemCopyWith(
-          _$_StaffItem value, $Res Function(_$_StaffItem) then) =
-      __$$_StaffItemCopyWithImpl<$Res>;
+abstract class _$$_StaffItemModelCopyWith<$Res>
+    implements $StaffItemModelCopyWith<$Res> {
+  factory _$$_StaffItemModelCopyWith(
+          _$_StaffItemModel value, $Res Function(_$_StaffItemModel) then) =
+      __$$_StaffItemModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -113,11 +115,11 @@ abstract class _$$_StaffItemCopyWith<$Res> implements $StaffItemCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StaffItemCopyWithImpl<$Res>
-    extends _$StaffItemCopyWithImpl<$Res, _$_StaffItem>
-    implements _$$_StaffItemCopyWith<$Res> {
-  __$$_StaffItemCopyWithImpl(
-      _$_StaffItem _value, $Res Function(_$_StaffItem) _then)
+class __$$_StaffItemModelCopyWithImpl<$Res>
+    extends _$StaffItemModelCopyWithImpl<$Res, _$_StaffItemModel>
+    implements _$$_StaffItemModelCopyWith<$Res> {
+  __$$_StaffItemModelCopyWithImpl(
+      _$_StaffItemModel _value, $Res Function(_$_StaffItemModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +132,7 @@ class __$$_StaffItemCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? image = freezed,
   }) {
-    return _then(_$_StaffItem(
+    return _then(_$_StaffItemModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -161,8 +163,8 @@ class __$$_StaffItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StaffItem implements _StaffItem {
-  const _$_StaffItem(
+class _$_StaffItemModel implements _StaffItemModel {
+  const _$_StaffItemModel(
       {required this.id,
       required this.displayName,
       required this.twitter,
@@ -170,8 +172,8 @@ class _$_StaffItem implements _StaffItem {
       required this.updatedAt,
       required this.image});
 
-  factory _$_StaffItem.fromJson(Map<String, dynamic> json) =>
-      _$$_StaffItemFromJson(json);
+  factory _$_StaffItemModel.fromJson(Map<String, dynamic> json) =>
+      _$$_StaffItemModelFromJson(json);
 
   @override
   final String id;
@@ -188,14 +190,14 @@ class _$_StaffItem implements _StaffItem {
 
   @override
   String toString() {
-    return 'StaffItem(id: $id, displayName: $displayName, twitter: $twitter, createdAt: $createdAt, updatedAt: $updatedAt, image: $image)';
+    return 'StaffItemModel(id: $id, displayName: $displayName, twitter: $twitter, createdAt: $createdAt, updatedAt: $updatedAt, image: $image)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_StaffItem &&
+            other is _$_StaffItemModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -215,28 +217,28 @@ class _$_StaffItem implements _StaffItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_StaffItemCopyWith<_$_StaffItem> get copyWith =>
-      __$$_StaffItemCopyWithImpl<_$_StaffItem>(this, _$identity);
+  _$$_StaffItemModelCopyWith<_$_StaffItemModel> get copyWith =>
+      __$$_StaffItemModelCopyWithImpl<_$_StaffItemModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StaffItemToJson(
+    return _$$_StaffItemModelToJson(
       this,
     );
   }
 }
 
-abstract class _StaffItem implements StaffItem {
-  const factory _StaffItem(
+abstract class _StaffItemModel implements StaffItemModel {
+  const factory _StaffItemModel(
       {required final String id,
       required final String displayName,
       required final String twitter,
       required final DateTime createdAt,
       required final DateTime updatedAt,
-      required final dynamic image}) = _$_StaffItem;
+      required final dynamic image}) = _$_StaffItemModel;
 
-  factory _StaffItem.fromJson(Map<String, dynamic> json) =
-      _$_StaffItem.fromJson;
+  factory _StaffItemModel.fromJson(Map<String, dynamic> json) =
+      _$_StaffItemModel.fromJson;
 
   @override
   String get id;
@@ -252,6 +254,6 @@ abstract class _StaffItem implements StaffItem {
   dynamic get image;
   @override
   @JsonKey(ignore: true)
-  _$$_StaffItemCopyWith<_$_StaffItem> get copyWith =>
+  _$$_StaffItemModelCopyWith<_$_StaffItemModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
