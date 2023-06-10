@@ -9,10 +9,11 @@ const appUid = 'flutterkaigi-2023';
 UseCMS useCMS() {
   Future<List<dynamic>> fetchItems(String modelUid) async {
     final result = await http.get(
-        Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/$modelUid'),
-        headers: {
-          'Authorization': 'Bearer ${dotenv.env['NEWT_CDN_API_TOKEN']!}',
-        });
+      Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/$modelUid'),
+      headers: {
+        'Authorization': 'Bearer ${dotenv.env['NEWT_CDN_API_TOKEN']!}',
+      },
+    );
 
     final List<dynamic> itemsJson = json.decode(result.body)['items'];
     return itemsJson.toList();
@@ -22,6 +23,6 @@ UseCMS useCMS() {
 }
 
 class UseCMS {
-  final Future<List<dynamic>> Function(String staff) fetchItems;
   UseCMS({required this.fetchItems});
+  final Future<List<dynamic>> Function(String staff) fetchItems;
 }

@@ -1,5 +1,3 @@
-
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'staff.freezed.dart';
 part 'staff.g.dart';
@@ -15,7 +13,6 @@ class StaffItem with _$StaffItem {
     required dynamic image,
   }) = _StaffItem;
 
-
   factory StaffItem.fromJson(Map<String, dynamic> json) =>
-    _$StaffItemFromJson(json);
+      _$StaffItemFromJson(json);
 }
