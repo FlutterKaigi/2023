@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/core/hooks/use_cms.dart';
+import 'package:confwebsite2023/core/models/staff.dart';
 import 'package:confwebsite2023/core/widgets/divider_with_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -21,11 +22,11 @@ class StaffSection extends StatelessWidget {
           DividerWithTitle(text: appLocalizations.executive_committee),
           Container(
             alignment: Alignment.center,
-            child: FutureBuilder<List<dynamic>>(
-              future:  cmsHook.fetchItems('staff'),
+            child: FutureBuilder<List<StaffItemModel>>(
+              future: cmsHook.fetchItems('staff'),
               builder: (
-                BuildContext context,
-                AsyncSnapshot<List<dynamic>> snapshot,
+                context,
+                snapshot,
               ) {
                 if (snapshot.connectionState != ConnectionState.done) {
                   return const CircularProgressIndicator();
@@ -41,9 +42,9 @@ class StaffSection extends StatelessWidget {
                           height: 128,
                           width: 128,
                           child: StaffItem(
-                            name: e['displayName'] ?? '',
-                            photo: e['image']['src'] ?? '',
-                            url: 'https://twitter.com /${e['twitter']}',
+                            name: e.displayName,
+                            photo: e.image.src,
+                            url: e.twitter,
                           ),
                         ),
                       )
