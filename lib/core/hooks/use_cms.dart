@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:confwebsite2023/core/models/staff.dart';
@@ -7,8 +8,7 @@ import 'package:http/http.dart' as http;
 const spaceUid = 'flutterkaigi';
 const appUid = 'flutterkaigi-2023';
 
-UseCMS useCMS() {
-  Future<List<StaffItemModel>> fetchItems(String modelUid) async {
+Future<List<StaffItemModel>> _fetchItems(String modelUid) async {
     final result = await http.get(
       Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/$modelUid'),
       headers: {
@@ -24,10 +24,15 @@ UseCMS useCMS() {
         .toList();
   }
 
-  return UseCMS(fetchItems: fetchItems);
+  final _fetch = Future<List<StaffItemModel>>.microtask(
+    () async => _fetchItems('staff'),
+  );
+
+UseCMS useCMS() {
+  return UseCMS(fetchItems: _fetch);
 }
 
 class UseCMS {
   UseCMS({required this.fetchItems});
-  final Future<List<StaffItemModel>> Function(String staff) fetchItems;
+  final Future<List<StaffItemModel>> fetchItems;
 }
