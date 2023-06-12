@@ -2,8 +2,8 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'staff.freezed.dart';
-part 'staff.g.dart';
+part 'staff_item_model.freezed.dart';
+part 'staff_item_model.g.dart';
 
 @freezed
 class StaffItemModel with _$StaffItemModel {

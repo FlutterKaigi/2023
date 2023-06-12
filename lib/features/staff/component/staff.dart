@@ -1,19 +1,21 @@
-import 'package:confwebsite2023/core/hooks/use_cms.dart';
-import 'package:confwebsite2023/core/models/staff.dart';
-import 'package:confwebsite2023/core/widgets/divider_with_title.dart';
+import 'package:confwebsite2023/features/staff/component/divider_with_title.dart';
+import 'package:confwebsite2023/features/staff/models/staff_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
 class StaffSection extends StatelessWidget {
-  const StaffSection({super.key});
+  const StaffSection({
+    required this.staffItems,
+    super.key,
+  });
+
+  final List<StaffItemModel> staffItems;
 
   @override
   Widget build(BuildContext context) {
     final appLocalizations = AppLocalizations.of(context)!;
-
-    final cmsHook = useCMS();
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -22,35 +24,21 @@ class StaffSection extends StatelessWidget {
           DividerWithTitle(text: appLocalizations.executive_committee),
           Container(
             alignment: Alignment.center,
-            child: FutureBuilder<List<StaffItemModel>>(
-              future: cmsHook.fetchItems,
-              builder: (
-                context,
-                snapshot,
-              ) {
-                if (snapshot.connectionState != ConnectionState.done) {
-                  return const CircularProgressIndicator();
-                }
-                if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                }
-
-                return Wrap(
-                  children: snapshot.data!
-                      .map(
-                        (e) => SizedBox(
-                          height: 128,
-                          width: 128,
-                          child: StaffItem(
-                            name: e.displayName,
-                            photo: e.image.src,
-                            url: e.twitter,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                );
-              },
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              children: staffItems
+                  .map(
+                    (e) => SizedBox(
+                      height: 128,
+                      width: 128,
+                      child: StaffItem(
+                        name: e.displayName,
+                        photo: e.image.src,
+                        url: 'https://twitter.com/${e.twitter}',
+                      ),
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         ],

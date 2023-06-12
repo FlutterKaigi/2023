@@ -2,7 +2,7 @@
 
 // ignore_for_file: type=lint
 
-part of 'staff.dart';
+part of 'staff_item_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

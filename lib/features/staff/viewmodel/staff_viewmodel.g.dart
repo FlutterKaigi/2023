@@ -8,7 +8,7 @@ part of 'staff_viewmodel.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$staffViewModelHash() => r'c8696fcbd4158abaf4c4dda882fc3e59aa1f26e7';
+String _$staffViewModelHash() => r'003067e0796a978466031cc46cf52b0c21a62e04';
 
 /// See also [staffViewModel].
 @ProviderFor(staffViewModel)
