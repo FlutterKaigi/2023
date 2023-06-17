@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/staff/widgets/staff_widget.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_widget.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
