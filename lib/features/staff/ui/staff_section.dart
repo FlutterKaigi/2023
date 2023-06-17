@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/divider_with_title.dart';
 import 'package:flutter/material.dart';
@@ -6,41 +7,46 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
-class StaffWidget extends ConsumerWidget {
-  const StaffWidget({super.key});
+class StaffSection extends StatelessWidget {
+  const StaffSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context)!;
+
+    return Column(
+      children: [
+        DividerWithTitle(text: appLocalizations.executive_committee),
+        const _StaffList(),
+      ],
+    );
+  }
+}
+
+class _StaffList extends ConsumerWidget {
+  const _StaffList();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(staffsProvider);
-    final appLocalizations = AppLocalizations.of(context)!;
-
     return state.when(
       data: (data) {
         return Container(
+          alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Column(
-            children: [
-              DividerWithTitle(text: appLocalizations.executive_committee),
-              Container(
-                alignment: Alignment.center,
-                child: Wrap(
-                  alignment: WrapAlignment.center,
-                  children: data
-                      .map(
-                        (e) => SizedBox(
-                          height: 128,
-                          width: 128,
-                          child: StaffItem(
-                            name: e.displayName,
-                            photo: e.image.src,
-                            url: 'https://twitter.com/${e.twitter}',
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
-              ),
-            ],
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            children: data
+                .map(
+                  (staff) => SizedBox(
+                    height: 128,
+                    width: 128,
+                    child: _StaffItem(
+                      staff: staff,
+                    ),
+                  ),
+                )
+                .toList(),
           ),
         );
       },
@@ -54,23 +60,19 @@ class StaffWidget extends ConsumerWidget {
   }
 }
 
-class StaffItem extends StatelessWidget {
-  const StaffItem({
-    required this.name,
-    required this.photo,
-    required this.url,
-    super.key,
+class _StaffItem extends StatelessWidget {
+  const _StaffItem({
+    required this.staff,
   });
-  final String name;
-  final String photo;
-  final String url;
+  final Staff staff;
 
   @override
   Widget build(BuildContext context) {
+    final url = 'https://twitter.com/${staff.twitter}';
     return Link(
       uri: Uri.tryParse(url),
       target: LinkTarget.blank,
-      builder: (BuildContext ctx, FollowLink? openLink) {
+      builder: (BuildContext context, FollowLink? openLink) {
         return InkWell(
           onTap: openLink,
           child: Column(
@@ -82,7 +84,7 @@ class StaffItem extends StatelessWidget {
                 child: ClipOval(
                   child: FadeInImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(photo),
+                    image: NetworkImage(staff.image.src),
                     placeholder: MemoryImage(kTransparentImage),
                     imageErrorBuilder: (_, __, ___) => const FittedBox(
                       child: Icon(
@@ -92,7 +94,9 @@ class StaffItem extends StatelessWidget {
                   ),
                 ),
               ),
-              FittedBox(child: Text(name)),
+              FittedBox(
+                child: Text(staff.displayName),
+              ),
             ],
           ),
         );

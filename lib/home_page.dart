@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/staff/ui/staff_widget.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            StaffWidget(),
+            StaffSection(),
           ],
         ),
       ),
