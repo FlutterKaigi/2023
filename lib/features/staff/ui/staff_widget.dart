@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/staff/data/staff_repository.dart';
+import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/divider_with_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,7 +11,7 @@ class StaffWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(staffRepositoryProvider);
+    final state = ref.watch(staffsProvider);
     final appLocalizations = AppLocalizations.of(context)!;
 
     return state.when(

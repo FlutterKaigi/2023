@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:confwebsite2023/features/staff/data/staff_item_model.dart';
+import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -14,7 +14,7 @@ class StaffDataSource {
   static const spaceUid = 'flutterkaigi';
   static const appUid = 'flutterkaigi-2023';
 
-  Future<List<StaffItemModel>> fetchStaffItems() async {
+  Future<List<Staff>> fetchStaffItems() async {
     final result = await http.get(
       Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/staff'),
       headers: {
@@ -25,7 +25,7 @@ class StaffDataSource {
     final itemsJson = jsonResult['items'] as List<dynamic>;
     return itemsJson
         .map(
-          (e) => StaffItemModel.fromJson(e as Map<String, dynamic>),
+          (e) => Staff.fromJson(e as Map<String, dynamic>),
         )
         .toList();
   }
