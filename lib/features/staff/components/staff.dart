@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/staff/component/divider_with_title.dart';
+import 'package:confwebsite2023/features/staff/components/divider_with_title.dart';
 import 'package:confwebsite2023/features/staff/models/staff_item_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -1,5 +1,5 @@
-import 'package:confwebsite2023/features/staff/component/staff.dart';
-import 'package:confwebsite2023/features/staff/viewmodel/staff_viewmodel.dart';
+import 'package:confwebsite2023/features/staff/components/staff.dart';
+import 'package:confwebsite2023/features/staff/viewmodels/staff_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
