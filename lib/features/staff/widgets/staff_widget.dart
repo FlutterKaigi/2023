@@ -1,5 +1,5 @@
 import 'package:confwebsite2023/features/staff/components/staff.dart';
-import 'package:confwebsite2023/features/staff/viewmodels/staff_viewmodel.dart';
+import 'package:confwebsite2023/features/staff/repositories/staff_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -8,7 +8,7 @@ class StaffWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(staffViewModelProvider);
+    final state = ref.watch(staffRepositoryProvider);
     return state.when(
       data: (data) {
         return StaffSection(staffItems: data);

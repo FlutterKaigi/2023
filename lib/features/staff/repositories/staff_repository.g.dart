@@ -2,26 +2,26 @@
 
 // ignore_for_file: type=lint
 
-part of 'staff_viewmodel.dart';
+part of 'staff_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$staffViewModelHash() => r'003067e0796a978466031cc46cf52b0c21a62e04';
+String _$staffRepositoryHash() => r'47416577078acc2c9aaa8f766ece004fe8411258';
 
-/// See also [staffViewModel].
-@ProviderFor(staffViewModel)
-final staffViewModelProvider =
+/// See also [staffRepository].
+@ProviderFor(staffRepository)
+final staffRepositoryProvider =
     AutoDisposeFutureProvider<List<StaffItemModel>>.internal(
-  staffViewModel,
-  name: r'staffViewModelProvider',
+  staffRepository,
+  name: r'staffRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$staffViewModelHash,
+      : _$staffRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef StaffViewModelRef = AutoDisposeFutureProviderRef<List<StaffItemModel>>;
+typedef StaffRepositoryRef = AutoDisposeFutureProviderRef<List<StaffItemModel>>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions
