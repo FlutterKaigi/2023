@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
-
 import '../../gen/assets.gen.dart';
 
 class Footer extends StatelessWidget {
@@ -27,7 +26,7 @@ class Footer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                FooterAgeItem(
+                FooterAge(
                   url: 'https://flutterkaigi.jp/2021/',
                   age: '2021',
                 ),
@@ -42,7 +41,7 @@ class Footer extends StatelessWidget {
                     ),
                   ),
                 ),
-                FooterAgeItem(
+                FooterAge(
                   url: 'https://flutterkaigi.jp/2022/',
                   age: '2022',
                 ),
@@ -204,8 +203,8 @@ class Footer extends StatelessWidget {
   }
 }
 
-class FooterAgeItem extends StatelessWidget {
-  const FooterAgeItem({
+class FooterAge extends StatelessWidget {
+  const FooterAge({
     super.key,
     required this.url,
     required this.age,
