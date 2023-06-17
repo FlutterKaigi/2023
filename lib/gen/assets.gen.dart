@@ -9,8 +9,29 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconGen {
+  const $AssetsIconGen();
+
+  /// File path: assets/icon/discord.svg
+  String get discord => 'assets/icon/discord.svg';
+
+  /// File path: assets/icon/github.svg
+  String get github => 'assets/icon/github.svg';
+
+  /// File path: assets/icon/medium.svg
+  String get medium => 'assets/icon/medium.svg';
+
+  /// File path: assets/icon/twitter.svg
+  String get twitter => 'assets/icon/twitter.svg';
+
+  /// List of all assets
+  List<String> get values => [discord, github, medium, twitter];
+}
+
 class Assets {
   Assets._();
+
+  static const $AssetsIconGen icon = $AssetsIconGen();
 }
 
 class AssetGenImage {
