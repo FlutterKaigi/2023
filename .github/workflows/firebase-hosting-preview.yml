@@ -32,7 +32,8 @@ jobs:
         run: |
           flutter build web \
             --web-renderer html \
-            --dart-define-from-file flavor/production.json
+            --dart-define-from-file flavor/production.json \
+            --profile
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0

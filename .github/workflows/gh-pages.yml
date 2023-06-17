@@ -37,7 +37,8 @@ jobs:
           flutter build web \
             --web-renderer html \
             --dart-define-from-file flavor/production.json \
-            --base-href "/2023/"
+            --base-href "/2023/" \
+            --release
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
