@@ -29,17 +29,13 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
 - [Codemagic Static Pages](https://docs.codemagic.io/flutter-publishing/publishing-to-codemagic-static-pages/)
 
 ### Directory Structure
-```
+
+```shell
 ./lib
 ├── features
-│   ├── main
-│   │   └── page
 │   └── ...
-│       ├── component
 │       ├── data
-│       ├── models
-│       ├── viewmodel
-│       └── widget
+│       └── ui
 ├── gen
 └── l10n
 ```
