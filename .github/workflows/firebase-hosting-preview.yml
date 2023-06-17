@@ -30,7 +30,9 @@ jobs:
 
       - name: Transpile
         run: |
-          flutter build web --web-renderer html
+          flutter build web \
+            --web-renderer html \
+            --dart-define-from-file flavor/production.json
 
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
