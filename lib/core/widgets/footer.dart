@@ -8,7 +8,7 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DecoratedBox(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -153,8 +153,8 @@ class Footer extends StatelessWidget {
                 Tooltip(
                   message: 'License',
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
+                    onPressed: () async {
+                      await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const LicensePage(),
@@ -190,7 +190,8 @@ class Footer extends StatelessWidget {
               left: 156,
             ),
             child: Text(
-              'Flutter and the related logo are trandemarks of Google LLC. FlutterKaigi is not affiliated with or otherwise sponsored by Google.The Flutter name and the Flutter logo (the Flutter Marks) are trademarks owned by Google.',
+              'Flutter and the related logo are trademarks of Google LLC. FlutterKaigi is not affiliated with or otherwise sponsored by Google LLC.\n'
+              'The "Flutter" name and the Flutter logo <FlutterLogo/> (the "Flutter Marks") are trademarks owned by Google.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xFFCCC2DC),
