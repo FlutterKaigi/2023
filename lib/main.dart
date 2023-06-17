@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/widgets/footer.dart';
 import 'package:confwebsite2023/pages/staffs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -67,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const Staffs(),
+            const Spacer(),
+            const Footer(),
           ],
         ),
       ),
