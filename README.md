@@ -28,6 +28,18 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
 - [Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)
 - [Codemagic Static Pages](https://docs.codemagic.io/flutter-publishing/publishing-to-codemagic-static-pages/)
 
+### Directory Structure
+
+```shell
+./lib
+├── features
+│   └── ...
+│       ├── data
+│       └── ui
+├── gen
+└── l10n
+```
+
 ## Thanks
 
 Thank you for contributing!
