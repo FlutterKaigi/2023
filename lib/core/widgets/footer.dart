@@ -189,15 +189,38 @@ class Footer extends StatelessWidget {
               right: 156,
               left: 156,
             ),
-            child: Text(
-              'Flutter and the related logo are trademarks of Google LLC. FlutterKaigi is not affiliated with or otherwise sponsored by Google LLC.\n'
-              'The "Flutter" name and the Flutter logo <FlutterLogo/> (the "Flutter Marks") are trademarks owned by Google.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Color(0xFFCCC2DC),
-              ),
+            child: Column(
+              children: [
+                Text(
+                  'Flutter and the related logo are trademarks of Google LLC. FlutterKaigi is not affiliated with or otherwise sponsored by Google LLC.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFCCC2DC),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'The "Flutter" name and the Flutter logo',
+                      style: TextStyle(
+                        color: Color(0xFFCCC2DC),
+                      ),
+                    ),
+                    FlutterLogo(size: 24),
+                    Text(
+                      'are trademarks owned by Google.',
+                      style: TextStyle(
+                        color: Color(0xFFCCC2DC),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          )
+          ),
         ],
       ),
     );
