@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-fvm dart fix --apply lib
-fvm dart format lib
+fvm dart fix --apply .
+fvm dart format $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" \) )
