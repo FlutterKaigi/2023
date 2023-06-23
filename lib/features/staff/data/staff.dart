@@ -15,7 +15,8 @@ class Staff with _$Staff {
     required StaffImage image,
   }) = _Staff;
 
-  factory Staff.fromJson(Map<String, dynamic> json) => _$StaffFromJson(json);
+  factory Staff.fromJson(Map<String, dynamic> json) =>
+      _$StaffFromJson(json);
 }
 
 @freezed
