@@ -11,6 +11,11 @@ import 'package:flutter/widgets.dart';
 
 class Assets {
   Assets._();
+
+  static const String flutterkaigiLogo = 'assets/flutterkaigi_logo.svg';
+
+  /// List of all assets
+  List<String> get values => [flutterkaigiLogo];
 }
 
 class AssetGenImage {

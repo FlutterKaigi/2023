@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DividerWithTitle extends StatelessWidget {
-  const DividerWithTitle({super.key, required this.text});
+  const DividerWithTitle({required this.text, super.key});
 
   final String text;
 
@@ -11,7 +11,7 @@ class DividerWithTitle extends StatelessWidget {
         child: Container(
       margin: const EdgeInsets.only(left: 10, right: 10),
       child: const Divider(height: 20, thickness: 5),
-    ));
+    ),);
 
     return Row(children: [
       dividerLine,
@@ -23,6 +23,6 @@ class DividerWithTitle extends StatelessWidget {
         ),
       ),
       dividerLine
-    ]);
+    ],);
   }
 }
