@@ -16,7 +16,6 @@ This project uses [Flutter beta channel](https://github.com/flutter/flutter/wiki
     - If you use [Android Studio](https://developer.android.com/studio), please see [fvm document](https://fvm.app/docs/getting_started/configuration#android-studio).
 1. Run `fvm dart run husky install` to set up [husky], git hook management tool
 
-
 ### Contributing
 
 We always welcome all contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
@@ -37,7 +36,5 @@ Thank you for contributing!
 ### Contributors
 
 GitHub: [Contributors](https://github.com/FlutterKaigi/confwebsite2023/graphs/contributors)
-
-
 
 [husky]: https://pub.dev/packages/husky
