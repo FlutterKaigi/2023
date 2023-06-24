@@ -35,6 +35,8 @@ class Config {
       _ => '(${_flavor.name}) $title',
     };
   }
+
+  bool get isMock => _flavor == Flavor.mock;
 }
 
 enum Flavor {
