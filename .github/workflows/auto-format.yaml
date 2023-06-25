@@ -1,0 +1,46 @@
+name: Auto Format
+
+on:
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch flutter config
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
+      - name: Install dependencies
+        run: |
+          flutter pub get
+
+      - name: Format
+        run: |
+          files=$(find lib test -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" \))
+          for file in $files; do
+            fvm dart fix --apply "$file" &
+          done
+          wait
+
+          fvm dart format $files
+
+      # 変更が発生した場合は プルリクエストを作成
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          delete-branch: true
+          # base branch name (GITHUB_REF_NAME)
+          commit-message: "Auto format"
+          committer: "GitHub Actions <noreply@github.com>"
+          branch: "auto-format/${{ github.sha }}"
+          title: "Auto format - ref: ${{ github.ref_name }}"
+          body: "Auto format by GitHub Actions on ${{ github.sha }}\nby: ${{github.actor}}"
+
