@@ -2,7 +2,7 @@ include: all_lint_rules.yaml
 
 linter:
   rules:
-    # Conflicts with `always_specify_types`
+    # Conflicts with `omit_local_variable_types`
     # Prefer defining types for function expression parameters
     avoid_types_on_closure_parameters: false
     always_specify_types: false
