@@ -5,15 +5,29 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "confwebsite2023",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "confwebsite2023 (profile mode)",
+            "name": "Mock debug",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "toolArgs": [
+                "--dart-define-from-file=flavor/mock.json"
+            ]
+        },
+        {
+            "name": "Production debug",
+            "request": "launch",
+            "type": "dart",
+            "toolArgs": [
+                "--dart-define-from-file=flavor/production.json"
+            ]
+        },
+        {
+            "name": "Production profile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "toolArgs": [
+                "--dart-define-from-file=flavor/production.json"
+            ]
         }
     ]
 }

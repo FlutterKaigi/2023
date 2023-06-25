@@ -2,7 +2,7 @@ include: all_lint_rules.yaml
 
 linter:
   rules:
-    # Conflicts with `always_specify_types`
+    # Conflicts with `omit_local_variable_types`
     # Prefer defining types for function expression parameters
     avoid_types_on_closure_parameters: false
     always_specify_types: false
@@ -30,12 +30,21 @@ linter:
     # Allow to define public parameters without diagostic properties
     diagnostic_describe_all_properties: false
 
-# https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
 analyzer:
+  language:
+    # Increase safety as much as possible
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
   errors:
+    # https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
     # allow for asset_does_not_exist
     unrecognized_error_code: ignore
     # ignore this in pubspec.yaml
     asset_does_not_exist: ignore
+
     # Importing all_lint_rules causes conflict error. Ignore it.
     included_file_warning: ignore
+
+    # https://github.com/rrousselGit/freezed#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore
