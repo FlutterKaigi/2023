@@ -15,10 +15,6 @@ for file in $(echo $staged_files); do
   if [[ $file =~ \.freezed\.dart$ ]] || [[ $file =~ \.g\.dart$ ]] || [[ $file =~ \.gen\.dart$ ]]; then
     continue
   fi
-  # Pass if file is in .dart_tool
-  if [[ $file =~ \.dart_tool\/ ]]; then
-    continue
-  fi
   dart_files+=$file
 done
 
