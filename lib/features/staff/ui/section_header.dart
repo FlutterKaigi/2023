@@ -13,6 +13,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
+      // TODO: #33 がマージされ次第置き換える
       shaderCallback: (Rect bounds) => const LinearGradient(
         colors: [
           Color(0xFFFF57DD),
