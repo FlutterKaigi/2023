@@ -26,11 +26,11 @@ jobs:
         run: |
           files=$(find lib test -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" \))
           for file in $files; do
-            fvm dart fix --apply "$file" &
+            dart fix --apply "$file" &
           done
           wait
 
-          fvm dart format $files
+          dart format $files
 
       # 変更が発生した場合は プルリクエストを作成
       - name: Create pull request
