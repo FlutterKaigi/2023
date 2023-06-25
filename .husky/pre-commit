@@ -1,5 +1,31 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 . "$(dirname -- "$0")/_/husky.sh"
 
-fvm dart fix --apply .
-fvm dart format $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" \) )
+staged_files=$(git diff --name-only --cached --diff-filter=AM)
+# Target dart files array
+declare -a dart_files
+
+for file in $(echo $staged_files); do
+  echo $file
+  # Pass if not dart file
+  if [[ ! $file =~ \.dart$ ]]; then
+    continue
+  fi
+  # Pass if generated file
+  if [[ $file =~ \.freezed\.dart$ ]] || [[ $file =~ \.g\.dart$ ]] || [[ $file =~ \.gen\.dart$ ]]; then
+    continue
+  fi
+  # Pass if file is in .dart_tool
+  if [[ $file =~ \.dart_tool\/ ]]; then
+    continue
+  fi
+  dart_files+=$file
+done
+
+# Format dart files
+if [[ ${#dart_files[@]} -gt 0 ]]; then
+  fvm dart format ${dart_files[@]}
+fi
+
+# Run `git add` command to apply incorporate various changes
+git add $staged_files
