@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 /// See https://m3.material.io/styles/color/the-color-system/tokens
-const baselineColorScheme = BaselineColorScheme(
+const baselineColorScheme = _BaselineColorScheme(
   white: Colors.white,
   black: Colors.black,
-  sys: SystemToken(
-    light: ThemeToken(
+  sys: _SystemToken(
+    light: _ThemeToken(
       primary: Color(0xff6750a4),
       onPrimary: Color(0xffffffff),
       primaryContainer: Color(0xffeaddff),
@@ -56,7 +56,7 @@ const baselineColorScheme = BaselineColorScheme(
       surfaceBright: Color(0xfffef7ff),
       surfaceDim: Color(0xffded8e1),
     ),
-    dark: ThemeToken(
+    dark: _ThemeToken(
       primary: Color(0xffd0bcff),
       onPrimary: Color(0xff381e72),
       primaryContainer: Color(0xff4f378b),
@@ -108,8 +108,8 @@ const baselineColorScheme = BaselineColorScheme(
       surfaceDim: Color(0xff141218),
     ),
   ),
-  ref: RefToken(
-    primary: PrimaryColors(
+  ref: _RefToken(
+    primary: _PrimaryColors(
       primary0: Color(0xff000000),
       primary10: Color(0xff21005d),
       primary20: Color(0xff381e72),
@@ -124,7 +124,7 @@ const baselineColorScheme = BaselineColorScheme(
       primary99: Color(0xfffffbfe),
       primary100: Color(0xffffffff),
     ),
-    secondary: SecondaryColors(
+    secondary: _SecondaryColors(
       secondary0: Color(0xff000000),
       secondary10: Color(0xff1d192b),
       secondary20: Color(0xff332d41),
@@ -139,7 +139,7 @@ const baselineColorScheme = BaselineColorScheme(
       secondary99: Color(0xfffffbfe),
       secondary100: Color(0xffffffff),
     ),
-    tertiary: TertiaryColors(
+    tertiary: _TertiaryColors(
       tertiary0: Color(0xff000000),
       tertiary10: Color(0xff31111d),
       tertiary20: Color(0xff492532),
@@ -154,7 +154,7 @@ const baselineColorScheme = BaselineColorScheme(
       tertiary99: Color(0xfffffbfa),
       tertiary100: Color(0xffffffff),
     ),
-    error: ErrorColors(
+    error: _ErrorColors(
       error0: Color(0xff000000),
       error10: Color(0xff410e0b),
       error20: Color(0xff601410),
@@ -169,7 +169,7 @@ const baselineColorScheme = BaselineColorScheme(
       error99: Color(0xfffffbf9),
       error100: Color(0xffffffff),
     ),
-    neutral: NeutralColors(
+    neutral: _NeutralColors(
       neutral0: Color(0xff000000),
       neutral4: Color(0xff0f0d13),
       neutral6: Color(0xff141218),
@@ -194,7 +194,7 @@ const baselineColorScheme = BaselineColorScheme(
       neutral99: Color(0xfffffbff),
       neutral100: Color(0xffffffff),
     ),
-    neutralVariant: NeutralVariantColors(
+    neutralVariant: _NeutralVariantColors(
       neutralVariant0: Color(0xff000000),
       neutralVariant10: Color(0xff1d1a22),
       neutralVariant20: Color(0xff322f37),
@@ -210,16 +210,16 @@ const baselineColorScheme = BaselineColorScheme(
       neutralVariant100: Color(0xffffffff),
     ),
   ),
-  keyColors: KeyColors(
+  keyColors: _KeyColors(
     primary: Color(0xff6750a4),
   ),
-  source: SourceColor(
+  source: _SourceColor(
     seed: Color(0xff6750a4),
   ),
 );
 
-class BaselineColorScheme {
-  const BaselineColorScheme({
+class _BaselineColorScheme {
+  const _BaselineColorScheme({
     required this.white,
     required this.black,
     required this.sys,
@@ -230,24 +230,24 @@ class BaselineColorScheme {
 
   final Color white;
   final Color black;
-  final SystemToken sys;
-  final RefToken ref;
-  final KeyColors keyColors;
-  final SourceColor source;
+  final _SystemToken sys;
+  final _RefToken ref;
+  final _KeyColors keyColors;
+  final _SourceColor source;
 }
 
-class SystemToken {
-  const SystemToken({
+class _SystemToken {
+  const _SystemToken({
     required this.light,
     required this.dark,
   });
 
-  final ThemeToken light;
-  final ThemeToken dark;
+  final _ThemeToken light;
+  final _ThemeToken dark;
 }
 
-class ThemeToken {
-  const ThemeToken({
+class _ThemeToken {
+  const _ThemeToken({
     required this.primary,
     required this.onPrimary,
     required this.primaryContainer,
@@ -350,8 +350,8 @@ class ThemeToken {
   final Color surfaceDim;
 }
 
-class RefToken {
-  const RefToken({
+class _RefToken {
+  const _RefToken({
     required this.primary,
     required this.secondary,
     required this.tertiary,
@@ -360,16 +360,16 @@ class RefToken {
     required this.neutralVariant,
   });
 
-  final PrimaryColors primary;
-  final SecondaryColors secondary;
-  final TertiaryColors tertiary;
-  final ErrorColors error;
-  final NeutralColors neutral;
-  final NeutralVariantColors neutralVariant;
+  final _PrimaryColors primary;
+  final _SecondaryColors secondary;
+  final _TertiaryColors tertiary;
+  final _ErrorColors error;
+  final _NeutralColors neutral;
+  final _NeutralVariantColors neutralVariant;
 }
 
-class PrimaryColors {
-  const PrimaryColors({
+class _PrimaryColors {
+  const _PrimaryColors({
     required this.primary0,
     required this.primary10,
     required this.primary20,
@@ -400,8 +400,8 @@ class PrimaryColors {
   final Color primary100;
 }
 
-class SecondaryColors {
-  const SecondaryColors({
+class _SecondaryColors {
+  const _SecondaryColors({
     required this.secondary0,
     required this.secondary10,
     required this.secondary20,
@@ -432,8 +432,8 @@ class SecondaryColors {
   final Color secondary100;
 }
 
-class TertiaryColors {
-  const TertiaryColors({
+class _TertiaryColors {
+  const _TertiaryColors({
     required this.tertiary0,
     required this.tertiary10,
     required this.tertiary20,
@@ -464,8 +464,8 @@ class TertiaryColors {
   final Color tertiary100;
 }
 
-class ErrorColors {
-  const ErrorColors({
+class _ErrorColors {
+  const _ErrorColors({
     required this.error0,
     required this.error10,
     required this.error20,
@@ -496,8 +496,8 @@ class ErrorColors {
   final Color error100;
 }
 
-class NeutralColors {
-  const NeutralColors({
+class _NeutralColors {
+  const _NeutralColors({
     required this.neutral0,
     required this.neutral4,
     required this.neutral6,
@@ -548,8 +548,8 @@ class NeutralColors {
   final Color neutral100;
 }
 
-class NeutralVariantColors {
-  const NeutralVariantColors({
+class _NeutralVariantColors {
+  const _NeutralVariantColors({
     required this.neutralVariant0,
     required this.neutralVariant10,
     required this.neutralVariant20,
@@ -580,16 +580,16 @@ class NeutralVariantColors {
   final Color neutralVariant100;
 }
 
-class KeyColors {
-  const KeyColors({
+class _KeyColors {
+  const _KeyColors({
     required this.primary,
   });
 
   final Color primary;
 }
 
-class SourceColor {
-  const SourceColor({
+class _SourceColor {
+  const _SourceColor({
     required this.seed,
   });
 
