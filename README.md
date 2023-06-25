@@ -15,6 +15,14 @@ This project uses [Flutter beta channel](https://github.com/flutter/flutter/wiki
     - If you use [VSCode](https://code.visualstudio.com/), already set up.
     - If you use [Android Studio](https://developer.android.com/studio), please see [fvm document](https://fvm.app/docs/getting_started/configuration#android-studio).
 
+### Run app
+
+A Run Configuration is set up to run this app.
+
+Please check:
+    - `.vscode/launch.json` for VS Code
+    - `.run/~.run.xml` for IntelliJ IDEA or Android Studio.
+
 ### Contributing
 
 We always welcome all contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
