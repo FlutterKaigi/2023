@@ -2,6 +2,7 @@
     "recommendations": [
         "davidanson.vscode-markdownlint",
         "dart-code.flutter",
-        "dart-code.dart-code"
+        "dart-code.dart-code",
+        "redhat.vscode-yaml"
     ]
 }
