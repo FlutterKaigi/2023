@@ -30,6 +30,8 @@ class SectionHeader extends StatelessWidget {
             fontWeight: FontWeight.w700,
             fontSize: 80,
             fontStyle: FontStyle.italic,
+            // TODO: Issue #32 が解決され次第 Font を利用する
+            // fontFamily: 'Poppins', を追加
             shadows: [
               Shadow(
                 color: Color(0x40FF57DD),
