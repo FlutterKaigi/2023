@@ -31,6 +31,11 @@ linter:
     diagnostic_describe_all_properties: false
 
 analyzer:
+  language:
+    # Increase safety as much as possible
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
   errors:
     # https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
     # allow for asset_does_not_exist
