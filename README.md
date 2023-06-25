@@ -45,7 +45,8 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
 │       ├── data
 │       └── ui
 ├── gen
-└── l10n
+├── l10n
+└── theme
 ```
 
 ## Thanks
