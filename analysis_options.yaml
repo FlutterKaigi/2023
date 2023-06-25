@@ -45,3 +45,6 @@ analyzer:
 
     # Importing all_lint_rules causes conflict error. Ignore it.
     included_file_warning: ignore
+
+    # https://github.com/rrousselGit/freezed#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore
