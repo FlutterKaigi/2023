@@ -22,7 +22,7 @@ for file in $(echo $staged_files); do
   dart_files+=$file
 done
 
-# Format dart files
+# Format dart files if there are any
 if [[ ${#dart_files[@]} -gt 0 ]]; then
   fvm dart format ${dart_files[@]}
 fi
