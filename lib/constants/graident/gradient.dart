@@ -6,7 +6,7 @@ class GradientConstant {
   GradientConstant._();
 
   static const accent = _Accent();
-  static _Sponsor get sponsor => const _Sponsor();
+  static const sponsor = _Sponsor();
 }
 
 class _Accent {
