@@ -36,7 +36,6 @@ void main() async {
       // semi-bold
       fontWeight: FontWeight.w600,
     ),
-
     GoogleFonts.poppins(
       fontStyle: FontStyle.italic,
       // extra-bold
