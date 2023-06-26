@@ -5,6 +5,7 @@ import 'package:confwebsite2023/features/staff/data/staff_data_source.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() async {
@@ -23,6 +24,26 @@ void main() async {
       staffDataSourceProvider.overrideWithValue(MockStaffDataSource()),
     ]);
   }
+
+  // Wait for the fonts to be loaded before running the app
+  await GoogleFonts.pendingFonts([
+    GoogleFonts.poppins(
+      fontStyle: FontStyle.italic,
+      fontWeight: FontWeight.bold,
+    ),
+    GoogleFonts.poppins(
+      fontStyle: FontStyle.italic,
+      // semi-bold
+      fontWeight: FontWeight.w600,
+    ),
+
+    GoogleFonts.poppins(
+      fontStyle: FontStyle.italic,
+      // extra-bold
+      fontWeight: FontWeight.w800,
+    ),
+    GoogleFonts.roboto(),
+  ]);
 
   runApp(
     ProviderScope(
