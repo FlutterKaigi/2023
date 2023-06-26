@@ -21,7 +21,7 @@ class Footer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          FooterAge(),
+          const FooterAge(),
           const FooterIcon(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
@@ -154,7 +154,9 @@ class Footer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Flutter and the related logo are trademarks of Google LLC.FlutterKaigi is not affiliated with or otherwise sponsored by Google LLC.',
+                  'Flutter and the related logo are trademarks of Google LLC. '
+                  'FlutterKaigi is not affiliated with or otherwise sponsored '
+                  'by Google LLC.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xFFCCC2DC),
