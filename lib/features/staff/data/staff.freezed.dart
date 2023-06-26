@@ -27,6 +27,7 @@ mixin _$Staff {
   String get displayName => throw _privateConstructorUsedError;
   String get twitter => throw _privateConstructorUsedError;
   StaffImage get image => throw _privateConstructorUsedError;
+  String? get position => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $StaffCopyWith<$Res> {
       @JsonKey(name: '_sys') StaffSys sys,
       String displayName,
       String twitter,
-      StaffImage image});
+      StaffImage image,
+      String? position});
 
   $StaffSysCopyWith<$Res> get sys;
   $StaffImageCopyWith<$Res> get image;
@@ -67,6 +69,7 @@ class _$StaffCopyWithImpl<$Res, $Val extends Staff>
     Object? displayName = null,
     Object? twitter = null,
     Object? image = null,
+    Object? position = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,6 +92,10 @@ class _$StaffCopyWithImpl<$Res, $Val extends Staff>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -120,7 +127,8 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
       @JsonKey(name: '_sys') StaffSys sys,
       String displayName,
       String twitter,
-      StaffImage image});
+      StaffImage image,
+      String? position});
 
   @override
   $StaffSysCopyWith<$Res> get sys;
@@ -142,6 +150,7 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
     Object? displayName = null,
     Object? twitter = null,
     Object? image = null,
+    Object? position = freezed,
   }) {
     return _then(_$_Staff(
       id: null == id
@@ -164,6 +173,10 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
+      position: freezed == position
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -176,7 +189,8 @@ class _$_Staff implements _Staff {
       @JsonKey(name: '_sys') required this.sys,
       required this.displayName,
       required this.twitter,
-      required this.image});
+      required this.image,
+      required this.position});
 
   factory _$_Staff.fromJson(Map<String, dynamic> json) =>
       _$$_StaffFromJson(json);
@@ -193,10 +207,12 @@ class _$_Staff implements _Staff {
   final String twitter;
   @override
   final StaffImage image;
+  @override
+  final String? position;
 
   @override
   String toString() {
-    return 'Staff(id: $id, sys: $sys, displayName: $displayName, twitter: $twitter, image: $image)';
+    return 'Staff(id: $id, sys: $sys, displayName: $displayName, twitter: $twitter, image: $image, position: $position)';
   }
 
   @override
@@ -209,13 +225,15 @@ class _$_Staff implements _Staff {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.twitter, twitter) || other.twitter == twitter) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.position, position) ||
+                other.position == position));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, sys, displayName, twitter, image);
+      Object.hash(runtimeType, id, sys, displayName, twitter, image, position);
 
   @JsonKey(ignore: true)
   @override
@@ -237,7 +255,8 @@ abstract class _Staff implements Staff {
       @JsonKey(name: '_sys') required final StaffSys sys,
       required final String displayName,
       required final String twitter,
-      required final StaffImage image}) = _$_Staff;
+      required final StaffImage image,
+      required final String? position}) = _$_Staff;
 
   factory _Staff.fromJson(Map<String, dynamic> json) = _$_Staff.fromJson;
 
@@ -253,6 +272,8 @@ abstract class _Staff implements Staff {
   String get twitter;
   @override
   StaffImage get image;
+  @override
+  String? get position;
   @override
   @JsonKey(ignore: true)
   _$$_StaffCopyWith<_$_Staff> get copyWith =>

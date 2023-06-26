@@ -50,7 +50,8 @@ const mockBody = '''
                 "src": "https://pbs.twimg.com/profile_images/1597197332948262912/Q4PO_DK-_400x400.jpg",
                 "title": "",
                 "width": 300
-            }
+            },
+            "position": "Organization"
         }
     ]
 }

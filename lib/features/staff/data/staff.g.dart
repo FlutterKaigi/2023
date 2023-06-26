@@ -14,6 +14,7 @@ _$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
       displayName: json['displayName'] as String,
       twitter: json['twitter'] as String,
       image: StaffImage.fromJson(json['image'] as Map<String, dynamic>),
+      position: json['position'] as String?,
     );
 
 Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
       'displayName': instance.displayName,
       'twitter': instance.twitter,
       'image': instance.image,
+      'position': instance.position,
     };
 
 _$_StaffSys _$$_StaffSysFromJson(Map<String, dynamic> json) => _$_StaffSys(

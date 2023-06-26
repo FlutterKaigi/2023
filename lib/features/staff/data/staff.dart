@@ -13,6 +13,7 @@ class Staff with _$Staff {
     required String displayName,
     required String twitter,
     required StaffImage image,
+    required String? position,
   }) = _Staff;
 
   factory Staff.fromJson(Map<String, dynamic> json) => _$StaffFromJson(json);
