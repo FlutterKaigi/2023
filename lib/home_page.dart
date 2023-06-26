@@ -84,9 +84,8 @@ class _MainPageBody extends StatelessWidget {
           StaffSection(
             key: staffKey,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 800),
-            child: Text('hogehoge padding'),
+          const SizedBox(
+            height: 800,
           ),
         ],
       ),
