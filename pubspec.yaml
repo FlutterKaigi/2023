@@ -44,3 +44,4 @@ flutter:
   assets:
     - .env
     - assets/
+    - assets/top_session/

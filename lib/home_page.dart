@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
+import 'package:confwebsite2023/features/top_session/ui/top_session.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -12,12 +13,15 @@ class MainPage extends StatelessWidget {
         backgroundColor: theme.colorScheme.inversePrimary,
         title: const Text('FlutterKaigi 2023'),
       ),
-      body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            StaffSection(),
-          ],
+      body: const SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TopSession(),
+              StaffSection(),
+            ],
+          ),
         ),
       ),
     );
