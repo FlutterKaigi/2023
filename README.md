@@ -9,11 +9,19 @@ We will deliver sessions related to FlutterKaigi in accordance with [Figma](http
 This project uses [Flutter beta channel](https://github.com/flutter/flutter/wiki/Roadmap#releases).
 
 1. [Install fvm](https://fvm.app/docs/getting_started/installation).
-2. Move to project root directory, and run `fvm install` command.
-3. Run `fvm flutter pub get` command.
-4. Set up IDE to use fvm.
+1. Move to project root directory, and run `fvm install` command.
+1. Run `fvm flutter pub get` command.
+1. Set up IDE to use fvm.
     - If you use [VSCode](https://code.visualstudio.com/), already set up.
     - If you use [Android Studio](https://developer.android.com/studio), please see [fvm document](https://fvm.app/docs/getting_started/configuration#android-studio).
+
+### Run app
+
+A Run Configuration is set up to run this app.
+
+Please check:
+    - `.vscode/launch.json` for VS Code
+    - `.run/~.run.xml` for IntelliJ IDEA or Android Studio.
 
 ### Contributing
 
@@ -27,6 +35,19 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
 - [Flutter Web](https://docs.flutter.dev/deployment/web)
 - [Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)
 - [Codemagic Static Pages](https://docs.codemagic.io/flutter-publishing/publishing-to-codemagic-static-pages/)
+
+### Directory Structure
+
+```shell
+./lib
+├── features
+│   └── ...
+│       ├── data
+│       └── ui
+├── gen
+├── l10n
+└── theme
+```
 
 ## Thanks
 

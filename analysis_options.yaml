@@ -1,12 +1,50 @@
-include: package:flutter_lints/flutter.yaml
+include: all_lint_rules.yaml
 
 linter:
   rules:
+    # Conflicts with `omit_local_variable_types`
+    # Prefer defining types for function expression parameters
+    avoid_types_on_closure_parameters: false
+    always_specify_types: false
+    # Conflicts with `prefer_single_quotes`
+    # Single quotes are more readable than double quotes
+    prefer_double_quotes: false
+    # Conflicts with `avoid_final_parameters`
+    # If it's clearly "final", it's ok to omit it
+    prefer_final_parameters: false
+    # Conflicts with `always_use_package_imports`
+    # Prohibit the use of relative paths in import statements
+    prefer_relative_imports: false
+    # Conflicts with `prefer_final_fields`
+    # Prefer using `final` for declaring fields if possible
+    unnecessary_final: false
 
-# https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
+    # Allow to define public members without docs
+    public_member_api_docs: false
+    # Allow to create TODO without defining Github username and issue URL
+    flutter_style_todos: false
+    # Allow to define short members without using `=>`
+    prefer_expression_function_bodies: false
+    # It's better to use `dynamic varName` instead of simply  `varName`
+    avoid_annotating_with_dynamic: false
+    # Allow to define public parameters without diagostic properties
+    diagnostic_describe_all_properties: false
+
 analyzer:
+  language:
+    # Increase safety as much as possible
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
   errors:
+    # https://github.com/dart-lang/sdk/issues/33550#issuecomment-398948710
     # allow for asset_does_not_exist
     unrecognized_error_code: ignore
     # ignore this in pubspec.yaml
     asset_does_not_exist: ignore
+
+    # Importing all_lint_rules causes conflict error. Ignore it.
+    included_file_warning: ignore
+
+    # https://github.com/rrousselGit/freezed#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore
