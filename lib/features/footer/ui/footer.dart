@@ -1,10 +1,11 @@
+import 'package:confwebsite2023/features/footer/ui/footer_age.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_icon_button.dart';
+import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
-import '../../gen/assets.gen.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key? key}) : super(key: key);
+  const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -228,79 +229,6 @@ class Footer extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class FooterAge extends StatelessWidget {
-  const FooterAge({
-    super.key,
-    required this.url,
-    required this.age,
-  });
-
-  final String url;
-  final String age;
-
-  @override
-  Widget build(BuildContext context) {
-    return Tooltip(
-      message: url,
-      child: Link(
-        uri: Uri.parse(url),
-        target: LinkTarget.blank,
-        builder: (context, openLink) {
-          return TextButton(
-            onPressed: openLink,
-            child: Text(
-              age,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-                fontSize: 16,
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class FooterIconButton extends StatelessWidget {
-  const FooterIconButton({
-    Key? key,
-    required this.url,
-    required this.image,
-    required this.padding,
-  }) : super(key: key);
-
-  final String url;
-  final String image;
-  final EdgeInsets padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: padding,
-      child: Tooltip(
-        message: url,
-        child: Link(
-          uri: Uri.parse(url),
-          target: LinkTarget.blank,
-          builder: (context, openLink) {
-            return IconButton(
-              onPressed: openLink,
-              icon: SvgPicture.asset(
-                image,
-                width: 40,
-                height: 40,
-              ),
-              color: Colors.white,
-            );
-          },
-        ),
       ),
     );
   }

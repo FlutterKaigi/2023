@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class MainPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             StaffSection(),
+            Footer(),
           ],
         ),
       ),
