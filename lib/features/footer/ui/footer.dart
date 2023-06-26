@@ -1,6 +1,5 @@
 import 'package:confwebsite2023/features/footer/ui/footer_age.dart';
 import 'package:confwebsite2023/features/footer/ui/footer_icon_button.dart';
-import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
@@ -22,7 +21,7 @@ class Footer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const FooterAge(),
+          FooterAge(),
           const FooterIcon(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
@@ -113,7 +112,7 @@ class Footer extends StatelessWidget {
                     onPressed: () async {
                       await Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<dynamic>(
                           builder: (context) => const LicensePage(),
                         ),
                       );
