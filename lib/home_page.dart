@@ -37,7 +37,7 @@ class MainPage extends HookWidget {
         items: items,
         onTitleTap: () async => scrollController.animateTo(
           0,
-          duration: const Duration(milliseconds: 70),
+          duration: const Duration(milliseconds: 750),
           curve: Curves.easeOutCirc,
         ),
       ),
