@@ -38,12 +38,8 @@ class _StaffList extends ConsumerWidget {
             alignment: WrapAlignment.center,
             children: data
                 .map(
-                  (staff) => SizedBox(
-                    height: 128,
-                    width: 128,
-                    child: _StaffItem(
-                      staff: staff,
-                    ),
+                  (staff) => _StaffItem(
+                    staff: staff,
                   ),
                 )
                 .toList(),
@@ -69,35 +65,69 @@ class _StaffItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final url = 'https://twitter.com/${staff.twitter}';
+    final theme = Theme.of(context);
     return Link(
       uri: Uri.tryParse(url),
       target: LinkTarget.blank,
       builder: (BuildContext context, FollowLink? openLink) {
-        return InkWell(
-          onTap: openLink,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 64,
-                width: 64,
-                child: ClipOval(
-                  child: FadeInImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(staff.image.src),
-                    placeholder: MemoryImage(kTransparentImage),
-                    imageErrorBuilder: (_, __, ___) => const FittedBox(
-                      child: Icon(
-                        Icons.error,
+        return Card(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          color: theme.colorScheme.secondaryContainer,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 120,
+                  width: 120,
+                  child: ClipOval(
+                    child: FadeInImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(staff.image.src),
+                      placeholder: MemoryImage(kTransparentImage),
+                      imageErrorBuilder: (_, __, ___) => const FittedBox(
+                        child: Icon(
+                          Icons.error,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              FittedBox(
-                child: Text(staff.displayName),
-              ),
-            ],
+                const SizedBox(height: 16),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    staff.displayName,
+                    style: theme.textTheme.titleLarge,
+                  ),
+                ),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    staff.position ?? ' ',
+                    style: theme.textTheme.bodyLarge!.copyWith(
+                      color: theme.colorScheme.primary.withOpacity(0.8),
+                    ),
+                  ),
+                ),
+                const FittedBox(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // TODO(YumNumm): SNS Icons after #26 was merged to main
+                      SizedBox(
+                        width: 0.1,
+                        height: 0.1,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
