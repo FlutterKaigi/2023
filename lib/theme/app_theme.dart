@@ -9,6 +9,19 @@ ThemeData lightTheme(BuildContext context) => ThemeData.from(
               bodyColor: Colors.black,
               displayColor: Colors.black,
             ),
+      ).copyWith(
+        titleLarge: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
+        titleMedium: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
+        titleSmall: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
       ),
     );
 
@@ -20,6 +33,19 @@ ThemeData darkTheme(BuildContext context) => ThemeData.from(
               bodyColor: Colors.white,
               displayColor: Colors.white,
             ),
+      ).copyWith(
+        titleLarge: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
+        titleMedium: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
+        titleSmall: TextStyle(
+          fontFamily: GoogleFonts.poppins().fontFamily,
+          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
+        ),
       ),
     );
 
