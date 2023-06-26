@@ -110,13 +110,13 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
 }
 
 class _DrawerScreen extends StatelessWidget {
-  _DrawerScreen({
+  const _DrawerScreen({
     required this.items,
     required this.onTitleTap,
     required this.action,
   });
 
-  void Function({Never returnValue}) action;
+  final void Function({Never returnValue}) action;
   final void Function() onTitleTap;
   final List<HeaderItemButtonData> items;
 
