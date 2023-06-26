@@ -22,58 +22,8 @@ class Footer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FooterAge(
-                  url: 'https://flutterkaigi.jp/2021/',
-                  age: '2021',
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    '/',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                FooterAge(
-                  url: 'https://flutterkaigi.jp/2022/',
-                  age: '2022',
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FooterIconButton(
-                url: 'https://twitter.com/FlutterKaigi',
-                image: Assets.icon.twitter,
-                padding: EdgeInsets.zero,
-              ),
-              FooterIconButton(
-                url: 'https://github.com/FlutterKaigi',
-                image: Assets.icon.github,
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-              ),
-              FooterIconButton(
-                url: 'https://discord.com/invite/Nr7H8JTJSF',
-                image: Assets.icon.discord,
-                padding: const EdgeInsets.only(right: 40),
-              ),
-              FooterIconButton(
-                url: 'https://medium.com/flutterkaigi',
-                image: Assets.icon.medium,
-                padding: EdgeInsets.zero,
-              ),
-            ],
-          ),
+          const FooterAge(),
+          const FooterIcon(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20),
             child: Row(
@@ -95,6 +45,8 @@ class Footer extends StatelessWidget {
                             color: Colors.white,
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
+                            fontFamily: 'Roboto',
+                            letterSpacing: 0.50,
                           ),
                         ),
                       );
@@ -119,6 +71,8 @@ class Footer extends StatelessWidget {
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
+                              fontFamily: 'Roboto',
+                              letterSpacing: 0.50,
                             ),
                           ),
                         );
@@ -144,6 +98,8 @@ class Footer extends StatelessWidget {
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
                               fontSize: 16,
+                              fontFamily: 'Roboto',
+                              letterSpacing: 0.50,
                             ),
                           ),
                         );
@@ -168,6 +124,8 @@ class Footer extends StatelessWidget {
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
+                        fontFamily: 'Roboto',
+                        letterSpacing: 0.50,
                       ),
                     ),
                   ),
@@ -181,6 +139,10 @@ class Footer extends StatelessWidget {
               '© 2021-2023 FlutterKaigi 実行委員会',
               style: TextStyle(
                 color: Color(0xFFCCC2DC),
+                fontSize: 16,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w400,
+                letterSpacing: 0.50,
               ),
             ),
           ),
@@ -197,6 +159,10 @@ class Footer extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xFFCCC2DC),
+                    fontSize: 16,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.50,
                   ),
                 ),
                 SizedBox(height: 20),
@@ -208,6 +174,10 @@ class Footer extends StatelessWidget {
                       'The "Flutter" name and the Flutter logo',
                       style: TextStyle(
                         color: Color(0xFFCCC2DC),
+                        fontSize: 16,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.50,
                       ),
                     ),
                     ColorFiltered(
@@ -221,6 +191,10 @@ class Footer extends StatelessWidget {
                       'are trademarks owned by Google.',
                       style: TextStyle(
                         color: Color(0xFFCCC2DC),
+                        fontSize: 16,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.50,
                       ),
                     ),
                   ],
