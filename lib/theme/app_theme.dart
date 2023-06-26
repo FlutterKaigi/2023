@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-final lightTheme = ThemeData.from(
-  colorScheme: _lightColorScheme,
-  useMaterial3: true,
-);
+ThemeData lightTheme(BuildContext context) => ThemeData.from(
+      colorScheme: _lightColorScheme,
+      useMaterial3: true,
+      textTheme: GoogleFonts.robotoTextTheme(
+        Theme.of(context).textTheme.apply(
+              bodyColor: Colors.black,
+              displayColor: Colors.black,
+            ),
+      ),
+    );
 
-final darkTheme = ThemeData.from(
-  colorScheme: _darkColorScheme,
-  useMaterial3: true,
-);
+ThemeData darkTheme(BuildContext context) => ThemeData.from(
+      colorScheme: _darkColorScheme,
+      useMaterial3: true,
+      textTheme: GoogleFonts.robotoTextTheme(
+        Theme.of(context).textTheme.apply(
+              bodyColor: Colors.white,
+              displayColor: Colors.white,
+            ),
+      ),
+    );
 
 /// Generated using the Material Theme Builder
 /// See https://m3.material.io/theme-builder
