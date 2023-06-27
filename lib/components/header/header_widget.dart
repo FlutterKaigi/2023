@@ -43,8 +43,10 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         ),
         const Spacer(),
         OpenContainer(
-          closedColor: Colors.transparent,
+          openElevation: 0,
+          closedElevation: 0,
           openColor: Colors.transparent,
+          closedColor: Colors.transparent,
           closedBuilder: (context, action) {
             return IconButton(
               onPressed: action,
