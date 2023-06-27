@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/theme/gradient.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// ブラーのぼかし範囲
 const double _blurRadius = 20;
@@ -21,15 +22,13 @@ class SectionHeader extends StatelessWidget {
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
         child: Text(
           text,
-          style: const TextStyle(
+          style: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.w700,
             fontSize: 80,
             fontStyle: FontStyle.italic,
-            // TODO: Issue #32 が解決され次第 Font を利用する
-            // fontFamily: 'Poppins', を追加
             shadows: [
-              Shadow(
+              const Shadow(
                 color: Color(0x40FF57DD),
                 blurRadius: _blurRadius,
                 offset: Offset(0, 2),
