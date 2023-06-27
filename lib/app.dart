@@ -13,8 +13,8 @@ class App extends ConsumerWidget {
     final config = ref.watch(configProvider);
     return MaterialApp(
       title: config.appTitle,
-      theme: lightTheme(context), // Specified but not used
-      darkTheme: darkTheme(context),
+      theme: lightTheme, // Specified but not used
+      darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
       home: const MainPage(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,

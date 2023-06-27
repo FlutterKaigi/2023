@@ -1,53 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-ThemeData lightTheme(BuildContext context) => ThemeData.from(
-      colorScheme: _lightColorScheme,
-      useMaterial3: true,
-      textTheme: GoogleFonts.robotoTextTheme(
-        Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
-              displayColor: Colors.black,
-            ),
-      ).copyWith(
-        titleLarge: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-        titleMedium: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-        titleSmall: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-      ),
-    );
+final _poppinsFontFamily = GoogleFonts.poppins().fontFamily;
 
-ThemeData darkTheme(BuildContext context) => ThemeData.from(
-      colorScheme: _darkColorScheme,
-      useMaterial3: true,
-      textTheme: GoogleFonts.robotoTextTheme(
-        Theme.of(context).textTheme.apply(
-              bodyColor: Colors.white,
-              displayColor: Colors.white,
-            ),
-      ).copyWith(
-        titleLarge: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-        titleMedium: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-        titleSmall: TextStyle(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          fontFamilyFallback: [GoogleFonts.roboto().fontFamily!],
-        ),
-      ),
-    );
+ThemeData get lightTheme {
+  final theme = ThemeData.from(
+    colorScheme: _lightColorScheme,
+    useMaterial3: true,
+  );
+  final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
+  final textTheme = robotoTextTheme.copyWith(
+    displayLarge: robotoTextTheme.displayLarge?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+  );
+  return theme.copyWith(
+    textTheme: textTheme,
+  );
+}
+
+ThemeData get darkTheme {
+  final theme = ThemeData.from(
+    colorScheme: _darkColorScheme,
+    useMaterial3: true,
+  );
+  final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
+  final textTheme = robotoTextTheme.copyWith(
+    displayLarge: robotoTextTheme.displayLarge?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+  );
+  return theme.copyWith(
+    textTheme: textTheme,
+  );
+}
 
 /// Generated using the Material Theme Builder
 /// See https://m3.material.io/theme-builder
