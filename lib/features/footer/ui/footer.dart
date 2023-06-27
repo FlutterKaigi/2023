@@ -39,65 +39,62 @@ class Footer extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 20),
-              child: Column(
-                children: [
-                  Wrap(
-                    children: [
-                      Text(
-                        'Flutter and the related logo are trademarks of Google LLC. '
-                        'FlutterKaigi is not affiliated with or otherwise sponsored '
-                        'by Google LLC.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFFCCC2DC),
-                          fontSize: 16,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.50,
-                        ),
+            Column(
+              children: [
+                Wrap(
+                  children: [
+                    Text(
+                      'Flutter and the related logo are trademarks of Google LLC. '
+                      'FlutterKaigi is not affiliated with or otherwise sponsored '
+                      'by Google LLC.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFFCCC2DC),
+                        fontSize: 16,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.50,
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    alignment: WrapAlignment.center,
-                    runSpacing: 8,
-                    spacing: 8,
-                    children: [
-                      Text(
-                        'The "Flutter" name and the Flutter logo',
-                        style: TextStyle(
-                          color: Color(0xFFCCC2DC),
-                          fontSize: 16,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.50,
-                        ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  alignment: WrapAlignment.center,
+                  runSpacing: 8,
+                  spacing: 8,
+                  children: [
+                    Text(
+                      'The "Flutter" name and the Flutter logo',
+                      style: TextStyle(
+                        color: Color(0xFFCCC2DC),
+                        fontSize: 16,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.50,
                       ),
-                      ColorFiltered(
-                        colorFilter: ColorFilter.mode(
-                          Colors.white,
-                          BlendMode.srcATop,
-                        ),
-                        child: FlutterLogo(size: 24),
+                    ),
+                    ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcATop,
                       ),
-                      Text(
-                        'are trademarks owned by Google.',
-                        style: TextStyle(
-                          color: Color(0xFFCCC2DC),
-                          fontSize: 16,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
-                          letterSpacing: 0.50,
-                        ),
+                      child: FlutterLogo(size: 24),
+                    ),
+                    Text(
+                      'are trademarks owned by Google.',
+                      style: TextStyle(
+                        color: Color(0xFFCCC2DC),
+                        fontSize: 16,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.50,
                       ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
