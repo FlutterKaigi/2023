@@ -11,25 +11,22 @@ class FooterIcon extends StatelessWidget {
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Padding(
-          padding: EdgeInsets.zero,
-          child: Tooltip(
-            message: 'https://twitter.com/FlutterKaigi',
-            child: Link(
-              uri: Uri.parse('https://twitter.com/FlutterKaigi'),
-              target: LinkTarget.blank,
-              builder: (context, openLink) {
-                return IconButton(
-                  onPressed: openLink,
-                  icon: SvgPicture.asset(
-                    Assets.icon.twitter,
-                    width: 40,
-                    height: 40,
-                  ),
-                  color: Colors.white,
-                );
-              },
-            ),
+        Tooltip(
+          message: 'https://twitter.com/FlutterKaigi',
+          child: Link(
+            uri: Uri.parse('https://twitter.com/FlutterKaigi'),
+            target: LinkTarget.blank,
+            builder: (context, openLink) {
+              return IconButton(
+                onPressed: openLink,
+                icon: SvgPicture.asset(
+                  Assets.icon.twitter,
+                  width: 40,
+                  height: 40,
+                ),
+                color: Colors.white,
+              );
+            },
           ),
         ),
         const SizedBox(width: 40),
