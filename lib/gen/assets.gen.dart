@@ -12,10 +12,6 @@ import 'package:flutter/widgets.dart';
 class $AssetsTopSessionGen {
   const $AssetsTopSessionGen();
 
-  /// File path: assets/top_session/flutter_top_session_logo.svg
-  String get flutterTopSessionLogo =>
-      'assets/top_session/flutter_top_session_logo.svg';
-
   /// File path: assets/top_session/twitter_check.svg
   String get twitterCheck => 'assets/top_session/twitter_check.svg';
 
@@ -23,8 +19,7 @@ class $AssetsTopSessionGen {
   String get twitterTweet => 'assets/top_session/twitter_tweet.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [flutterTopSessionLogo, twitterCheck, twitterTweet];
+  List<String> get values => [twitterCheck, twitterTweet];
 }
 
 class Assets {
