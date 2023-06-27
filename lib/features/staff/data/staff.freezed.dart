@@ -22,12 +22,10 @@ Staff _$StaffFromJson(Map<String, dynamic> json) {
 mixin _$Staff {
   @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
-  @JsonKey(name: '_sys')
-  StaffSys get sys => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
-  String get twitter => throw _privateConstructorUsedError;
   StaffImage get image => throw _privateConstructorUsedError;
-  String? get position => throw _privateConstructorUsedError;
+  String get introduction => throw _privateConstructorUsedError;
+  List<Sns> get sns => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,13 +39,11 @@ abstract class $StaffCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String id,
-      @JsonKey(name: '_sys') StaffSys sys,
       String displayName,
-      String twitter,
       StaffImage image,
-      String? position});
+      String introduction,
+      List<Sns> sns});
 
-  $StaffSysCopyWith<$Res> get sys;
   $StaffImageCopyWith<$Res> get image;
 }
 
@@ -65,46 +61,33 @@ class _$StaffCopyWithImpl<$Res, $Val extends Staff>
   @override
   $Res call({
     Object? id = null,
-    Object? sys = null,
     Object? displayName = null,
-    Object? twitter = null,
     Object? image = null,
-    Object? position = freezed,
+    Object? introduction = null,
+    Object? sns = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sys: null == sys
-          ? _value.sys
-          : sys // ignore: cast_nullable_to_non_nullable
-              as StaffSys,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      twitter: null == twitter
-          ? _value.twitter
-          : twitter // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
-      position: freezed == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as String?,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
+      sns: null == sns
+          ? _value.sns
+          : sns // ignore: cast_nullable_to_non_nullable
+              as List<Sns>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StaffSysCopyWith<$Res> get sys {
-    return $StaffSysCopyWith<$Res>(_value.sys, (value) {
-      return _then(_value.copyWith(sys: value) as $Val);
-    });
   }
 
   @override
@@ -124,14 +107,11 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: '_id') String id,
-      @JsonKey(name: '_sys') StaffSys sys,
       String displayName,
-      String twitter,
       StaffImage image,
-      String? position});
+      String introduction,
+      List<Sns> sns});
 
-  @override
-  $StaffSysCopyWith<$Res> get sys;
   @override
   $StaffImageCopyWith<$Res> get image;
 }
@@ -146,37 +126,32 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
   @override
   $Res call({
     Object? id = null,
-    Object? sys = null,
     Object? displayName = null,
-    Object? twitter = null,
     Object? image = null,
-    Object? position = freezed,
+    Object? introduction = null,
+    Object? sns = null,
   }) {
     return _then(_$_Staff(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      sys: null == sys
-          ? _value.sys
-          : sys // ignore: cast_nullable_to_non_nullable
-              as StaffSys,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      twitter: null == twitter
-          ? _value.twitter
-          : twitter // ignore: cast_nullable_to_non_nullable
               as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
-      position: freezed == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as String?,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
+      sns: null == sns
+          ? _value._sns
+          : sns // ignore: cast_nullable_to_non_nullable
+              as List<Sns>,
     ));
   }
 }
@@ -186,11 +161,11 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
 class _$_Staff implements _Staff {
   const _$_Staff(
       {@JsonKey(name: '_id') required this.id,
-      @JsonKey(name: '_sys') required this.sys,
       required this.displayName,
-      required this.twitter,
       required this.image,
-      required this.position});
+      required this.introduction,
+      required final List<Sns> sns})
+      : _sns = sns;
 
   factory _$_Staff.fromJson(Map<String, dynamic> json) =>
       _$$_StaffFromJson(json);
@@ -199,20 +174,22 @@ class _$_Staff implements _Staff {
   @JsonKey(name: '_id')
   final String id;
   @override
-  @JsonKey(name: '_sys')
-  final StaffSys sys;
-  @override
   final String displayName;
-  @override
-  final String twitter;
   @override
   final StaffImage image;
   @override
-  final String? position;
+  final String introduction;
+  final List<Sns> _sns;
+  @override
+  List<Sns> get sns {
+    if (_sns is EqualUnmodifiableListView) return _sns;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sns);
+  }
 
   @override
   String toString() {
-    return 'Staff(id: $id, sys: $sys, displayName: $displayName, twitter: $twitter, image: $image, position: $position)';
+    return 'Staff(id: $id, displayName: $displayName, image: $image, introduction: $introduction, sns: $sns)';
   }
 
   @override
@@ -221,19 +198,18 @@ class _$_Staff implements _Staff {
         (other.runtimeType == runtimeType &&
             other is _$_Staff &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.sys, sys) || other.sys == sys) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
-            (identical(other.twitter, twitter) || other.twitter == twitter) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.position, position) ||
-                other.position == position));
+            (identical(other.introduction, introduction) ||
+                other.introduction == introduction) &&
+            const DeepCollectionEquality().equals(other._sns, _sns));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, sys, displayName, twitter, image, position);
+  int get hashCode => Object.hash(runtimeType, id, displayName, image,
+      introduction, const DeepCollectionEquality().hash(_sns));
 
   @JsonKey(ignore: true)
   @override
@@ -252,11 +228,10 @@ class _$_Staff implements _Staff {
 abstract class _Staff implements Staff {
   const factory _Staff(
       {@JsonKey(name: '_id') required final String id,
-      @JsonKey(name: '_sys') required final StaffSys sys,
       required final String displayName,
-      required final String twitter,
       required final StaffImage image,
-      required final String? position}) = _$_Staff;
+      required final String introduction,
+      required final List<Sns> sns}) = _$_Staff;
 
   factory _Staff.fromJson(Map<String, dynamic> json) = _$_Staff.fromJson;
 
@@ -264,194 +239,16 @@ abstract class _Staff implements Staff {
   @JsonKey(name: '_id')
   String get id;
   @override
-  @JsonKey(name: '_sys')
-  StaffSys get sys;
-  @override
   String get displayName;
-  @override
-  String get twitter;
   @override
   StaffImage get image;
   @override
-  String? get position;
+  String get introduction;
+  @override
+  List<Sns> get sns;
   @override
   @JsonKey(ignore: true)
   _$$_StaffCopyWith<_$_Staff> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-StaffSys _$StaffSysFromJson(Map<String, dynamic> json) {
-  return _StaffSys.fromJson(json);
-}
-
-/// @nodoc
-mixin _$StaffSys {
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
-  int get customOrder => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $StaffSysCopyWith<StaffSys> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StaffSysCopyWith<$Res> {
-  factory $StaffSysCopyWith(StaffSys value, $Res Function(StaffSys) then) =
-      _$StaffSysCopyWithImpl<$Res, StaffSys>;
-  @useResult
-  $Res call({DateTime createdAt, DateTime updatedAt, int customOrder});
-}
-
-/// @nodoc
-class _$StaffSysCopyWithImpl<$Res, $Val extends StaffSys>
-    implements $StaffSysCopyWith<$Res> {
-  _$StaffSysCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? customOrder = null,
-  }) {
-    return _then(_value.copyWith(
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      customOrder: null == customOrder
-          ? _value.customOrder
-          : customOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_StaffSysCopyWith<$Res> implements $StaffSysCopyWith<$Res> {
-  factory _$$_StaffSysCopyWith(
-          _$_StaffSys value, $Res Function(_$_StaffSys) then) =
-      __$$_StaffSysCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DateTime createdAt, DateTime updatedAt, int customOrder});
-}
-
-/// @nodoc
-class __$$_StaffSysCopyWithImpl<$Res>
-    extends _$StaffSysCopyWithImpl<$Res, _$_StaffSys>
-    implements _$$_StaffSysCopyWith<$Res> {
-  __$$_StaffSysCopyWithImpl(
-      _$_StaffSys _value, $Res Function(_$_StaffSys) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? createdAt = null,
-    Object? updatedAt = null,
-    Object? customOrder = null,
-  }) {
-    return _then(_$_StaffSys(
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      customOrder: null == customOrder
-          ? _value.customOrder
-          : customOrder // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_StaffSys implements _StaffSys {
-  const _$_StaffSys(
-      {required this.createdAt,
-      required this.updatedAt,
-      required this.customOrder});
-
-  factory _$_StaffSys.fromJson(Map<String, dynamic> json) =>
-      _$$_StaffSysFromJson(json);
-
-  @override
-  final DateTime createdAt;
-  @override
-  final DateTime updatedAt;
-  @override
-  final int customOrder;
-
-  @override
-  String toString() {
-    return 'StaffSys(createdAt: $createdAt, updatedAt: $updatedAt, customOrder: $customOrder)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_StaffSys &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.customOrder, customOrder) ||
-                other.customOrder == customOrder));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, createdAt, updatedAt, customOrder);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_StaffSysCopyWith<_$_StaffSys> get copyWith =>
-      __$$_StaffSysCopyWithImpl<_$_StaffSys>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_StaffSysToJson(
-      this,
-    );
-  }
-}
-
-abstract class _StaffSys implements StaffSys {
-  const factory _StaffSys(
-      {required final DateTime createdAt,
-      required final DateTime updatedAt,
-      required final int customOrder}) = _$_StaffSys;
-
-  factory _StaffSys.fromJson(Map<String, dynamic> json) = _$_StaffSys.fromJson;
-
-  @override
-  DateTime get createdAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  int get customOrder;
-  @override
-  @JsonKey(ignore: true)
-  _$$_StaffSysCopyWith<_$_StaffSys> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -667,4 +464,148 @@ abstract class _StaffImage implements StaffImage {
   @JsonKey(ignore: true)
   _$$_StaffImageCopyWith<_$_StaffImage> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+Sns _$SnsFromJson(Map<String, dynamic> json) {
+  return _Sns.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Sns {
+  SnsType get type => throw _privateConstructorUsedError;
+  String get userName => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SnsCopyWith<Sns> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SnsCopyWith<$Res> {
+  factory $SnsCopyWith(Sns value, $Res Function(Sns) then) =
+      _$SnsCopyWithImpl<$Res, Sns>;
+  @useResult
+  $Res call({SnsType type, String userName});
+}
+
+/// @nodoc
+class _$SnsCopyWithImpl<$Res, $Val extends Sns> implements $SnsCopyWith<$Res> {
+  _$SnsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? userName = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as SnsType,
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_SnsCopyWith<$Res> implements $SnsCopyWith<$Res> {
+  factory _$$_SnsCopyWith(_$_Sns value, $Res Function(_$_Sns) then) =
+      __$$_SnsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({SnsType type, String userName});
+}
+
+/// @nodoc
+class __$$_SnsCopyWithImpl<$Res> extends _$SnsCopyWithImpl<$Res, _$_Sns>
+    implements _$$_SnsCopyWith<$Res> {
+  __$$_SnsCopyWithImpl(_$_Sns _value, $Res Function(_$_Sns) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? userName = null,
+  }) {
+    return _then(_$_Sns(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as SnsType,
+      userName: null == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Sns implements _Sns {
+  const _$_Sns({required this.type, required this.userName});
+
+  factory _$_Sns.fromJson(Map<String, dynamic> json) => _$$_SnsFromJson(json);
+
+  @override
+  final SnsType type;
+  @override
+  final String userName;
+
+  @override
+  String toString() {
+    return 'Sns(type: $type, userName: $userName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Sns &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, userName);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SnsCopyWith<_$_Sns> get copyWith =>
+      __$$_SnsCopyWithImpl<_$_Sns>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SnsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Sns implements Sns {
+  const factory _Sns(
+      {required final SnsType type, required final String userName}) = _$_Sns;
+
+  factory _Sns.fromJson(Map<String, dynamic> json) = _$_Sns.fromJson;
+
+  @override
+  SnsType get type;
+  @override
+  String get userName;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SnsCopyWith<_$_Sns> get copyWith => throw _privateConstructorUsedError;
 }

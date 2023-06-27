@@ -10,33 +10,20 @@ part of 'staff.dart';
 
 _$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
       id: json['_id'] as String,
-      sys: StaffSys.fromJson(json['_sys'] as Map<String, dynamic>),
       displayName: json['displayName'] as String,
-      twitter: json['twitter'] as String,
       image: StaffImage.fromJson(json['image'] as Map<String, dynamic>),
-      position: json['position'] as String?,
+      introduction: json['introduction'] as String,
+      sns: (json['sns'] as List<dynamic>)
+          .map((e) => Sns.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
       '_id': instance.id,
-      '_sys': instance.sys,
       'displayName': instance.displayName,
-      'twitter': instance.twitter,
       'image': instance.image,
-      'position': instance.position,
-    };
-
-_$_StaffSys _$$_StaffSysFromJson(Map<String, dynamic> json) => _$_StaffSys(
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      customOrder: json['customOrder'] as int,
-    );
-
-Map<String, dynamic> _$$_StaffSysToJson(_$_StaffSys instance) =>
-    <String, dynamic>{
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
-      'customOrder': instance.customOrder,
+      'introduction': instance.introduction,
+      'sns': instance.sns,
     };
 
 _$_StaffImage _$$_StaffImageFromJson(Map<String, dynamic> json) =>
@@ -56,3 +43,22 @@ Map<String, dynamic> _$$_StaffImageToJson(_$_StaffImage instance) =>
       'width': instance.width,
       'src': instance.src,
     };
+
+_$_Sns _$$_SnsFromJson(Map<String, dynamic> json) => _$_Sns(
+      type: $enumDecode(_$SnsTypeEnumMap, json['type']),
+      userName: json['userName'] as String,
+    );
+
+Map<String, dynamic> _$$_SnsToJson(_$_Sns instance) => <String, dynamic>{
+      'type': _$SnsTypeEnumMap[instance.type]!,
+      'userName': instance.userName,
+    };
+
+const _$SnsTypeEnumMap = {
+  SnsType.twitter: 'twitter',
+  SnsType.github: 'github',
+  SnsType.discord: 'discord',
+  SnsType.qiita: 'qiita',
+  SnsType.zenn: 'zenn',
+  SnsType.note: 'note',
+};
