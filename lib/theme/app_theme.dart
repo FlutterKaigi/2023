@@ -1,14 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-final lightTheme = ThemeData.from(
-  colorScheme: _lightColorScheme,
-  useMaterial3: true,
-);
+final _poppinsFontFamily = GoogleFonts.poppins().fontFamily;
 
-final darkTheme = ThemeData.from(
-  colorScheme: _darkColorScheme,
-  useMaterial3: true,
-);
+ThemeData get lightTheme {
+  final theme = ThemeData.from(
+    colorScheme: _lightColorScheme,
+    useMaterial3: true,
+  );
+  final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
+  final textTheme = robotoTextTheme.copyWith(
+    displayLarge: robotoTextTheme.displayLarge?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displayMedium: robotoTextTheme.displayMedium?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displaySmall: robotoTextTheme.displaySmall?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+  );
+  return theme.copyWith(
+    textTheme: textTheme,
+  );
+}
+
+ThemeData get darkTheme {
+  final theme = ThemeData.from(
+    colorScheme: _darkColorScheme,
+    useMaterial3: true,
+  );
+  final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
+  final textTheme = robotoTextTheme.copyWith(
+    displayLarge: robotoTextTheme.displayLarge?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displayMedium: robotoTextTheme.displayMedium?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displaySmall: robotoTextTheme.displaySmall?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+  );
+  return theme.copyWith(
+    textTheme: textTheme,
+  );
+}
 
 /// Generated using the Material Theme Builder
 /// See https://m3.material.io/theme-builder
