@@ -8,8 +8,8 @@ class FooterIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.zero,
@@ -32,50 +32,47 @@ class FooterIcon extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Tooltip(
-            message: 'https://github.com/FlutterKaigi',
-            child: Link(
-              uri: Uri.parse(
-                'https://github.com/FlutterKaigi',
-              ),
-              target: LinkTarget.blank,
-              builder: (context, openLink) {
-                return IconButton(
-                  onPressed: openLink,
-                  icon: SvgPicture.asset(
-                    Assets.icon.github,
-                    width: 40,
-                    height: 40,
-                  ),
-                  color: Colors.white,
-                );
-              },
+        const SizedBox(width: 40),
+        Tooltip(
+          message: 'https://github.com/FlutterKaigi',
+          child: Link(
+            uri: Uri.parse(
+              'https://github.com/FlutterKaigi',
             ),
+            target: LinkTarget.blank,
+            builder: (context, openLink) {
+              return IconButton(
+                onPressed: openLink,
+                icon: SvgPicture.asset(
+                  Assets.icon.github,
+                  width: 40,
+                  height: 40,
+                ),
+                color: Colors.white,
+              );
+            },
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 40),
-          child: Tooltip(
-            message: 'https://discord.com/invite/Nr7H8JTJSF',
-            child: Link(
-              uri: Uri.parse('https://discord.com/invite/Nr7H8JTJSF'),
-              target: LinkTarget.blank,
-              builder: (context, openLink) {
-                return IconButton(
-                  onPressed: openLink,
-                  icon: SvgPicture.asset(
-                    Assets.icon.discord,
-                    width: 40,
-                    height: 40,
-                  ),
-                  color: Colors.white,
-                );
-              },
-            ),
+        const SizedBox(width: 40),
+        Tooltip(
+          message: 'https://discord.com/invite/Nr7H8JTJSF',
+          child: Link(
+            uri: Uri.parse('https://discord.com/invite/Nr7H8JTJSF'),
+            target: LinkTarget.blank,
+            builder: (context, openLink) {
+              return IconButton(
+                onPressed: openLink,
+                icon: SvgPicture.asset(
+                  Assets.icon.discord,
+                  width: 40,
+                  height: 40,
+                ),
+                color: Colors.white,
+              );
+            },
           ),
         ),
+        const SizedBox(width: 40),
         Padding(
           padding: EdgeInsets.zero,
           child: Tooltip(
