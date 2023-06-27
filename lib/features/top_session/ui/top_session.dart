@@ -74,6 +74,7 @@ class TopSessionDeskTop extends StatelessWidget {
           image: Assets.topSession.twitterCheck,
           title: '@FlutterKaigi',
           subTitle: '最新情報を公式Twitterでチェック',
+          fontSize: 16,
         ),
         const SizedBox(height: 20),
         TopSessionTwitter(
@@ -84,6 +85,7 @@ class TopSessionDeskTop extends StatelessWidget {
           image: Assets.topSession.twitterTweet,
           title: '#flutterkaigi',
           subTitle: 'FlutterKaigi 2023をツイート',
+          fontSize: 16,
         ),
       ],
     );
@@ -97,79 +99,51 @@ class TopSessionMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //TODO アイコンにエフェクトをつける。
-        //TODO FlutteerKaigi2023の上の余白の調整をする
-        //TODO FlutteerKaigi2023の下の余白の調整をする
-        //TODO @OFFLINEの下の余白を調整する。
-
-        const Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '@',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 100,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w700,
-                ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '@',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 48,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w700,
               ),
-              TextSpan(
-                text: 'OFFLINE',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 120,
-                  fontStyle: FontStyle.italic,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w800,
-                ),
+            ),
+            Text(
+              'OFFLINE',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 64,
+                fontStyle: FontStyle.italic,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w800,
               ),
-            ],
-          ),
+            )
+          ],
         ),
-        const SizedBox(height: 24),
         const Text(
           'November 10, 2023',
           style: TextStyle(
-            fontSize: 32,
+            fontSize: 24,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.16,
           ),
         ),
         const SizedBox(height: 24),
-        const Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: 'in ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextSpan(
-                text: '株式会社ナビタイムジャパン',
-                style: TextStyle(
-                  color: Color(0xFF9B9B9B),
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 24),
-        const Text(
-          'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
-          'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Color(0xFFEADDFF),
-            fontSize: 16,
-            fontWeight: FontWeight.w400,
-            letterSpacing: 0.50,
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
+            'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xFFEADDFF),
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              letterSpacing: 0.50,
+            ),
           ),
         ),
         const SizedBox(height: 24),
@@ -178,8 +152,9 @@ class TopSessionMobile extends StatelessWidget {
           backgroundColor: const Color(0xFF381E72),
           textColor: Colors.white,
           image: Assets.topSession.twitterCheck,
-          title: '@FlutterKaigi',
+          title: '',
           subTitle: '最新情報を公式Twitterでチェック',
+          fontSize: 14,
         ),
         const SizedBox(height: 20),
         TopSessionTwitter(
@@ -188,8 +163,9 @@ class TopSessionMobile extends StatelessWidget {
           backgroundColor: Colors.white,
           textColor: const Color(0xFF381E72),
           image: Assets.topSession.twitterTweet,
-          title: '#flutterkaigi',
+          title: '',
           subTitle: 'FlutterKaigi 2023をツイート',
+          fontSize: 14,
         ),
       ],
     );
