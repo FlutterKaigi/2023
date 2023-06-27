@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
 /// ブラーのぼかし範囲
@@ -13,13 +14,8 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShaderMask(
-      // TODO: #33 がマージされ次第置き換える
-      shaderCallback: (Rect bounds) => const LinearGradient(
-        colors: [
-          Color(0xFFFF57DD),
-          Color(0xFF56C2FF),
-        ],
-      ).createShader(bounds),
+      shaderCallback: (Rect bounds) =>
+          GradientConstant.accent.primary.createShader(bounds),
       child: Container(
         // FIXME: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
