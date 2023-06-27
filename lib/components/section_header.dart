@@ -7,10 +7,17 @@ const double _blurRadius = 20;
 
 /// A section header with a gradient.
 class SectionHeader extends StatelessWidget {
-  const SectionHeader({required this.text, super.key});
+  const SectionHeader({
+    required this.text,
+    required this.fontSize,
+    super.key,
+  });
 
   /// The text to display.
   final String text;
+
+  /// The size of glyphs (in logical pixels) to use when painting the text.
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +32,7 @@ class SectionHeader extends StatelessWidget {
           style: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.w700,
-            fontSize: 80,
+            fontSize: fontSize,
             fontStyle: FontStyle.italic,
             shadows: [
               const Shadow(
