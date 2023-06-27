@@ -13,6 +13,12 @@ ThemeData get lightTheme {
     displayLarge: robotoTextTheme.displayLarge?.apply(
       fontFamily: _poppinsFontFamily,
     ),
+    displayMedium: robotoTextTheme.displayMedium?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displaySmall: robotoTextTheme.displaySmall?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
   );
   return theme.copyWith(
     textTheme: textTheme,
@@ -27,6 +33,12 @@ ThemeData get darkTheme {
   final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
   final textTheme = robotoTextTheme.copyWith(
     displayLarge: robotoTextTheme.displayLarge?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displayMedium: robotoTextTheme.displayMedium?.apply(
+      fontFamily: _poppinsFontFamily,
+    ),
+    displaySmall: robotoTextTheme.displaySmall?.apply(
       fontFamily: _poppinsFontFamily,
     ),
   );
