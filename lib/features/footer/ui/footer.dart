@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/features/footer/ui/footer_age.dart';
 import 'package:confwebsite2023/features/footer/ui/footer_contents.dart';
-import 'package:confwebsite2023/features/footer/ui/footer_icon_button.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_icon.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
