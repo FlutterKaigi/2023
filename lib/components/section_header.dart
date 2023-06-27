@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:confwebsite2023/theme/gradient.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,29 +22,42 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (Rect bounds) =>
-          GradientConstant.accent.primary.createShader(bounds),
-      child: Container(
+    return Stack(
+      children: [
+        // blur
+        Transform.translate(
+          offset: const Offset(0, 2),
+          child: ImageFiltered(
+            imageFilter: ImageFilter.blur(
+              sigmaX: _blurRadius,
+              sigmaY: _blurRadius,
+            ),
+            child: _baseHeader(color: const Color(0x40FF57DD)),
+          ),
+        ),
+        ShaderMask(
+          shaderCallback: (Rect bounds) =>
+              GradientConstant.accent.primary.createShader(bounds),
+          child: _baseHeader(),
+        ),
+      ],
+    );
+  }
+
+  Widget _baseHeader({
+    Color? color,
+  }) =>
+      Container(
         // FIXME: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
         child: Text(
           text,
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: color ?? Colors.white,
             fontWeight: FontWeight.w700,
             fontSize: fontSize,
             fontStyle: FontStyle.italic,
-            shadows: [
-              const Shadow(
-                color: Color(0x40FF57DD),
-                blurRadius: _blurRadius,
-                offset: Offset(0, 2),
-              ),
-            ],
           ),
         ),
-      ),
-    );
-  }
+      );
 }
