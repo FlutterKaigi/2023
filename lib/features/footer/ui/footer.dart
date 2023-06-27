@@ -41,22 +41,18 @@ class Footer extends StatelessWidget {
             ),
             Column(
               children: [
-                Wrap(
-                  children: [
-                    Text(
-                      'Flutter and the related logo are trademarks of Google LLC. '
-                      'FlutterKaigi is not affiliated with or otherwise sponsored '
-                      'by Google LLC.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFFCCC2DC),
-                        fontSize: 16,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.50,
-                      ),
-                    ),
-                  ],
+                Text(
+                  'Flutter and the related logo are trademarks of Google LLC. '
+                  'FlutterKaigi is not affiliated with or otherwise sponsored '
+                  'by Google LLC.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFFCCC2DC),
+                    fontSize: 16,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.50,
+                  ),
                 ),
                 SizedBox(height: 20),
                 Wrap(
