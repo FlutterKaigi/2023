@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,10 @@ class TopSession extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const ResponsiveWidget(
+      largeWidget: TopSessionDeskTop(),
+      smallWidget: TopSessionMobile(),
+    );
   }
 }
 
@@ -18,37 +22,30 @@ class TopSessionDeskTop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //TODO アイコンにエフェクトをつける。
-        //TODO FlutteerKaigi2023の上の余白の調整をする
-        //TODO FlutteerKaigi2023の下の余白の調整をする
-        //TODO @OFFLINEの下の余白を調整する。
-
-        const Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: '@',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 100,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w700,
-                ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '@',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 100,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w700,
               ),
-              TextSpan(
-                text: 'OFFLINE',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 120,
-                  fontStyle: FontStyle.italic,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w800,
-                ),
+            ),
+            Text(
+              'OFFLINE',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 120,
+                fontStyle: FontStyle.italic,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w800,
               ),
-            ],
-          ),
+            )
+          ],
         ),
-        const SizedBox(height: 24),
         const Text(
           'November 10, 2023',
           style: TextStyle(
@@ -56,30 +53,6 @@ class TopSessionDeskTop extends StatelessWidget {
             fontWeight: FontWeight.w500,
             letterSpacing: 0.16,
           ),
-        ),
-        const SizedBox(height: 24),
-        const Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                text: 'in ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              TextSpan(
-                text: '株式会社ナビタイムジャパン',
-                style: TextStyle(
-                  color: Color(0xFF9B9B9B),
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 24),
         const Text(
