@@ -43,6 +43,8 @@ class FooterAge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final otherYearsLinkTextStyle = Theme.of(context).textTheme.bodyLarge;
+    final otherYearsLinkSlashTextStyle = Theme.of(context).textTheme.labelLarge;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Wrap(
@@ -56,31 +58,19 @@ class FooterAge extends StatelessWidget {
               builder: (context, openLink) {
                 return TextButton(
                   onPressed: openLink,
-                  child: const Text(
+                  child: Text(
                     '2021',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 0.50,
-                    ),
+                    style: otherYearsLinkTextStyle,
                   ),
                 );
               },
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               '/',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w500,
-                letterSpacing: 0.50,
-              ),
+              style: otherYearsLinkSlashTextStyle,
             ),
           ),
           Tooltip(
@@ -91,15 +81,9 @@ class FooterAge extends StatelessWidget {
               builder: (context, openLink) {
                 return TextButton(
                   onPressed: openLink,
-                  child: const Text(
+                  child: Text(
                     '2022',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 0.50,
-                    ),
+                    style: otherYearsLinkTextStyle,
                   ),
                 );
               },

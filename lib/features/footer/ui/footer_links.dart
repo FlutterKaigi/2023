@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
-class FooterContents extends StatelessWidget {
-  const FooterContents({super.key});
+class FooterLinks extends StatelessWidget {
+  const FooterLinks({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final linkTextStyle = Theme.of(context).textTheme.bodyLarge;
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Wrap(
@@ -23,21 +24,14 @@ class FooterContents extends StatelessWidget {
               builder: (context, openLink) {
                 return TextButton(
                   onPressed: openLink,
-                  child: const Text(
+                  child: Text(
                     'Code of Conduct',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      letterSpacing: 0.50,
-                    ),
+                    style: linkTextStyle,
                   ),
                 );
               },
             ),
           ),
-          // const SizedBox(width: 40),
           Tooltip(
             message: 'Privacy Policy',
             child: Link(
@@ -48,15 +42,9 @@ class FooterContents extends StatelessWidget {
               builder: (context, openLink) {
                 return TextButton(
                   onPressed: openLink,
-                  child: const Text(
+                  child: Text(
                     'Privacy Policy',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      letterSpacing: 0.50,
-                    ),
+                    style: linkTextStyle,
                   ),
                 );
               },
@@ -73,15 +61,9 @@ class FooterContents extends StatelessWidget {
               builder: (context, openLink) {
                 return TextButton(
                   onPressed: openLink,
-                  child: const Text(
+                  child: Text(
                     'Contact',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      letterSpacing: 0.50,
-                    ),
+                    style: linkTextStyle,
                   ),
                 );
               },
@@ -99,15 +81,9 @@ class FooterContents extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text(
+              child: Text(
                 'License',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  fontFamily: 'Roboto',
-                  letterSpacing: 0.50,
-                ),
+                style: linkTextStyle,
               ),
             ),
           ),
