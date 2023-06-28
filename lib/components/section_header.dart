@@ -25,19 +25,14 @@ class SectionHeader extends StatelessWidget {
       blendMode: BlendMode.srcIn,
       shaderCallback: (Rect bounds) =>
           GradientConstant.accent.primary.createShader(bounds),
-      child: _baseHeader(),
-    );
-  }
-
-  Widget _baseHeader({
-    Color? color,
-  }) =>
-      Container(
+      child: Container(
         // FIXME: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
         child: Text(
           text,
           style: AppTextStyle.pcHeading1,
         ),
-      );
+      ),
+    );
+  }
 }
