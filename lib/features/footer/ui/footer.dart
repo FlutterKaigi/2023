@@ -8,10 +8,11 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      child: const DecoratedBox(
-        decoration: BoxDecoration(
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -23,15 +24,15 @@ class Footer extends StatelessWidget {
         ),
         child: Column(
           children: [
-            FooterAge(),
-            FooterIcon(),
-            FooterContents(),
+            const FooterAge(),
+            const FooterIcon(),
+            const FooterContents(),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 '© 2021-2023 FlutterKaigi 実行委員会',
                 style: TextStyle(
-                  color: Color(0xFFCCC2DC),
+                  color: colorScheme.secondary,
                   fontSize: 16,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w400,
@@ -47,14 +48,14 @@ class Footer extends StatelessWidget {
                   'by Google LLC.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color(0xFFCCC2DC),
+                    color: colorScheme.secondary.withOpacity(0.8),
                     fontSize: 16,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w400,
                     letterSpacing: 0.50,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
                   alignment: WrapAlignment.center,
@@ -64,14 +65,14 @@ class Footer extends StatelessWidget {
                     Text(
                       'The "Flutter" name and the Flutter logo',
                       style: TextStyle(
-                        color: Color(0xFFCCC2DC),
+                        color: colorScheme.secondary.withOpacity(0.8),
                         fontSize: 16,
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.w400,
                         letterSpacing: 0.50,
                       ),
                     ),
-                    ColorFiltered(
+                    const ColorFiltered(
                       colorFilter: ColorFilter.mode(
                         Colors.white,
                         BlendMode.srcATop,
@@ -81,7 +82,7 @@ class Footer extends StatelessWidget {
                     Text(
                       'are trademarks owned by Google.',
                       style: TextStyle(
-                        color: Color(0xFFCCC2DC),
+                        color: colorScheme.secondary.withOpacity(0.8),
                         fontSize: 16,
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.w400,
