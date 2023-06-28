@@ -1,4 +1,3 @@
-import 'package:confwebsite2023/theme/app_text_style.dart';
 import 'package:confwebsite2023/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
@@ -9,11 +8,14 @@ const double _blurRadius = 20;
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
     required this.text,
+    required this.style,
     super.key,
   });
 
   /// The text to display.
   final String text;
+
+  final TextStyle style;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SectionHeader extends StatelessWidget {
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
         child: Text(
           text,
-          style: AppTextStyle.pcHeading1,
+          style: style,
         ),
       ),
     );
