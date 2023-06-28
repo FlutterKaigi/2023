@@ -79,7 +79,7 @@ class TopSessionDeskTop extends StatelessWidget {
         const SizedBox(height: 20),
         TopSessionTwitter(
           url:
-              'https://twitter.com/share?url=https://example.com&text=#flutterkaigi',
+              'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: Colors.white,
           textColor: const Color(0xFF381E72),
           image: Assets.topSession.twitterTweet,
@@ -159,7 +159,7 @@ class TopSessionMobile extends StatelessWidget {
         const SizedBox(height: 20),
         TopSessionTwitter(
           url:
-              'https://twitter.com/share?url=https://example.com&text=#flutterkaigi',
+              'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: Colors.white,
           textColor: const Color(0xFF381E72),
           image: Assets.topSession.twitterTweet,
