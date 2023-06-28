@@ -11,13 +11,8 @@ ThemeData _builder(ColorScheme scheme) {
     useMaterial3: true,
   );
   final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
-  final poppinsTextTheme = GoogleFonts.poppinsTextTheme(theme.textTheme);
-  final textTheme = robotoTextTheme.copyWith(
-    headlineLarge: poppinsTextTheme.headlineLarge,
-    headlineMedium: poppinsTextTheme.headlineMedium,
-  );
   return theme.copyWith(
-    textTheme: textTheme,
+    textTheme: robotoTextTheme,
   );
 }
 
