@@ -23,6 +23,7 @@ dependencies:
   google_fonts: ^5.1.0
   hooks_riverpod: ^2.3.6
   http: ^1.0.0
+  intl: ^0.18.1
   json_annotation: ^4.8.1
   riverpod_annotation: ^2.1.1
   transparent_image: ^2.0.1
