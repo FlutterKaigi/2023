@@ -5,22 +5,26 @@ import 'package:url_launcher/link.dart';
 class TopSessionTwitter extends StatelessWidget {
   const TopSessionTwitter({
     required this.backgroundColor,
-    required this.textColor,
     required this.image,
     required this.title,
     required this.subTitle,
     required this.url,
-    required this.fontSize,
+    required this.width,
+    required this.height,
+    this.titleTextStyle,
+    this.subTitleTextStyle,
     super.key,
   });
 
   final Color backgroundColor;
-  final Color textColor;
   final String image;
   final String title;
   final String subTitle;
   final String url;
-  final double fontSize;
+  final double width;
+  final double height;
+  final TextStyle? titleTextStyle;
+  final TextStyle? subTitleTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +37,8 @@ class TopSessionTwitter extends StatelessWidget {
           return GestureDetector(
             onTap: openLink,
             child: Container(
-              width: 744,
-              height: 64,
+              width: width,
+              height: height,
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
                 vertical: 12,
@@ -61,21 +65,12 @@ class TopSessionTwitter extends StatelessWidget {
                   const SizedBox(width: 20),
                   Text(
                     title,
-                    style: TextStyle(
-                      fontSize: 22,
-                      color: textColor,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: titleTextStyle,
                   ),
                   const Spacer(),
                   Text(
                     subTitle,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: fontSize,
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 0.50,
-                    ),
+                    style: subTitleTextStyle,
                   ),
                 ],
               ),
