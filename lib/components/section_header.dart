@@ -9,15 +9,11 @@ const double _blurRadius = 20;
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
     required this.text,
-    required this.fontSize,
     super.key,
   });
 
   /// The text to display.
   final String text;
-
-  /// The size of glyphs (in logical pixels) to use when painting the text.
-  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
