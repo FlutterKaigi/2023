@@ -1,7 +1,6 @@
-import 'dart:ui';
+import 'package:confwebsite2023/theme/app_text_style.dart';
 import 'package:confwebsite2023/theme/gradient.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// ブラーのぼかし範囲
 const double _blurRadius = 20;
@@ -22,25 +21,11 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // blur
-        Transform.translate(
-          offset: const Offset(0, 2),
-          child: ImageFiltered(
-            imageFilter: ImageFilter.blur(
-              sigmaX: _blurRadius,
-              sigmaY: _blurRadius,
-            ),
-            child: _baseHeader(color: const Color(0x40FF57DD)),
-          ),
-        ),
-        ShaderMask(
-          shaderCallback: (Rect bounds) =>
-              GradientConstant.accent.primary.createShader(bounds),
-          child: _baseHeader(),
-        ),
-      ],
+    return ShaderMask(
+      blendMode: BlendMode.srcIn,
+      shaderCallback: (Rect bounds) =>
+          GradientConstant.accent.primary.createShader(bounds),
+      child: _baseHeader(),
     );
   }
 
@@ -52,12 +37,7 @@ class SectionHeader extends StatelessWidget {
         margin: const EdgeInsets.only(left: _blurRadius, right: _blurRadius),
         child: Text(
           text,
-          style: GoogleFonts.poppins(
-            color: color ?? Colors.white,
-            fontWeight: FontWeight.w700,
-            fontSize: fontSize,
-            fontStyle: FontStyle.italic,
-          ),
+          style: AppTextStyle.pcHeading1,
         ),
       );
 }
