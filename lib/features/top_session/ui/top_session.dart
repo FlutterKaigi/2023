@@ -9,14 +9,14 @@ class TopSession extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ResponsiveWidget(
-      largeWidget: _TopSessionDeskTop(),
+      largeWidget: _TopSessionDesktop(),
       smallWidget: _TopSessionMobile(),
     );
   }
 }
 
-class _TopSessionDeskTop extends StatelessWidget {
-  const _TopSessionDeskTop({super.key});
+class _TopSessionDesktop extends StatelessWidget {
+  const _TopSessionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
