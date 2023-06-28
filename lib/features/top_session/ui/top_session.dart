@@ -15,8 +15,8 @@ class TopSession extends StatelessWidget {
   }
 }
 
-class _TopSessionDesktop extends StatelessWidget {
-  const _TopSessionDesktop({super.key});
+class _TopSessionDeskTop extends StatelessWidget {
+  const _TopSessionDeskTop();
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class _TopSessionDesktop extends StatelessWidget {
 }
 
 class _TopSessionMobile extends StatelessWidget {
-  const _TopSessionMobile({super.key});
+  const _TopSessionMobile();
 
   @override
   Widget build(BuildContext context) {
