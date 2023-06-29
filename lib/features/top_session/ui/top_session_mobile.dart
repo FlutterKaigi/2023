@@ -18,31 +18,18 @@ class TopSessionMobile extends StatelessWidget {
             children: [
               Text(
                 '@',
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      //TODO PoppinsのfontFamilyが入っていない可能性あり
                       color: Colors.white,
                       fontSize: 48,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w700,
                     ),
-                //TODO Styleを入れる。
-                // style: TextStyle(
-                //   color: Colors.white,
-                //   fontSize: 48,
-                //   fontStyle: FontStyle.italic,
-                //   fontWeight: FontWeight.w700,
-                // ),
               ),
               Text(
                 'OFFLINE',
-                //TODO Styleを入れる。
-                // style: TextStyle(
-                //   color: Colors.white,
-                //   fontSize: 64,
-                //   fontStyle: FontStyle.italic,
-                //   fontFamily: 'Poppins',
-                //   fontWeight: FontWeight.w800,
-                // ),
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      //TODO PoppinsのfontFamilyが入っていない可能性あり
                       color: Colors.white,
                       fontSize: 64,
                       fontStyle: FontStyle.italic,
@@ -56,18 +43,13 @@ class TopSessionMobile extends StatelessWidget {
           fit: BoxFit.fill,
           child: Text(
             'November 10, 2023',
-            style: Theme.of(context).textTheme.displayLarge!.copyWith(
+            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                  //TODO PoppinsのfontFamilyが入っていない可能性あり
                   color: Colors.white,
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
-                  letterSpacing: 0.16,
+                  letterSpacing: 0.12,
                 ),
-            //TODO Styleを入れる。
-            // style: TextStyle(
-            //   fontSize: 24,
-            //   fontWeight: FontWeight.w500,
-            //   letterSpacing: 0.16,
-            // ),
           ),
         ),
         const SizedBox(height: 24),
@@ -85,7 +67,7 @@ class TopSessionMobile extends StatelessWidget {
         const SizedBox(height: 24),
         TopSessionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
-          backgroundColor: const Color(0xFF381E72),
+          backgroundColor: colorScheme.onPrimary,
           image: Assets.topSession.twitterCheck,
           title: '',
           subTitle: '最新情報をチェック',

@@ -21,8 +21,8 @@ class TopSessionDesktop extends StatelessWidget {
             children: [
               Text(
                 '@',
-                //TODO Styleを入れる。
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      //TODO PoppinsのfontFamilyが入っていない可能性あり
                       color: Colors.white,
                       fontSize: 100,
                       fontStyle: FontStyle.italic,
@@ -31,12 +31,12 @@ class TopSessionDesktop extends StatelessWidget {
               ),
               Text(
                 'OFFLINE',
-                //TODO Styleを入れる。
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      //TODO PoppinsのfontFamilyが入っていない可能性あり
                       color: Colors.white,
                       fontSize: 120,
                       fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                     ),
               ),
             ],
@@ -44,18 +44,14 @@ class TopSessionDesktop extends StatelessWidget {
         ),
         Text(
           'November 10, 2023',
-          //TODO Styleを入れる。
-          style: Theme.of(context).textTheme.displayLarge!.copyWith(
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                //TODO PoppinsのfontFamilyが入っていない可能性あり
                 color: Colors.white,
                 fontSize: 32,
+                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.16,
               ),
-          // style: TextStyle(
-          //   fontSize: 32,
-          //   fontWeight: FontWeight.w500,
-          //   letterSpacing: 0.16,
-          // ),
         ),
         const SizedBox(height: 24),
         Text(
