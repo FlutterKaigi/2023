@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             StaffSection(),
-            Spacer(),
+            SizedBox(height: 200),
             Footer(),
           ],
         ),
