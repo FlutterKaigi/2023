@@ -40,11 +40,13 @@ class TopSessionMobile extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 24),
         FittedBox(
           fit: BoxFit.fill,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 24,
+            ),
             child: Text(
               'November 10, 2023',
               style: GoogleFonts.poppins(
@@ -57,7 +59,6 @@ class TopSessionMobile extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
