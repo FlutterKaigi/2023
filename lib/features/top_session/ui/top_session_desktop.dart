@@ -2,9 +2,7 @@ import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
-
-//TODO フォントサイズの調整→Themeを使う
-//TODO FittedBoxを囲む
+import 'package:google_fonts/google_fonts.dart';
 
 class TopSessionDesktop extends StatelessWidget {
   const TopSessionDesktop({super.key});
@@ -16,51 +14,59 @@ class TopSessionDesktop extends StatelessWidget {
     return Column(
       children: [
         FittedBox(
-          fit: BoxFit.scaleDown,
+          fit: BoxFit.fill,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 '@',
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      //TODO PoppinsのfontFamilyが入っていない可能性あり
-                      color: Colors.white,
-                      fontSize: 100,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                    ),
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 75,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
+                  height: 1,
+                ),
               ),
               Text(
                 'OFFLINE',
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      //TODO PoppinsのfontFamilyが入っていない可能性あり
-                      color: Colors.white,
-                      fontSize: 120,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                    ),
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 90,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w800,
+                  height: 1,
+                ),
               ),
             ],
           ),
         ),
-        Text(
-          'November 10, 2023',
-          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                //TODO PoppinsのfontFamilyが入っていない可能性あり
+        FittedBox(
+          fit: BoxFit.fill,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 24,
+            ),
+            child: Text(
+              'November 10, 2023',
+              style: GoogleFonts.poppins(
                 color: Colors.white,
-                fontSize: 32,
+                fontSize: 24,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
                 letterSpacing: 0.16,
               ),
+            ),
+          ),
         ),
-        const SizedBox(height: 24),
         Text(
           'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
           'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
           textAlign: TextAlign.center,
           style: theme.bodyLarge!.copyWith(
             color: colorScheme.onPrimaryContainer,
+            fontSize: 12,
           ),
         ),
         const SizedBox(height: 24),
