@@ -1,6 +1,7 @@
 import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopSessionMobile extends StatelessWidget {
   const TopSessionMobile({super.key});
@@ -14,42 +15,46 @@ class TopSessionMobile extends StatelessWidget {
         FittedBox(
           fit: BoxFit.fill,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 '@',
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      //TODO PoppinsのfontFamilyが入っていない可能性あり
-                      color: Colors.white,
-                      fontSize: 48,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w700,
-                    ),
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 48,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
+                  height: 1,
+                ),
               ),
               Text(
                 'OFFLINE',
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      //TODO PoppinsのfontFamilyが入っていない可能性あり
-                      color: Colors.white,
-                      fontSize: 64,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w800,
-                    ),
+                style: GoogleFonts.poppins(
+                  color: Colors.white,
+                  fontSize: 64,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w800,
+                  height: 1,
+                ),
               )
             ],
           ),
         ),
+        const SizedBox(height: 24),
         FittedBox(
           fit: BoxFit.fill,
-          child: Text(
-            'November 10, 2023',
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  //TODO PoppinsのfontFamilyが入っていない可能性あり
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.12,
-                ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              'November 10, 2023',
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 24,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w500,
+                letterSpacing: 0.12,
+              ),
+            ),
           ),
         ),
         const SizedBox(height: 24),
