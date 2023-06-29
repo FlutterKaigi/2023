@@ -36,7 +36,6 @@ class TopSessionTwitter extends StatelessWidget {
             onTap: openLink,
             child: Container(
               width: isMobile ? 358 : 744,
-              height: isMobile ? 56 : 64,
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
                 vertical: 12,
