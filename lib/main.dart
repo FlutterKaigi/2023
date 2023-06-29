@@ -33,6 +33,10 @@ void main() async {
     ),
     GoogleFonts.poppins(
       fontStyle: FontStyle.italic,
+      fontWeight: FontWeight.w500,
+    ),
+    GoogleFonts.poppins(
+      fontStyle: FontStyle.italic,
       // semi-bold
       fontWeight: FontWeight.w600,
     ),
