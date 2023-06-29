@@ -9,8 +9,7 @@ class TopSessionTwitter extends StatelessWidget {
     required this.title,
     required this.subTitle,
     required this.url,
-    required this.width,
-    required this.height,
+    required this.isMobile,
     this.titleTextStyle,
     this.subTitleTextStyle,
     super.key,
@@ -21,8 +20,7 @@ class TopSessionTwitter extends StatelessWidget {
   final String title;
   final String subTitle;
   final String url;
-  final double width;
-  final double height;
+  final bool isMobile;
   final TextStyle? titleTextStyle;
   final TextStyle? subTitleTextStyle;
 
@@ -37,8 +35,8 @@ class TopSessionTwitter extends StatelessWidget {
           return GestureDetector(
             onTap: openLink,
             child: Container(
-              width: width,
-              height: height,
+              width: isMobile ? 358 : 744,
+              height: isMobile ? 56 : 64,
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
                 vertical: 12,
@@ -62,12 +60,12 @@ class TopSessionTwitter extends StatelessWidget {
                     height: 40,
                     child: SvgPicture.asset(image),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: isMobile ? 10 : 20),
                   Text(
                     title,
                     style: titleTextStyle,
                   ),
-                  const Spacer(),
+                  if (isMobile) const SizedBox.shrink() else const Spacer(),
                   Text(
                     subTitle,
                     style: subTitleTextStyle,
