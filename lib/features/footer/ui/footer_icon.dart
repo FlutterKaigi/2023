@@ -20,7 +20,7 @@ class FooterIcon extends StatelessWidget {
               return IconButton(
                 onPressed: openLink,
                 icon: SvgPicture.asset(
-                  Assets.icon.twitter,
+                  Assets.icons.twitter,
                   width: 40,
                   height: 40,
                 ),
@@ -41,7 +41,7 @@ class FooterIcon extends StatelessWidget {
               return IconButton(
                 onPressed: openLink,
                 icon: SvgPicture.asset(
-                  Assets.icon.github,
+                  Assets.icons.github,
                   width: 40,
                   height: 40,
                 ),
@@ -60,7 +60,7 @@ class FooterIcon extends StatelessWidget {
               return IconButton(
                 onPressed: openLink,
                 icon: SvgPicture.asset(
-                  Assets.icon.discord,
+                  Assets.icons.discord,
                   width: 40,
                   height: 40,
                 ),
@@ -83,7 +83,7 @@ class FooterIcon extends StatelessWidget {
                 return IconButton(
                   onPressed: openLink,
                   icon: SvgPicture.asset(
-                    Assets.icon.medium,
+                    Assets.icons.medium,
                     width: 40,
                     height: 40,
                   ),
