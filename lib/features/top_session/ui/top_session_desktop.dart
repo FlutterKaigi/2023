@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 
 //TODO フォントサイズの調整→Themeを使う
@@ -82,10 +83,10 @@ class TopSessionDesktop extends StatelessWidget {
           title: '#flutterkaigi',
           subTitle: 'FlutterKaigi 2023をツイート',
           titleTextStyle: theme.titleLarge!.copyWith(
-            color: colorScheme.inversePrimary,
+            color: baselineColorScheme.ref.primary.primary40,
           ),
           subTitleTextStyle: theme.bodyLarge!.copyWith(
-            color: colorScheme.inversePrimary,
+            color: baselineColorScheme.ref.primary.primary40,
           ),
           isMobile: false,
         ),
