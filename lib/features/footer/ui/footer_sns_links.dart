@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/gen/assets.gen.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
@@ -11,99 +12,66 @@ class FooterSnsLinks extends StatelessWidget {
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Semantics(
-          label: 'Flutter KaigiのTwitter',
-          enabled: true,
-          readOnly: true,
-          child: Link(
-            uri: Uri.parse('https://twitter.com/FlutterKaigi'),
-            target: LinkTarget.blank,
-            builder: (context, openLink) {
-              return IconButton(
-                onPressed: openLink,
-                icon: Icons(icon: Assets.icons.twitter),
-                color: Colors.white,
-              );
-            },
-          ),
+        _SnsLink(
+          semanticsLabel: 'FlutterKaigiのTwitter',
+          linkUrl: 'https://twitter.com/FlutterKaigi',
+          icon: Assets.icons.twitter,
         ),
         const SizedBox(width: 40),
-        Semantics(
-          label: 'Flutter KaigiのGithub',
-          enabled: true,
-          readOnly: true,
-          child: Link(
-            uri: Uri.parse(
-              'https://github.com/FlutterKaigi',
-            ),
-            target: LinkTarget.blank,
-            builder: (context, openLink) {
-              return IconButton(
-                onPressed: openLink,
-                icon: Icons(icon: Assets.icons.github),
-                color: Colors.white,
-              );
-            },
-          ),
+        _SnsLink(
+          semanticsLabel: 'FlutterKaigiのGitHub',
+          linkUrl: 'https://github.com/FlutterKaigi',
+          icon: Assets.icons.github,
         ),
         const SizedBox(width: 40),
-        Semantics(
-          label: 'Flutter KaigiのDiscord',
-          enabled: true,
-          readOnly: true,
-          child: Link(
-            uri: Uri.parse('https://discord.com/invite/Nr7H8JTJSF'),
-            target: LinkTarget.blank,
-            builder: (context, openLink) {
-              return IconButton(
-                onPressed: openLink,
-                icon: Icons(icon: Assets.icons.discord),
-                color: Colors.white,
-              );
-            },
-          ),
+        _SnsLink(
+          semanticsLabel: 'FlutterKaigiのDiscord',
+          linkUrl: 'https://discord.com/invite/Nr7H8JTJSF',
+          icon: Assets.icons.discord,
         ),
         const SizedBox(width: 40),
-        Padding(
-          padding: EdgeInsets.zero,
-          child: Semantics(
-            label: 'Flutter Kaigiのmedium',
-            enabled: true,
-            readOnly: true,
-            child: Link(
-              uri: Uri.parse(
-                'https://medium.com/flutterkaigi',
-              ),
-              target: LinkTarget.blank,
-              builder: (context, openLink) {
-                return IconButton(
-                  onPressed: openLink,
-                  icon: Icons(icon: Assets.icons.medium),
-                  color: Colors.white,
-                );
-              },
-            ),
-          ),
+        _SnsLink(
+          semanticsLabel: 'FlutterKaigiのMedium',
+          linkUrl: 'https://medium.com/flutterkaigi',
+          icon: Assets.icons.medium,
         ),
       ],
     );
   }
 }
 
-class Icons extends StatelessWidget {
-  const Icons({
+class _SnsLink extends StatelessWidget {
+  const _SnsLink({
+    required this.semanticsLabel,
+    required this.linkUrl,
     required this.icon,
-    super.key,
   });
 
+  final String semanticsLabel;
+  final String linkUrl;
   final String icon;
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      icon,
-      width: 40,
-      height: 40,
+    return Semantics(
+      label: semanticsLabel,
+      enabled: true,
+      readOnly: true,
+      child: Link(
+        uri: Uri.tryParse(linkUrl),
+        target: LinkTarget.blank,
+        builder: (context, openLink) {
+          return IconButton(
+            onPressed: openLink,
+            icon: SvgPicture.asset(
+              icon,
+              width: 40,
+              height: 40,
+            ),
+            color: baselineColorScheme.white,
+          );
+        },
+      ),
     );
   }
 }
