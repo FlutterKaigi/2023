@@ -6,19 +6,16 @@ class FooterLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 20),
-      child: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        alignment: WrapAlignment.spaceAround,
-        spacing: 24,
-        children: [
-          _Link.codeOfConduct(),
-          _Link.privacyPolicy(),
-          _Link.contact(),
-          _LicenseLink(),
-        ],
-      ),
+    return const Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      alignment: WrapAlignment.spaceAround,
+      spacing: 24,
+      children: [
+        _Link.codeOfConduct(),
+        _Link.privacyPolicy(),
+        _Link.contact(),
+        _LicenseLink(),
+      ],
     );
   }
 }

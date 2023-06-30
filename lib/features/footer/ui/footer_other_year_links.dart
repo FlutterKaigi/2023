@@ -6,16 +6,13 @@ class FooterOtherYearLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20),
-      child: Wrap(
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          _OtherYearsLink.$2021(),
-          _OtherYearsLinkSlash(),
-          _OtherYearsLink.$2022(),
-        ],
-      ),
+    return const Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        _OtherYearsLink.$2021(),
+        _OtherYearsLinkSlash(),
+        _OtherYearsLink.$2022(),
+      ],
     );
   }
 }

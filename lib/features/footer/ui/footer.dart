@@ -24,10 +24,15 @@ class Footer extends StatelessWidget {
         ),
         child: Column(
           children: [
+            SizedBox(height: 20),
             FooterOtherYearLinks(),
+            SizedBox(height: 20),
             FooterSnsLinks(),
+            SizedBox(height: 20),
             FooterLinks(),
+            SizedBox(height: 20),
             FooterCopyright(),
+            SizedBox(height: 80),
           ],
         ),
       ),

@@ -11,7 +11,6 @@ class FooterCopyright extends StatelessWidget {
         );
     return Column(
       children: [
-        const SizedBox(height: 20),
         Text(
           '© 2021-2023 FlutterKaigi 実行委員会',
           style: copyrightTextStyle,
@@ -48,7 +47,6 @@ class FooterCopyright extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 80),
       ],
     );
   }
