@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/features/hero_section/ui/hero_section_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
@@ -14,6 +15,22 @@ class HeroSectionDesktop extends StatelessWidget {
     final colorScheme = theme.colorScheme;
     return Column(
       children: [
+        const FlutterKaigiLogo(
+          style: FlutterKaigiLogoStyle.markOnly,
+          size: 180,
+        ),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'FlutterKaigi 2023',
+            style: GoogleFonts.poppins(
+              color: baselineColorScheme.white,
+              fontSize: 48,
+              fontWeight: FontWeight.w600,
+              height: 1.5,
+            ),
+          ),
+        ),
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Row(

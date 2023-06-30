@@ -10,10 +10,12 @@ environment:
   flutter: ">=3.11.0-0.1.pre"
 
 dependencies:
+  animations: ^2.0.7
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
+  flutter_hooks: ^0.18.6
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.7
