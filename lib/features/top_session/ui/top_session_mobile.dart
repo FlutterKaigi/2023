@@ -55,7 +55,7 @@ class TopSessionMobile extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
                 height: 1.5,
-                letterSpacing: 0.16,
+                letterSpacing: 0.12,
               ),
             ),
           ),
