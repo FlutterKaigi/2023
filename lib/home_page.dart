@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
+import 'package:confwebsite2023/features/hero_section/ui/hero_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class MainPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              HeroSection(),
               StaffSection(),
               SizedBox(height: 200),
               Footer(),
