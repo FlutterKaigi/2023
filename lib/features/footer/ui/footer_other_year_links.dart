@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
-class FooterAge extends StatelessWidget {
-  const FooterAge({super.key});
+class FooterOtherYearLinks extends StatelessWidget {
+  const FooterOtherYearLinks({super.key});
 
   @override
   Widget build(BuildContext context) {
