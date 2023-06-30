@@ -84,8 +84,8 @@ class FooterIcon extends StatelessWidget {
 
 class Icons extends StatelessWidget {
   const Icons({
-    super.key,
     required this.icon,
+    super.key,
   });
 
   final String icon;
