@@ -9,7 +9,7 @@ class TopSessionDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
     return Column(
       children: [
@@ -66,7 +66,7 @@ class TopSessionDesktop extends StatelessWidget {
             'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
             'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
             textAlign: TextAlign.center,
-            style: theme.bodyLarge!.copyWith(
+            style: textTheme.bodyLarge!.copyWith(
               color: colorScheme.onPrimaryContainer,
             ),
           ),
@@ -78,8 +78,8 @@ class TopSessionDesktop extends StatelessWidget {
           image: Assets.icons.twitter,
           title: '@FlutterKaigi',
           subTitle: '最新情報を公式Twitterでチェック',
-          titleTextStyle: theme.titleLarge,
-          subTitleTextStyle: theme.bodyLarge,
+          titleTextStyle: textTheme.titleLarge,
+          subTitleTextStyle: textTheme.bodyLarge,
           isMobile: false,
         ),
         const SizedBox(height: 20),
@@ -90,10 +90,10 @@ class TopSessionDesktop extends StatelessWidget {
           image: Assets.icons.twitter,
           title: '#flutterkaigi',
           subTitle: 'FlutterKaigi 2023をツイート',
-          titleTextStyle: theme.titleLarge!.copyWith(
+          titleTextStyle: textTheme.titleLarge!.copyWith(
             color: baselineColorScheme.ref.primary.primary40,
           ),
-          subTitleTextStyle: theme.bodyLarge!.copyWith(
+          subTitleTextStyle: textTheme.bodyLarge!.copyWith(
             color: baselineColorScheme.ref.primary.primary40,
           ),
           isMobile: false,
