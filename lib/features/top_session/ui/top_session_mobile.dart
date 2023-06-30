@@ -26,7 +26,7 @@ class TopSessionMobile extends StatelessWidget {
                   fontSize: 36,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w700,
-                  height: 1.5,
+                  height: 1,
                 ),
               ),
               Text(
@@ -36,7 +36,7 @@ class TopSessionMobile extends StatelessWidget {
                   fontSize: 48,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
-                  height: 1.5,
+                  height: 1,
                 ),
               )
             ],

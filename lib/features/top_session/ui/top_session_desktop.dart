@@ -26,7 +26,7 @@ class TopSessionDesktop extends StatelessWidget {
                   fontSize: 75,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w700,
-                  height: 1.5,
+                  height: 1,
                 ),
               ),
               Text(
@@ -36,7 +36,7 @@ class TopSessionDesktop extends StatelessWidget {
                   fontSize: 90,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
-                  height: 1.5,
+                  height: 1,
                 ),
               ),
             ],
