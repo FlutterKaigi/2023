@@ -19,11 +19,7 @@ class FooterIcon extends StatelessWidget {
             builder: (context, openLink) {
               return IconButton(
                 onPressed: openLink,
-                icon: SvgPicture.asset(
-                  Assets.icons.twitter,
-                  width: 40,
-                  height: 40,
-                ),
+                icon: Icons(icon: Assets.icons.twitter),
                 color: Colors.white,
               );
             },
@@ -40,11 +36,7 @@ class FooterIcon extends StatelessWidget {
             builder: (context, openLink) {
               return IconButton(
                 onPressed: openLink,
-                icon: SvgPicture.asset(
-                  Assets.icons.github,
-                  width: 40,
-                  height: 40,
-                ),
+                icon: Icons(icon: Assets.icons.github),
                 color: Colors.white,
               );
             },
@@ -59,11 +51,7 @@ class FooterIcon extends StatelessWidget {
             builder: (context, openLink) {
               return IconButton(
                 onPressed: openLink,
-                icon: SvgPicture.asset(
-                  Assets.icons.discord,
-                  width: 40,
-                  height: 40,
-                ),
+                icon: Icons(icon: Assets.icons.discord),
                 color: Colors.white,
               );
             },
@@ -82,11 +70,7 @@ class FooterIcon extends StatelessWidget {
               builder: (context, openLink) {
                 return IconButton(
                   onPressed: openLink,
-                  icon: SvgPicture.asset(
-                    Assets.icons.medium,
-                    width: 40,
-                    height: 40,
-                  ),
+                  icon: Icons(icon: Assets.icons.medium),
                   color: Colors.white,
                 );
               },
@@ -94,6 +78,24 @@ class FooterIcon extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class Icons extends StatelessWidget {
+  const Icons({
+    super.key,
+    required this.icon,
+  });
+
+  final String icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      icon,
+      width: 40,
+      height: 40,
     );
   }
 }
