@@ -10,24 +10,22 @@ class MainPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Get the position of the widget in the body widget.
-    Offset getWidgetPositionInBodyWidget(GlobalKey key) {
-      final renderBox = key.currentContext!.findRenderObject()! as RenderBox;
-      final position = renderBox.localToGlobal(Offset.zero);
-      return position - const Offset(0, kToolbarHeight);
-    }
-
     final scrollController = useScrollController();
 
-    final (staffKey) = GlobalKey();
+    const sectionKey = (
+      eventSectionKey: GlobalObjectKey('eventSectionKey'),
+      sessionSectionKey: GlobalObjectKey('sessionSectionKey'),
+      sponsorSectionKey: GlobalObjectKey('sponsorSectionKey'),
+      staffSectionKey: GlobalObjectKey('staffSectionKey'),
+    );
 
     final items = <HeaderItemButtonData>[
       HeaderItemButtonData(
         title: 'Staff',
-        onPressed: () async => scrollController.animateTo(
-          getWidgetPositionInBodyWidget(staffKey).dy,
-          duration: const Duration(milliseconds: 750),
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKey.staffSectionKey.currentContext!,
           curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
         ),
       ),
     ];
@@ -41,8 +39,10 @@ class MainPage extends HookWidget {
           curve: Curves.easeOutCirc,
         ),
       ),
-      body:
-          _MainPageBody(scrollController: scrollController, staffKey: staffKey),
+      body: _MainPageBody(
+        scrollController: scrollController,
+        staffSectionKey: sectionKey.staffSectionKey,
+      ),
     );
   }
 }
@@ -50,11 +50,11 @@ class MainPage extends HookWidget {
 class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
     required this.scrollController,
-    required this.staffKey,
+    required this.staffSectionKey,
   });
 
   final ScrollController scrollController;
-  final GlobalKey<State<StatefulWidget>> staffKey;
+  final GlobalKey<State<StatefulWidget>> staffSectionKey;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,7 @@ class _MainPageBody extends StatelessWidget {
             ),
           ),
           StaffSection(
-            key: staffKey,
+            key: staffSectionKey,
           ),
           const SizedBox(
             height: 800,
