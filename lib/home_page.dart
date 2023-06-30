@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              HeroSession(),
+              HeroSection(),
               StaffSection(),
               SizedBox(height: 200),
               Footer(),

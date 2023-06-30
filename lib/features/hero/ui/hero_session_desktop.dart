@@ -4,8 +4,8 @@ import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HeroSessionDesktop extends StatelessWidget {
-  const HeroSessionDesktop({super.key});
+class HeroSectionDesktop extends StatelessWidget {
+  const HeroSectionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class HeroSessionDesktop extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        HeroSessionTwitter(
+        HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
           icon: Assets.icons.twitter,
@@ -88,7 +88,7 @@ class HeroSessionDesktop extends StatelessWidget {
           isMobile: false,
         ),
         const SizedBox(height: 20),
-        HeroSessionTwitter(
+        HeroSectionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: baselineColorScheme.ref.primary.primary90,

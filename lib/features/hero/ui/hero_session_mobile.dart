@@ -4,8 +4,8 @@ import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HeroSessionMobile extends StatelessWidget {
-  const HeroSessionMobile({super.key});
+class HeroSectionMobile extends StatelessWidget {
+  const HeroSectionMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class HeroSessionMobile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        HeroSessionTwitter(
+        HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
           icon: Assets.icons.twitter,
@@ -80,7 +80,7 @@ class HeroSessionMobile extends StatelessWidget {
           isMobile: true,
         ),
         const SizedBox(height: 20),
-        HeroSessionTwitter(
+        HeroSectionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: baselineColorScheme.ref.primary.primary90,

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 
-class HeroSessionTwitter extends StatelessWidget {
-  const HeroSessionTwitter({
+class HeroSectionTwitter extends StatelessWidget {
+  const HeroSectionTwitter({
     required this.backgroundColor,
     required this.icon,
     required this.iconColor,

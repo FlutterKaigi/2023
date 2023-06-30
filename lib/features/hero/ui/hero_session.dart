@@ -3,14 +3,14 @@ import 'package:confwebsite2023/features/hero/ui/hero_session_desktop.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_session_mobile.dart';
 import 'package:flutter/material.dart';
 
-class HeroSession extends StatelessWidget {
-  const HeroSession({super.key});
+class HeroSection extends StatelessWidget {
+  const HeroSection({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const ResponsiveWidget(
-      largeWidget: HeroSessionDesktop(),
-      smallWidget: HeroSessionMobile(),
+      largeWidget: HeroSectionDesktop(),
+      smallWidget: HeroSectionMobile(),
     );
   }
 }
