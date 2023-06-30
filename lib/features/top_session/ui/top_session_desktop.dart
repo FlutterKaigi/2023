@@ -53,8 +53,8 @@ class TopSessionDesktop extends StatelessWidget {
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 24,
-                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
+                height: 1.5,
                 letterSpacing: 0.16,
               ),
             ),
