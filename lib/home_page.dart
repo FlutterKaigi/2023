@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/components/header/header_item_button_data.dart';
 import 'package:confwebsite2023/components/header/header_widget.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
+import 'package:confwebsite2023/features/hero_section/ui/hero_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -64,26 +64,7 @@ class _MainPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
-    final topSectionLogo = FittedBox(
-      child: Column(
-        children: [
-          const FlutterKaigiLogo(
-            style: FlutterKaigiLogoStyle.markOnly,
-            size: 180,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: Text(
-              'FlutterKaigi 2023',
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontSize: 64,
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
-          ),
-        ],
-      ),
-    );
+
     return SingleChildScrollView(
       controller: scrollController,
       child: Column(
@@ -95,7 +76,7 @@ class _MainPageBody extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                topSectionLogo,
+                const HeroSection(),
                 StaffSection(
                   key: staffSectionKey,
                 ),
