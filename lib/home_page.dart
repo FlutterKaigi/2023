@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
@@ -13,11 +14,15 @@ class MainPage extends StatelessWidget {
         title: const Text('FlutterKaigi 2023'),
       ),
       body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            StaffSection(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              StaffSection(),
+              SizedBox(height: 200),
+              Footer(),
+            ],
+          ),
         ),
       ),
     );
