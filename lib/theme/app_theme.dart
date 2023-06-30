@@ -1,49 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final _poppinsFontFamily = GoogleFonts.poppins().fontFamily;
+ThemeData get lightTheme => _builder(_lightColorScheme);
 
-ThemeData get lightTheme {
+ThemeData get darkTheme => _builder(_darkColorScheme);
+
+ThemeData _builder(ColorScheme scheme) {
   final theme = ThemeData.from(
-    colorScheme: _lightColorScheme,
+    colorScheme: scheme,
     useMaterial3: true,
   );
   final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
-  final textTheme = robotoTextTheme.copyWith(
-    displayLarge: robotoTextTheme.displayLarge?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-    displayMedium: robotoTextTheme.displayMedium?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-    displaySmall: robotoTextTheme.displaySmall?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-  );
   return theme.copyWith(
-    textTheme: textTheme,
-  );
-}
-
-ThemeData get darkTheme {
-  final theme = ThemeData.from(
-    colorScheme: _darkColorScheme,
-    useMaterial3: true,
-  );
-  final robotoTextTheme = GoogleFonts.robotoTextTheme(theme.textTheme);
-  final textTheme = robotoTextTheme.copyWith(
-    displayLarge: robotoTextTheme.displayLarge?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-    displayMedium: robotoTextTheme.displayMedium?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-    displaySmall: robotoTextTheme.displaySmall?.apply(
-      fontFamily: _poppinsFontFamily,
-    ),
-  );
-  return theme.copyWith(
-    textTheme: textTheme,
+    textTheme: robotoTextTheme,
   );
 }
 
