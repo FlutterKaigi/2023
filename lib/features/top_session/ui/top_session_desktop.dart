@@ -74,20 +74,24 @@ class TopSessionDesktop extends StatelessWidget {
         const SizedBox(height: 24),
         TopSessionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
-          backgroundColor: const Color(0xFF381E72),
+          backgroundColor: colorScheme.onPrimary,
           icon: Assets.icons.twitter,
           iconColor: baselineColorScheme.white,
           title: '@FlutterKaigi',
           subTitle: '最新情報を公式Twitterでチェック',
-          titleTextStyle: textTheme.titleLarge,
-          subTitleTextStyle: textTheme.bodyLarge,
+          titleTextStyle: textTheme.titleLarge!.copyWith(
+            color: baselineColorScheme.white,
+          ),
+          subTitleTextStyle: textTheme.bodyLarge!.copyWith(
+            color: baselineColorScheme.white,
+          ),
           isMobile: false,
         ),
         const SizedBox(height: 20),
         TopSessionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
-          backgroundColor: baselineColorScheme.white,
+          backgroundColor: baselineColorScheme.ref.primary.primary90,
           icon: Assets.icons.twitter,
           iconColor: baselineColorScheme.ref.primary.primary40,
           title: '#flutterkaigi',

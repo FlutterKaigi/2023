@@ -48,11 +48,14 @@ class TopSessionTwitter extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: backgroundColor,
                   borderRadius: BorderRadius.circular(100),
-                  border: Border.all(color: baselineColorScheme.white),
+                  border: Border.all(
+                    color: baselineColorScheme.ref.primary.primary90,
+                  ),
                   boxShadow: [
                     BoxShadow(
-                      color: baselineColorScheme.white,
-                      blurRadius: 10,
+                      color: baselineColorScheme.white.withOpacity(0.35),
+                      offset: const Offset(0, 2),
+                      blurRadius: 16,
                     ),
                   ],
                 ),
@@ -70,7 +73,7 @@ class TopSessionTwitter extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(width: isMobile ? 10 : 20),
+                    const SizedBox(width: 20),
                     Text(
                       title,
                       style: titleTextStyle,

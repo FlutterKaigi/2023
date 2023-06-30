@@ -86,7 +86,7 @@ class TopSessionMobile extends StatelessWidget {
         TopSessionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
-          backgroundColor: baselineColorScheme.white,
+          backgroundColor: baselineColorScheme.ref.primary.primary90,
           icon: Assets.icons.twitter,
           iconColor: baselineColorScheme.ref.primary.primary40,
           title: '',
