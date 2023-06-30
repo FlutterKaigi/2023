@@ -9,6 +9,25 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/discord.svg
+  String get discord => 'assets/icons/discord.svg';
+
+  /// File path: assets/icons/github.svg
+  String get github => 'assets/icons/github.svg';
+
+  /// File path: assets/icons/medium.svg
+  String get medium => 'assets/icons/medium.svg';
+
+  /// File path: assets/icons/twitter.svg
+  String get twitter => 'assets/icons/twitter.svg';
+
+  /// List of all assets
+  List<String> get values => [discord, github, medium, twitter];
+}
+
 class $AssetsTopSessionGen {
   const $AssetsTopSessionGen();
 
@@ -26,6 +45,7 @@ class Assets {
   Assets._();
 
   static const String flutterkaigiLogo = 'assets/flutterkaigi_logo.svg';
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsTopSessionGen topSession = $AssetsTopSessionGen();
 
   /// List of all assets
