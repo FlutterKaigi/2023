@@ -41,9 +41,9 @@ class TopSessionTwitter extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Container(
                 width: isMobile ? 358 : 744,
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: 30,
-                  vertical: 12,
+                  vertical: isMobile ? 8 : 12,
                 ),
                 decoration: BoxDecoration(
                   color: backgroundColor,
