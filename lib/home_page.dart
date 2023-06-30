@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
@@ -14,14 +15,13 @@ class MainPage extends StatelessWidget {
       ),
       body: const Center(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                StaffSection(),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              StaffSection(),
+              SizedBox(height: 200),
+              Footer(),
+            ],
           ),
         ),
       ),
