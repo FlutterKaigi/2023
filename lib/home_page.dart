@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
-import 'package:confwebsite2023/features/top_session/ui/top_session.dart';
+import 'package:confwebsite2023/features/top_session/ui/hero_session.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {
@@ -19,7 +19,7 @@ class MainPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TopSession(),
+              HeroSession(),
               StaffSection(),
               SizedBox(height: 200),
               Footer(),

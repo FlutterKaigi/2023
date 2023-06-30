@@ -3,8 +3,8 @@ import 'package:confwebsite2023/features/top_session/ui/top_session_desktop.dart
 import 'package:confwebsite2023/features/top_session/ui/top_session_mobile.dart';
 import 'package:flutter/material.dart';
 
-class TopSession extends StatelessWidget {
-  const TopSession({super.key});
+class HeroSession extends StatelessWidget {
+  const HeroSession({super.key});
 
   @override
   Widget build(BuildContext context) {
