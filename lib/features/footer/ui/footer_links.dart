@@ -15,8 +15,10 @@ class FooterLinks extends StatelessWidget {
         alignment: WrapAlignment.spaceAround,
         spacing: 24,
         children: [
-          Tooltip(
-            message: 'Code of Conduct',
+          Semantics(
+            label: 'Code of Conduct',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse(
                 'https://flutterkaigi.github.io/flutterkaigi/Code-of-Conduct.ja.html',
@@ -33,8 +35,10 @@ class FooterLinks extends StatelessWidget {
               },
             ),
           ),
-          Tooltip(
-            message: 'Privacy Policy',
+          Semantics(
+            label: 'Privacy Policy',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse(
                 'https://flutterkaigi.github.io/flutterkaigi/Privacy-Policy.ja.html',
@@ -52,8 +56,10 @@ class FooterLinks extends StatelessWidget {
             ),
           ),
           // const SizedBox(width: 40),
-          Tooltip(
-            message: 'Contact',
+          Semantics(
+            label: 'Contact',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse(
                 'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3',
@@ -71,8 +77,10 @@ class FooterLinks extends StatelessWidget {
             ),
           ),
           // const SizedBox(width: 40),
-          Tooltip(
-            message: 'License',
+          Semantics(
+            label: 'License',
+            enabled: true,
+            readOnly: true,
             child: TextButton(
               onPressed: () async {
                 await Navigator.push(

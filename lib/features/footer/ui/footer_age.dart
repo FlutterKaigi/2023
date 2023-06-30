@@ -14,8 +14,10 @@ class FooterAge extends StatelessWidget {
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          Tooltip(
-            message: 'https://flutterkaigi.jp/2021/',
+          Semantics(
+            label: '2021年のサイト',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse('https://flutterkaigi.jp/2021/'),
               target: LinkTarget.blank,
@@ -37,8 +39,10 @@ class FooterAge extends StatelessWidget {
               style: otherYearsLinkSlashTextStyle,
             ),
           ),
-          Tooltip(
-            message: 'https://flutterkaigi.jp/2022/',
+          Semantics(
+            label: '2022年のサイト',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse('https://flutterkaigi.jp/2022/'),
               target: LinkTarget.blank,

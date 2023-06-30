@@ -11,8 +11,10 @@ class FooterIcon extends StatelessWidget {
     return Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        Tooltip(
-          message: 'https://twitter.com/FlutterKaigi',
+        Semantics(
+          label: 'Flutter KaigiのTwitter',
+          enabled: true,
+          readOnly: true,
           child: Link(
             uri: Uri.parse('https://twitter.com/FlutterKaigi'),
             target: LinkTarget.blank,
@@ -26,8 +28,10 @@ class FooterIcon extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 40),
-        Tooltip(
-          message: 'https://github.com/FlutterKaigi',
+        Semantics(
+          label: 'Flutter KaigiのGithub',
+          enabled: true,
+          readOnly: true,
           child: Link(
             uri: Uri.parse(
               'https://github.com/FlutterKaigi',
@@ -43,8 +47,10 @@ class FooterIcon extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 40),
-        Tooltip(
-          message: 'https://discord.com/invite/Nr7H8JTJSF',
+        Semantics(
+          label: 'Flutter KaigiのDiscord',
+          enabled: true,
+          readOnly: true,
           child: Link(
             uri: Uri.parse('https://discord.com/invite/Nr7H8JTJSF'),
             target: LinkTarget.blank,
@@ -60,8 +66,10 @@ class FooterIcon extends StatelessWidget {
         const SizedBox(width: 40),
         Padding(
           padding: EdgeInsets.zero,
-          child: Tooltip(
-            message: 'https://medium.com/flutterkaigi',
+          child: Semantics(
+            label: 'Flutter Kaigiのmedium',
+            enabled: true,
+            readOnly: true,
             child: Link(
               uri: Uri.parse(
                 'https://medium.com/flutterkaigi',
