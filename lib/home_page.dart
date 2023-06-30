@@ -64,35 +64,38 @@ class _MainPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
+    final topSectionLogo = FittedBox(
+      child: Column(
+        children: [
+          const FlutterKaigiLogo(
+            style: FlutterKaigiLogoStyle.markOnly,
+            size: 180,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: Text(
+              'FlutterKaigi 2023',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 64,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+          ),
+        ],
+      ),
+    );
     return SingleChildScrollView(
       controller: scrollController,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          const SizedBox(height: 30),
           SizedBox(
             width: max(16, largeScreenSize + ((width - largeScreenSize) / 2)),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(height: 30),
-                const FlutterKaigiLogo(
-                  style: FlutterKaigiLogoStyle.markOnly,
-                  size: 180,
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      'FlutterKaigi 2023',
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontSize: 64,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ),
-                ),
+                topSectionLogo,
                 StaffSection(
                   key: staffSectionKey,
                 ),
