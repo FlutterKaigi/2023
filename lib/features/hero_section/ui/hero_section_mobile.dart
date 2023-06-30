@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/hero/ui/hero_session_twitter.dart';
+import 'package:confwebsite2023/features/hero_section/ui/hero_section_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';

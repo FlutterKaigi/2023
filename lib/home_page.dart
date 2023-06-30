@@ -1,5 +1,5 @@
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
-import 'package:confwebsite2023/features/hero/ui/hero_session.dart';
+import 'package:confwebsite2023/features/hero_section/ui/hero_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:flutter/material.dart';
 
