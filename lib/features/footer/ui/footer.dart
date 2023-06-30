@@ -1,7 +1,7 @@
-import 'package:confwebsite2023/components/flutter_kaigi_sns_links.dart';
-import 'package:confwebsite2023/features/footer/ui/footer_age.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_copyright.dart';
 import 'package:confwebsite2023/features/footer/ui/footer_links.dart';
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_other_year_links.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_sns_links.dart';
 import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
@@ -9,14 +9,10 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textStyle = theme.textTheme.bodyLarge?.copyWith(
-      color: baselineColorScheme.ref.secondary.secondary80,
-    );
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
+      child: const DecoratedBox(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -28,52 +24,15 @@ class Footer extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const FooterAge(),
-            const FlutterKaigiSnsLinks(),
-            const FooterLinks(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                '© 2021-2023 FlutterKaigi 実行委員会',
-                style: textStyle,
-              ),
-            ),
-            Column(
-              children: [
-                Text(
-                  'Flutter and the related logo are trademarks of Google LLC. '
-                  'FlutterKaigi is not affiliated with or otherwise sponsored '
-                  'by Google LLC.',
-                  textAlign: TextAlign.center,
-                  style: textStyle,
-                ),
-                const SizedBox(height: 20),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  alignment: WrapAlignment.center,
-                  runSpacing: 8,
-                  spacing: 8,
-                  children: [
-                    Text(
-                      'The "Flutter" name and the Flutter logo',
-                      style: textStyle,
-                    ),
-                    const ColorFiltered(
-                      colorFilter: ColorFilter.mode(
-                        Colors.white,
-                        BlendMode.srcATop,
-                      ),
-                      child: FlutterLogo(size: 24),
-                    ),
-                    Text(
-                      'are trademarks owned by Google.',
-                      style: textStyle,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 80),
-              ],
-            ),
+            SizedBox(height: 20),
+            FooterOtherYearLinks(),
+            SizedBox(height: 20),
+            FooterSnsLinks(),
+            SizedBox(height: 20),
+            FooterLinks(),
+            SizedBox(height: 20),
+            FooterCopyright(),
+            SizedBox(height: 80),
           ],
         ),
       ),
