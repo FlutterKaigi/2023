@@ -15,5 +15,9 @@ Future<List<Staff>> sortedStaffs(SortedStaffsRef ref) async {
   return staffs
     ..sort((a, b) => a.displayName.compareTo(b.displayName))
     // SNSをA-z順にソート
-    ..map((e) => e.sns..sort((a, b) => a.type.name.compareTo(b.type.name)));
+    ..map(
+      (e) => e.sns
+        ..sort((a, b) => a.type.name.compareTo(b.type.name))
+        ..take(4),
+    );
 }
