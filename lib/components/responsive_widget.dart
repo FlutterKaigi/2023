@@ -17,17 +17,17 @@ class ResponsiveWidget extends StatelessWidget {
   final Widget? smallWidget;
 
   /// Threshold for large screen
-  static const int _largeScreenSize = 1200;
+  static const int largeScreenSize = 1200;
 
   /// Threshold for medium screen
-  static const int _mediumScreenSize = 800;
+  static const int mediumScreenSize = 800;
 
   /// Returns the screen size type based on the screen width
   static ScreenSizeType getScreenSizeType(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return switch (screenWidth) {
-      > _largeScreenSize => ScreenSizeType.large,
-      > _mediumScreenSize => ScreenSizeType.medium,
+      > largeScreenSize => ScreenSizeType.large,
+      > mediumScreenSize => ScreenSizeType.medium,
       _ => ScreenSizeType.small,
     };
   }
