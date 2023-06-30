@@ -23,10 +23,12 @@ class HeroSectionMobile extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Text(
             'FlutterKaigi 2023',
-            style: textTheme.titleLarge!.copyWith(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w600,
-                ),
+            style: GoogleFonts.poppins(
+              color: baselineColorScheme.white,
+              fontSize: 30,
+              fontWeight: FontWeight.w600,
+              height: 1.5,
+            ),
           ),
         ),
         FittedBox(
