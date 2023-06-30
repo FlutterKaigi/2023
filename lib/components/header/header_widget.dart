@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/components/header/header_item_button_data.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_sns_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -138,8 +139,8 @@ class _DrawerScreen extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: IconButton(
@@ -154,18 +155,21 @@ class _DrawerScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(15),
-            child: ListView(
-              primary: true,
-              shrinkWrap: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
-                  title: FlutterKaigiLogo(
-                    style: FlutterKaigiLogoStyle.horizontal,
-                    textStyle: theme.textTheme.titleLarge!.copyWith(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 24,
+                  title: FittedBox(
+                    alignment: Alignment.centerLeft,
+                    fit: BoxFit.scaleDown,
+                    child: FlutterKaigiLogo(
+                      style: FlutterKaigiLogoStyle.horizontal,
+                      textStyle: theme.textTheme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                      ),
+                      size: 36,
                     ),
-                    size: 36,
                   ),
                   onTap: () {
                     onTitleTap();
@@ -197,7 +201,7 @@ class _DrawerScreen extends StatelessWidget {
           ),
           const Spacer(),
           // SNS Icons
-          // TODO(YumNumm): SNS Icons impl after #26 was merged.
+          const FooterSnsLinks(),
           // CopyRight
           Padding(
             padding: const EdgeInsets.all(10),
