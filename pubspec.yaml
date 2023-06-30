@@ -10,7 +10,7 @@ environment:
   flutter: ">=3.11.0-0.1.pre"
 
 dependencies:
-  collection: ^1.17.2
+  collection: ^1.17.1
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
