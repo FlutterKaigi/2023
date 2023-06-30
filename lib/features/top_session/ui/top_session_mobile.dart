@@ -22,7 +22,7 @@ class TopSessionMobile extends StatelessWidget {
               Text(
                 '@',
                 style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: baselineColorScheme.white,
                   fontSize: 48,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class TopSessionMobile extends StatelessWidget {
               Text(
                 'OFFLINE',
                 style: GoogleFonts.poppins(
-                  color: Colors.white,
+                  color: baselineColorScheme.white,
                   fontSize: 64,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
@@ -52,7 +52,7 @@ class TopSessionMobile extends StatelessWidget {
             child: Text(
               'November 10, 2023',
               style: GoogleFonts.poppins(
-                color: Colors.white,
+                color: baselineColorScheme.white,
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
                 height: 1.5,
@@ -86,7 +86,7 @@ class TopSessionMobile extends StatelessWidget {
         TopSessionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
-          backgroundColor: Colors.white,
+          backgroundColor: baselineColorScheme.white,
           image: Assets.icons.twitter,
           title: '',
           subTitle: 'FlutterKaigi 2023をツイート',

@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
@@ -45,10 +46,10 @@ class TopSessionTwitter extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: backgroundColor,
                   borderRadius: BorderRadius.circular(100),
-                  border: Border.all(color: Colors.white),
-                  boxShadow: const [
+                  border: Border.all(color: baselineColorScheme.white),
+                  boxShadow: [
                     BoxShadow(
-                      color: Colors.white,
+                      color: baselineColorScheme.white,
                       blurRadius: 10,
                     ),
                   ],
