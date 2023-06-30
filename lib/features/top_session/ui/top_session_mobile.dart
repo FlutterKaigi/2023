@@ -8,8 +8,9 @@ class TopSessionMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).textTheme;
-    final colorScheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
     return Column(
       children: [
         FittedBox(
@@ -65,7 +66,7 @@ class TopSessionMobile extends StatelessWidget {
             'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
             'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
             textAlign: TextAlign.center,
-            style: theme.bodyLarge!.copyWith(
+            style: textTheme.bodyLarge!.copyWith(
               color: colorScheme.onPrimaryContainer,
             ),
           ),
@@ -77,7 +78,7 @@ class TopSessionMobile extends StatelessWidget {
           image: Assets.topSession.twitterCheck,
           title: '',
           subTitle: '最新情報をチェック',
-          subTitleTextStyle: theme.bodyMedium!.copyWith(
+          subTitleTextStyle: textTheme.bodyMedium!.copyWith(
             fontSize: 14,
           ),
           isMobile: true,
@@ -90,7 +91,7 @@ class TopSessionMobile extends StatelessWidget {
           image: Assets.topSession.twitterTweet,
           title: '',
           subTitle: 'FlutterKaigi 2023をツイート',
-          subTitleTextStyle: theme.bodyLarge!.copyWith(
+          subTitleTextStyle: textTheme.bodyLarge!.copyWith(
             color: colorScheme.inversePrimary,
             fontSize: 14,
           ),
