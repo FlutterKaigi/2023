@@ -42,7 +42,7 @@ class TopSessionDesktop extends StatelessWidget {
           ),
         ),
         FittedBox(
-          fit: BoxFit.fill,
+          fit: BoxFit.scaleDown,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,

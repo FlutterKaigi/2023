@@ -14,7 +14,7 @@ class TopSessionMobile extends StatelessWidget {
     return Column(
       children: [
         FittedBox(
-          fit: BoxFit.fill,
+          fit: BoxFit.scaleDown,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,7 +42,7 @@ class TopSessionMobile extends StatelessWidget {
           ),
         ),
         FittedBox(
-          fit: BoxFit.fill,
+          fit: BoxFit.scaleDown,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16,
