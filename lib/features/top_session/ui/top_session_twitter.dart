@@ -6,7 +6,8 @@ import 'package:url_launcher/link.dart';
 class TopSessionTwitter extends StatelessWidget {
   const TopSessionTwitter({
     required this.backgroundColor,
-    required this.image,
+    required this.icon,
+    required this.iconColor,
     required this.title,
     required this.subTitle,
     required this.url,
@@ -17,7 +18,8 @@ class TopSessionTwitter extends StatelessWidget {
   });
 
   final Color backgroundColor;
-  final String image;
+  final String icon;
+  final Color iconColor;
   final String title;
   final String subTitle;
   final String url;
@@ -60,7 +62,13 @@ class TopSessionTwitter extends StatelessWidget {
                     SizedBox(
                       width: 40,
                       height: 40,
-                      child: SvgPicture.asset(image),
+                      child: SvgPicture.asset(
+                        icon,
+                        colorFilter: ColorFilter.mode(
+                          iconColor,
+                          BlendMode.srcIn,
+                        ),
+                      ),
                     ),
                     SizedBox(width: isMobile ? 10 : 20),
                     Text(

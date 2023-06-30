@@ -75,7 +75,8 @@ class TopSessionMobile extends StatelessWidget {
         TopSessionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
-          image: Assets.icons.twitter,
+          icon: Assets.icons.twitter,
+          iconColor: baselineColorScheme.white,
           title: '',
           subTitle: '最新情報をチェック',
           subTitleTextStyle: textTheme.bodyMedium,
@@ -86,7 +87,8 @@ class TopSessionMobile extends StatelessWidget {
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: baselineColorScheme.white,
-          image: Assets.icons.twitter,
+          icon: Assets.icons.twitter,
+          iconColor: baselineColorScheme.ref.primary.primary40,
           title: '',
           subTitle: 'FlutterKaigi 2023をツイート',
           subTitleTextStyle: textTheme.bodyLarge!.copyWith(
