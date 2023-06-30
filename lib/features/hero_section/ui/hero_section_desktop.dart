@@ -23,7 +23,7 @@ class HeroSectionDesktop extends StatelessWidget {
           fit: BoxFit.scaleDown,
           child: Text(
             'FlutterKaigi 2023',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+            style: textTheme.titleLarge!.copyWith(
                   fontSize: 64,
                   fontWeight: FontWeight.w600,
                 ),
