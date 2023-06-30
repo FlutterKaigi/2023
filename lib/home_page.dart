@@ -16,18 +16,18 @@ class MainPage extends HookWidget {
   Widget build(BuildContext context) {
     final scrollController = useScrollController();
 
-    const sectionKey = (
-      eventSectionKey: GlobalObjectKey('eventSectionKey'),
-      sessionSectionKey: GlobalObjectKey('sessionSectionKey'),
-      sponsorSectionKey: GlobalObjectKey('sponsorSectionKey'),
-      staffSectionKey: GlobalObjectKey('staffSectionKey'),
+    const sectionKeys = (
+      event: GlobalObjectKey('eventSectionKey'),
+      session: GlobalObjectKey('sessionSectionKey'),
+      sponsor: GlobalObjectKey('sponsorSectionKey'),
+      staff: GlobalObjectKey('staffSectionKey'),
     );
 
     final items = <HeaderItemButtonData>[
       HeaderItemButtonData(
         title: 'Staff',
         onPressed: () async => Scrollable.ensureVisible(
-          sectionKey.staffSectionKey.currentContext!,
+          sectionKeys.staff.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
@@ -45,7 +45,7 @@ class MainPage extends HookWidget {
       ),
       body: _MainPageBody(
         scrollController: scrollController,
-        staffSectionKey: sectionKey.staffSectionKey,
+        staffSectionKey: sectionKeys.staff,
       ),
     );
   }
