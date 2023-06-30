@@ -25,7 +25,7 @@ class TopSessionDesktop extends StatelessWidget {
                   color: baselineColorScheme.white,
                   fontSize: 75,
                   fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
                   height: 1.5,
                 ),
               ),

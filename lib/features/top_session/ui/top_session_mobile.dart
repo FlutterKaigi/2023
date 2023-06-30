@@ -23,9 +23,9 @@ class TopSessionMobile extends StatelessWidget {
                 '@',
                 style: GoogleFonts.poppins(
                   color: baselineColorScheme.white,
-                  fontSize: 48,
+                  fontSize: 36,
                   fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
                   height: 1.5,
                 ),
               ),
@@ -33,7 +33,7 @@ class TopSessionMobile extends StatelessWidget {
                 'OFFLINE',
                 style: GoogleFonts.poppins(
                   color: baselineColorScheme.white,
-                  fontSize: 64,
+                  fontSize: 48,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
                   height: 1.5,
