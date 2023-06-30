@@ -51,25 +51,28 @@ class TopSessionTwitter extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(
-                    width: 40,
-                    height: 40,
-                    child: SvgPicture.asset(image),
-                  ),
-                  SizedBox(width: isMobile ? 10 : 20),
-                  Text(
-                    title,
-                    style: titleTextStyle,
-                  ),
-                  if (isMobile) const SizedBox.shrink() else const Spacer(),
-                  Text(
-                    subTitle,
-                    style: subTitleTextStyle,
-                  ),
-                ],
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: SvgPicture.asset(image),
+                    ),
+                    SizedBox(width: isMobile ? 10 : 20),
+                    Text(
+                      title,
+                      style: titleTextStyle,
+                    ),
+                    if (isMobile) const SizedBox.shrink() else const Spacer(),
+                    Text(
+                      subTitle,
+                      style: subTitleTextStyle,
+                    ),
+                  ],
+                ),
               ),
             ),
           );
