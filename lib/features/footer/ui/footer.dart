@@ -10,11 +10,8 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final textStyle = theme.textTheme.bodyLarge!.copyWith(
+    final textStyle = theme.textTheme.bodyLarge?.copyWith(
       color: baselineColorScheme.ref.secondary.secondary80,
-    );
-    final copyrightTextStyle = theme.textTheme.bodyLarge!.copyWith(
-      color: theme.colorScheme.secondary,
     );
     return SizedBox(
       width: MediaQuery.of(context).size.width,
@@ -38,7 +35,7 @@ class Footer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 '© 2021-2023 FlutterKaigi 実行委員会',
-                style: copyrightTextStyle,
+                style: textStyle,
               ),
             ),
             Column(
