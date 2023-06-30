@@ -47,25 +47,26 @@ class FlutterKaigiLogo extends StatelessWidget {
           height: iconSize,
           colorFilter: ColorFilter.mode(color ?? iconColor, BlendMode.srcIn),
         );
+    final shadowOffset = iconSize / 18;
     final shadowedIcon = Stack(
       children: [
         // blur
         Transform.translate(
-          offset: Offset(-(iconSize / 18), -(iconSize / 18)),
+          offset: -Offset(shadowOffset, shadowOffset),
           child: ImageFiltered(
             imageFilter: ImageFilter.blur(
-              sigmaX: iconSize / 18,
-              sigmaY: iconSize / 18,
+              sigmaX: shadowOffset,
+              sigmaY: shadowOffset,
             ),
             child: baseIcon(color: const Color(0x7240D1FF)),
           ),
         ),
         Transform.translate(
-          offset: Offset(iconSize / 18, iconSize / 18),
+          offset: Offset(shadowOffset, shadowOffset),
           child: ImageFiltered(
             imageFilter: ImageFilter.blur(
-              sigmaX: iconSize / 18,
-              sigmaY: iconSize / 18,
+              sigmaX: shadowOffset,
+              sigmaY: shadowOffset,
             ),
             child: baseIcon(color: const Color(0x668211B1)),
           ),
