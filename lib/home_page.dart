@@ -14,13 +14,15 @@ class MainPage extends StatelessWidget {
         title: const Text('FlutterKaigi 2023'),
       ),
       body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            StaffSection(),
-            SizedBox(height: 200),
-            Footer(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              StaffSection(),
+              SizedBox(height: 200),
+              Footer(),
+            ],
+          ),
         ),
       ),
     );
