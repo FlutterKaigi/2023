@@ -4,8 +4,8 @@ import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TopSessionDesktop extends StatelessWidget {
-  const TopSessionDesktop({super.key});
+class HeroSessionDesktop extends StatelessWidget {
+  const HeroSessionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
