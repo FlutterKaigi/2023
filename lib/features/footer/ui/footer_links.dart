@@ -13,24 +13,9 @@ class FooterLinks extends StatelessWidget {
         alignment: WrapAlignment.spaceAround,
         spacing: 24,
         children: [
-          _Link(
-            semanticsLabel: 'Code of Conduct',
-            url:
-                'https://flutterkaigi.github.io/flutterkaigi/Code-of-Conduct.ja.html',
-            text: 'Code of Conduct',
-          ),
-          _Link(
-            semanticsLabel: 'Privacy Policy',
-            url:
-                'https://flutterkaigi.github.io/flutterkaigi/Privacy-Policy.ja.html',
-            text: 'Privacy Policy',
-          ),
-          _Link(
-            semanticsLabel: 'Contact',
-            url:
-                'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3',
-            text: 'Contact',
-          ),
+          _Link.codeOfConduct(),
+          _Link.privacyPolicy(),
+          _Link.contact(),
           _LicenseLink(),
         ],
       ),
@@ -39,11 +24,23 @@ class FooterLinks extends StatelessWidget {
 }
 
 class _Link extends StatelessWidget {
-  const _Link({
-    required this.semanticsLabel,
-    required this.url,
-    required this.text,
-  });
+  const _Link.codeOfConduct()
+      : semanticsLabel = 'Code of Conduct',
+        url =
+            'https://flutterkaigi.github.io/flutterkaigi/Code-of-Conduct.ja.html',
+        text = 'Code of Conduct';
+
+  const _Link.privacyPolicy()
+      : semanticsLabel = 'Privacy Policy',
+        url =
+            'https://flutterkaigi.github.io/flutterkaigi/Privacy-Policy.ja.html',
+        text = 'Privacy Policy';
+
+  const _Link.contact()
+      : semanticsLabel = 'Contact',
+        url =
+            'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3',
+        text = 'Contact';
 
   final String semanticsLabel;
   final String url;
