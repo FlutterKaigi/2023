@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
 
-class FooterIcon extends StatelessWidget {
-  const FooterIcon({super.key});
+class FooterSnsLinks extends StatelessWidget {
+  const FooterSnsLinks({super.key});
 
   @override
   Widget build(BuildContext context) {

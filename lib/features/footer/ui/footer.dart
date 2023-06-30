@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/features/footer/ui/footer_age.dart';
-import 'package:confwebsite2023/features/footer/ui/footer_icon.dart';
 import 'package:confwebsite2023/features/footer/ui/footer_links.dart';
+import 'package:confwebsite2023/features/footer/ui/footer_sns_links.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +29,7 @@ class Footer extends StatelessWidget {
         child: Column(
           children: [
             const FooterAge(),
-            const FooterIcon(),
+            const FooterSnsLinks(),
             const FooterLinks(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
