@@ -14,7 +14,7 @@ class TopSessionDesktop extends StatelessWidget {
     return Column(
       children: [
         FittedBox(
-          fit: BoxFit.fill,
+          fit: BoxFit.scaleDown,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
