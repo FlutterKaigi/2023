@@ -6,7 +6,8 @@ class FooterLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final linkTextStyle = Theme.of(context).textTheme.bodyLarge;
+    final theme = Theme.of(context);
+    final linkTextStyle = theme.textTheme.bodyLarge;
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Wrap(

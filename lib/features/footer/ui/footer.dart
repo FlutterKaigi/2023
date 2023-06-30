@@ -8,8 +8,9 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final theme = Theme.of(context).textTheme.bodyLarge;
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textStyle = theme.textTheme.bodyLarge;
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       child: DecoratedBox(
@@ -32,7 +33,7 @@ class Footer extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Text(
                 '© 2021-2023 FlutterKaigi 実行委員会',
-                style: theme!.copyWith(
+                style: textStyle!.copyWith(
                   color: colorScheme.secondary,
                 ),
               ),
@@ -44,7 +45,7 @@ class Footer extends StatelessWidget {
                   'FlutterKaigi is not affiliated with or otherwise sponsored '
                   'by Google LLC.',
                   textAlign: TextAlign.center,
-                  style: theme.copyWith(
+                  style: textStyle.copyWith(
                     color: colorScheme.secondary.withOpacity(0.8),
                   ),
                 ),
@@ -57,7 +58,7 @@ class Footer extends StatelessWidget {
                   children: [
                     Text(
                       'The "Flutter" name and the Flutter logo',
-                      style: theme.copyWith(
+                      style: textStyle.copyWith(
                         color: colorScheme.secondary.withOpacity(0.8),
                       ),
                     ),
@@ -70,7 +71,7 @@ class Footer extends StatelessWidget {
                     ),
                     Text(
                       'are trademarks owned by Google.',
-                      style: theme.copyWith(
+                      style: textStyle.copyWith(
                         color: colorScheme.secondary.withOpacity(0.8),
                       ),
                     ),
