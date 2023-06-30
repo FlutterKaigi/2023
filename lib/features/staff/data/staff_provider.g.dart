@@ -22,4 +22,18 @@ final staffsProvider = AutoDisposeFutureProvider<List<Staff>>.internal(
 );
 
 typedef StaffsRef = AutoDisposeFutureProviderRef<List<Staff>>;
+String _$sortedStaffsHash() => r'3ce74d57c49f336856382bc00affe213d8371c09';
+
+/// See also [sortedStaffs].
+@ProviderFor(sortedStaffs)
+final sortedStaffsProvider = AutoDisposeFutureProvider<List<Staff>>.internal(
+  sortedStaffs,
+  name: r'sortedStaffsProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$sortedStaffsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef SortedStaffsRef = AutoDisposeFutureProviderRef<List<Staff>>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

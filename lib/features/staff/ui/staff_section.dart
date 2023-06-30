@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:confwebsite2023/features/staff/data/staff.dart';
@@ -29,7 +30,7 @@ class _StaffList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(staffsProvider);
+    final state = ref.watch(sortedStaffsProvider);
     return state.when(
       data: (data) {
         return Container(
