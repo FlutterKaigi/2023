@@ -86,7 +86,7 @@ class FlutterKaigiLogo extends StatelessWidget {
             if (showGradient) shadowedIcon else baseIcon(),
             const SizedBox(width: 10),
             Text(
-              'Flutter Kaigi 2023',
+              'FlutterKaigi 2023',
               style: textStyle,
             ),
           ],
@@ -98,7 +98,7 @@ class FlutterKaigiLogo extends StatelessWidget {
             if (showGradient) shadowedIcon else baseIcon(),
             const SizedBox(height: 10),
             Text(
-              'Flutter Kaigi 2023',
+              'FlutterKaigi 2023',
               style: textStyle,
             ),
           ],
