@@ -49,6 +49,7 @@ enum SnsType {
   qiita('https://qiita.com/'),
   zenn('https://zenn.dev/'),
   note('https://note.com/'),
+  medium('https://medium.com/'),
   ;
 
   const SnsType(this.prefixUrl);
