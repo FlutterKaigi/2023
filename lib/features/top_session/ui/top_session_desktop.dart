@@ -66,7 +66,6 @@ class TopSessionDesktop extends StatelessWidget {
           textAlign: TextAlign.center,
           style: theme.bodyLarge!.copyWith(
             color: colorScheme.onPrimaryContainer,
-            fontSize: 12,
           ),
         ),
         const SizedBox(height: 24),
