@@ -3,6 +3,7 @@ import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/components/flutter_kaigi_sns_links.dart';
 import 'package:confwebsite2023/components/header/header_item_button_data.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -39,7 +40,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
             style: FlutterKaigiLogoStyle.markOnly,
             size: 36,
             showGradient: false,
-            iconColor: theme.colorScheme.secondary.withOpacity(0.8),
+            iconColor: baselineColorScheme.ref.secondary.secondary80,
           ),
         ),
         const Spacer(),
@@ -75,9 +76,9 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
               FlutterKaigiLogo(
                 style: FlutterKaigiLogoStyle.horizontal,
                 size: 36,
-                iconColor: theme.colorScheme.secondary.withOpacity(0.8),
+                iconColor: baselineColorScheme.ref.secondary.secondary80,
                 textStyle: textTheme.titleLarge!.copyWith(
-                  color: theme.colorScheme.secondary.withOpacity(0.8),
+                  color: baselineColorScheme.ref.secondary.secondary80,
                 ),
               ),
             ),
@@ -90,7 +91,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
                   child: Text(
                     e.title,
                     style: textTheme.titleLarge!.copyWith(
-                      color: theme.colorScheme.secondary.withOpacity(0.99),
+                      color: baselineColorScheme.ref.secondary.secondary99,
                     ),
                   ),
                 ),
@@ -191,7 +192,7 @@ class _DrawerScreen extends StatelessWidget {
                     // 白ポチ
                     leading: Icon(
                       Icons.circle,
-                      color: theme.colorScheme.secondary.withOpacity(0.7),
+                      color: baselineColorScheme.ref.secondary.secondary70,
                       size: 8,
                     ),
                   ),
@@ -208,14 +209,7 @@ class _DrawerScreen extends StatelessWidget {
             child: Text(
               '@ FlutterKaigi 2023 実行委員会',
               style: theme.textTheme.bodyLarge!.copyWith(
-                color: const Color(0xFFCCC2DC),
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.25),
-                    blurRadius: 4,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
+                color: baselineColorScheme.ref.secondary.secondary80,
               ),
             ),
           ),
