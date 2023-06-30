@@ -32,7 +32,6 @@ void main() async {
       fontWeight: FontWeight.bold,
     ),
     GoogleFonts.poppins(
-      fontStyle: FontStyle.italic,
       fontWeight: FontWeight.w500,
     ),
     GoogleFonts.poppins(
