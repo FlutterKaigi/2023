@@ -28,25 +28,11 @@ class $AssetsIconsGen {
   List<String> get values => [discord, github, medium, twitter];
 }
 
-class $AssetsTopSessionGen {
-  const $AssetsTopSessionGen();
-
-  /// File path: assets/top_session/twitter_check.svg
-  String get twitterCheck => 'assets/top_session/twitter_check.svg';
-
-  /// File path: assets/top_session/twitter_tweet.svg
-  String get twitterTweet => 'assets/top_session/twitter_tweet.svg';
-
-  /// List of all assets
-  List<String> get values => [twitterCheck, twitterTweet];
-}
-
 class Assets {
   Assets._();
 
   static const String flutterkaigiLogo = 'assets/flutterkaigi_logo.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const $AssetsTopSessionGen topSession = $AssetsTopSessionGen();
 
   /// List of all assets
   List<String> get values => [flutterkaigiLogo];
