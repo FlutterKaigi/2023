@@ -46,4 +46,3 @@ flutter:
     - .env
     - assets/icons/
     - assets/
-    - assets/top_session/
