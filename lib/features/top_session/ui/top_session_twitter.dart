@@ -34,27 +34,28 @@ class TopSessionTwitter extends StatelessWidget {
         builder: (context, openLink) {
           return GestureDetector(
             onTap: openLink,
-            child: Container(
-              width: isMobile ? 358 : 744,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30,
-                vertical: 12,
-              ),
-              decoration: BoxDecoration(
-                color: backgroundColor,
-                borderRadius: BorderRadius.circular(100),
-                border: Border.all(color: Colors.white),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.white,
-                    blurRadius: 10,
-                  ),
-                ],
-              ),
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Container(
+                width: isMobile ? 358 : 744,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(color: Colors.white),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 10,
+                    ),
+                  ],
+                ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
                       width: 40,

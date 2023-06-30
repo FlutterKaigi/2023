@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,7 +26,7 @@ class TopSessionMobile extends StatelessWidget {
                   fontSize: 48,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold,
-                  height: 1,
+                  height: 1.5,
                 ),
               ),
               Text(
@@ -35,7 +36,7 @@ class TopSessionMobile extends StatelessWidget {
                   fontSize: 64,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
-                  height: 1,
+                  height: 1.5,
                 ),
               )
             ],
@@ -53,9 +54,9 @@ class TopSessionMobile extends StatelessWidget {
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontSize: 24,
-                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
-                letterSpacing: 0.12,
+                height: 1.5,
+                letterSpacing: 0.16,
               ),
             ),
           ),
@@ -78,9 +79,7 @@ class TopSessionMobile extends StatelessWidget {
           image: Assets.topSession.twitterCheck,
           title: '',
           subTitle: '最新情報をチェック',
-          subTitleTextStyle: textTheme.bodyMedium!.copyWith(
-            fontSize: 14,
-          ),
+          subTitleTextStyle: textTheme.bodyMedium,
           isMobile: true,
         ),
         const SizedBox(height: 20),
@@ -92,8 +91,7 @@ class TopSessionMobile extends StatelessWidget {
           title: '',
           subTitle: 'FlutterKaigi 2023をツイート',
           subTitleTextStyle: textTheme.bodyLarge!.copyWith(
-            color: colorScheme.inversePrimary,
-            fontSize: 14,
+            color: baselineColorScheme.ref.primary.primary40,
           ),
           isMobile: true,
         ),
