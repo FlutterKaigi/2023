@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/top_session/ui/top_session_twitter.dart';
+import 'package:confwebsite2023/features/top_session/ui/hero_session_twitter.dart';
 import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +69,7 @@ class HeroSessionMobile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        TopSessionTwitter(
+        HeroSessionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
           icon: Assets.icons.twitter,
@@ -80,7 +80,7 @@ class HeroSessionMobile extends StatelessWidget {
           isMobile: true,
         ),
         const SizedBox(height: 20),
-        TopSessionTwitter(
+        HeroSessionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: baselineColorScheme.ref.primary.primary90,
