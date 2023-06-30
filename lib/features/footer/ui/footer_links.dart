@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
+
+class FooterLinks extends StatelessWidget {
+  const FooterLinks({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final linkTextStyle = theme.textTheme.bodyLarge;
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        alignment: WrapAlignment.spaceAround,
+        spacing: 24,
+        children: [
+          Semantics(
+            label: 'Code of Conduct',
+            enabled: true,
+            readOnly: true,
+            child: Link(
+              uri: Uri.parse(
+                'https://flutterkaigi.github.io/flutterkaigi/Code-of-Conduct.ja.html',
+              ),
+              target: LinkTarget.blank,
+              builder: (context, openLink) {
+                return TextButton(
+                  onPressed: openLink,
+                  child: Text(
+                    'Code of Conduct',
+                    style: linkTextStyle,
+                  ),
+                );
+              },
+            ),
+          ),
+          Semantics(
+            label: 'Privacy Policy',
+            enabled: true,
+            readOnly: true,
+            child: Link(
+              uri: Uri.parse(
+                'https://flutterkaigi.github.io/flutterkaigi/Privacy-Policy.ja.html',
+              ),
+              target: LinkTarget.blank,
+              builder: (context, openLink) {
+                return TextButton(
+                  onPressed: openLink,
+                  child: Text(
+                    'Privacy Policy',
+                    style: linkTextStyle,
+                  ),
+                );
+              },
+            ),
+          ),
+          Semantics(
+            label: 'Contact',
+            enabled: true,
+            readOnly: true,
+            child: Link(
+              uri: Uri.parse(
+                'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3',
+              ),
+              target: LinkTarget.blank,
+              builder: (context, openLink) {
+                return TextButton(
+                  onPressed: openLink,
+                  child: Text(
+                    'Contact',
+                    style: linkTextStyle,
+                  ),
+                );
+              },
+            ),
+          ),
+          Semantics(
+            label: 'License',
+            enabled: true,
+            readOnly: true,
+            child: TextButton(
+              onPressed: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                    builder: (context) => const LicensePage(),
+                  ),
+                );
+              },
+              child: Text(
+                'License',
+                style: linkTextStyle,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

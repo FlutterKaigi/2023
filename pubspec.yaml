@@ -46,4 +46,5 @@ flutter:
   generate: true
   assets:
     - .env
+    - assets/icons/
     - assets/
