@@ -55,7 +55,6 @@ class FooterLinks extends StatelessWidget {
               },
             ),
           ),
-          // const SizedBox(width: 40),
           Semantics(
             label: 'Contact',
             enabled: true,
@@ -76,7 +75,6 @@ class FooterLinks extends StatelessWidget {
               },
             ),
           ),
-          // const SizedBox(width: 40),
           Semantics(
             label: 'License',
             enabled: true,
