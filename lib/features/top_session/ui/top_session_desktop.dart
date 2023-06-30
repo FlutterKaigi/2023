@@ -60,12 +60,15 @@ class TopSessionDesktop extends StatelessWidget {
             ),
           ),
         ),
-        Text(
-          'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
-          'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
-          textAlign: TextAlign.center,
-          style: theme.bodyLarge!.copyWith(
-            color: colorScheme.onPrimaryContainer,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text(
+            'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
+            'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
+            textAlign: TextAlign.center,
+            style: theme.bodyLarge!.copyWith(
+              color: colorScheme.onPrimaryContainer,
+            ),
           ),
         ),
         const SizedBox(height: 24),
