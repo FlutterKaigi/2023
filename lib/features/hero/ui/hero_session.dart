@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/components/responsive_widget.dart';
-import 'package:confwebsite2023/features/top_session/ui/hero_session_desktop.dart';
-import 'package:confwebsite2023/features/top_session/ui/hero_session_mobile.dart';
+import 'package:confwebsite2023/features/hero/ui/hero_session_desktop.dart';
+import 'package:confwebsite2023/features/hero/ui/hero_session_mobile.dart';
 import 'package:flutter/material.dart';
 
 class HeroSession extends StatelessWidget {
