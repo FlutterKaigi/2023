@@ -42,24 +42,21 @@ class TopSessionMobile extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 24),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 24,
-            ),
-            child: Text(
-              'November 10, 2023',
-              style: GoogleFonts.poppins(
-                color: baselineColorScheme.white,
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                height: 1.5,
-                letterSpacing: 0.12,
-              ),
+          child: Text(
+            'November 10, 2023',
+            style: GoogleFonts.poppins(
+              color: baselineColorScheme.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+              letterSpacing: 0.12,
             ),
           ),
         ),
+        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
