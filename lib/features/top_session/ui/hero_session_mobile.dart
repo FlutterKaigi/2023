@@ -4,8 +4,8 @@ import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TopSessionMobile extends StatelessWidget {
-  const TopSessionMobile({super.key});
+class HeroSessionMobile extends StatelessWidget {
+  const HeroSessionMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
