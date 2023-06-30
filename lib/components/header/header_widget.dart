@@ -139,7 +139,7 @@ class _DrawerScreen extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
                 padding: const EdgeInsets.all(16),
