@@ -45,5 +45,6 @@ extension _SnsIconAssetName on SnsType {
         SnsType.zenn => Assets.icons.zenn,
         SnsType.medium => Assets.icons.medium,
         SnsType.qiita => Assets.icons.qiita,
+        SnsType.url => Assets.icons.link,
       };
 }

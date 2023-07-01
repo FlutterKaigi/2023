@@ -114,6 +114,10 @@ const mockBody = '''
               {
                 "type": "zenn",
                 "value": "zenn"
+              },
+              {
+                "type": "url",
+                "value": "https://flutterkaigi.jp"
               }
             ]
         },
