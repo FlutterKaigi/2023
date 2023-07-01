@@ -53,8 +53,8 @@ class _StaffList extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: LayoutBuilder(
             builder: (context, constraints) {
-              // 余白を考慮して 最大横に何個並べられるかを計算
-              // yを最大横幅 xを横の要素数として、
+              // 余白を考慮しつつ 最大横に何個並べられるかを計算する
+              // yを最大横幅 xを横の最大要素数として、
               // y = 171x + 16(x - 1)
               // y - 16 = 187x
               // x = (y - 16) / 187
@@ -96,7 +96,7 @@ class _StaffList extends ConsumerWidget {
                         )
                         .toList()
                         .joinElement(
-                          const SizedBox(height: 16),
+                          const SizedBox(height: _StaffItem.spacing),
                         ),
                     const SizedBox(height: 165),
                   ],
@@ -121,8 +121,6 @@ class _StaffItem extends StatelessWidget {
     required this.staff,
   });
   final Staff staff;
-
-  static const minWidth = 171.0;
 
   static const spacing = 16.0;
 
