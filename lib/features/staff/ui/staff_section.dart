@@ -127,76 +127,89 @@ class _StaffItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final icon = SizedBox(
+      height: 120,
+      width: 120,
+      child: FittedBox(
+        child: ClipOval(
+          child: FadeInImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(staff.image.src),
+            placeholder: MemoryImage(kTransparentImage),
+            imageErrorBuilder: (_, __, ___) => const FittedBox(
+              child: Icon(
+                Icons.error,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final snsIcons = Wrap(
+      alignment: WrapAlignment.center,
+      children: staff.sns
+          .map(
+            (e) => Link(
+              target: LinkTarget.blank,
+              uri: Uri.tryParse(e.type.prefixUrl + e.value),
+              builder: (_, followLink) => SnsIcon(
+                snsType: e.type,
+                size: 32,
+                padding: EdgeInsets.zero,
+                iconColor: theme.colorScheme.onPrimaryContainer,
+                onPressed: followLink,
+              ),
+            ),
+          )
+          .toList(),
+    );
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       color: theme.colorScheme.secondaryContainer,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              height: 120,
-              width: 120,
-              child: FittedBox(
-                child: ClipOval(
-                  child: FadeInImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(staff.image.src),
-                    placeholder: MemoryImage(kTransparentImage),
-                    imageErrorBuilder: (_, __, ___) => const FittedBox(
-                      child: Icon(
-                        Icons.error,
-                      ),
-                    ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+            padding: const EdgeInsets.only(
+              top: 16,
+              left: 24,
+              right: 24,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                icon,
+                const SizedBox(height: 16),
+                Text(
+                  staff.displayName,
+                  style: theme.textTheme.titleLarge!.copyWith(
+                    color: baselineColorScheme.ref.primary.primary100,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
+                const SizedBox(height: 8),
+                Text(
+                  staff.introduction,
+                  style: theme.textTheme.bodyLarge!.copyWith(
+                    color: baselineColorScheme.ref.primary.primary80,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
-            Text(
-              staff.displayName,
-              style: theme.textTheme.titleLarge!.copyWith(
-                color: baselineColorScheme.ref.primary.primary100,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              staff.introduction,
-              style: theme.textTheme.bodyLarge!.copyWith(
-                color: baselineColorScheme.ref.primary.primary80,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const Spacer(),
-            const SizedBox(height: 16),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Row(
-                children: staff.sns
-                    .map(
-                      (e) => Link(
-                        target: LinkTarget.blank,
-                        uri: Uri.tryParse(e.type.prefixUrl + e.value),
-                        builder: (_, followLink) => SnsIcon(
-                          snsType: e.type,
-                          size: 32,
-                          padding: EdgeInsets.zero,
-                          iconColor: theme.colorScheme.onPrimaryContainer,
-                          onPressed: followLink,
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ],
-        ),
+          ),
+          const Spacer(),
+          const SizedBox(height: 16),
+          snsIcons,
+          const SizedBox(height: 16),
+        ],
       ),
     );
   }
