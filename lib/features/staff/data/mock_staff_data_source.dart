@@ -59,6 +59,14 @@ const mockBody = '''
               {
                 "type": "github",
                 "userName": "FlutterKaigi"
+              },
+              {
+                "type": "medium",
+                "userName": "flutterkaigi"
+              },
+              {
+                "type": "note",
+                "userName": "info"
               }
             ]
         },
@@ -98,6 +106,10 @@ const mockBody = '''
               {
                 "type": "github",
                 "userName": "FlutterKaigi"
+              },
+              {
+                "type": "zenn",
+                "userName": "zenn"
               }
             ]
         },
