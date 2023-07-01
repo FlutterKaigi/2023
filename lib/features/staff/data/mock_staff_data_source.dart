@@ -61,8 +61,8 @@ const mockBody = '''
                 "value": "FlutterKaigi"
               },
               {
-                "type": "medium",
-                "value": "flutterkaigi"
+                "type": "zenn",
+                "value": "zenn"
               },
               {
                 "type": "note",
