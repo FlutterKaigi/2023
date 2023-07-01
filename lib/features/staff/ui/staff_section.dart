@@ -1,13 +1,11 @@
-import 'dart:math';
-
-import 'package:collection/collection.dart';
+import 'package:confwebsite2023/components/responsive_widget.dart';
+import 'package:confwebsite2023/components/section_header.dart';
 import 'package:confwebsite2023/components/sns_icon.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
-import 'package:confwebsite2023/features/staff/ui/divider_with_title.dart';
+import 'package:confwebsite2023/theme/app_text_style.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
@@ -17,11 +15,25 @@ class StaffSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context)!;
-
     return Column(
       children: [
-        DividerWithTitle(text: appLocalizations.executive_committee),
+        Row(
+          children: [
+            Transform.translate(
+              offset: const Offset(-SectionHeader.blurRadius, 0),
+              child: ResponsiveWidget(
+                largeWidget: SectionHeader(
+                  text: 'Staff',
+                  style: AppTextStyle.pcHeading1,
+                ),
+                smallWidget: SectionHeader(
+                  text: 'Staff',
+                  style: AppTextStyle.spHeading1,
+                ),
+              ),
+            ),
+          ],
+        ),
         const _StaffList(),
       ],
     );
@@ -41,35 +53,52 @@ class _StaffList extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: LayoutBuilder(
             builder: (context, constraints) {
-              // 横幅に合わせて Maxで表示できる数を計算
-              final crossAxisCount = max(
-                2,
-                constraints.maxWidth ~/ (_StaffItem.width + _StaffItem.spacing),
-              );
-              final staffs = data.chunked(crossAxisCount);
+              // 余白を考慮して 最大横に何個並べられるかを計算
+              // yを最大横幅 xを横の要素数として、
+              // y = 171x + 16(x - 1)
+              // y - 16 = 187x
+              // x = (y - 16) / 187
+              final result = ((constraints.maxWidth - 16) / 187).floor();
+              final crossAxisCount = switch (result) {
+                < 2 => 2,
+                > 5 => 5,
+                _ => result,
+              };
+              // 要素の横幅を計算
+              final itemWidth =
+                  (constraints.maxWidth - 16 * (crossAxisCount - 1)) /
+                      crossAxisCount;
+
+              final staffs = [...data, ...data].chunked(crossAxisCount);
               return SizedBox(
                 width: constraints.maxWidth,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    for (final staffsInRow in staffs)
-                      FittedBox(
-                        child: IntrinsicHeight(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: staffsInRow
-                                .map(
-                                  (e) => [
-                                    _StaffItem(staff: e),
+                    ...staffs
+                        .map<Widget>(
+                          (staffsInRow) => IntrinsicHeight(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: staffsInRow
+                                  .map<Widget>(
+                                    (e) => SizedBox(
+                                      width: itemWidth,
+                                      child: _StaffItem(staff: e),
+                                    ),
+                                  )
+                                  .toList()
+                                  .joinElement(
                                     const SizedBox(width: _StaffItem.spacing),
-                                  ],
-                                )
-                                .flattened
-                                .toList(),
+                                  ),
+                            ),
                           ),
+                        )
+                        .toList()
+                        .joinElement(
+                          const SizedBox(height: 26),
                         ),
-                      ),
-                    const SizedBox(height: 26),
+                    const SizedBox(height: 165),
                   ],
                 ),
               );
@@ -93,31 +122,31 @@ class _StaffItem extends StatelessWidget {
   });
   final Staff staff;
 
-  static const width = 212.8;
+  static const minWidth = 171.0;
 
   static const spacing = 16.0;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SizedBox(
-      width: width,
-      child: Card(
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        color: theme.colorScheme.secondaryContainer,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(
-                height: 120,
-                width: 120,
-                child: ClipOval(
+    return Card(
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      color: theme.colorScheme.secondaryContainer,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 120,
+              width: 120,
+              child: ClipOval(
+                child: AspectRatio(
+                  aspectRatio: 1,
                   child: FadeInImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(staff.image.src),
@@ -130,45 +159,46 @@ class _StaffItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 16),
-              Text(
-                staff.displayName,
-                style: theme.textTheme.titleLarge!.copyWith(
-                  color: baselineColorScheme.ref.primary.primary100,
-                ),
-                textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              staff.displayName,
+              style: theme.textTheme.titleLarge!.copyWith(
+                color: baselineColorScheme.ref.primary.primary100,
               ),
-              const SizedBox(height: 8),
-              Text(
-                staff.introduction,
-                style: theme.textTheme.bodyLarge!.copyWith(
-                  color: baselineColorScheme.ref.primary.primary80,
-                ),
-                textAlign: TextAlign.center,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              staff.introduction,
+              style: theme.textTheme.bodyLarge!.copyWith(
+                color: baselineColorScheme.ref.primary.primary80,
               ),
-              const Spacer(),
-              const SizedBox(height: 16),
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Row(
-                  children: staff.sns
-                      .map(
-                        (e) => Link(
-                          uri: Uri.tryParse(e.type.prefixUrl + e.userName),
-                          builder: (_, followLink) => SnsIcon(
-                            snsType: e.type,
-                            size: 32,
-                            padding: EdgeInsets.zero,
-                            iconColor: theme.colorScheme.onPrimaryContainer,
-                            onPressed: followLink,
-                          ),
+              textAlign: TextAlign.center,
+            ),
+            const Spacer(),
+            const SizedBox(height: 16),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Row(
+                children: staff.sns
+                    .map(
+                      (e) => Link(
+                        
+                        uri: Uri.tryParse(e.type.prefixUrl + e.userName),
+                        builder: (_, followLink) => SnsIcon(
+                          snsType: e.type,
+                          size: 32,
+                          padding: EdgeInsets.zero,
+                          iconColor: theme.colorScheme.onPrimaryContainer,
+                          onPressed: followLink,
                         ),
-                      )
-                      .toList(),
-                ),
+                      ),
+                    )
+                    .toList(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -180,6 +210,17 @@ extension _ListChunkExtension<T> on List<T> {
     final result = <List<T>>[];
     for (var i = 0; i < length; i += size) {
       result.add(sublist(i, i + size > length ? length : i + size));
+    }
+    return result;
+  }
+
+  List<T> joinElement(T element) {
+    final result = <T>[];
+    for (var i = 0; i < length; i++) {
+      result.add(this[i]);
+      if (i != length - 1) {
+        result.add(element);
+      }
     }
     return result;
   }
