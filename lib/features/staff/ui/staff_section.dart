@@ -96,7 +96,7 @@ class _StaffList extends ConsumerWidget {
                         )
                         .toList()
                         .joinElement(
-                          const SizedBox(height: 26),
+                          const SizedBox(height: 16),
                         ),
                     const SizedBox(height: 165),
                   ],
