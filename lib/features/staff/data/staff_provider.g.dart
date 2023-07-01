@@ -22,7 +22,7 @@ final staffsProvider = AutoDisposeFutureProvider<List<Staff>>.internal(
 );
 
 typedef StaffsRef = AutoDisposeFutureProviderRef<List<Staff>>;
-String _$sortedStaffsHash() => r'655f71f9cb73a9284c45e8204316859e03cbd82e';
+String _$sortedStaffsHash() => r'00f513439d0d013de78b23e30a574c4442394bd4';
 
 /// See also [sortedStaffs].
 @ProviderFor(sortedStaffs)

@@ -16,7 +16,10 @@ Future<List<Staff>> sortedStaffs(SortedStaffsRef ref) async {
   final nameSorted = staffs.sortedBy((e) => e.displayName);
   // SNSのtype順にソートし 最大4つに絞る
   final snsSorted = nameSorted.map((staff) {
-    final snsSorted = staff.sns.sortedBy((e) => e.type.name);
+    final snsSorted = staff.sns
+        .sortedBy((e) => e.type.name)
+        .sorted((a, b) => a.type == SnsType.url ? 1 : -1);
+
     return staff.copyWith(sns: snsSorted.take(4).toList());
   });
   return snsSorted.toList();
