@@ -20,8 +20,8 @@ const RESOURCES = {"assets/NOTICES": "0250350fe1251f83a76d8b771f07a146",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
 "assets/flutterkaigi_ogp.png": "1a619a2e38e7f71d2b634199ddfd81f9",
 "assets/fonts/MaterialIcons-Regular.otf": "b0715ecc5627b2b9ff0c1bd3ab958efb",
-"index.html": "1debc3c5c869b08a5f9a86bd875da663",
-"/": "1debc3c5c869b08a5f9a86bd875da663",
+"index.html": "bdac5201ca547476625ed3b7e643f81c",
+"/": "bdac5201ca547476625ed3b7e643f81c",
 "main.dart.js": "cc64a88c31028536ca5a2ef936fcfba4",
 "flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
 "canvaskit/canvaskit.js": "45bec3a754fba62b2d8f23c38895f029",
@@ -38,6 +38,7 @@ const RESOURCES = {"assets/NOTICES": "0250350fe1251f83a76d8b771f07a146",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/apple-touch-icon.png": "e91a2ee33d2ee490134bd73a5c9aec2e",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1"};
 // The application shell files that are downloaded before a service worker can
 // start.
