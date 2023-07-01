@@ -175,7 +175,6 @@ class _StaffItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            // padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
             padding: const EdgeInsets.only(
               top: 16,
               left: 24,
