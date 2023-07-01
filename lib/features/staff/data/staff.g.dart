@@ -61,4 +61,5 @@ const _$SnsTypeEnumMap = {
   SnsType.qiita: 'qiita',
   SnsType.zenn: 'zenn',
   SnsType.note: 'note',
+  SnsType.medium: 'medium',
 };

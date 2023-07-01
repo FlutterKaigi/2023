@@ -24,9 +24,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/note.svg
   String get note => 'assets/icons/note.svg';
 
-  /// File path: assets/icons/qiita-favicon.png
-  AssetGenImage get qiitaFavicon =>
-      const AssetGenImage('assets/icons/qiita-favicon.png');
+  /// File path: assets/icons/qiita.svg
+  String get qiita => 'assets/icons/qiita.svg';
 
   /// File path: assets/icons/twitter.svg
   String get twitter => 'assets/icons/twitter.svg';
@@ -35,8 +34,8 @@ class $AssetsIconsGen {
   String get zenn => 'assets/icons/zenn.svg';
 
   /// List of all assets
-  List<dynamic> get values =>
-      [discord, github, medium, note, qiitaFavicon, twitter, zenn];
+  List<String> get values =>
+      [discord, github, medium, note, qiita, twitter, zenn];
 }
 
 class Assets {

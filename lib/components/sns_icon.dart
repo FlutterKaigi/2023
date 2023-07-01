@@ -17,20 +17,14 @@ class SnsIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return switch (snsType) {
-      SnsType.qiita => Assets.icons.qiitaFavicon.image(
-          width: size,
-          height: size,
-        ),
-      _ => IconButton(
-          onPressed: onPressed,
-          icon: SvgPicture.asset(
-            snsType.assetName,
-            width: size,
-            height: size,
-          ),
-        ),
-    };
+    return IconButton(
+      onPressed: onPressed,
+      icon: SvgPicture.asset(
+        snsType.assetName,
+        width: size,
+        height: size,
+      ),
+    );
   }
 }
 
@@ -42,6 +36,6 @@ extension _SnsIconAssetName on SnsType {
         SnsType.note => Assets.icons.note,
         SnsType.zenn => Assets.icons.zenn,
         SnsType.medium => Assets.icons.medium,
-        SnsType.qiita => throw UnimplementedError(),
+        SnsType.qiita => Assets.icons.qiita,
       };
 }
