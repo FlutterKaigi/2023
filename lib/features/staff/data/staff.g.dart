@@ -46,12 +46,12 @@ Map<String, dynamic> _$$_StaffImageToJson(_$_StaffImage instance) =>
 
 _$_Sns _$$_SnsFromJson(Map<String, dynamic> json) => _$_Sns(
       type: $enumDecode(_$SnsTypeEnumMap, json['type']),
-      userName: json['userName'] as String,
+      value: json['value'] as String,
     );
 
 Map<String, dynamic> _$$_SnsToJson(_$_Sns instance) => <String, dynamic>{
       'type': _$SnsTypeEnumMap[instance.type]!,
-      'userName': instance.userName,
+      'value': instance.value,
     };
 
 const _$SnsTypeEnumMap = {
@@ -62,4 +62,5 @@ const _$SnsTypeEnumMap = {
   SnsType.zenn: 'zenn',
   SnsType.note: 'note',
   SnsType.medium: 'medium',
+  SnsType.url: 'url',
 };

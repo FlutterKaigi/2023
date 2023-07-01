@@ -473,7 +473,7 @@ Sns _$SnsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Sns {
   SnsType get type => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
+  String get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -485,7 +485,7 @@ abstract class $SnsCopyWith<$Res> {
   factory $SnsCopyWith(Sns value, $Res Function(Sns) then) =
       _$SnsCopyWithImpl<$Res, Sns>;
   @useResult
-  $Res call({SnsType type, String userName});
+  $Res call({SnsType type, String value});
 }
 
 /// @nodoc
@@ -501,16 +501,16 @@ class _$SnsCopyWithImpl<$Res, $Val extends Sns> implements $SnsCopyWith<$Res> {
   @override
   $Res call({
     Object? type = null,
-    Object? userName = null,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as SnsType,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -522,7 +522,7 @@ abstract class _$$_SnsCopyWith<$Res> implements $SnsCopyWith<$Res> {
       __$$_SnsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SnsType type, String userName});
+  $Res call({SnsType type, String value});
 }
 
 /// @nodoc
@@ -535,16 +535,16 @@ class __$$_SnsCopyWithImpl<$Res> extends _$SnsCopyWithImpl<$Res, _$_Sns>
   @override
   $Res call({
     Object? type = null,
-    Object? userName = null,
+    Object? value = null,
   }) {
     return _then(_$_Sns(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as SnsType,
-      userName: null == userName
-          ? _value.userName
-          : userName // ignore: cast_nullable_to_non_nullable
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -553,18 +553,18 @@ class __$$_SnsCopyWithImpl<$Res> extends _$SnsCopyWithImpl<$Res, _$_Sns>
 /// @nodoc
 @JsonSerializable()
 class _$_Sns implements _Sns {
-  const _$_Sns({required this.type, required this.userName});
+  const _$_Sns({required this.type, required this.value});
 
   factory _$_Sns.fromJson(Map<String, dynamic> json) => _$$_SnsFromJson(json);
 
   @override
   final SnsType type;
   @override
-  final String userName;
+  final String value;
 
   @override
   String toString() {
-    return 'Sns(type: $type, userName: $userName)';
+    return 'Sns(type: $type, value: $value)';
   }
 
   @override
@@ -573,13 +573,12 @@ class _$_Sns implements _Sns {
         (other.runtimeType == runtimeType &&
             other is _$_Sns &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.userName, userName) ||
-                other.userName == userName));
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, userName);
+  int get hashCode => Object.hash(runtimeType, type, value);
 
   @JsonKey(ignore: true)
   @override
@@ -597,14 +596,14 @@ class _$_Sns implements _Sns {
 
 abstract class _Sns implements Sns {
   const factory _Sns(
-      {required final SnsType type, required final String userName}) = _$_Sns;
+      {required final SnsType type, required final String value}) = _$_Sns;
 
   factory _Sns.fromJson(Map<String, dynamic> json) = _$_Sns.fromJson;
 
   @override
   SnsType get type;
   @override
-  String get userName;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_SnsCopyWith<_$_Sns> get copyWith => throw _privateConstructorUsedError;

@@ -36,7 +36,7 @@ class StaffImage with _$StaffImage {
 class Sns with _$Sns {
   const factory Sns({
     required SnsType type,
-    required String userName,
+    required String value,
   }) = _Sns;
 
   factory Sns.fromJson(Map<String, dynamic> json) => _$SnsFromJson(json);
@@ -50,6 +50,7 @@ enum SnsType {
   zenn('https://zenn.dev/'),
   note('https://note.com/'),
   medium('https://medium.com/'),
+  url(''),
   ;
 
   const SnsType(this.prefixUrl);

@@ -54,19 +54,23 @@ const mockBody = '''
             "sns": [
               {
                 "type": "twitter",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "github",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "medium",
-                "userName": "flutterkaigi"
+                "value": "flutterkaigi"
               },
               {
                 "type": "note",
-                "userName": "info"
+                "value": "info"
+              },
+              {
+                "type": "url",
+                "value": "https://flutterkaigi.jp"
               }
             ]
         },
@@ -101,15 +105,15 @@ const mockBody = '''
             "sns": [
               {
                 "type": "twitter",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "github",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "zenn",
-                "userName": "zenn"
+                "value": "zenn"
               }
             ]
         },
@@ -144,11 +148,11 @@ const mockBody = '''
             "sns": [
               {
                 "type": "twitter",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "github",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               }
             ]
         },
@@ -183,11 +187,11 @@ const mockBody = '''
             "sns": [
               {
                 "type": "twitter",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               },
               {
                 "type": "github",
-                "userName": "FlutterKaigi"
+                "value": "FlutterKaigi"
               }
             ]
         }
