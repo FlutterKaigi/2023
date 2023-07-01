@@ -184,7 +184,7 @@ class _StaffItem extends StatelessWidget {
                 children: staff.sns
                     .map(
                       (e) => Link(
-                        
+                        target: LinkTarget.blank,
                         uri: Uri.tryParse(e.type.prefixUrl + e.userName),
                         builder: (_, followLink) => SnsIcon(
                           snsType: e.type,
