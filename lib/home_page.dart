@@ -82,7 +82,7 @@ class _MainPageBody extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [
                     Color(0xFF602678),
-                    Color(0xFF1D192B),
+                    Color(0x001D192B),
                   ],
                 ),
               ),
