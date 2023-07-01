@@ -100,11 +100,14 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         ),
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-      child: ResponsiveWidget(
-        largeWidget: desktopBar,
-        smallWidget: mobileBar,
+    return ColoredBox(
+      color: const Color(0xFF5F2678),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+        child: ResponsiveWidget(
+          largeWidget: desktopBar,
+          smallWidget: mobileBar,
+        ),
       ),
     );
   }

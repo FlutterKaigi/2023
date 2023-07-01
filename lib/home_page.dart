@@ -43,9 +43,21 @@ class MainPage extends HookWidget {
           curve: Curves.easeOutCirc,
         ),
       ),
-      body: _MainPageBody(
-        scrollController: scrollController,
-        staffSectionKey: sectionKeys.staff,
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF5F2678),
+              Color(0x004B0082),
+            ],
+          ),
+        ),
+        child: _MainPageBody(
+          scrollController: scrollController,
+          staffSectionKey: sectionKeys.staff,
+        ),
       ),
     );
   }
