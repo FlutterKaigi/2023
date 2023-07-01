@@ -75,7 +75,7 @@ const mockBody = '''
                 "createdAt": "2023-05-24T14:06:59.211Z",
                 "updatedAt": "2023-05-25T10:30:44.635Z"
             },
-            "displayName": "Steve Jobs",
+            "displayName": "Aaaaa Bbbbb",
             "image": {
                 "_id": "646e0985beb9b686e8806757",
                 "altText": "",
@@ -85,11 +85,11 @@ const mockBody = '''
                 "fileType": "image/jpeg",
                 "height": 300,
                 "metadata": {},
-                "src": "https://cdn.britannica.com/04/171104-050-AEFE3141/Steve-Jobs-iPhone-2010.jpg",
+                "src": "https://placehold.jp/150x150.png",
                 "title": "",
                 "width": 300
             },
-            "introduction": "Apple Inc. Founder",
+            "introduction": "Chief Executive Officer",
             "sns": [
               {
                 "type": "twitter",
@@ -114,7 +114,7 @@ const mockBody = '''
                 "createdAt": "2023-05-24T14:06:59.211Z",
                 "updatedAt": "2023-05-25T10:30:44.635Z"
             },
-            "displayName": "Tim Cook",
+            "displayName": "Ccccc Ddddd",
             "image": {
                 "_id": "646e0985beb9b686e8806757",
                 "altText": "",
@@ -124,11 +124,11 @@ const mockBody = '''
                 "fileType": "image/jpeg",
                 "height": 300,
                 "metadata": {},
-                "src": "https://www.apple.com/leadership/images/bio/tim-cook_image.png.small_2x.png",
+                "src": "https://placehold.jp/300x300.png",
                 "title": "",
                 "width": 300
             },
-            "introduction": "Chief Executive Officer",
+            "introduction": "Chief Technology Officer",
             "sns": [
               {
                 "type": "twitter",
@@ -153,7 +153,7 @@ const mockBody = '''
                 "createdAt": "2023-05-24T14:06:59.211Z",
                 "updatedAt": "2023-05-25T10:30:44.635Z"
             },
-            "displayName": "Craig Federighi",
+            "displayName": "Xxxxx Yyyyy",
             "image": {
                 "_id": "646e0985beb9b686e8806757",
                 "altText": "",
@@ -163,11 +163,11 @@ const mockBody = '''
                 "fileType": "image/jpeg",
                 "height": 300,
                 "metadata": {},
-                "src": "https://www.apple.com/leadership/images/bio/craig_federighi_image.png.small_2x.png",
+                "src": "https://placehold.jp/100x100.png",
                 "title": "",
                 "width": 300
             },
-            "introduction": "Craig Federighi is Apple’s senior vice president of Software Engineering, reporting to CEO Tim Cook.",
+            "introduction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             "sns": [
               {
                 "type": "twitter",
