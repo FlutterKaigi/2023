@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:confwebsite2023/components/sns_icon.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
@@ -41,8 +42,10 @@ class _StaffList extends ConsumerWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               // 横幅に合わせて Maxで表示できる数を計算
-              final crossAxisCount =
-                  max(2, constraints.maxWidth ~/ _StaffItem.width);
+              final crossAxisCount = max(
+                2,
+                constraints.maxWidth ~/ (_StaffItem.width + _StaffItem.spacing),
+              );
               final staffs = data.chunked(crossAxisCount);
               return SizedBox(
                 width: constraints.maxWidth,
@@ -55,11 +58,18 @@ class _StaffList extends ConsumerWidget {
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: staffsInRow
-                                .map((e) => _StaffItem(staff: e))
+                                .map(
+                                  (e) => [
+                                    _StaffItem(staff: e),
+                                    const SizedBox(width: _StaffItem.spacing),
+                                  ],
+                                )
+                                .flattened
                                 .toList(),
                           ),
                         ),
                       ),
+                    const SizedBox(height: 26),
                   ],
                 ),
               );
@@ -84,6 +94,8 @@ class _StaffItem extends StatelessWidget {
   final Staff staff;
 
   static const width = 212.8;
+
+  static const spacing = 16.0;
 
   @override
   Widget build(BuildContext context) {
