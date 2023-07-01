@@ -21,11 +21,21 @@ class $AssetsIconsGen {
   /// File path: assets/icons/medium.svg
   String get medium => 'assets/icons/medium.svg';
 
+  /// File path: assets/icons/note.svg
+  String get note => 'assets/icons/note.svg';
+
+  /// File path: assets/icons/qiita.svg
+  String get qiita => 'assets/icons/qiita.svg';
+
   /// File path: assets/icons/twitter.svg
   String get twitter => 'assets/icons/twitter.svg';
 
+  /// File path: assets/icons/zenn.svg
+  String get zenn => 'assets/icons/zenn.svg';
+
   /// List of all assets
-  List<String> get values => [discord, github, medium, twitter];
+  List<String> get values =>
+      [discord, github, medium, note, qiita, twitter, zenn];
 }
 
 class Assets {

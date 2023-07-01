@@ -93,8 +93,10 @@ class _MainPageBody extends StatelessWidget {
             children: <Widget>[
               const SizedBox(height: 30 + kToolbarHeight),
               SizedBox(
-                width:
-                    max(16, largeScreenSize + ((width - largeScreenSize) / 2)),
+                width: min(
+                  width - (16 * 2),
+                  largeScreenSize + ((width - largeScreenSize) / 2),
+                ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [

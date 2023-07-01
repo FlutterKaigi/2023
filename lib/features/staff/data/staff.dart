@@ -9,25 +9,13 @@ part 'staff.g.dart';
 class Staff with _$Staff {
   const factory Staff({
     @JsonKey(name: '_id') required String id,
-    @JsonKey(name: '_sys') required StaffSys sys,
     required String displayName,
-    required String twitter,
     required StaffImage image,
+    required List<Sns> sns,
+    @Default('') String introduction,
   }) = _Staff;
 
   factory Staff.fromJson(Map<String, dynamic> json) => _$StaffFromJson(json);
-}
-
-@freezed
-class StaffSys with _$StaffSys {
-  const factory StaffSys({
-    required DateTime createdAt,
-    required DateTime updatedAt,
-    required int customOrder,
-  }) = _StaffSys;
-
-  factory StaffSys.fromJson(Map<String, dynamic> json) =>
-      _$StaffSysFromJson(json);
 }
 
 @freezed
@@ -42,4 +30,29 @@ class StaffImage with _$StaffImage {
 
   factory StaffImage.fromJson(Map<String, dynamic> json) =>
       _$StaffImageFromJson(json);
+}
+
+@freezed
+class Sns with _$Sns {
+  const factory Sns({
+    required SnsType type,
+    required String value,
+  }) = _Sns;
+
+  factory Sns.fromJson(Map<String, dynamic> json) => _$SnsFromJson(json);
+}
+
+enum SnsType {
+  twitter('https://twitter.com/'),
+  github('https://github.com/'),
+  discord('https://discordapp.com/users/'),
+  qiita('https://qiita.com/'),
+  zenn('https://zenn.dev/'),
+  note('https://note.com/'),
+  medium('https://medium.com/'),
+  url(''),
+  ;
+
+  const SnsType(this.prefixUrl);
+  final String prefixUrl;
 }
