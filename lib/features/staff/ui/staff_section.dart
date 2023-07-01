@@ -4,6 +4,7 @@ import 'package:confwebsite2023/components/sns_icon.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/divider_with_title.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -120,14 +121,16 @@ class _StaffItem extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 staff.displayName,
-                style: theme.textTheme.titleLarge,
+                style: theme.textTheme.titleLarge!.copyWith(
+                  color: baselineColorScheme.ref.primary.primary100,
+                ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
               Text(
                 staff.introduction,
                 style: theme.textTheme.bodyLarge!.copyWith(
-                  color: theme.colorScheme.primary.withOpacity(0.8),
+                  color: baselineColorScheme.ref.primary.primary80,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -145,7 +148,7 @@ class _StaffItem extends StatelessWidget {
                             size: 32,
                             padding: EdgeInsets.zero,
                             iconColor: theme.colorScheme.onPrimaryContainer,
-                            onPressed: followLink ,
+                            onPressed: followLink,
                           ),
                         ),
                       )
