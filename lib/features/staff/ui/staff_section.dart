@@ -69,7 +69,7 @@ class _StaffList extends ConsumerWidget {
                   (constraints.maxWidth - 16 * (crossAxisCount - 1)) /
                       crossAxisCount;
 
-              final staffs = [...data, ...data].chunked(crossAxisCount);
+              final staffs = data.chunked(crossAxisCount);
               return SizedBox(
                 width: constraints.maxWidth,
                 child: Column(
