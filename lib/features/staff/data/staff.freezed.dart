@@ -24,8 +24,8 @@ mixin _$Staff {
   String get id => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   StaffImage get image => throw _privateConstructorUsedError;
-  String get introduction => throw _privateConstructorUsedError;
   List<Sns> get sns => throw _privateConstructorUsedError;
+  String get introduction => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,8 +41,8 @@ abstract class $StaffCopyWith<$Res> {
       {@JsonKey(name: '_id') String id,
       String displayName,
       StaffImage image,
-      String introduction,
-      List<Sns> sns});
+      List<Sns> sns,
+      String introduction});
 
   $StaffImageCopyWith<$Res> get image;
 }
@@ -63,8 +63,8 @@ class _$StaffCopyWithImpl<$Res, $Val extends Staff>
     Object? id = null,
     Object? displayName = null,
     Object? image = null,
-    Object? introduction = null,
     Object? sns = null,
+    Object? introduction = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,14 +79,14 @@ class _$StaffCopyWithImpl<$Res, $Val extends Staff>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
-      introduction: null == introduction
-          ? _value.introduction
-          : introduction // ignore: cast_nullable_to_non_nullable
-              as String,
       sns: null == sns
           ? _value.sns
           : sns // ignore: cast_nullable_to_non_nullable
               as List<Sns>,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -109,8 +109,8 @@ abstract class _$$_StaffCopyWith<$Res> implements $StaffCopyWith<$Res> {
       {@JsonKey(name: '_id') String id,
       String displayName,
       StaffImage image,
-      String introduction,
-      List<Sns> sns});
+      List<Sns> sns,
+      String introduction});
 
   @override
   $StaffImageCopyWith<$Res> get image;
@@ -128,8 +128,8 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
     Object? id = null,
     Object? displayName = null,
     Object? image = null,
-    Object? introduction = null,
     Object? sns = null,
+    Object? introduction = null,
   }) {
     return _then(_$_Staff(
       id: null == id
@@ -144,14 +144,14 @@ class __$$_StaffCopyWithImpl<$Res> extends _$StaffCopyWithImpl<$Res, _$_Staff>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as StaffImage,
-      introduction: null == introduction
-          ? _value.introduction
-          : introduction // ignore: cast_nullable_to_non_nullable
-              as String,
       sns: null == sns
           ? _value._sns
           : sns // ignore: cast_nullable_to_non_nullable
               as List<Sns>,
+      introduction: null == introduction
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -163,8 +163,8 @@ class _$_Staff implements _Staff {
       {@JsonKey(name: '_id') required this.id,
       required this.displayName,
       required this.image,
-      required this.introduction,
-      required final List<Sns> sns})
+      required final List<Sns> sns,
+      this.introduction = ''})
       : _sns = sns;
 
   factory _$_Staff.fromJson(Map<String, dynamic> json) =>
@@ -177,8 +177,6 @@ class _$_Staff implements _Staff {
   final String displayName;
   @override
   final StaffImage image;
-  @override
-  final String introduction;
   final List<Sns> _sns;
   @override
   List<Sns> get sns {
@@ -188,8 +186,12 @@ class _$_Staff implements _Staff {
   }
 
   @override
+  @JsonKey()
+  final String introduction;
+
+  @override
   String toString() {
-    return 'Staff(id: $id, displayName: $displayName, image: $image, introduction: $introduction, sns: $sns)';
+    return 'Staff(id: $id, displayName: $displayName, image: $image, sns: $sns, introduction: $introduction)';
   }
 
   @override
@@ -201,15 +203,15 @@ class _$_Staff implements _Staff {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.image, image) || other.image == image) &&
+            const DeepCollectionEquality().equals(other._sns, _sns) &&
             (identical(other.introduction, introduction) ||
-                other.introduction == introduction) &&
-            const DeepCollectionEquality().equals(other._sns, _sns));
+                other.introduction == introduction));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, displayName, image,
-      introduction, const DeepCollectionEquality().hash(_sns));
+      const DeepCollectionEquality().hash(_sns), introduction);
 
   @JsonKey(ignore: true)
   @override
@@ -230,8 +232,8 @@ abstract class _Staff implements Staff {
       {@JsonKey(name: '_id') required final String id,
       required final String displayName,
       required final StaffImage image,
-      required final String introduction,
-      required final List<Sns> sns}) = _$_Staff;
+      required final List<Sns> sns,
+      final String introduction}) = _$_Staff;
 
   factory _Staff.fromJson(Map<String, dynamic> json) = _$_Staff.fromJson;
 
@@ -243,9 +245,9 @@ abstract class _Staff implements Staff {
   @override
   StaffImage get image;
   @override
-  String get introduction;
-  @override
   List<Sns> get sns;
+  @override
+  String get introduction;
   @override
   @JsonKey(ignore: true)
   _$$_StaffCopyWith<_$_Staff> get copyWith =>

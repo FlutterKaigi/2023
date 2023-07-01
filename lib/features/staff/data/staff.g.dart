@@ -12,18 +12,18 @@ _$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
       id: json['_id'] as String,
       displayName: json['displayName'] as String,
       image: StaffImage.fromJson(json['image'] as Map<String, dynamic>),
-      introduction: json['introduction'] as String,
       sns: (json['sns'] as List<dynamic>)
           .map((e) => Sns.fromJson(e as Map<String, dynamic>))
           .toList(),
+      introduction: json['introduction'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
       '_id': instance.id,
       'displayName': instance.displayName,
       'image': instance.image,
-      'introduction': instance.introduction,
       'sns': instance.sns,
+      'introduction': instance.introduction,
     };
 
 _$_StaffImage _$$_StaffImageFromJson(Map<String, dynamic> json) =>

@@ -11,8 +11,8 @@ class Staff with _$Staff {
     @JsonKey(name: '_id') required String id,
     required String displayName,
     required StaffImage image,
-    required String introduction,
     required List<Sns> sns,
+    @Default('') String introduction,
   }) = _Staff;
 
   factory Staff.fromJson(Map<String, dynamic> json) => _$StaffFromJson(json);

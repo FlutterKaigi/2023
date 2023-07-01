@@ -16,7 +16,7 @@ class StaffDataSource {
 
   Future<List<Staff>> fetchStaffItems() async {
     final result = await http.get(
-      Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/staff'),
+      Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/staffv2'),
       headers: {
         'Authorization': 'Bearer ${dotenv.env['NEWT_CDN_API_TOKEN']!}',
       },
