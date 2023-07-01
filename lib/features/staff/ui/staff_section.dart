@@ -142,9 +142,8 @@ class _StaffItem extends StatelessWidget {
             SizedBox(
               height: 120,
               width: 120,
-              child: ClipOval(
-                child: AspectRatio(
-                  aspectRatio: 1,
+              child: FittedBox(
+                child: ClipOval(
                   child: FadeInImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(staff.image.src),
