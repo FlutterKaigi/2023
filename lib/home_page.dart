@@ -43,21 +43,9 @@ class MainPage extends HookWidget {
           curve: Curves.easeOutCirc,
         ),
       ),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF5F2678),
-              Color(0x004B0082),
-            ],
-          ),
-        ),
-        child: _MainPageBody(
-          scrollController: scrollController,
-          staffSectionKey: sectionKeys.staff,
-        ),
+      body: _MainPageBody(
+        scrollController: scrollController,
+        staffSectionKey: sectionKeys.staff,
       ),
     );
   }
@@ -79,23 +67,41 @@ class _MainPageBody extends StatelessWidget {
 
     return SingleChildScrollView(
       controller: scrollController,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(height: 30),
-          SizedBox(
-            width: max(16, largeScreenSize + ((width - largeScreenSize) / 2)),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const HeroSection(),
-                StaffSection(
-                  key: staffSectionKey,
-                ),
-              ],
+      child: Stack(
+        children: [
+          Container(
+            height: 800,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF602678),
+                  Color(0xFF1D192B),
+                ],
+              ),
             ),
           ),
-          const Footer(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(height: 30),
+              SizedBox(
+                width:
+                    max(16, largeScreenSize + ((width - largeScreenSize) / 2)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const HeroSection(),
+                    StaffSection(
+                      key: staffSectionKey,
+                    ),
+                  ],
+                ),
+              ),
+              const Footer(),
+            ],
+          ),
         ],
       ),
     );
