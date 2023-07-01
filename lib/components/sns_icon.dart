@@ -6,23 +6,31 @@ import 'package:flutter_svg/svg.dart';
 class SnsIcon extends StatelessWidget {
   const SnsIcon({
     required this.snsType,
+    this.padding,
     this.size = 40,
+    this.iconColor,
     this.onPressed,
     super.key,
   });
 
   final SnsType snsType;
+  final EdgeInsetsGeometry? padding;
   final double size;
+  final Color? iconColor;
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      padding: padding,
       onPressed: onPressed,
       icon: SvgPicture.asset(
         snsType.assetName,
         width: size,
         height: size,
+        colorFilter: iconColor != null
+            ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
+            : null,
       ),
     );
   }

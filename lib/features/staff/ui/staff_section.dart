@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:confwebsite2023/components/sns_icon.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/divider_with_title.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:url_launcher/link.dart';
 
 class StaffSection extends StatelessWidget {
   const StaffSection({super.key});
@@ -80,7 +82,7 @@ class _StaffItem extends StatelessWidget {
   });
   final Staff staff;
 
-  static const width = 212.0;
+  static const width = 212.8;
 
   @override
   Widget build(BuildContext context) {
@@ -121,6 +123,7 @@ class _StaffItem extends StatelessWidget {
                 style: theme.textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
+              const SizedBox(height: 8),
               Text(
                 staff.introduction,
                 style: theme.textTheme.bodyLarge!.copyWith(
@@ -129,6 +132,26 @@ class _StaffItem extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
+              const SizedBox(height: 16),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  children: staff.sns
+                      .map(
+                        (e) => Link(
+                          uri: Uri.tryParse(e.type.prefixUrl + e.userName),
+                          builder: (_, followLink) => SnsIcon(
+                            snsType: e.type,
+                            size: 32,
+                            padding: EdgeInsets.zero,
+                            iconColor: theme.colorScheme.onPrimaryContainer,
+                            onPressed: followLink ,
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
             ],
           ),
         ),
