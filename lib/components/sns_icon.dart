@@ -24,14 +24,21 @@ class SnsIcon extends StatelessWidget {
     return IconButton(
       padding: padding,
       onPressed: onPressed,
-      icon: SvgPicture.asset(
-        snsType.assetName,
-        width: size,
-        height: size,
-        colorFilter: iconColor != null
-            ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
-            : null,
-      ),
+      icon: switch (snsType) {
+        SnsType.url => Icon(
+            Icons.link,
+            size: size,
+            color: iconColor,
+          ),
+        _ => SvgPicture.asset(
+            snsType.assetName,
+            width: size,
+            height: size,
+            colorFilter: iconColor != null
+                ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
+                : null,
+          ),
+      },
     );
   }
 }
@@ -45,6 +52,6 @@ extension _SnsIconAssetName on SnsType {
         SnsType.zenn => Assets.icons.zenn,
         SnsType.medium => Assets.icons.medium,
         SnsType.qiita => Assets.icons.qiita,
-        SnsType.url => Assets.icons.link,
+        SnsType.url => throw UnimplementedError(),
       };
 }
