@@ -77,7 +77,7 @@ class HeroSectionMobile extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            'Flutterをメインに扱う、日本で初開催の技術カンファレンス。\n'
+            '2023年、日本国内でFlutterをメインに扱う技術カンファレンス。\n'
             'FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。',
             textAlign: TextAlign.center,
             style: textTheme.bodyLarge!.copyWith(
