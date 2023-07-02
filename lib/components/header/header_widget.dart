@@ -158,13 +158,15 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListTile(
-                  title: FittedBox(
+                InkWell(
+                  child: FittedBox(
                     alignment: Alignment.centerLeft,
                     fit: BoxFit.scaleDown,
                     child: FlutterKaigiLogo(
@@ -184,20 +186,30 @@ class _DrawerScreen extends StatelessWidget {
                 // FlutterKaigi Logo
                 for (final e in items) ...[
                   const SizedBox(height: 40),
-                  ListTile(
-                    title: Text(
-                      e.title,
-                      style: theme.textTheme.titleLarge,
-                    ),
+                  InkWell(
                     onTap: () {
                       e.onPressed();
                       Navigator.pop(context);
                     },
-                    // 白ポチ
-                    leading: Icon(
-                      Icons.circle,
-                      color: baselineColorScheme.ref.secondary.secondary70,
-                      size: 8,
+                    child: Row(
+                      children: [
+                        // 白ポチ
+                        SizedBox(
+                          width: 15,
+                          height: 15,
+                          child: Icon(
+                            Icons.circle,
+                            color:
+                                baselineColorScheme.ref.secondary.secondary70,
+                            size: 8,
+                          ),
+                        ),
+                        const SizedBox(width: 12.5),
+                        Text(
+                          e.title,
+                          style: theme.textTheme.titleLarge,
+                        ),
+                      ],
                     ),
                   ),
                 ],
