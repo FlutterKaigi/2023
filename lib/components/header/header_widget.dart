@@ -6,6 +6,7 @@ import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HeaderBar extends HookWidget implements PreferredSizeWidget {
   const HeaderBar({
@@ -77,8 +78,11 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
                 style: FlutterKaigiLogoStyle.horizontal,
                 size: 36,
                 iconColor: baselineColorScheme.ref.secondary.secondary80,
-                textStyle: textTheme.titleLarge!.copyWith(
+                textStyle: GoogleFonts.poppins(
                   color: baselineColorScheme.ref.secondary.secondary80,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  height: 1.5,
                 ),
               ),
             ),
