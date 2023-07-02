@@ -93,7 +93,7 @@ class _MainPageBody extends StatelessWidget {
                   curve: Curves.easeOutCirc,
                 ),
               ),
-              const SizedBox(height: 30 + kToolbarHeight),
+              const SizedBox(height: 30),
               SizedBox(
                 width: min(
                   width - (16 * 2),
