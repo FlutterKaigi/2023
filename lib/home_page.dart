@@ -36,19 +36,11 @@ class MainPage extends HookWidget {
     ];
 
     return Scaffold(
-      extendBodyBehindAppBar: true,
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
-      appBar: HeaderBar(
-        items: items,
-        onTitleTap: () async => scrollController.animateTo(
-          0,
-          duration: const Duration(milliseconds: 750),
-          curve: Curves.easeOutCirc,
-        ),
-      ),
       body: _MainPageBody(
         scrollController: scrollController,
         staffSectionKey: sectionKeys.staff,
+        items: items,
       ),
     );
   }
@@ -58,10 +50,12 @@ class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
     required this.scrollController,
     required this.staffSectionKey,
+    required this.items,
   });
 
   final ScrollController scrollController;
   final GlobalKey<State<StatefulWidget>> staffSectionKey;
+  final List<HeaderItemButtonData> items;
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +85,14 @@ class _MainPageBody extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              HeaderBar(
+                items: items,
+                onTitleTap: () async => scrollController.animateTo(
+                  0,
+                  duration: const Duration(milliseconds: 750),
+                  curve: Curves.easeOutCirc,
+                ),
+              ),
               const SizedBox(height: 30 + kToolbarHeight),
               SizedBox(
                 width: min(
