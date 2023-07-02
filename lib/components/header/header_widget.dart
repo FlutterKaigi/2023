@@ -154,13 +154,15 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 20),
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListTile(
-                  title: FittedBox(
+                InkWell(
+                  child: FittedBox(
                     alignment: Alignment.centerLeft,
                     fit: BoxFit.scaleDown,
                     child: FlutterKaigiLogo(
@@ -187,7 +189,6 @@ class _DrawerScreen extends StatelessWidget {
                     },
                     child: Row(
                       children: [
-                        const SizedBox(width: 11.5),
                         // 白ポチ
                         SizedBox(
                           width: 15,
