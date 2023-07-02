@@ -101,6 +101,7 @@ class _MainPageBody extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const HeroSection(),
+                    const SizedBox(height: 80),
                     StaffSection(
                       key: staffSectionKey,
                     ),
