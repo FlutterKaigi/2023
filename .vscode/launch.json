@@ -9,6 +9,7 @@
             "request": "launch",
             "type": "dart",
             "toolArgs": [
+                "--web-renderer=canvaskit",
                 "--dart-define-from-file=flavor/mock.json"
             ]
         },
@@ -17,6 +18,7 @@
             "request": "launch",
             "type": "dart",
             "toolArgs": [
+                "--web-renderer=canvaskit",
                 "--dart-define-from-file=flavor/production.json"
             ]
         },
@@ -26,6 +28,7 @@
             "type": "dart",
             "flutterMode": "profile",
             "toolArgs": [
+                "--web-renderer=canvaskit",
                 "--dart-define-from-file=flavor/production.json"
             ]
         }

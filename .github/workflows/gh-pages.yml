@@ -35,7 +35,7 @@ jobs:
       - name: Transpile
         run: |
           flutter build web \
-            --web-renderer html \
+            --web-renderer canvaskit \
             --dart-define-from-file flavor/production.json \
             --base-href "/2023/" \
             --release
