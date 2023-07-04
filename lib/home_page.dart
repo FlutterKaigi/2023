@@ -5,7 +5,6 @@ import 'package:confwebsite2023/components/header/header_widget.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/hero_section/ui/hero_section.dart';
-import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -99,14 +98,11 @@ class _MainPageBody extends StatelessWidget {
                   width - (16 * 2),
                   largeScreenSize + ((width - largeScreenSize) / 2),
                 ),
-                child: Column(
+                child: const Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const HeroSection(),
-                    const SizedBox(height: 80),
-                    StaffSection(
-                      key: staffSectionKey,
-                    ),
+                    HeroSection(),
+                    SizedBox(height: 80),
                   ],
                 ),
               ),
