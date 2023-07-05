@@ -136,6 +136,8 @@ class _StaffItem extends StatelessWidget {
           child: FadeInImage(
             fit: BoxFit.cover,
             image: CachedNetworkImageProvider(staff.image.src),
+            fadeOutDuration: const Duration(milliseconds: 1),
+            fadeInDuration: const Duration(milliseconds: 100),
             placeholder: MemoryImage(kTransparentImage),
             imageErrorBuilder: (_, __, ___) => const FittedBox(
               child: Icon(
