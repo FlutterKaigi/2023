@@ -69,6 +69,9 @@ class _MainPageBodyState extends State<_MainPageBody>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    if(wantKeepAlive) {
+      updateKeepAlive();
+    }
     final width = MediaQuery.of(context).size.width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
 
