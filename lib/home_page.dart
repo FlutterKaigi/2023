@@ -62,59 +62,61 @@ class _MainPageBody extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
 
-    return SingleChildScrollView(
+    return ListView(
       controller: scrollController,
-      child: Stack(
-        children: [
-          const SizedBox(
-            width: double.infinity,
-            height: 800,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF602678),
-                    Color(0x004B0082),
-                  ],
+      children: [
+        Stack(
+          children: [
+            const SizedBox(
+              width: double.infinity,
+              height: 800,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF602678),
+                      Color(0x004B0082),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                HeaderBar(
+                  items: items,
+                  onTitleTap: () async => scrollController.animateTo(
+                    0,
+                    duration: const Duration(milliseconds: 750),
+                    curve: Curves.easeOutCirc,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 30),
-              SizedBox(
-                width: min(
-                  width - (16 * 2),
-                  largeScreenSize + ((width - largeScreenSize) / 2),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: min(
+                    width - (16 * 2),
+                    largeScreenSize + ((width - largeScreenSize) / 2),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const HeroSection(),
+                      const SizedBox(height: 80),
+                      StaffSection(
+                        key: staffSectionKey,
+                      ),
+                    ],
+                  ),
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const HeroSection(),
-                    const SizedBox(height: 80),
-                    StaffSection(
-                      key: staffSectionKey,
-                    ),
-                  ],
-                ),
-              ),
-              const Footer(),
-            ],
-          ),
-        ],
-      ),
+                const Footer(),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
