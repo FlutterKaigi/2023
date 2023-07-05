@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/components/section_header.dart';
 import 'package:confwebsite2023/components/sns_icon.dart';
@@ -134,7 +135,7 @@ class _StaffItem extends StatelessWidget {
         child: ClipOval(
           child: FadeInImage(
             fit: BoxFit.cover,
-            image: NetworkImage(staff.image.src),
+            image: CachedNetworkImageProvider(staff.image.src),
             placeholder: MemoryImage(kTransparentImage),
             imageErrorBuilder: (_, __, ___) => const FittedBox(
               child: Icon(
