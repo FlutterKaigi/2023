@@ -18,6 +18,9 @@ class _HeroSectionState extends State<HeroSection>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    if(wantKeepAlive) {
+      updateKeepAlive();
+    }
     return const ResponsiveWidget(
       largeWidget: HeroSectionDesktop(),
       smallWidget: HeroSectionMobile(),
