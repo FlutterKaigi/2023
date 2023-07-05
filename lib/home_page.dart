@@ -94,6 +94,13 @@ class _MainPageBody extends StatelessWidget {
                     curve: Curves.easeOutCirc,
                   ),
                 ),
+
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  color: Colors.red,
+                ),
+
                 const SizedBox(height: 30),
                 SizedBox(
                   width: min(
