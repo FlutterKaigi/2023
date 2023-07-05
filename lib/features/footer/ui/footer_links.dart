@@ -36,7 +36,7 @@ class _Link extends StatelessWidget {
   const _Link.contact()
       : semanticsLabel = 'Contact',
         url =
-            'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3',
+            'https://docs.google.com/forms/d/e/1FAIpQLSemYPFEWpP8594MWI4k3Nz45RJzMS7pz1ufwtnX4t3V7z2TOw/viewform',
         text = 'Contact';
 
   final String semanticsLabel;
