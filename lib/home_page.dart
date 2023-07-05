@@ -46,7 +46,7 @@ class MainPage extends HookWidget {
   }
 }
 
-class _MainPageBody extends StatefulWidget {
+class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
     required this.scrollController,
     required this.staffSectionKey,
@@ -58,25 +58,12 @@ class _MainPageBody extends StatefulWidget {
   final List<HeaderItemButtonData> items;
 
   @override
-  State<_MainPageBody> createState() => _MainPageBodyState();
-}
-
-class _MainPageBodyState extends State<_MainPageBody>
-    with AutomaticKeepAliveClientMixin {
-  @override
-  bool get wantKeepAlive => true;
-
-  @override
   Widget build(BuildContext context) {
-    super.build(context);
-    if(wantKeepAlive) {
-      updateKeepAlive();
-    }
     final width = MediaQuery.of(context).size.width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
 
     return SingleChildScrollView(
-      controller: widget.scrollController,
+      controller: scrollController,
       child: Stack(
         children: [
           const SizedBox(
@@ -99,8 +86,8 @@ class _MainPageBodyState extends State<_MainPageBody>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               HeaderBar(
-                items: widget.items,
-                onTitleTap: () async => widget.scrollController.animateTo(
+                items: items,
+                onTitleTap: () async => scrollController.animateTo(
                   0,
                   duration: const Duration(milliseconds: 750),
                   curve: Curves.easeOutCirc,
@@ -118,7 +105,7 @@ class _MainPageBodyState extends State<_MainPageBody>
                     const HeroSection(),
                     const SizedBox(height: 80),
                     StaffSection(
-                      key: widget.staffSectionKey,
+                      key: staffSectionKey,
                     ),
                   ],
                 ),
