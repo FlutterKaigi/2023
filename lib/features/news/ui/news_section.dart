@@ -69,6 +69,7 @@ class _NewsItem extends StatelessWidget {
     if (news.url != null) {
       return Link(
         uri: Uri.tryParse(news.url!),
+        target: LinkTarget.blank,
         builder: (_, followLink) => TextButton(
           style: TextButton.styleFrom(
             padding: const EdgeInsets.all(8),
