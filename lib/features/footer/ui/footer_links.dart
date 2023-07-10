@@ -11,10 +11,22 @@ class FooterLinks extends StatelessWidget {
       alignment: WrapAlignment.spaceAround,
       spacing: 24,
       children: [
-        _Link.codeOfConduct(),
-        _Link.privacyPolicy(),
-        _Link.contact(),
-        _LicenseLink(),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _Link.codeOfConduct(),
+            SizedBox(width: 24),
+            _Link.privacyPolicy(),
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _Link.contact(),
+            SizedBox(width: 24),
+            _LicenseLink(),
+          ],
+        ),
       ],
     );
   }
