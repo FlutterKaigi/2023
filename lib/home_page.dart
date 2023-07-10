@@ -5,6 +5,7 @@ import 'package:confwebsite2023/components/header/header_widget.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/hero_section/ui/hero_section.dart';
+import 'package:confwebsite2023/features/news/ui/news_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
 import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -104,6 +105,7 @@ class _MainPageBody extends StatelessWidget {
                   children: [
                     const HeroSection(),
                     const SizedBox(height: 80),
+                    const NewsSection(),
                     StaffSection(
                       key: staffSectionKey,
                     ),

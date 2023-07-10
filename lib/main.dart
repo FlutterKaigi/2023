@@ -1,5 +1,7 @@
 import 'package:confwebsite2023/app.dart';
 import 'package:confwebsite2023/config.dart';
+import 'package:confwebsite2023/features/news/data/mock_news_data_source.dart';
+import 'package:confwebsite2023/features/news/data/news_data_source.dart';
 import 'package:confwebsite2023/features/staff/data/mock_staff_data_source.dart';
 import 'package:confwebsite2023/features/staff/data/staff_data_source.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,7 @@ void main() async {
   if (config.isMock) {
     overrides.addAll([
       staffDataSourceProvider.overrideWithValue(MockStaffDataSource()),
+      newsDataSourceProvider.overrideWithValue(MockNewsDataSource()),
     ]);
   }
 

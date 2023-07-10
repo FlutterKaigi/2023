@@ -7,7 +7,7 @@ class MockStaffDataSource implements StaffDataSource {
   @override
   Future<List<Staff>> fetchStaffItems() async {
     await Future<void>.delayed(const Duration(milliseconds: 500));
-    final jsonResult = json.decode(mockBody) as Map<String, dynamic>;
+    final jsonResult = json.decode(_mockBody) as Map<String, dynamic>;
     final itemsJson = jsonResult['items'] as List<dynamic>;
     return itemsJson
         .map(
@@ -17,7 +17,7 @@ class MockStaffDataSource implements StaffDataSource {
   }
 }
 
-const mockBody = '''
+const _mockBody = '''
 {
     "skip": 0,
     "limit": 100,
