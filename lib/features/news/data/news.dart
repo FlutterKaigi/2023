@@ -9,8 +9,13 @@ class News with _$News {
     required String text,
     required String? url,
     required DateTime startedAt,
-    required DateTime? endedAt,
+    @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+        required DateTime? endedAt,
   }) = _News;
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
 }
+
+DateTime? _dateTimeFromJson(String? json) => DateTime.tryParse(json.toString());
+
+String? _dateTimeToJson(DateTime? instance) => instance?.toIso8601String();

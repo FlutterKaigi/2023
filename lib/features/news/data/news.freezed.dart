@@ -23,6 +23,7 @@ mixin _$News {
   String get text => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   DateTime get startedAt => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
   DateTime? get endedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,12 @@ abstract class $NewsCopyWith<$Res> {
   factory $NewsCopyWith(News value, $Res Function(News) then) =
       _$NewsCopyWithImpl<$Res, News>;
   @useResult
-  $Res call({String text, String? url, DateTime startedAt, DateTime? endedAt});
+  $Res call(
+      {String text,
+      String? url,
+      DateTime startedAt,
+      @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+          DateTime? endedAt});
 }
 
 /// @nodoc
@@ -83,7 +89,12 @@ abstract class _$$_NewsCopyWith<$Res> implements $NewsCopyWith<$Res> {
       __$$_NewsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String text, String? url, DateTime startedAt, DateTime? endedAt});
+  $Res call(
+      {String text,
+      String? url,
+      DateTime startedAt,
+      @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+          DateTime? endedAt});
 }
 
 /// @nodoc
@@ -128,7 +139,8 @@ class _$_News implements _News {
       {required this.text,
       required this.url,
       required this.startedAt,
-      required this.endedAt});
+      @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+          required this.endedAt});
 
   factory _$_News.fromJson(Map<String, dynamic> json) => _$$_NewsFromJson(json);
 
@@ -139,6 +151,7 @@ class _$_News implements _News {
   @override
   final DateTime startedAt;
   @override
+  @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
   final DateTime? endedAt;
 
   @override
@@ -181,7 +194,8 @@ abstract class _News implements News {
       {required final String text,
       required final String? url,
       required final DateTime startedAt,
-      required final DateTime? endedAt}) = _$_News;
+      @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+          required final DateTime? endedAt}) = _$_News;
 
   factory _News.fromJson(Map<String, dynamic> json) = _$_News.fromJson;
 
@@ -192,6 +206,7 @@ abstract class _News implements News {
   @override
   DateTime get startedAt;
   @override
+  @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
   DateTime? get endedAt;
   @override
   @JsonKey(ignore: true)

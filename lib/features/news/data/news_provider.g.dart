@@ -22,7 +22,7 @@ final newsProvider = AutoDisposeFutureProvider<List<News>>.internal(
 );
 
 typedef NewsRef = AutoDisposeFutureProviderRef<List<News>>;
-String _$currentNewsHash() => r'a02513037ddc7813c58fb0085c396acb35829c16';
+String _$currentNewsHash() => r'362028bd457b4952250ee590d11bfa31b9f82b9c';
 
 /// `startedAt`が現在時刻よりも未来 かつ `endedAt`が現在時刻よりも過去のNewsのみを返す
 ///
