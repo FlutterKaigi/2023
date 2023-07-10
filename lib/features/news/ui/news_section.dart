@@ -15,7 +15,7 @@ class NewsSection extends ConsumerWidget {
     return state.when(
       data: (data) => Column(
         children: [
-          ...data.map((e) => _NewsItem(news: e)).toList(),
+          for (final e in data) _NewsItem(news: e),
           if (data.isNotEmpty) const SizedBox(height: 82),
         ],
       ),
