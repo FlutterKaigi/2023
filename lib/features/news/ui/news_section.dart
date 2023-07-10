@@ -14,7 +14,10 @@ class NewsSection extends ConsumerWidget {
     final state = ref.watch(currentNewsProvider);
     return state.when(
       data: (data) => Column(
-        children: data.map((e) => _NewsItem(news: e)).toList(),
+        children: [
+          ...data.map((e) => _NewsItem(news: e)).toList(),
+          if (data.isNotEmpty) const SizedBox(height: 82),
+        ],
       ),
       error: (error, _) => Text('エラーが発生しました: $error'),
       loading: CircularProgressIndicator.adaptive,
