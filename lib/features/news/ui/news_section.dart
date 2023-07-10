@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/features/news/data/news.dart';
 import 'package:confwebsite2023/features/news/data/news_provider.dart';
+import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -35,7 +36,7 @@ class _NewsItem extends StatelessWidget {
         Text(
           DateFormat('yyyy/MM/dd').format(news.startedAt),
           style: theme.textTheme.bodyLarge!.copyWith(
-            color: theme.colorScheme.secondary.withOpacity(0.9),
+            color: baselineColorScheme.ref.primary.primary90,
           ),
         ),
         // 紫丸ポチ
@@ -44,20 +45,17 @@ class _NewsItem extends StatelessWidget {
           width: 8,
           height: 8,
           decoration: BoxDecoration(
-            color: theme.colorScheme.primary.withOpacity(0.4),
+            color: baselineColorScheme.ref.primary.primary40,
             shape: BoxShape.circle,
           ),
         ),
         const SizedBox(width: 16),
         // text
         Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Text(
-              news.text,
-              style: theme.textTheme.bodyLarge!.copyWith(
-                color: theme.colorScheme.secondary,
-              ),
+          child: Text(
+            news.text,
+            style: theme.textTheme.bodyLarge!.copyWith(
+              color: baselineColorScheme.ref.secondary.secondary100,
             ),
           ),
         ),
