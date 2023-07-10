@@ -9,13 +9,45 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/discord.svg
+  String get discord => 'assets/icons/discord.svg';
+
+  /// File path: assets/icons/github.svg
+  String get github => 'assets/icons/github.svg';
+
+  /// File path: assets/icons/medium.svg
+  String get medium => 'assets/icons/medium.svg';
+
+  /// File path: assets/icons/note.svg
+  String get note => 'assets/icons/note.svg';
+
+  /// File path: assets/icons/qiita.svg
+  String get qiita => 'assets/icons/qiita.svg';
+
+  /// File path: assets/icons/twitter.svg
+  String get twitter => 'assets/icons/twitter.svg';
+
+  /// File path: assets/icons/zenn.svg
+  String get zenn => 'assets/icons/zenn.svg';
+
+  /// List of all assets
+  List<String> get values =>
+      [discord, github, medium, note, qiita, twitter, zenn];
+}
+
 class Assets {
   Assets._();
 
   static const String flutterkaigiLogo = 'assets/flutterkaigi_logo.svg';
+  static const String flutterkaigiLogoUnion =
+      'assets/flutterkaigi_logo_union.svg';
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
 
   /// List of all assets
-  List<String> get values => [flutterkaigiLogo];
+  List<String> get values => [flutterkaigiLogo, flutterkaigiLogoUnion];
 }
 
 class AssetGenImage {

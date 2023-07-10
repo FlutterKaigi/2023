@@ -31,13 +31,19 @@ void main() async {
   // Wait for the fonts to be loaded before running the app
   await GoogleFonts.pendingFonts([
     GoogleFonts.poppins(
-      fontStyle: FontStyle.italic,
-      fontWeight: FontWeight.bold,
+      fontWeight: FontWeight.w500,
+    ),
+    GoogleFonts.poppins(
+      fontWeight: FontWeight.w600,
     ),
     GoogleFonts.poppins(
       fontStyle: FontStyle.italic,
       // semi-bold
       fontWeight: FontWeight.w600,
+    ),
+    GoogleFonts.poppins(
+      fontStyle: FontStyle.italic,
+      fontWeight: FontWeight.w700,
     ),
     GoogleFonts.poppins(
       fontStyle: FontStyle.italic,
