@@ -38,15 +38,21 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
 
 ### Directory Structure
 
-```shell
+```text
 ./lib
-├── features
-│   └── ...
-│       ├── data
-│       └── ui
-├── gen
-├── l10n
-└── theme
+├── app
+├── core
+│   ├── components
+│   ├── gen
+│   ├── l10n
+│   └── theme
+└── features
+    ├── ...
+    │   ├── data
+    │   └── ui
+    └── ...
+        ├── data
+        └── ui
 ```
 
 ## Thanks
