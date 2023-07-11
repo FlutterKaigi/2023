@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 
 class FooterCopyright extends StatelessWidget {

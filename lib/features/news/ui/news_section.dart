@@ -1,6 +1,6 @@
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:confwebsite2023/features/news/data/news.dart';
 import 'package:confwebsite2023/features/news/data/news_provider.dart';
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';

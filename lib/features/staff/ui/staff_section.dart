@@ -1,10 +1,10 @@
 import 'package:confwebsite2023/components/responsive_widget.dart';
 import 'package:confwebsite2023/components/section_header.dart';
 import 'package:confwebsite2023/components/sns_icon.dart';
+import 'package:confwebsite2023/core/theme/app_text_style.dart';
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
-import 'package:confwebsite2023/theme/app_text_style.dart';
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:transparent_image/transparent_image.dart';

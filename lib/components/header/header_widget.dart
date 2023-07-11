@@ -3,7 +3,7 @@ import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/components/flutter_kaigi_sns_links.dart';
 import 'package:confwebsite2023/components/header/header_item_button_data.dart';
 import 'package:confwebsite2023/components/responsive_widget.dart';
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';

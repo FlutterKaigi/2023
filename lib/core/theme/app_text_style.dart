@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:confwebsite2023/theme/gradient.dart';
+import 'package:confwebsite2023/core/theme/gradient.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyle {
