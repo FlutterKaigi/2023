@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/config.dart';
+import 'package:confwebsite2023/core/config.dart';
 import 'package:confwebsite2023/core/theme/app_theme.dart';
 import 'package:confwebsite2023/home_page.dart';
 import 'package:flutter/material.dart';
