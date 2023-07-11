@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
+import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:confwebsite2023/features/hero_section/ui/hero_section_twitter.dart';
