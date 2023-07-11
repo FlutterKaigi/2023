@@ -1,5 +1,5 @@
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
-import 'package:confwebsite2023/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

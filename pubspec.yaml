@@ -50,3 +50,6 @@ flutter:
     - .env
     - assets/icons/
     - assets/
+
+flutter_gen:
+  output: lib/core/gen/
