@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/app.dart';
+import 'package:confwebsite2023/app/app.dart';
 import 'package:confwebsite2023/core/config.dart';
 import 'package:confwebsite2023/features/news/data/mock_news_data_source.dart';
 import 'package:confwebsite2023/features/news/data/news_data_source.dart';
