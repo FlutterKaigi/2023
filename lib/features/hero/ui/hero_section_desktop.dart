@@ -1,7 +1,7 @@
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
-import 'package:confwebsite2023/features/hero_section/ui/hero_section_twitter.dart';
+import 'package:confwebsite2023/features/hero/ui/hero_section_twitter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
