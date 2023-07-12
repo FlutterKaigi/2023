@@ -1,5 +1,5 @@
+import 'package:confwebsite2023/app/config.dart';
 import 'package:confwebsite2023/app/home_page.dart';
-import 'package:confwebsite2023/core/config.dart';
 import 'package:confwebsite2023/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
