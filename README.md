@@ -55,6 +55,20 @@ For Japanese, please see [CONTRIBUTING.ja.md](./CONTRIBUTING.ja.md).
         └── ui
 ```
 
+### Architecture
+
+```mermaid
+flowchart TB
+  app
+  core
+  features
+  main[main.dart]
+  
+  main --> app
+  app --> core & features
+  features --> core
+```
+
 ## Thanks
 
 Thank you for contributing!
