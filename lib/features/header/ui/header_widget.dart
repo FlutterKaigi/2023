@@ -1,6 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
-import 'package:confwebsite2023/core/components/flutter_kaigi_sns_links.dart';
+import 'package:confwebsite2023/features/header/ui/flutter_kaigi_sns_links.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
