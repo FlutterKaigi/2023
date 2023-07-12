@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';

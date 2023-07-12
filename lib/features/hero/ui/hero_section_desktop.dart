@@ -1,12 +1,12 @@
-import 'package:confwebsite2023/components/flutter_kaigi_logo.dart';
-import 'package:confwebsite2023/features/hero_section/ui/hero_section_twitter.dart';
-import 'package:confwebsite2023/gen/assets.gen.dart';
-import 'package:confwebsite2023/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
+import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/features/hero/ui/hero_section_twitter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HeroSectionMobile extends StatelessWidget {
-  const HeroSectionMobile({super.key});
+class HeroSectionDesktop extends StatelessWidget {
+  const HeroSectionDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HeroSectionMobile extends StatelessWidget {
             'FlutterKaigi 2023',
             style: GoogleFonts.poppins(
               color: baselineColorScheme.white,
-              fontSize: 30,
+              fontSize: 48,
               fontWeight: FontWeight.w600,
               height: 1.5,
             ),
@@ -40,7 +40,7 @@ class HeroSectionMobile extends StatelessWidget {
                 '@',
                 style: GoogleFonts.poppins(
                   color: baselineColorScheme.white,
-                  fontSize: 36,
+                  fontSize: 75,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w700,
                   height: 1,
@@ -50,30 +50,33 @@ class HeroSectionMobile extends StatelessWidget {
                 'OFFLINE',
                 style: GoogleFonts.poppins(
                   color: baselineColorScheme.white,
-                  fontSize: 48,
+                  fontSize: 90,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w800,
                   height: 1,
                 ),
-              )
+              ),
             ],
           ),
         ),
-        const SizedBox(height: 24),
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Text(
-            'November 10, 2023',
-            style: GoogleFonts.poppins(
-              color: baselineColorScheme.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              height: 1.5,
-              letterSpacing: 0.12,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 24,
+            ),
+            child: Text(
+              'November 10, 2023',
+              style: GoogleFonts.poppins(
+                color: baselineColorScheme.white,
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+                height: 1.5,
+                letterSpacing: 0.16,
+              ),
             ),
           ),
         ),
-        const SizedBox(height: 24),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
@@ -91,10 +94,15 @@ class HeroSectionMobile extends StatelessWidget {
           backgroundColor: colorScheme.onPrimary,
           icon: Assets.icons.twitter,
           iconColor: baselineColorScheme.white,
-          title: '',
-          subTitle: '最新情報をチェック',
-          subTitleTextStyle: textTheme.bodyMedium,
-          isMobile: true,
+          title: '@FlutterKaigi',
+          subTitle: '最新情報を公式Twitterでチェック',
+          titleTextStyle: textTheme.titleLarge!.copyWith(
+            color: baselineColorScheme.white,
+          ),
+          subTitleTextStyle: textTheme.bodyLarge!.copyWith(
+            color: baselineColorScheme.white,
+          ),
+          isMobile: false,
         ),
         const SizedBox(height: 20),
         HeroSectionTwitter(
@@ -103,12 +111,15 @@ class HeroSectionMobile extends StatelessWidget {
           backgroundColor: baselineColorScheme.ref.primary.primary90,
           icon: Assets.icons.twitter,
           iconColor: baselineColorScheme.ref.primary.primary40,
-          title: '',
+          title: '#flutterkaigi',
           subTitle: 'FlutterKaigi 2023をツイート',
+          titleTextStyle: textTheme.titleLarge!.copyWith(
+            color: baselineColorScheme.ref.primary.primary40,
+          ),
           subTitleTextStyle: textTheme.bodyLarge!.copyWith(
             color: baselineColorScheme.ref.primary.primary40,
           ),
-          isMobile: true,
+          isMobile: false,
         ),
       ],
     );

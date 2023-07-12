@@ -1,5 +1,5 @@
-import 'package:confwebsite2023/app.dart';
-import 'package:confwebsite2023/config.dart';
+import 'package:confwebsite2023/app/app.dart';
+import 'package:confwebsite2023/app/config.dart';
 import 'package:confwebsite2023/features/news/data/mock_news_data_source.dart';
 import 'package:confwebsite2023/features/news/data/news_data_source.dart';
 import 'package:confwebsite2023/features/staff/data/mock_staff_data_source.dart';
