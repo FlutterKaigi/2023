@@ -45,9 +45,11 @@ class Assets {
   static const String flutterkaigiLogoUnion =
       'assets/flutterkaigi_logo_union.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const String personalWanted = 'assets/personal_wanted.svg';
 
   /// List of all assets
-  List<String> get values => [flutterkaigiLogo, flutterkaigiLogoUnion];
+  List<String> get values =>
+      [flutterkaigiLogo, flutterkaigiLogoUnion, personalWanted];
 }
 
 class AssetGenImage {
