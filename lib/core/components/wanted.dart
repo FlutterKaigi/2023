@@ -10,6 +10,7 @@ class WantedDesktop extends StatelessWidget {
     required this.subContent,
     required this.buttonTitle,
     required this.image,
+    required this.onPressed,
     super.key,
   });
 
@@ -18,6 +19,7 @@ class WantedDesktop extends StatelessWidget {
   final String subContent;
   final String buttonTitle;
   final String image;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +72,7 @@ class WantedDesktop extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: colorScheme.primary,
                             ),
-                            onPressed: () {},
+                            onPressed: onPressed,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -118,6 +120,7 @@ class WantedMobile extends StatelessWidget {
     required this.subContent,
     required this.buttonTitle,
     required this.image,
+    required this.onPressed,
     super.key,
   });
 
@@ -126,6 +129,7 @@ class WantedMobile extends StatelessWidget {
   final String subContent;
   final String buttonTitle;
   final String image;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -172,7 +176,7 @@ class WantedMobile extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: colorScheme.primary,
                   ),
-                  onPressed: () {},
+                  onPressed: onPressed,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
