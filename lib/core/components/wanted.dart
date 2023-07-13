@@ -195,10 +195,12 @@ class WantedMobile extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 40),
-          SvgPicture.asset(
-            image,
-            width: 360,
-            height: 360,
+          Center(
+            child: SvgPicture.asset(
+              image,
+              width: 200,
+              height: 200,
+            ),
           ),
         ],
       ),
