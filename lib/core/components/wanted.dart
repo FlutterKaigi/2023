@@ -44,6 +44,7 @@ class WantedDesktop extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             FittedBox(
+              fit: BoxFit.scaleDown,
               child: Row(
                 children: [
                   SizedBox(
@@ -97,6 +98,7 @@ class WantedDesktop extends StatelessWidget {
                     ),
                   ),
                   FittedBox(
+                    fit: BoxFit.scaleDown,
                     child: SvgPicture.asset(
                       image,
                       width: 360,
