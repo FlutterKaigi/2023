@@ -8,7 +8,7 @@ class SessionWanted extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ResponsiveWidget(
+    return ResponsiveWidget(
       largeWidget: WantedDesktop(
         title: 'Proposal wanted!',
         content: 'FlutterKaigi 2023でのセッションのプロポーザルを募集開始しました！\n'
@@ -23,6 +23,7 @@ class SessionWanted extends StatelessWidget {
             '（Flutter開発支援ツールについては除きます。）',
         buttonTitle: 'プロポーザルを提出する',
         image: Assets.personalWanted,
+        onPressed: () {},
       ),
       smallWidget: WantedMobile(
         title: 'Proposal wanted!',
@@ -38,6 +39,7 @@ class SessionWanted extends StatelessWidget {
             '（Flutter開発支援ツールについては除きます。）',
         buttonTitle: 'プロポーザルを提出する',
         image: Assets.personalWanted,
+        onPressed: () {},
       ),
     );
   }
