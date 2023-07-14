@@ -20,23 +20,14 @@ class StaffTable extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: LayoutBuilder(
             builder: (context, constraints) {
-              // 余白を考慮しつつ 最大横に何個並べられるかを計算する
-              // yを最大横幅 xを横の最大要素数として、
-              // y = 171x + 16(x - 1)
-              // y - 16 = 187x
-              // x = (y - 16) / 187
-              final result = ((constraints.maxWidth - 16) / 187).floor();
-              final crossAxisCount = switch (result) {
-                < 2 => 2,
-                > 5 => 5,
-                _ => result,
-              };
+              final itemCount = StaffRow.calculateItemCount(
+                maxWidth: constraints.maxWidth,
+              );
               // 要素の横幅を計算
               final itemWidth =
-                  (constraints.maxWidth - 16 * (crossAxisCount - 1)) /
-                      crossAxisCount;
+                  (constraints.maxWidth - 16 * (itemCount - 1)) / itemCount;
 
-              final staffs = data.chunked(crossAxisCount);
+              final staffs = data.chunked(itemCount);
               return SizedBox(
                 width: constraints.maxWidth,
                 child: Column(
