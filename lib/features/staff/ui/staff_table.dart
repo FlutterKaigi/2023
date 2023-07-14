@@ -22,9 +22,6 @@ class StaffTable extends ConsumerWidget {
               final itemCount = StaffRow.calculateItemCount(
                 maxWidth: constraints.maxWidth,
               );
-              final itemWidth = StaffRow.calculateItemWidth(
-                maxWidth: constraints.maxWidth,
-              );
 
               final chunkedAllStaffs = data.chunked(itemCount);
               return SizedBox(
@@ -36,7 +33,7 @@ class StaffTable extends ConsumerWidget {
                       (staffsInRow) => IntrinsicHeight(
                         child: StaffRow(
                           staffs: staffsInRow,
-                          itemWidth: itemWidth,
+                          maxWidth: constraints.maxWidth,
                         ),
                       ),
                     ),

@@ -6,12 +6,12 @@ import 'package:flutter/widgets.dart';
 class StaffRow extends StatelessWidget {
   const StaffRow({
     required this.staffs,
-    required this.itemWidth,
+    required this.maxWidth,
     super.key,
   });
 
   final List<Staff> staffs;
-  final double itemWidth;
+  final double maxWidth;
 
   static const spacing = 16.0;
 
@@ -45,7 +45,9 @@ class StaffRow extends StatelessWidget {
       children: [
         ...staffs.map<Widget>(
           (staff) => SizedBox(
-            width: itemWidth,
+            width: calculateItemWidth(
+              maxWidth: maxWidth,
+            ),
             child: StaffItem(staff: staff),
           ),
         )
