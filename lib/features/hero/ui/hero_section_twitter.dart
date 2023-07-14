@@ -73,7 +73,7 @@ class HeroSectionTwitter extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    Spaces.horizontal_20,
                     Text(
                       title,
                       style: titleTextStyle,

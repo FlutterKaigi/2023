@@ -43,7 +43,7 @@ class _NewsItem extends StatelessWidget {
           ),
         ),
         // 紫丸ポチ
-        const SizedBox(width: 16),
+        Spaces.horizontal_16,
         Container(
           width: 8,
           height: 8,
@@ -52,7 +52,7 @@ class _NewsItem extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 16),
+        Spaces.horizontal_16,
         // text
         Expanded(
           child: Text(

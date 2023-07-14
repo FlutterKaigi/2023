@@ -204,7 +204,7 @@ class _DrawerScreen extends StatelessWidget {
                             size: 8,
                           ),
                         ),
-                        const SizedBox(width: 12.5),
+                        Spaces.horizontal_12_5,
                         Text(
                           e.title,
                           style: theme.textTheme.titleLarge,
