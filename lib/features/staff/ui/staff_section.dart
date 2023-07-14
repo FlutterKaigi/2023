@@ -3,6 +3,7 @@ import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme/app_text_style.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_item.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_row.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -74,19 +75,9 @@ class _StaffList extends ConsumerWidget {
                     ...staffs
                         .map<Widget>(
                           (staffsInRow) => IntrinsicHeight(
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: staffsInRow
-                                  .map<Widget>(
-                                    (e) => SizedBox(
-                                      width: itemWidth,
-                                      child: StaffItem(staff: e),
-                                    ),
-                                  )
-                                  .toList()
-                                  .joinElement(
-                                    const SizedBox(width: StaffItem.spacing),
-                                  ),
+                            child: StaffRow(
+                              staffs: staffsInRow,
+                              itemWidth: itemWidth,
                             ),
                           ),
                         )
