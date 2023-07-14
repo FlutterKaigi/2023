@@ -1,6 +1,5 @@
 import 'package:confwebsite2023/core/foundation/iterable_ex.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
-import 'package:confwebsite2023/features/staff/ui/staff_item.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_row.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -42,7 +41,7 @@ class StaffTable extends ConsumerWidget {
                       ),
                     ),
                   ].insertingEach(
-                    () => const SizedBox(height: StaffItem.spacing),
+                    () => const SizedBox(height: StaffRow.spacing),
                   ),
                 ),
               );

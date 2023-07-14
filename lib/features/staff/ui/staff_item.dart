@@ -13,8 +13,6 @@ class StaffItem extends StatelessWidget {
 
   final Staff staff;
 
-  static const spacing = 16.0;
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

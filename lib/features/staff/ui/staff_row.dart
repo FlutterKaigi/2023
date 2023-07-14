@@ -13,6 +13,8 @@ class StaffRow extends StatelessWidget {
   final List<Staff> staffs;
   final double itemWidth;
 
+  static const spacing = 16.0;
+
   // 余白を考慮しつつ 最大横に何個並べられるかを計算する
   static int calculateItemCount({
     required double maxWidth,
@@ -48,7 +50,7 @@ class StaffRow extends StatelessWidget {
           ),
         )
       ].insertingEach(
-        () => const SizedBox(width: StaffItem.spacing),
+        () => const SizedBox(width: spacing),
       ),
     );
   }
