@@ -1,7 +1,6 @@
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
-import 'package:confwebsite2023/core/theme/app_text_style.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/sns_icon.dart';

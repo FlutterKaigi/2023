@@ -1,5 +1,5 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
