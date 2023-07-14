@@ -65,7 +65,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
       ],
     );
 
-    final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
     final desktopBar = Center(
       child: SizedBox(
