@@ -23,9 +23,9 @@ class StaffTable extends ConsumerWidget {
               final itemCount = StaffRow.calculateItemCount(
                 maxWidth: constraints.maxWidth,
               );
-              // 要素の横幅を計算
-              final itemWidth =
-                  (constraints.maxWidth - 16 * (itemCount - 1)) / itemCount;
+              final itemWidth = StaffRow.calculateItemWidth(
+                maxWidth: constraints.maxWidth,
+              );
 
               final staffs = data.chunked(itemCount);
               return SizedBox(

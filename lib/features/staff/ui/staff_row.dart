@@ -29,6 +29,13 @@ class StaffRow extends StatelessWidget {
     };
   }
 
+  static double calculateItemWidth({
+    required double maxWidth,
+  }) {
+    final itemCount = calculateItemCount(maxWidth: maxWidth);
+    return (maxWidth - spacing * (itemCount - 1)) / itemCount;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
