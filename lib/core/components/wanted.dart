@@ -68,27 +68,29 @@ class WantedDesktop extends StatelessWidget {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
-    return SizedBox(
-      width: 1128,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SectionHeader(
-            text: title,
-            style: GoogleFonts.poppins(
-              fontSize: 60,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w700,
-              height: 1.5,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionHeader(
+          text: title,
+          style: GoogleFonts.poppins(
+            fontSize: 60,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w700,
+            height: 1.5,
           ),
-          const SizedBox(height: 24),
-          FittedBox(
-            fit: BoxFit.scaleDown,
+        ),
+        const SizedBox(height: 24),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: SizedBox(
+            width: 1128,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   width: 700,
+                  height: 360,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -137,6 +139,7 @@ class WantedDesktop extends StatelessWidget {
                     ],
                   ),
                 ),
+                const Spacer(),
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: SvgPicture.asset(
@@ -148,8 +151,8 @@ class WantedDesktop extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
