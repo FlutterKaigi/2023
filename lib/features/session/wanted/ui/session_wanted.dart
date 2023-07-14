@@ -21,6 +21,7 @@ class SessionWanted extends StatelessWidget {
           '（Flutter開発支援ツールについては除きます。）',
       buttonTitle: 'プロポーザルを提出する',
       image: Assets.personalWanted,
+      //TODO 遷移先が決まり次第、追記予定
       onPressed: () {},
     );
   }
