@@ -171,7 +171,7 @@ class _DrawerScreen extends StatelessWidget {
                     fit: BoxFit.scaleDown,
                     child: FlutterKaigiLogo(
                       style: FlutterKaigiLogoStyle.horizontal,
-                      textStyle: theme.textTheme.titleLarge!.copyWith(
+                      textStyle: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
                       ),
