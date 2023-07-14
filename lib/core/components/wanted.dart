@@ -245,6 +245,7 @@ class WantedMobile extends StatelessWidget {
             height: 200,
           ),
         ),
+        const SizedBox(height: 200),
       ],
     );
   }
