@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/theme/gradient.dart';
+import 'package:confwebsite2023/core/theme/gradient.dart';
 import 'package:flutter/material.dart';
 
 /// A section header with a gradient.
