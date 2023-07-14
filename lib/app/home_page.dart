@@ -94,7 +94,7 @@ class _MainPageBody extends StatelessWidget {
                   curve: Curves.easeOutCirc,
                 ),
               ),
-              const SizedBox(height: 30),
+              Spaces.vertical_30,
               SizedBox(
                 width: min(
                   width - (16 * 2),
@@ -104,7 +104,7 @@ class _MainPageBody extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const HeroSection(),
-                    const SizedBox(height: 80),
+                    Spaces.vertical_80,
                     const NewsSection(),
                     StaffSection(
                       key: staffSectionKey,

@@ -97,7 +97,7 @@ class FlutterKaigiLogo extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (showGradient) shadowedIcon else baseIcon(),
-            const SizedBox(height: 10),
+            Spaces.vertical_10,
             Text(
               'FlutterKaigi 2023',
               style: textStyle,

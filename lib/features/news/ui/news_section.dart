@@ -16,7 +16,7 @@ class NewsSection extends ConsumerWidget {
       data: (data) => Column(
         children: [
           for (final e in data) _NewsItem(news: e),
-          if (data.isNotEmpty) const SizedBox(height: 82),
+          if (data.isNotEmpty) Spaces.vertical_82,
         ],
       ),
       error: (error, _) => Text('エラーが発生しました: $error'),

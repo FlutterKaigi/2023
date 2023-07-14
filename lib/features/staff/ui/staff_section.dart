@@ -97,7 +97,7 @@ class _StaffList extends ConsumerWidget {
                         .joinElement(
                           const SizedBox(height: _StaffItem.spacing),
                         ),
-                    const SizedBox(height: 165),
+                    Spaces.vertical_200,
                   ],
                 ),
               );
@@ -184,7 +184,7 @@ class _StaffItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 icon,
-                const SizedBox(height: 16),
+                Spaces.vertical_16,
                 Text(
                   staff.displayName,
                   style: theme.textTheme.titleLarge!.copyWith(
@@ -192,7 +192,7 @@ class _StaffItem extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
+                Spaces.vertical_8,
                 Text(
                   staff.introduction,
                   style: theme.textTheme.bodyLarge!.copyWith(
@@ -204,9 +204,9 @@ class _StaffItem extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const SizedBox(height: 16),
+          Spaces.vertical_16,
           snsIcons,
-          const SizedBox(height: 16),
+          Spaces.vertical_16,
         ],
       ),
     );

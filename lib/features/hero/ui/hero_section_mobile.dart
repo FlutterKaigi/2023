@@ -59,7 +59,7 @@ class HeroSectionMobile extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
@@ -73,7 +73,7 @@ class HeroSectionMobile extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
@@ -85,7 +85,7 @@ class HeroSectionMobile extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
@@ -96,7 +96,7 @@ class HeroSectionMobile extends StatelessWidget {
           subTitleTextStyle: textTheme.bodyMedium,
           isMobile: true,
         ),
-        const SizedBox(height: 20),
+        Spaces.vertical_20,
         HeroSectionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',

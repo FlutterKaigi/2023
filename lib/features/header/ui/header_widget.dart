@@ -158,7 +158,7 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          Spaces.vertical_20,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -185,7 +185,7 @@ class _DrawerScreen extends StatelessWidget {
                 ),
                 // FlutterKaigi Logo
                 for (final e in items) ...[
-                  const SizedBox(height: 40),
+                  Spaces.vertical_40,
                   InkWell(
                     onTap: () {
                       e.onPressed();
@@ -229,7 +229,7 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          Spaces.vertical_10,
         ],
       ),
     );

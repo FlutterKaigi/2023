@@ -88,7 +88,7 @@ class HeroSectionDesktop extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
@@ -104,7 +104,7 @@ class HeroSectionDesktop extends StatelessWidget {
           ),
           isMobile: false,
         ),
-        const SizedBox(height: 20),
+        Spaces.vertical_20,
         HeroSectionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
