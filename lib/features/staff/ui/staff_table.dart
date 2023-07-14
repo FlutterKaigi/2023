@@ -26,13 +26,13 @@ class StaffTable extends ConsumerWidget {
                 maxWidth: constraints.maxWidth,
               );
 
-              final staffs = data.chunked(itemCount);
+              final chunkedAllStaffs = data.chunked(itemCount);
               return SizedBox(
                 width: constraints.maxWidth,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    ...staffs.map<Widget>(
+                    ...chunkedAllStaffs.map<Widget>(
                       (staffsInRow) => IntrinsicHeight(
                         child: StaffRow(
                           staffs: staffsInRow,
