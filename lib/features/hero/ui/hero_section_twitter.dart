@@ -50,6 +50,7 @@ class HeroSectionTwitter extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   border: Border.all(
                     color: baselineColorScheme.ref.primary.primary90,
+                    width: 2,
                   ),
                   boxShadow: [
                     BoxShadow(

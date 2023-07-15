@@ -24,7 +24,7 @@ class ResponsiveWidget extends StatelessWidget {
 
   /// Returns the screen size type based on the screen width
   static ScreenSizeType getScreenSizeType(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.sizeOf(context).width;
     return switch (screenWidth) {
       > largeScreenSize => ScreenSizeType.large,
       > mediumScreenSize => ScreenSizeType.medium,
