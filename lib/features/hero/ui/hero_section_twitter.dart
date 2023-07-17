@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
@@ -74,7 +74,7 @@ class HeroSectionTwitter extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 20),
+                    Spaces.horizontal_20,
                     Text(
                       title,
                       style: titleTextStyle,

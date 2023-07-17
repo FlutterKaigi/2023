@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section_twitter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -88,7 +88,7 @@ class HeroSectionDesktop extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
@@ -104,7 +104,7 @@ class HeroSectionDesktop extends StatelessWidget {
           ),
           isMobile: false,
         ),
-        const SizedBox(height: 20),
+        Spaces.vertical_20,
         HeroSectionTwitter(
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',

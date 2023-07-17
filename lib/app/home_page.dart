@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
@@ -94,7 +94,7 @@ class _MainPageBody extends StatelessWidget {
                   curve: Curves.easeOutCirc,
                 ),
               ),
-              const SizedBox(height: 30),
+              Spaces.vertical_30,
               SizedBox(
                 width: min(
                   width - (16 * 2),
@@ -104,7 +104,7 @@ class _MainPageBody extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const HeroSection(),
-                    const SizedBox(height: 80),
+                    Spaces.vertical_80,
                     const NewsSection(),
                     StaffSection(
                       key: staffSectionKey,
