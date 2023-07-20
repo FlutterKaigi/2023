@@ -80,6 +80,7 @@ class WantedDesktop extends StatelessWidget {
             height: 1.5,
           ),
         ),
+        //TODO Spacerの修正をする。
         const SizedBox(height: 24),
         FittedBox(
           fit: BoxFit.scaleDown,
@@ -88,9 +89,7 @@ class WantedDesktop extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(
-                  width: 700,
-                  height: 360,
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -100,6 +99,7 @@ class WantedDesktop extends StatelessWidget {
                           color: colorScheme.onPrimaryContainer,
                         ),
                       ),
+                      //TODO Spacerの修正をする。
                       const SizedBox(height: 24),
                       Text(
                         subContent,
@@ -107,6 +107,7 @@ class WantedDesktop extends StatelessWidget {
                           color: colorScheme.secondary,
                         ),
                       ),
+                      //TODO Spacerの修正をする。
                       const SizedBox(height: 24),
                       SizedBox(
                         width: 250,
@@ -126,6 +127,7 @@ class WantedDesktop extends StatelessWidget {
                                   fontSize: 14,
                                 ),
                               ),
+                              //TODO Spacerの修正をする。
                               const SizedBox(width: 8),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -139,7 +141,7 @@ class WantedDesktop extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Spacer(),
+                const SizedBox(width: 86),
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: SvgPicture.asset(
@@ -192,6 +194,7 @@ class WantedMobile extends StatelessWidget {
             height: 1.5,
           ),
         ),
+        //TODO Spacerの修正をする。
         const SizedBox(height: 24),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,6 +206,7 @@ class WantedMobile extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
+            //TODO Spacerの修正をする。
             const SizedBox(height: 24),
             Text(
               subContent,
@@ -211,6 +215,7 @@ class WantedMobile extends StatelessWidget {
                 fontSize: 14,
               ),
             ),
+            //TODO Spacerの修正をする。
             const SizedBox(height: 24),
             SizedBox(
               height: 40,
@@ -240,6 +245,7 @@ class WantedMobile extends StatelessWidget {
             ),
           ],
         ),
+        //TODO Spacerの修正をする。
         const SizedBox(height: 40),
         Center(
           child: SvgPicture.asset(
@@ -248,6 +254,7 @@ class WantedMobile extends StatelessWidget {
             height: 200,
           ),
         ),
+        //TODO Spacerの修正をする。
         const SizedBox(height: 200),
       ],
     );
