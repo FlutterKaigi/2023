@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
+import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -80,8 +81,7 @@ class WantedDesktop extends StatelessWidget {
             height: 1.5,
           ),
         ),
-        //TODO Spacerの修正をする。
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         FittedBox(
           fit: BoxFit.scaleDown,
           child: SizedBox(
@@ -99,16 +99,14 @@ class WantedDesktop extends StatelessWidget {
                           color: colorScheme.onPrimaryContainer,
                         ),
                       ),
-                      //TODO Spacerの修正をする。
-                      const SizedBox(height: 24),
+                      Spaces.vertical_24,
                       Text(
                         subContent,
                         style: textTheme.bodyMedium!.copyWith(
                           color: colorScheme.secondary,
                         ),
                       ),
-                      //TODO Spacerの修正をする。
-                      const SizedBox(height: 24),
+                      Spaces.vertical_24,
                       SizedBox(
                         width: 250,
                         height: 40,
@@ -127,8 +125,7 @@ class WantedDesktop extends StatelessWidget {
                                   fontSize: 14,
                                 ),
                               ),
-                              //TODO Spacerの修正をする。
-                              const SizedBox(width: 8),
+                              Spaces.vertical_8,
                               Icon(
                                 Icons.arrow_forward_ios,
                                 size: 18,
@@ -141,7 +138,7 @@ class WantedDesktop extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 86),
+                Spaces.horizontal_60,
                 FittedBox(
                   fit: BoxFit.scaleDown,
                   child: SvgPicture.asset(
@@ -194,8 +191,7 @@ class WantedMobile extends StatelessWidget {
             height: 1.5,
           ),
         ),
-        //TODO Spacerの修正をする。
-        const SizedBox(height: 24),
+        Spaces.vertical_24,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -206,8 +202,7 @@ class WantedMobile extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            //TODO Spacerの修正をする。
-            const SizedBox(height: 24),
+            Spaces.vertical_24,
             Text(
               subContent,
               style: textTheme.bodyMedium!.copyWith(
@@ -215,8 +210,7 @@ class WantedMobile extends StatelessWidget {
                 fontSize: 14,
               ),
             ),
-            //TODO Spacerの修正をする。
-            const SizedBox(height: 24),
+            Spaces.vertical_24,
             SizedBox(
               height: 40,
               child: ElevatedButton(
@@ -245,8 +239,7 @@ class WantedMobile extends StatelessWidget {
             ),
           ],
         ),
-        //TODO Spacerの修正をする。
-        const SizedBox(height: 40),
+        Spaces.vertical_40,
         Center(
           child: SvgPicture.asset(
             image,
@@ -254,8 +247,7 @@ class WantedMobile extends StatelessWidget {
             height: 200,
           ),
         ),
-        //TODO Spacerの修正をする。
-        const SizedBox(height: 200),
+        Spaces.vertical_200,
       ],
     );
   }
