@@ -108,6 +108,7 @@ class _MainPageBody extends StatelessWidget {
                     Spaces.vertical_80,
                     const NewsSection(),
                     const SessionWanted(),
+                    Spaces.vertical_200,
                     StaffSection(
                       key: staffSectionKey,
                     ),
