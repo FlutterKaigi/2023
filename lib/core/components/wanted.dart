@@ -223,29 +223,32 @@ class WantedMobile extends StatelessWidget {
               ),
             ),
             Spaces.vertical_24,
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: colorScheme.primary,
-              ),
-              onPressed: onPressed,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    buttonTitle,
-                    style: textTheme.labelLarge?.copyWith(
-                      color: colorScheme.onPrimary,
-                      fontSize: 10.5,
-                      height: 1.428,
-                      letterSpacing: 0.1,
+            SizedBox(
+              height: 40,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: colorScheme.primary,
+                ),
+                onPressed: onPressed,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      buttonTitle,
+                      style: textTheme.labelLarge?.copyWith(
+                        color: colorScheme.onPrimary,
+                        fontSize: 10.5,
+                        height: 1.428,
+                        letterSpacing: 0.1,
+                      ),
                     ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 9,
-                    color: colorScheme.onPrimary,
-                  ),
-                ],
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 9,
+                      color: colorScheme.onPrimary,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
