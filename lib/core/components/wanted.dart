@@ -231,9 +231,6 @@ class WantedMobile extends StatelessWidget {
                       buttonTitle,
                       style: textTheme.labelLarge?.copyWith(
                         color: colorScheme.onPrimary,
-                        fontSize: 10.5,
-                        height: 1.428,
-                        letterSpacing: 0.1,
                       ),
                     ),
                     Icon(
