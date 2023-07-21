@@ -132,7 +132,7 @@ class WantedDesktop extends StatelessWidget {
                               letterSpacing: 0.1,
                             ),
                           ),
-                          Spaces.vertical_8,
+                          Spaces.horizontal_8,
                           Icon(
                             Icons.arrow_forward_ios,
                             size: 9,
