@@ -80,7 +80,7 @@ class WantedDesktop extends StatelessWidget {
               fontSize: 60,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w700,
-              height: 1.5,
+              height: 1.1,
             ),
           ),
         ),
@@ -97,8 +97,6 @@ class WantedDesktop extends StatelessWidget {
                     content,
                     style: textTheme.bodyLarge!.copyWith(
                       color: colorScheme.onPrimaryContainer,
-                      height: 1.5,
-                      letterSpacing: 0.5,
                     ),
                   ),
                   Spaces.vertical_24,
@@ -106,8 +104,6 @@ class WantedDesktop extends StatelessWidget {
                     subContent,
                     style: textTheme.bodyMedium!.copyWith(
                       color: colorScheme.secondary,
-                      height: 1.428,
-                      letterSpacing: 0.25,
                     ),
                   ),
                   Spaces.vertical_24,
@@ -127,9 +123,6 @@ class WantedDesktop extends StatelessWidget {
                             buttonTitle,
                             style: textTheme.labelLarge?.copyWith(
                               color: colorScheme.onPrimary,
-                              fontSize: 10.5,
-                              height: 1.428,
-                              letterSpacing: 0.1,
                             ),
                           ),
                           Spaces.horizontal_8,
