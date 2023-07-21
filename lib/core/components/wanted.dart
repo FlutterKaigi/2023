@@ -108,7 +108,7 @@ class WantedDesktop extends StatelessWidget {
                   ),
                   Spaces.vertical_24,
                   SizedBox(
-                    width: 250,
+                    width: 221,
                     height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -118,17 +118,19 @@ class WantedDesktop extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Spaces.horizontal_8,
                           Text(
                             buttonTitle,
                             style: textTheme.labelLarge?.copyWith(
                               color: colorScheme.onPrimary,
-                              fontSize: 14,
+                              fontSize: 10.5,
+                              letterSpacing: 0.1,
                             ),
                           ),
                           Spaces.vertical_8,
                           Icon(
                             Icons.arrow_forward_ios,
-                            size: 18,
+                            size: 9,
                             color: colorScheme.onPrimary,
                           ),
                         ],
@@ -248,7 +250,6 @@ class WantedMobile extends StatelessWidget {
             height: 200,
           ),
         ),
-        Spaces.vertical_200,
       ],
     );
   }
