@@ -82,74 +82,68 @@ class WantedDesktop extends StatelessWidget {
           ),
         ),
         Spaces.vertical_24,
-        FittedBox(
-          fit: BoxFit.scaleDown,
-          child: SizedBox(
-            width: 1128,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        content,
-                        style: textTheme.bodyLarge!.copyWith(
-                          color: colorScheme.onPrimaryContainer,
-                        ),
-                      ),
-                      Spaces.vertical_24,
-                      Text(
-                        subContent,
-                        style: textTheme.bodyMedium!.copyWith(
-                          color: colorScheme.secondary,
-                        ),
-                      ),
-                      Spaces.vertical_24,
-                      SizedBox(
-                        width: 250,
-                        height: 40,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: colorScheme.primary,
-                          ),
-                          onPressed: onPressed,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                buttonTitle,
-                                style: textTheme.labelLarge?.copyWith(
-                                  color: colorScheme.onPrimary,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              Spaces.vertical_8,
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                size: 18,
-                                color: colorScheme.onPrimary,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    content,
+                    style: textTheme.bodyLarge!.copyWith(
+                      color: colorScheme.onPrimaryContainer,
+                    ),
                   ),
-                ),
-                Spaces.horizontal_60,
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: SvgPicture.asset(
-                    image,
-                    width: 360,
-                    height: 360,
+                  Spaces.vertical_24,
+                  Text(
+                    subContent,
+                    style: textTheme.bodyMedium!.copyWith(
+                      color: colorScheme.secondary,
+                    ),
                   ),
-                ),
-              ],
+                  Spaces.vertical_24,
+                  SizedBox(
+                    width: 250,
+                    height: 40,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: colorScheme.primary,
+                      ),
+                      onPressed: onPressed,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            buttonTitle,
+                            style: textTheme.labelLarge?.copyWith(
+                              color: colorScheme.onPrimary,
+                              fontSize: 14,
+                            ),
+                          ),
+                          Spaces.vertical_8,
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 18,
+                            color: colorScheme.onPrimary,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
+            Spaces.horizontal_60,
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: SvgPicture.asset(
+                image,
+                width: 360,
+                height: 360,
+              ),
+            ),
+          ],
         ),
       ],
     );
