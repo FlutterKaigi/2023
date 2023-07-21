@@ -87,6 +87,7 @@ class WantedDesktop extends StatelessWidget {
         Spaces.vertical_24,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Column(
