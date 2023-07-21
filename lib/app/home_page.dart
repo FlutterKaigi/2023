@@ -107,8 +107,8 @@ class _MainPageBody extends StatelessWidget {
                     const HeroSection(),
                     Spaces.vertical_80,
                     const NewsSection(),
-                    const SessionWanted(),
-                    Spaces.vertical_200,
+                    // const SessionWanted(),
+                    // Spaces.vertical_200,
                     StaffSection(
                       key: staffSectionKey,
                     ),
