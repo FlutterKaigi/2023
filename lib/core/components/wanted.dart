@@ -214,9 +214,6 @@ class WantedMobile extends StatelessWidget {
               subContent,
               style: textTheme.bodyMedium!.copyWith(
                 color: colorScheme.secondary,
-                fontSize: 10.5,
-                height: 1.428,
-                letterSpacing: 0.25,
               ),
             ),
             Spaces.vertical_24,
