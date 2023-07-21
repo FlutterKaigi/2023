@@ -97,6 +97,8 @@ class WantedDesktop extends StatelessWidget {
                     content,
                     style: textTheme.bodyLarge!.copyWith(
                       color: colorScheme.onPrimaryContainer,
+                      height: 1.5,
+                      letterSpacing: 0.5,
                     ),
                   ),
                   Spaces.vertical_24,
@@ -104,6 +106,8 @@ class WantedDesktop extends StatelessWidget {
                     subContent,
                     style: textTheme.bodyMedium!.copyWith(
                       color: colorScheme.secondary,
+                      height: 1.428,
+                      letterSpacing: 0.25,
                     ),
                   ),
                   Spaces.vertical_24,
@@ -124,6 +128,7 @@ class WantedDesktop extends StatelessWidget {
                             style: textTheme.labelLarge?.copyWith(
                               color: colorScheme.onPrimary,
                               fontSize: 10.5,
+                              height: 1.428,
                               letterSpacing: 0.1,
                             ),
                           ),
@@ -202,7 +207,9 @@ class WantedMobile extends StatelessWidget {
               content,
               style: textTheme.bodyLarge!.copyWith(
                 color: colorScheme.onPrimaryContainer,
-                fontSize: 16,
+                fontSize: 12,
+                height: 1.8,
+                letterSpacing: 0.5,
               ),
             ),
             Spaces.vertical_24,
@@ -210,44 +217,48 @@ class WantedMobile extends StatelessWidget {
               subContent,
               style: textTheme.bodyMedium!.copyWith(
                 color: colorScheme.secondary,
-                fontSize: 14,
+                fontSize: 10.5,
+                height: 1.428,
+                letterSpacing: 0.25,
               ),
             ),
             Spaces.vertical_24,
-            SizedBox(
-              height: 40,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: colorScheme.primary,
-                ),
-                onPressed: onPressed,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      buttonTitle,
-                      style: textTheme.labelLarge?.copyWith(
-                        color: colorScheme.onPrimary,
-                        fontSize: 14,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: colorScheme.primary,
+              ),
+              onPressed: onPressed,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    buttonTitle,
+                    style: textTheme.labelLarge?.copyWith(
                       color: colorScheme.onPrimary,
+                      fontSize: 10.5,
+                      height: 1.428,
+                      letterSpacing: 0.1,
                     ),
-                  ],
-                ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 9,
+                    color: colorScheme.onPrimary,
+                  ),
+                ],
               ),
             ),
           ],
         ),
         Spaces.vertical_40,
         Center(
-          child: SvgPicture.asset(
-            image,
-            width: 200,
-            height: 200,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: SvgPicture.asset(
+              image,
+              width: 200,
+              height: 200,
+            ),
           ),
         ),
       ],
