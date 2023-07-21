@@ -195,7 +195,7 @@ class WantedMobile extends StatelessWidget {
               fontSize: 48,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w700,
-              height: 1.5,
+              height: 1.1,
             ),
           ),
         ),
