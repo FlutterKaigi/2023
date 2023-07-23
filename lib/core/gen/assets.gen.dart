@@ -12,47 +12,44 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/discord.png
-  AssetGenImage get discord => const AssetGenImage('assets/icons/discord.png');
+  /// File path: assets/icons/discord.svg
+  String get discord => 'assets/icons/discord.svg';
 
-  /// File path: assets/icons/github.png
-  AssetGenImage get github => const AssetGenImage('assets/icons/github.png');
+  /// File path: assets/icons/github.svg
+  String get github => 'assets/icons/github.svg';
 
-  /// File path: assets/icons/medium.png
-  AssetGenImage get medium => const AssetGenImage('assets/icons/medium.png');
+  /// File path: assets/icons/medium.svg
+  String get medium => 'assets/icons/medium.svg';
 
-  /// File path: assets/icons/note.png
-  AssetGenImage get note => const AssetGenImage('assets/icons/note.png');
+  /// File path: assets/icons/note.svg
+  String get note => 'assets/icons/note.svg';
 
-  /// File path: assets/icons/qiita.png
-  AssetGenImage get qiita => const AssetGenImage('assets/icons/qiita.png');
+  /// File path: assets/icons/qiita.svg
+  String get qiita => 'assets/icons/qiita.svg';
 
-  /// File path: assets/icons/twitter.png
-  AssetGenImage get twitter => const AssetGenImage('assets/icons/twitter.png');
+  /// File path: assets/icons/twitter.svg
+  String get twitter => 'assets/icons/twitter.svg';
 
-  /// File path: assets/icons/zenn.png
-  AssetGenImage get zenn => const AssetGenImage('assets/icons/zenn.png');
+  /// File path: assets/icons/zenn.svg
+  String get zenn => 'assets/icons/zenn.svg';
 
   /// List of all assets
-  List<AssetGenImage> get values =>
+  List<String> get values =>
       [discord, github, medium, note, qiita, twitter, zenn];
 }
 
 class Assets {
   Assets._();
 
-  static const AssetGenImage illustrationTeamwork =
-      AssetGenImage('assets/Illustration-Teamwork.png');
-  static const AssetGenImage flutterkaigiLogo =
-      AssetGenImage('assets/flutterkaigi_logo.png');
-  static const AssetGenImage flutterkaigiLogoUnion =
-      AssetGenImage('assets/flutterkaigi_logo_union.png');
+  static const String illustrationTeamwork = 'assets/Illustration-Teamwork.svg';
+  static const String flutterkaigiLogo = 'assets/flutterkaigi_logo.svg';
+  static const String flutterkaigiLogoUnion =
+      'assets/flutterkaigi_logo_union.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const AssetGenImage personalWanted =
-      AssetGenImage('assets/personal_wanted.png');
+  static const String personalWanted = 'assets/personal_wanted.svg';
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<String> get values => [
         illustrationTeamwork,
         flutterkaigiLogo,
         flutterkaigiLogoUnion,
