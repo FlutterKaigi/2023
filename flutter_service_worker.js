@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"index.html": "f63e0de16e8f737792465283402e7c79",
-"/": "f63e0de16e8f737792465283402e7c79",
+const RESOURCES = {"index.html": "14f15333ec54adf18819e0cd93f622af",
+"/": "14f15333ec54adf18819e0cd93f622af",
 "flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
 "favicon.svg": "e3705092462d2b2496639de952f5f58a",
-"main.dart.js": "7d72d78a27bf8f7cb6624b88a4b44b77",
+"main.dart.js": "e37178a1ec7705b9096485024bbbf220",
 "version.json": "960c0c5a17550c0c055dcc8d0f8e86d8",
 "canvaskit/chromium/canvaskit.js": "6bdd0526762a124b0745c05281c8a53e",
 "canvaskit/chromium/canvaskit.wasm": "347841c04107bb5a17164bee251d8307",
@@ -19,8 +19,8 @@ const RESOURCES = {"index.html": "f63e0de16e8f737792465283402e7c79",
 "favicon.ico": "5bb5b9cc0617d85844c6c767cd6cbfc3",
 "assets/shaders/ink_sparkle.frag": "f8b80e740d33eb157090be4e995febdf",
 "assets/fonts/MaterialIcons-Regular.otf": "b0715ecc5627b2b9ff0c1bd3ab958efb",
-"assets/AssetManifest.bin": "b9f06392bbf6ed650910a3ec93b53da1",
-"assets/AssetManifest.json": "340255e15a6a82e1aaab307e0c4049ce",
+"assets/AssetManifest.bin": "896df9bf37bd2c61023b6bd155fbbb57",
+"assets/AssetManifest.json": "830885b0509142b3d5b07181228cb71b",
 "assets/NOTICES": "0250350fe1251f83a76d8b771f07a146",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "57d849d738900cfd590e9adc7e208250",
@@ -35,6 +35,7 @@ const RESOURCES = {"index.html": "f63e0de16e8f737792465283402e7c79",
 "assets/assets/icons/github.svg": "38b13a1d4f499bc8a61ca438b0a79a75",
 "assets/assets/icons/discord.svg": "c23fa787ac3b5a7e6e854a5a6c0f5d81",
 "assets/assets/icons/twitter.svg": "5964165e04744351eb5810a0e304c091",
+"assets/assets/Illustration-Teamwork.svg": "92b3cdc77662d0d9cd6b4d3babc7e899",
 "icons/apple-touch-icon.png": "e91a2ee33d2ee490134bd73a5c9aec2e"};
 // The application shell files that are downloaded before a service worker can
 // start.
