@@ -9,16 +9,16 @@ class WantedWidget extends StatelessWidget {
   const WantedWidget({
     required this.title,
     required this.content,
-    required this.subContent,
     required this.buttonTitle,
     required this.image,
     required this.onPressed,
+    this.subContent,
     super.key,
   });
 
   final String title;
   final String content;
-  final String subContent;
+  final String? subContent;
   final String buttonTitle;
   final String image;
   final VoidCallback onPressed;
@@ -59,7 +59,7 @@ class WantedDesktop extends StatelessWidget {
 
   final String title;
   final String content;
-  final String subContent;
+  final String? subContent;
   final String buttonTitle;
   final String image;
   final VoidCallback onPressed;
@@ -100,13 +100,18 @@ class WantedDesktop extends StatelessWidget {
                     ),
                   ),
                   Spaces.vertical_24,
-                  Text(
-                    subContent,
-                    style: textTheme.bodyMedium!.copyWith(
-                      color: colorScheme.secondary,
-                    ),
-                  ),
-                  Spaces.vertical_24,
+                  ...switch (subContent) {
+                    final String body => [
+                        Text(
+                          body,
+                          style: textTheme.bodyMedium!.copyWith(
+                            color: colorScheme.secondary,
+                          ),
+                        ),
+                        Spaces.vertical_24,
+                      ],
+                    null => [],
+                  },
                   SizedBox(
                     width: 221,
                     height: 40,
@@ -167,7 +172,7 @@ class WantedMobile extends StatelessWidget {
 
   final String title;
   final String content;
-  final String subContent;
+  final String? subContent;
   final String buttonTitle;
   final String image;
   final VoidCallback onPressed;
@@ -203,13 +208,18 @@ class WantedMobile extends StatelessWidget {
               ),
             ),
             Spaces.vertical_24,
-            Text(
-              subContent,
-              style: textTheme.bodyMedium!.copyWith(
-                color: colorScheme.secondary,
-              ),
-            ),
-            Spaces.vertical_24,
+            ...switch (subContent) {
+              final String body => [
+                  Text(
+                    body,
+                    style: textTheme.bodyMedium!.copyWith(
+                      color: colorScheme.secondary,
+                    ),
+                  ),
+                  Spaces.vertical_24,
+                ],
+              null => [],
+            },
             SizedBox(
               height: 40,
               child: ElevatedButton(
