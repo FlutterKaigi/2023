@@ -41,7 +41,6 @@ class $AssetsIconsGen {
 class Assets {
   Assets._();
 
-
   static const AssetGenImage illustrationTeamwork =
       AssetGenImage('assets/Illustration-Teamwork.png');
   static const AssetGenImage flutterkaigiLogo =
