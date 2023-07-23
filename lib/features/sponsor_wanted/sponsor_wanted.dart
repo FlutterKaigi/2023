@@ -16,7 +16,7 @@ class SponsorWanted extends StatelessWidget {
           // ignore: lines_longer_than_80_chars
           'FlutterKaigi 2023は皆さまのご協力により、成功へと導かれます。ともにFlutterコミュニティを成長させ、盛り上げるお手伝いをお願い申し上げます。',
       buttonTitle: 'スポンサー募集について',
-      image: Assets.illustrationTeamwork,
+      image: Assets.illustrationTeamwork.provider(),
       onPressed: () async => launchUrlString(
         'https://medium.com/flutterkaigi/flutterkaigi-2023-%E3%82%B9%E3%83%9D%E3%83%B3%E3%82%B5%E3%83%BC%E5%8B%9F%E9%9B%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-e31fc3adfa5e',
         mode: LaunchMode.externalApplication,

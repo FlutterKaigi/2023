@@ -1,7 +1,6 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
 
 class FooterSnsLinks extends StatelessWidget {
@@ -15,25 +14,25 @@ class FooterSnsLinks extends StatelessWidget {
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのTwitter',
           linkUrl: 'https://twitter.com/FlutterKaigi',
-          icon: Assets.icons.twitter,
+          image: Assets.icons.twitter.provider(),
         ),
         Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのGitHub',
           linkUrl: 'https://github.com/FlutterKaigi',
-          icon: Assets.icons.github,
+          image: Assets.icons.github.provider(),
         ),
         Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのDiscord',
           linkUrl: 'https://discord.com/invite/Nr7H8JTJSF',
-          icon: Assets.icons.discord,
+          image: Assets.icons.discord.provider(),
         ),
         Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのMedium',
           linkUrl: 'https://medium.com/flutterkaigi',
-          icon: Assets.icons.medium,
+          image: Assets.icons.medium.provider(),
         ),
       ],
     );
@@ -44,12 +43,12 @@ class _SnsLink extends StatelessWidget {
   const _SnsLink({
     required this.semanticsLabel,
     required this.linkUrl,
-    required this.icon,
+    required this.image,
   });
 
   final String semanticsLabel;
   final String linkUrl;
-  final String icon;
+  final ImageProvider image;
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +62,15 @@ class _SnsLink extends StatelessWidget {
         builder: (context, openLink) {
           return IconButton(
             onPressed: openLink,
-            icon: SvgPicture.asset(
-              icon,
-              width: 40,
-              height: 40,
+            icon: ColorFiltered(
+              colorFilter:
+                  ColorFilter.mode(baselineColorScheme.white, BlendMode.srcIn),
+              child: Image(
+                image: image,
+                width: 40,
+                height: 40,
+              ),
             ),
-            color: baselineColorScheme.white,
           );
         },
       ),

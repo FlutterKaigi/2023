@@ -1,12 +1,11 @@
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 
 class HeroSectionTwitter extends StatelessWidget {
   const HeroSectionTwitter({
     required this.backgroundColor,
-    required this.icon,
+    required this.image,
     required this.iconColor,
     required this.title,
     required this.subTitle,
@@ -18,7 +17,7 @@ class HeroSectionTwitter extends StatelessWidget {
   });
 
   final Color backgroundColor;
-  final String icon;
+  final ImageProvider image;
   final Color iconColor;
   final String title;
   final String subTitle;
@@ -63,15 +62,15 @@ class HeroSectionTwitter extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: SvgPicture.asset(
-                        icon,
-                        colorFilter: ColorFilter.mode(
-                          iconColor,
-                          BlendMode.srcIn,
-                        ),
+                    ColorFiltered(
+                      colorFilter: ColorFilter.mode(
+                        iconColor,
+                        BlendMode.srcIn,
+                      ),
+                      child: Image(
+                        image: image,
+                        width: 40,
+                        height: 40,
                       ),
                     ),
                     Spaces.horizontal_20,

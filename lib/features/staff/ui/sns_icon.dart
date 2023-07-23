@@ -1,7 +1,6 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SnsIcon extends StatelessWidget {
   const SnsIcon({
@@ -30,28 +29,34 @@ class SnsIcon extends StatelessWidget {
             size: size,
             color: iconColor,
           ),
-        _ => SvgPicture.asset(
-            snsType.assetName,
-            width: size,
-            height: size,
-            colorFilter: iconColor != null
-                ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
-                : null,
-          ),
+        _ => () {
+            final child = Image(
+              image: snsType.image,
+              width: size,
+              height: size,
+            );
+            return switch (iconColor) {
+              final Color color => ColorFiltered(
+                  colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                  child: child,
+                ),
+              _ => child,
+            };
+          }(),
       },
     );
   }
 }
 
 extension _SnsIconAssetName on SnsType {
-  String get assetName => switch (this) {
-        SnsType.twitter => Assets.icons.twitter,
-        SnsType.discord => Assets.icons.discord,
-        SnsType.github => Assets.icons.github,
-        SnsType.note => Assets.icons.note,
-        SnsType.zenn => Assets.icons.zenn,
-        SnsType.medium => Assets.icons.medium,
-        SnsType.qiita => Assets.icons.qiita,
+  ImageProvider get image => switch (this) {
+        SnsType.twitter => Assets.icons.twitter.provider(),
+        SnsType.discord => Assets.icons.discord.provider(),
+        SnsType.github => Assets.icons.github.provider(),
+        SnsType.note => Assets.icons.note.provider(),
+        SnsType.zenn => Assets.icons.zenn.provider(),
+        SnsType.medium => Assets.icons.medium.provider(),
+        SnsType.qiita => Assets.icons.qiita.provider(),
         SnsType.url => throw UnimplementedError(),
       };
 }

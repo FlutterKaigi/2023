@@ -15,7 +15,7 @@ class FlutterKaigiSnsLinks extends StatelessWidget {
       children: FlutterKaigiSnsLink.values
           .map(
             (e) => SnsIconWidget(
-              assetName: e.imageAssetName,
+              image: e.image,
               semanticsLabel: e.semanticsLabel,
               url: e.url,
             ),
@@ -27,13 +27,13 @@ class FlutterKaigiSnsLinks extends StatelessWidget {
 
 class SnsIconWidget extends StatelessWidget {
   const SnsIconWidget({
-    required this.assetName,
+    required this.image,
     required this.url,
     required this.semanticsLabel,
     super.key,
   });
 
-  final String assetName;
+  final ImageProvider image;
   final String url;
   final String? semanticsLabel;
 
@@ -48,12 +48,17 @@ class SnsIconWidget extends StatelessWidget {
         builder: (context, openLink) {
           return IconButton(
             onPressed: openLink,
-            icon: SvgPicture.asset(
-              assetName,
-              width: 40,
-              height: 40,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                baselineColorScheme.white,
+                BlendMode.srcIn,
+              ),
+              child: Image(
+                image: image,
+                height: 40,
+                width: 40,
+              ),
             ),
-            color: baselineColorScheme.white,
           );
         },
       ),
@@ -86,10 +91,10 @@ enum FlutterKaigiSnsLink {
   final String url;
   final String semanticsLabel;
 
-  String get imageAssetName => switch (this) {
-        FlutterKaigiSnsLink.twitter => Assets.icons.twitter,
-        FlutterKaigiSnsLink.github => Assets.icons.github,
-        FlutterKaigiSnsLink.discord => Assets.icons.discord,
-        FlutterKaigiSnsLink.medium => Assets.icons.medium,
+  ImageProvider get image => switch (this) {
+        FlutterKaigiSnsLink.twitter => Assets.icons.twitter.provider(),
+        FlutterKaigiSnsLink.github => Assets.icons.github.provider(),
+        FlutterKaigiSnsLink.discord => Assets.icons.discord.provider(),
+        FlutterKaigiSnsLink.medium => Assets.icons.medium.provider(),
       };
 }

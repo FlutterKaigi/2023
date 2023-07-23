@@ -92,7 +92,7 @@ class HeroSectionDesktop extends StatelessWidget {
         HeroSectionTwitter(
           url: 'https://twitter.com/FlutterKaigi',
           backgroundColor: colorScheme.onPrimary,
-          icon: Assets.icons.twitter,
+          image: Assets.icons.twitter.provider(),
           iconColor: baselineColorScheme.white,
           title: '@FlutterKaigi',
           subTitle: '最新情報を公式Twitterでチェック',
@@ -109,7 +109,7 @@ class HeroSectionDesktop extends StatelessWidget {
           url:
               'https://twitter.com/share?hashtags=flutterkaigi&via=FlutterKaigi',
           backgroundColor: baselineColorScheme.ref.primary.primary90,
-          icon: Assets.icons.twitter,
+          image: Assets.icons.twitter.provider(),
           iconColor: baselineColorScheme.ref.primary.primary40,
           title: '#flutterkaigi',
           subTitle: 'FlutterKaigi 2023をツイート',

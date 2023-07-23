@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FlutterKaigiLogo extends StatelessWidget {
   const FlutterKaigiLogo({
@@ -42,11 +41,12 @@ class FlutterKaigiLogo extends StatelessWidget {
     Widget baseIcon({
       Color? color,
     }) =>
-        SvgPicture.asset(
-          Assets.flutterkaigiLogoUnion,
-          width: iconSize,
-          height: iconSize,
+        ColorFiltered(
           colorFilter: ColorFilter.mode(color ?? iconColor, BlendMode.srcIn),
+          child: Assets.flutterkaigiLogoUnion.image(
+            width: iconSize,
+            height: iconSize,
+          ),
         );
     final shadowOffset = iconSize / 18;
     final shadowedIcon = Stack(

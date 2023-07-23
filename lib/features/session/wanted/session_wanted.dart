@@ -20,7 +20,7 @@ class SessionWanted extends StatelessWidget {
       subContent: 'ただし、自社製品の宣伝を目的としたトークや、FlutterやDartと無関係なトピックは避けてください。'
           '（Flutter開発支援ツールについては除きます。）',
       buttonTitle: 'プロポーザルを提出する',
-      image: Assets.personalWanted,
+      image: Assets.personalWanted.provider(),
       //TODO 遷移先が決まり次第、追記予定
       onPressed: () {},
     );

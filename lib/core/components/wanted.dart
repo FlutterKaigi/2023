@@ -2,7 +2,6 @@ import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class WantedWidget extends StatelessWidget {
@@ -20,7 +19,7 @@ class WantedWidget extends StatelessWidget {
   final String content;
   final String? subContent;
   final String buttonTitle;
-  final String image;
+  final ImageProvider image;
   final VoidCallback onPressed;
 
   @override
@@ -61,7 +60,7 @@ class WantedDesktop extends StatelessWidget {
   final String content;
   final String? subContent;
   final String buttonTitle;
-  final String image;
+  final ImageProvider image;
   final VoidCallback onPressed;
 
   @override
@@ -146,8 +145,8 @@ class WantedDesktop extends StatelessWidget {
             Spaces.horizontal_60,
             FittedBox(
               fit: BoxFit.scaleDown,
-              child: SvgPicture.asset(
-                image,
+              child: Image(
+                image: image,
                 width: 360,
                 height: 360,
               ),
@@ -174,7 +173,7 @@ class WantedMobile extends StatelessWidget {
   final String content;
   final String? subContent;
   final String buttonTitle;
-  final String image;
+  final ImageProvider image;
   final VoidCallback onPressed;
 
   @override
@@ -251,8 +250,8 @@ class WantedMobile extends StatelessWidget {
         Center(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: SvgPicture.asset(
-              image,
+            child: Image(
+              image: image,
               width: 200,
               height: 200,
             ),
