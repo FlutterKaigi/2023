@@ -113,7 +113,6 @@ class WantedDesktop extends StatelessWidget {
                     null => [],
                   },
                   SizedBox(
-                    width: 221,
                     height: 40,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -121,6 +120,7 @@ class WantedDesktop extends StatelessWidget {
                       ),
                       onPressed: onPressed,
                       child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Spaces.horizontal_8,
