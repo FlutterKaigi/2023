@@ -65,43 +65,38 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
       ],
     );
 
-    final width = MediaQuery.sizeOf(context).width;
-    final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
     final desktopBar = Center(
-      child: SizedBox(
-        width: largeScreenSize + ((width - largeScreenSize) / 2),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            titleWidget(
-              FlutterKaigiLogo(
-                style: FlutterKaigiLogoStyle.horizontal,
-                size: 36,
-                iconColor: baselineColorScheme.ref.secondary.secondary80,
-                textStyle: GoogleFonts.poppins(
-                  color: baselineColorScheme.ref.secondary.secondary80,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  height: 1.5,
-                ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          titleWidget(
+            FlutterKaigiLogo(
+              style: FlutterKaigiLogoStyle.horizontal,
+              size: 36,
+              iconColor: baselineColorScheme.ref.secondary.secondary80,
+              textStyle: GoogleFonts.poppins(
+                color: baselineColorScheme.ref.secondary.secondary80,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                height: 1.5,
               ),
             ),
-            const Spacer(),
-            for (final e in items)
-              TextButton(
-                onPressed: e.onPressed,
-                child: Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: Text(
-                    e.title,
-                    style: textTheme.titleLarge!.copyWith(
-                      color: baselineColorScheme.ref.secondary.secondary99,
-                    ),
+          ),
+          const Spacer(),
+          for (final e in items)
+            TextButton(
+              onPressed: e.onPressed,
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Text(
+                  e.title,
+                  style: textTheme.titleLarge!.copyWith(
+                    color: baselineColorScheme.ref.secondary.secondary99,
                   ),
                 ),
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
     return Padding(
