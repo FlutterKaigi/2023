@@ -8,7 +8,8 @@ import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
 import 'package:confwebsite2023/features/sponsor_wanted/sponsor_wanted.dart';
-import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -63,8 +64,9 @@ class _MainPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
+    final horizontal = max(16, (width - largeScreenSize) / 4.0);
     final padding = EdgeInsets.symmetric(
-      horizontal: max(16, (width - largeScreenSize) / 4),
+      horizontal: horizontal as double,
     );
     return Stack(
       children: [
@@ -103,14 +105,14 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: HeroSection(),
+              child: const HeroSection(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,
             ),
             _Sliver(
               padding: padding,
-              child: NewsSection(),
+              child: const NewsSection(),
             ),
             // const _Sliver(
             //   child: SessionWanted(),
@@ -121,17 +123,22 @@ class _MainPageBody extends StatelessWidget {
             // ),
             _Sliver(
               padding: padding,
-              child: SponsorWanted(),
+              child: const SponsorWanted(),
             ),
             _Sliver(
               padding: padding,
               child: Spaces.vertical_200,
             ),
-            SliverPadding(
+            _Sliver(
               padding: padding,
-              sliver: StaffSection(
+              child: StaffHeader(
                 key: staffSectionKey,
               ),
+            ),
+            SliverPadding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: horizontal, vertical: 16),
+              sliver: const StaffTable(),
             ),
             const SliverToBoxAdapter(
               child: Footer(),
