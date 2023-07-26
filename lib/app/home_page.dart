@@ -64,9 +64,9 @@ class _MainPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
-    final horizontal = max(16, (width - largeScreenSize) / 4.0);
+    final horizontal = max<double>(16, (width - largeScreenSize) / 4.0);
     final padding = EdgeInsets.symmetric(
-      horizontal: horizontal as double,
+      horizontal: horizontal,
     );
     return Stack(
       children: [
