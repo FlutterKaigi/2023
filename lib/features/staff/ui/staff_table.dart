@@ -100,7 +100,6 @@ class StaffTable extends ConsumerWidget {
     final crossAxisCount = calculateItemCount(maxWidth: maxWidth);
     final itemWidth =
         (maxWidth - spacing * (crossAxisCount - 1)) / crossAxisCount;
-    print(itemWidth);
 
     return state.when(
       data: (data) {
