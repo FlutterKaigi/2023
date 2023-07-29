@@ -39,21 +39,23 @@ class StaffItem extends StatelessWidget {
 
     final snsIcons = Wrap(
       alignment: WrapAlignment.center,
-      children: [
-        ...staff.sns.map(
-          (e) => Link(
-            target: LinkTarget.blank,
-            uri: Uri.tryParse(e.type.prefixUrl + e.value),
-            builder: (_, followLink) => SnsIcon(
-              snsType: e.type,
-              size: 32,
-              padding: EdgeInsets.zero,
-              iconColor: theme.colorScheme.onPrimaryContainer,
-              onPressed: followLink,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 8,
+      children: staff.sns
+          .map(
+            (e) => Link(
+              target: LinkTarget.blank,
+              uri: Uri.tryParse(e.type.prefixUrl + e.value),
+              builder: (_, followLink) => SnsIcon(
+                snsType: e.type,
+                size: 32,
+                padding: EdgeInsets.zero,
+                iconColor: theme.colorScheme.onPrimaryContainer,
+                onPressed: followLink,
+              ),
             ),
-          ),
-        ),
-      ],
+          )
+          .toList(),
     );
 
     return Card(
