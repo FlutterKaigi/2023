@@ -35,41 +35,39 @@ class StaffTable extends ConsumerWidget {
     required Staff staff,
     required double width,
   }) {
+    const verticalPadding = 16;
+    const horizontalPadding = 8;
+
+    final contentWidth = width - horizontalPadding * 2;
     final theme = Theme.of(context);
-    final textScaleFactor = MediaQuery.of(context).textScaleFactor;
-    const cardMargin = 4;
-    const horizontalPadding = 48;
+    final textScaleFactor = MediaQuery.textScaleFactorOf(context);
     const iconHeight = 120;
-    const topPadding = 16;
     const betweenIconAndDisplayName = 16;
     const betweenDisplayNameAndIntroduction = 8;
     const betweenIntroductionAndSnsIcon = 16;
     const snsIconHeight = 40;
-    const bottomPadding = 16;
     final displayNameHeight = calculateTextExtent(
       text: staff.displayName,
       style: theme.textTheme.titleLarge,
-      maxWidth: width - horizontalPadding - cardMargin * 2,
+      maxWidth: contentWidth,
       textScaleFactor: textScaleFactor,
     );
 
     final introductionHeight = calculateTextExtent(
       text: staff.introduction,
       style: theme.textTheme.bodyLarge,
-      maxWidth: width - horizontalPadding - cardMargin * 2,
+      maxWidth: contentWidth,
       textScaleFactor: textScaleFactor,
     );
 
-    return topPadding +
-        iconHeight +
+    return iconHeight +
         betweenIconAndDisplayName +
         displayNameHeight +
         betweenDisplayNameAndIntroduction +
         introductionHeight +
         betweenIntroductionAndSnsIcon +
         snsIconHeight +
-        bottomPadding +
-        cardMargin * 2;
+        verticalPadding * 2;
   }
 
   static double calculateTextExtent({
