@@ -45,9 +45,7 @@ class StaffTable extends ConsumerWidget {
     const betweenIconAndDisplayName = 16;
     const betweenDisplayNameAndIntroduction = 8;
     const betweenIntroductionAndSnsIcon = 16;
-    // 横1列に並べられる最大のSNSアイコン数
-    final maxSnsRowCount = contentWidth ~/ 40;
-    final snsIconHeight = 40 * ((staff.sns.length / maxSnsRowCount).ceil());
+    const snsIconHeight = 40;
     final displayNameHeight = calculateTextExtent(
       text: staff.displayName,
       style: theme.textTheme.titleLarge,
@@ -61,24 +59,6 @@ class StaffTable extends ConsumerWidget {
       maxWidth: contentWidth,
       textScaleFactor: textScaleFactor,
     );
-
-    if (staff.displayName.contains('ENDO')) {
-      print('contentWidth: $contentWidth');
-      print('maxSnsRowCount: $maxSnsRowCount');
-
-      print('iconHeight: $iconHeight');
-      print('betweenIconAndDisplayName: $betweenIconAndDisplayName');
-      print('displayNameHeight: $displayNameHeight');
-      print(
-        'betweenDisplayNameAndIntroduction: $betweenDisplayNameAndIntroduction',
-      );
-      print('introductionHeight: $introductionHeight');
-      print(
-        'betweenIntroductionAndSnsIcon: $betweenIntroductionAndSnsIcon',
-      );
-      print('snsIconHeight: $snsIconHeight');
-      print('verticalPadding: $verticalPadding');
-    }
 
     return iconHeight +
         betweenIconAndDisplayName +

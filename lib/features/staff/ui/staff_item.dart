@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/foundation/iterable_ex.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/ui/sns_icon.dart';
@@ -36,26 +37,27 @@ class StaffItem extends StatelessWidget {
         ),
       ),
     );
-
-    final snsIcons = Wrap(
-      alignment: WrapAlignment.center,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: 8,
-      children: staff.sns
-          .map(
-            (e) => Link(
-              target: LinkTarget.blank,
-              uri: Uri.tryParse(e.type.prefixUrl + e.value),
-              builder: (_, followLink) => SnsIcon(
-                snsType: e.type,
-                size: 32,
-                padding: EdgeInsets.zero,
-                iconColor: theme.colorScheme.onPrimaryContainer,
-                onPressed: followLink,
+    // IconButtonでは Material Designに基づいて 押しやすいサイズになっているが
+    // ここでは ボタンの押しやすさより 1行に収めることを優先する
+    final snsIcons = FittedBox(
+      child: Row(
+        children: staff.sns
+            .map<Widget>(
+              (e) => Link(
+                target: LinkTarget.blank,
+                uri: Uri.tryParse(e.type.prefixUrl + e.value),
+                builder: (_, followLink) => SnsIcon(
+                  snsType: e.type,
+                  size: 32,
+                  padding: EdgeInsets.zero,
+                  iconColor: theme.colorScheme.onPrimaryContainer,
+                  onPressed: followLink,
+                ),
               ),
-            ),
-          )
-          .toList(),
+            )
+            .insertingEach(() => Spaces.horizontal_8)
+            .toList(),
+      ),
     );
 
     return Card(
