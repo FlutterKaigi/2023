@@ -38,7 +38,7 @@ jobs:
 
       # 変更が発生した場合は プルリクエストを作成
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           delete-branch: true
           commit-message: "Auto format"
