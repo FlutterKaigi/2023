@@ -8,7 +8,8 @@ import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
 import 'package:confwebsite2023/features/sponsor_wanted/sponsor_wanted.dart';
-import 'package:confwebsite2023/features/staff/ui/staff_section.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
+import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -63,31 +64,34 @@ class _MainPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
-
-    return SingleChildScrollView(
-      controller: scrollController,
-      child: Stack(
-        children: [
-          const SizedBox(
-            width: double.infinity,
-            height: 800,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF602678),
-                    Color(0x004B0082),
-                  ],
-                ),
+    final horizontal = max<double>(16, (width - largeScreenSize) / 4.0);
+    final padding = EdgeInsets.symmetric(
+      horizontal: horizontal,
+    );
+    return Stack(
+      children: [
+        const SizedBox(
+          width: double.infinity,
+          height: 800,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF602678),
+                  Color(0x004B0082),
+                ],
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              HeaderBar(
+        ),
+        CustomScrollView(
+          controller: scrollController,
+          slivers: [
+            _Sliver(
+              padding: padding,
+              child: HeaderBar(
                 items: items,
                 onTitleTap: () async => scrollController.animateTo(
                   0,
@@ -95,32 +99,72 @@ class _MainPageBody extends StatelessWidget {
                   curve: Curves.easeOutCirc,
                 ),
               ),
-              Spaces.vertical_30,
-              SizedBox(
-                width: min(
-                  width - (16 * 2),
-                  largeScreenSize + ((width - largeScreenSize) / 2),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const HeroSection(),
-                    Spaces.vertical_80,
-                    const NewsSection(),
-                    // const SessionWanted(),
-                    // Spaces.vertical_200,
-                    const SponsorWanted(),
-                    Spaces.vertical_200,
-                    StaffSection(
-                      key: staffSectionKey,
-                    ),
-                  ],
-                ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_30,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const HeroSection(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const NewsSection(),
+            ),
+            // const _Sliver(
+            //   child: SessionWanted(),
+            // ),
+
+            // const SliverToBoxAdapter(
+            //   child: Spaces.vertical_200,
+            // ),
+            _Sliver(
+              padding: padding,
+              child: const SponsorWanted(),
+            ),
+            _Sliver(
+              padding: padding,
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: StaffHeader(
+                key: staffSectionKey,
               ),
-              const Footer(),
-            ],
-          ),
-        ],
+            ),
+            SliverPadding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: horizontal, vertical: 16),
+              sliver: const StaffTable(),
+            ),
+            const SliverToBoxAdapter(
+              child: Footer(),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _Sliver extends StatelessWidget {
+  const _Sliver({
+    required this.child,
+    required this.padding,
+  });
+
+  final Widget child;
+  final EdgeInsets padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverPadding(
+      padding: padding,
+      sliver: SliverToBoxAdapter(
+        child: child,
       ),
     );
   }
