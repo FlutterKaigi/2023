@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/news/data/news.dart';
 import 'package:confwebsite2023/features/news/data/news_provider.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class NewsSection extends ConsumerWidget {
       data: (data) => Column(
         children: [
           for (final e in data) _NewsItem(news: e),
-          if (data.isNotEmpty) const SizedBox(height: 82),
+          if (data.isNotEmpty) Spaces.vertical_82,
         ],
       ),
       error: (error, _) => Text('エラーが発生しました: $error'),
@@ -43,7 +43,7 @@ class _NewsItem extends StatelessWidget {
           ),
         ),
         // 紫丸ポチ
-        const SizedBox(width: 16),
+        Spaces.horizontal_16,
         Container(
           width: 8,
           height: 8,
@@ -52,7 +52,7 @@ class _NewsItem extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 16),
+        Spaces.horizontal_16,
         // text
         Expanded(
           child: Text(

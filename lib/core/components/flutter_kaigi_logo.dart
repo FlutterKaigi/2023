@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -84,7 +85,7 @@ class FlutterKaigiLogo extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (showGradient) shadowedIcon else baseIcon(),
-            const SizedBox(width: 10),
+            Spaces.horizontal_10,
             Text(
               'FlutterKaigi 2023',
               style: textStyle,
@@ -96,7 +97,7 @@ class FlutterKaigiLogo extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (showGradient) shadowedIcon else baseIcon(),
-            const SizedBox(height: 10),
+            Spaces.vertical_10,
             Text(
               'FlutterKaigi 2023',
               style: textStyle,

@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
 class FooterCopyright extends StatelessWidget {
@@ -15,7 +15,7 @@ class FooterCopyright extends StatelessWidget {
           '© 2021-2023 FlutterKaigi 実行委員会',
           style: copyrightTextStyle,
         ),
-        const SizedBox(height: 20),
+        Spaces.vertical_20,
         Text(
           'Flutter and the related logo are trademarks of Google LLC. '
           'FlutterKaigi is not affiliated with or otherwise sponsored '
@@ -23,7 +23,7 @@ class FooterCopyright extends StatelessWidget {
           textAlign: TextAlign.center,
           style: copyrightTextStyle,
         ),
-        const SizedBox(height: 20),
+        Spaces.vertical_20,
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           alignment: WrapAlignment.center,

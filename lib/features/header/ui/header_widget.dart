@@ -1,7 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/flutter_kaigi_sns_links.dart';
 import 'package:flutter/material.dart';
@@ -158,7 +158,7 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          Spaces.vertical_20,
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -185,7 +185,7 @@ class _DrawerScreen extends StatelessWidget {
                 ),
                 // FlutterKaigi Logo
                 for (final e in items) ...[
-                  const SizedBox(height: 40),
+                  Spaces.vertical_40,
                   InkWell(
                     onTap: () {
                       e.onPressed();
@@ -204,7 +204,7 @@ class _DrawerScreen extends StatelessWidget {
                             size: 8,
                           ),
                         ),
-                        const SizedBox(width: 12.5),
+                        Spaces.horizontal_12_5,
                         Text(
                           e.title,
                           style: theme.textTheme.titleLarge,
@@ -229,7 +229,7 @@ class _DrawerScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          Spaces.vertical_10,
         ],
       ),
     );

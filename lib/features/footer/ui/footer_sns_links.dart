@@ -1,5 +1,5 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
-import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
@@ -17,19 +17,19 @@ class FooterSnsLinks extends StatelessWidget {
           linkUrl: 'https://twitter.com/FlutterKaigi',
           icon: Assets.icons.twitter,
         ),
-        const SizedBox(width: 40),
+        Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのGitHub',
           linkUrl: 'https://github.com/FlutterKaigi',
           icon: Assets.icons.github,
         ),
-        const SizedBox(width: 40),
+        Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのDiscord',
           linkUrl: 'https://discord.com/invite/Nr7H8JTJSF',
           icon: Assets.icons.discord,
         ),
-        const SizedBox(width: 40),
+        Spaces.horizontal_40,
         _SnsLink(
           semanticsLabel: 'FlutterKaigiのMedium',
           linkUrl: 'https://medium.com/flutterkaigi',
