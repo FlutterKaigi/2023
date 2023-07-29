@@ -166,7 +166,7 @@ class _DrawerScreen extends StatelessWidget {
                     fit: BoxFit.scaleDown,
                     child: FlutterKaigiLogo(
                       style: FlutterKaigiLogoStyle.horizontal,
-                      textStyle: theme.textTheme.titleLarge!.copyWith(
+                      textStyle: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 24,
                       ),
@@ -188,21 +188,21 @@ class _DrawerScreen extends StatelessWidget {
                     },
                     child: Row(
                       children: [
-                        // 白ポチ
-                        SizedBox(
-                          width: 15,
-                          height: 15,
-                          child: Icon(
-                            Icons.circle,
-                            color:
-                                baselineColorScheme.ref.secondary.secondary70,
-                            size: 8,
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: baselineColorScheme.ref.primary.primary70,
+                            shape: BoxShape.circle,
                           ),
                         ),
-                        Spaces.horizontal_12_5,
+                        Spaces.horizontal_16,
                         Text(
                           e.title,
-                          style: theme.textTheme.titleLarge,
+                          style: theme.textTheme.titleLarge!.copyWith(
+                            color:
+                                baselineColorScheme.ref.secondary.secondary99,
+                          ),
                         ),
                       ],
                     ),
