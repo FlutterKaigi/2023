@@ -35,41 +35,59 @@ class StaffTable extends ConsumerWidget {
     required Staff staff,
     required double width,
   }) {
+    const verticalPadding = 16;
+    const horizontalPadding = 8;
+
+    final contentWidth = width - horizontalPadding * 2;
     final theme = Theme.of(context);
-    final textScaleFactor = MediaQuery.of(context).textScaleFactor;
-    const cardMargin = 4;
-    const horizontalPadding = 48;
+    final textScaleFactor = MediaQuery.textScaleFactorOf(context);
     const iconHeight = 120;
-    const topPadding = 16;
     const betweenIconAndDisplayName = 16;
     const betweenDisplayNameAndIntroduction = 8;
     const betweenIntroductionAndSnsIcon = 16;
-    const snsIconHeight = 40;
-    const bottomPadding = 16;
+    // 横1列に並べられる最大のSNSアイコン数
+    final maxSnsRowCount = contentWidth ~/ 40;
+    final snsIconHeight = 40 * ((staff.sns.length / maxSnsRowCount).ceil());
     final displayNameHeight = calculateTextExtent(
       text: staff.displayName,
       style: theme.textTheme.titleLarge,
-      maxWidth: width - horizontalPadding - cardMargin * 2,
+      maxWidth: contentWidth,
       textScaleFactor: textScaleFactor,
     );
 
     final introductionHeight = calculateTextExtent(
       text: staff.introduction,
       style: theme.textTheme.bodyLarge,
-      maxWidth: width - horizontalPadding - cardMargin * 2,
+      maxWidth: contentWidth,
       textScaleFactor: textScaleFactor,
     );
 
-    return topPadding +
-        iconHeight +
+    if (staff.displayName.contains('ENDO')) {
+      print('contentWidth: $contentWidth');
+      print('maxSnsRowCount: $maxSnsRowCount');
+
+      print('iconHeight: $iconHeight');
+      print('betweenIconAndDisplayName: $betweenIconAndDisplayName');
+      print('displayNameHeight: $displayNameHeight');
+      print(
+        'betweenDisplayNameAndIntroduction: $betweenDisplayNameAndIntroduction',
+      );
+      print('introductionHeight: $introductionHeight');
+      print(
+        'betweenIntroductionAndSnsIcon: $betweenIntroductionAndSnsIcon',
+      );
+      print('snsIconHeight: $snsIconHeight');
+      print('verticalPadding: $verticalPadding');
+    }
+
+    return iconHeight +
         betweenIconAndDisplayName +
         displayNameHeight +
         betweenDisplayNameAndIntroduction +
         introductionHeight +
         betweenIntroductionAndSnsIcon +
         snsIconHeight +
-        bottomPadding +
-        cardMargin * 2;
+        verticalPadding * 2;
   }
 
   static double calculateTextExtent({
@@ -102,6 +120,7 @@ class StaffTable extends ConsumerWidget {
     final crossAxisCount = calculateItemCount(maxWidth: maxWidth);
     final itemWidth =
         (maxWidth - spacing * (crossAxisCount - 1)) / crossAxisCount;
+    print(itemWidth);
 
     return state.when(
       data: (data) {

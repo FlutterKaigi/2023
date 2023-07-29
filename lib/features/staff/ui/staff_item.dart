@@ -60,48 +60,41 @@ class StaffItem extends StatelessWidget {
 
     return Card(
       elevation: 0,
+      margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
       color: theme.colorScheme.secondaryContainer,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 16,
-              left: 24,
-              right: 24,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8,
+          vertical: 16,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            icon,
+            Spaces.vertical_16,
+            Text(
+              staff.displayName,
+              style: theme.textTheme.titleLarge!.copyWith(
+                color: baselineColorScheme.ref.primary.primary100,
+              ),
+              textAlign: TextAlign.center,
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                icon,
-                Spaces.vertical_16,
-                Text(
-                  staff.displayName,
-                  style: theme.textTheme.titleLarge!.copyWith(
-                    color: baselineColorScheme.ref.primary.primary100,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                Spaces.vertical_8,
-                Text(
-                  staff.introduction,
-                  style: theme.textTheme.bodyLarge!.copyWith(
-                    color: baselineColorScheme.ref.primary.primary80,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+            Spaces.vertical_8,
+            Text(
+              staff.introduction,
+              style: theme.textTheme.bodyLarge!.copyWith(
+                color: baselineColorScheme.ref.primary.primary80,
+              ),
+              textAlign: TextAlign.center,
             ),
-          ),
-          const Spacer(),
-          Spaces.vertical_16,
-          snsIcons,
-          Spaces.vertical_16,
-        ],
+            const Spacer(),
+            snsIcons,
+          ],
+        ),
       ),
     );
   }
