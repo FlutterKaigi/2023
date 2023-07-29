@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
+/// ! StaffItemのレイアウト変更時は、`features/staff/ui/staff_table.dart`の
+/// ! `calculateHeightByStaff`も変更すること
 class StaffItem extends StatelessWidget {
   const StaffItem({
     required this.staff,
