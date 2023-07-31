@@ -1,6 +1,7 @@
 import 'package:confwebsite2023/core/components/wanted.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SessionWanted extends StatelessWidget {
   const SessionWanted({super.key});
@@ -21,8 +22,10 @@ class SessionWanted extends StatelessWidget {
           '（Flutter開発支援ツールについては除きます。）',
       buttonTitle: 'プロポーザルを提出する',
       image: Assets.personalWanted,
-      //TODO 遷移先が決まり次第、追記予定
-      onPressed: () {},
+      onPressed: () async => launchUrlString(
+        'https://fortee.jp/flutterkaigi-2023/speaker/proposal/cfp',
+        mode: LaunchMode.externalApplication,
+      ),
     );
   }
 }
