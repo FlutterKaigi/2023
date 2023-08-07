@@ -1,0 +1,37 @@
+name: Auto Asset Update
+
+on:
+  schedule:
+    # every day at1 09:00 JST
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install fish shell
+        run: |
+          sudo apt-add-repository ppa:fish-shell/release-3
+          sudo apt-get update
+          sudo apt-get install fish
+
+      - name: Run scripts
+        run: |
+          ./util/news.fish
+          ./util/staffv2.fish
+
+      # 変更が発生した場合は プルリクエストを作成
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          delete-branch: true
+          commit-message: "Auto Asset Update"
+          committer: "GitHub Actions <noreply@github.com>"
+          base: ${{ github.head_ref }}
+          branch: "auto-asset-update/${{ github.sha }}"
+          title: "Auto Asset Update - ref: ${{ github.ref_name }}"
+          body: "Auto Asset Update by GitHub Actions on ${{ github.sha }}\nby: ${{github.actor}}"
