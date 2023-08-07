@@ -63,14 +63,8 @@ class $AssetsDataStaffv2Gen {
   /// File path: assets/data/staffv2/staffv2.json
   String get staffv2 => 'assets/data/staffv2/staffv2.json';
 
-  /// File path: assets/data/staffv2/staffv2.json.bak
-  String get staffv2Json => 'assets/data/staffv2/staffv2.json.bak';
-
-  /// File path: assets/data/staffv2/tmp
-  String get tmp => 'assets/data/staffv2/tmp';
-
   /// List of all assets
-  List<String> get values => [staffv2, staffv2Json, tmp];
+  List<String> get values => [staffv2];
 }
 
 class $AssetsDataStaffv2ImagesGen {

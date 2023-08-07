@@ -8,28 +8,13 @@ part 'staff.g.dart';
 @freezed
 class Staff with _$Staff {
   const factory Staff({
-    @JsonKey(name: '_id') required String id,
     required String displayName,
-    required StaffImage image,
+    required String imageName,
     required List<Sns> sns,
     @Default('') String introduction,
   }) = _Staff;
 
   factory Staff.fromJson(Map<String, dynamic> json) => _$StaffFromJson(json);
-}
-
-@freezed
-class StaffImage with _$StaffImage {
-  const factory StaffImage({
-    required String altText,
-    required String description,
-    required int height,
-    required int width,
-    required String src,
-  }) = _StaffImage;
-
-  factory StaffImage.fromJson(Map<String, dynamic> json) =>
-      _$StaffImageFromJson(json);
 }
 
 @freezed
