@@ -6,8 +6,8 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.1.0-63.1.beta <4.0.0"
-  flutter: ">=3.11.0-0.1.pre"
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
 
 dependencies:
   animations: ^2.0.7
