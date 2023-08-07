@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'staff_data_source.g.dart';
@@ -15,15 +15,9 @@ class StaffDataSource {
   static const appUid = 'flutterkaigi-2023';
 
   Future<List<Staff>> fetchStaffItems() async {
-    final result = await http.get(
-      Uri.parse('https://$spaceUid.cdn.newt.so/v1/$appUid/staffv2'),
-      headers: {
-        'Authorization': 'Bearer ${dotenv.env['NEWT_CDN_API_TOKEN']!}',
-      },
-    );
-    final jsonResult = json.decode(result.body) as Map<String, dynamic>;
-    final itemsJson = jsonResult['items'] as List<dynamic>;
-    return itemsJson
+    final data = await rootBundle.loadString(Assets.data.staffv2.staffv2);
+    final json = jsonDecode(data) as Map<String, dynamic>;
+    return (json['items'] as List<dynamic>)
         .map(
           (e) => Staff.fromJson(e as Map<String, dynamic>),
         )

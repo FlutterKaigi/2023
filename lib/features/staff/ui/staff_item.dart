@@ -26,7 +26,9 @@ class StaffItem extends StatelessWidget {
         child: ClipOval(
           child: FadeInImage(
             fit: BoxFit.cover,
-            image: NetworkImage(staff.image.src),
+            image: Image.asset(
+              'data/staff/images/${staff.imageName}',
+            ).image,
             placeholder: MemoryImage(kTransparentImage),
             imageErrorBuilder: (_, __, ___) => const FittedBox(
               child: Icon(
