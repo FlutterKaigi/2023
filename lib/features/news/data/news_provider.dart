@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'news_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<List<News>> news(NewsRef ref) =>
     ref.watch(newsDataSourceProvider).fetchNewsItems();
 
