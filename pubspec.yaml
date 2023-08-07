@@ -50,6 +50,14 @@ flutter:
     - .env
     - assets/icons/
     - assets/
+    - assets/data/
+    - assets/data/news/
+    - assets/data/staffv2/
+    - assets/data/staffv2/images/
 
 flutter_gen:
   output: lib/core/gen/
+  assets:
+    exclude: [
+      "assets/data/staffv2/images/",
+    ]
