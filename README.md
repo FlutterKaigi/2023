@@ -22,7 +22,7 @@ This project uses [Flutter beta channel]. The reasons:
 A Run Configuration is set up to run this app.
 
 Please check:
-- `.vscode/launch.json` for VS Code
+- `.vscode/launch.json` for VS Code.
 - `.run/~.run.xml` for IntelliJ IDEA or Android Studio.
 
 ### Contributing
