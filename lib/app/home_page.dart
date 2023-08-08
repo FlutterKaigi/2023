@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
@@ -107,6 +108,13 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const HeroSection(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const CountDownSection(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,
