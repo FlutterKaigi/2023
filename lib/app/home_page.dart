@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
 import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
@@ -14,6 +15,7 @@ import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MainPage extends HookWidget {
   const MainPage({super.key});
@@ -109,12 +111,23 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const HeroSection(),
             ),
-            const SliverToBoxAdapter(
-              child: Spaces.vertical_80,
-            ),
             _Sliver(
               padding: padding,
-              child: const CountDownSection(),
+              child: Consumer(
+                builder: (context, ref, child) {
+                  final now = ref.watch(nowProvider);
+                  return Visibility(
+                    visible: CountDownSection.isVisible(now),
+                    child: const Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Spaces.vertical_80,
+                        CountDownSection(),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,

@@ -15,6 +15,8 @@ class CountDownSection extends ConsumerWidget {
     super.key,
   });
 
+  static bool isVisible(DateTime now) => !targetDate.difference(now).isNegative;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final remaining = targetDate.difference(ref.watch(nowProvider));
