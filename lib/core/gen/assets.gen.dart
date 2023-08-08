@@ -15,6 +15,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/discord.svg
   String get discord => 'assets/icons/discord.svg';
 
+  /// File path: assets/icons/dot.svg
+  String get dot => 'assets/icons/dot.svg';
+
   /// File path: assets/icons/github.svg
   String get github => 'assets/icons/github.svg';
 
@@ -35,7 +38,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values =>
-      [discord, github, medium, note, qiita, twitter, zenn];
+      [discord, dot, github, medium, note, qiita, twitter, zenn];
 }
 
 class Assets {
