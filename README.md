@@ -85,4 +85,4 @@ Thank you for contributing!
 
 ### Contributors
 
-GitHub: [Contributors](https://github.com/FlutterKaigi/confwebsite2023/graphs/contributors)
+GitHub: [Contributors](https://github.com/FlutterKaigi/2023/graphs/contributors)
