@@ -20,8 +20,8 @@ This project uses [Flutter beta channel].
 A Run Configuration is set up to run this app.
 
 Please check:
-    - `.vscode/launch.json` for VS Code
-    - `.run/~.run.xml` for IntelliJ IDEA or Android Studio.
+- `.vscode/launch.json` for VS Code
+- `.run/~.run.xml` for IntelliJ IDEA or Android Studio.
 
 ### Contributing
 
