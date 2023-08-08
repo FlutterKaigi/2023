@@ -43,7 +43,7 @@ We would be happy if you could create a branch with the following rules
 
 - [Flutter](https://flutter.dev/)
 - [Flutter Web](https://docs.flutter.dev/deployment/web)
-- [Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)
+- [GitHub Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)
 - [Codemagic Static Pages](https://docs.codemagic.io/flutter-publishing/publishing-to-codemagic-static-pages/)
 
 ### Directory Structure
