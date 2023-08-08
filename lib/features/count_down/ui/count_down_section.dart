@@ -21,26 +21,29 @@ class CountDownSection extends ConsumerWidget {
 
     return Visibility(
       visible: !remaining.isNegative,
-      child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ...CountDownUnit.values.map(
-              (unit) {
-                return CountDownUnitItem(
-                  unit: unit,
-                  value: switch (unit) {
-                    CountDownUnit.day => remaining.clockedDays,
-                    CountDownUnit.hour => remaining.clockedHours,
-                    CountDownUnit.minute => remaining.clockedMinutes,
-                    CountDownUnit.second => remaining.clockedSeconds,
-                  },
-                );
-              },
-            ),
-          ]
-              .insertingEach(() => SvgPicture.asset(Assets.icons.dot))
-              .insertingEach(() => Spaces.horizontal_40),
+      child: FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Center(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ...CountDownUnit.values.map(
+                (unit) {
+                  return CountDownUnitItem(
+                    unit: unit,
+                    value: switch (unit) {
+                      CountDownUnit.day => remaining.clockedDays,
+                      CountDownUnit.hour => remaining.clockedHours,
+                      CountDownUnit.minute => remaining.clockedMinutes,
+                      CountDownUnit.second => remaining.clockedSeconds,
+                    },
+                  );
+                },
+              ),
+            ]
+                .insertingEach(() => SvgPicture.asset(Assets.icons.dot))
+                .insertingEach(() => Spaces.horizontal_40),
+          ),
         ),
       ),
     );
