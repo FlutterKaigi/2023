@@ -6,7 +6,9 @@ We will deliver sessions related to FlutterKaigi in accordance with [Figma].
 
 ### Setup
 
-This project uses [Flutter beta channel].
+This project uses [Flutter beta channel]. The reason:
+- Use the latest Flutter/Dart features.
+- Use a more stable version
 
 1. [Install fvm].
 1. Move to project root directory, and run `fvm install` command.
