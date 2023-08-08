@@ -6,7 +6,7 @@ We will deliver sessions related to FlutterKaigi in accordance with [Figma].
 
 ### Setup
 
-This project uses [Flutter beta channel]. The reason:
+This project uses [Flutter beta channel]. The reasons:
 - Use the latest Flutter/Dart features.
 - Use a more stable version
 
