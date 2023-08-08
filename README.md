@@ -2,7 +2,7 @@
 
 ## Development
 
-We will deliver sessions related to FlutterKaigi in accordance with [Figma](https://www.figma.com/file/3jxi4kkyBLUNw1lHfFGHzs/FlutterKaigi?node-id=1037%3A71&t=2q7KlExZOyoQTG17-0).
+We will deliver sessions related to FlutterKaigi in accordance with [Figma](https://www.figma.com/file/LsVB4KlIMXD4Z1FfB8KyuU/FlutterKaigi-Web-2023).
 
 ### Setup
 
@@ -85,4 +85,4 @@ Thank you for contributing!
 
 ### Contributors
 
-GitHub: [Contributors](https://github.com/FlutterKaigi/confwebsite2023/graphs/contributors)
+GitHub: [Contributors](https://github.com/FlutterKaigi/2023/graphs/contributors)
