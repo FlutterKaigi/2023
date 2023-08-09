@@ -11,9 +11,6 @@ part 'staff_data_source.g.dart';
 StaffDataSource staffDataSource(StaffDataSourceRef ref) => StaffDataSource();
 
 class StaffDataSource {
-  static const spaceUid = 'flutterkaigi';
-  static const appUid = 'flutterkaigi-2023';
-
   Future<List<Staff>> fetchStaffItems() async {
     final data = await rootBundle.loadString(Assets.data.staffv2.staffv2);
     final json = jsonDecode(data) as Map<String, dynamic>;
