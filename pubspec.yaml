@@ -56,7 +56,3 @@ flutter:
 
 flutter_gen:
   output: lib/core/gen/
-  assets:
-    exclude: [
-      "assets/data/staffv2/images/",
-    ]
