@@ -20,9 +20,7 @@ jobs:
           sudo apt-get install fish
 
       - name: Run scripts
-        run: |
-          ./util/news.fish
-          ./util/staffv2.fish
+        run: ./util/staffv2.fish
 
       # 変更が発生した場合は プルリクエストを作成
       - name: Create pull request
