@@ -11,6 +11,7 @@ class Spaces {
   static const SizedBox horizontal_40 = SizedBox(width: 40);
   static const SizedBox horizontal_60 = SizedBox(width: 60);
 
+  static const SizedBox vertical_5 = SizedBox(height: 5);
   static const SizedBox vertical_8 = SizedBox(height: 8);
   static const SizedBox vertical_10 = SizedBox(height: 10);
   static const SizedBox vertical_16 = SizedBox(height: 16);
