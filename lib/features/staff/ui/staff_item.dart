@@ -27,7 +27,7 @@ class StaffItem extends StatelessWidget {
           child: FadeInImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'data/staffv2/images/${staff.imageName}',
+              'assets/data/staffv2/images/${staff.imageName}',
             ).image,
             placeholder: MemoryImage(kTransparentImage),
             imageErrorBuilder: (_, __, ___) => const FittedBox(
