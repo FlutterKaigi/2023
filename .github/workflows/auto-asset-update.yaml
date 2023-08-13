@@ -2,7 +2,7 @@ name: Auto Asset Update
 
 on:
   schedule:
-    # every day at1 09:00 JST
+    # every day at 09:00 JST
     - cron: "0 0 * * *"
   workflow_dispatch:
 
