@@ -16,6 +16,7 @@ import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:js/js_util.dart' as js_util;
 
 class MainPage extends HookWidget {
   const MainPage({super.key});
@@ -72,6 +73,9 @@ class _MainPageBody extends StatelessWidget {
     final padding = EdgeInsets.symmetric(
       horizontal: horizontal,
     );
+
+    js_util.callMethod<void>(js_util.globalThis, '_show', []);
+
     return Stack(
       children: [
         const SizedBox(
