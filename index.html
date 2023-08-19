@@ -17,6 +17,7 @@
   <base href="/2023/">
 
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="2023年、日本国内でFlutterをメインに扱う技術カンファレンス。FlutterやDartの深い知見を持つ開発者によるセッションを多数企画します。">
   <meta name="title" content="FlutterKaigi 2023">
@@ -56,30 +57,20 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "223382998";
+    const serviceWorkerVersion = "900344516";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
-
-  <script type="text/javascript">
-    window.flutterWebRenderer = 'html';
-  </script>
+  <link href="index.css" rel="stylesheet">
+  <script type="module" src="./bundle.mjs"></script>
+  <script type="module" src="index.mjs"></script>
 </head>
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
+  <main>
+    <div id="loading">
+      <md-circular-progress indeterminate></md-circular-progress>
+    </div>
+    <div id="app"></div>
+  </main>
 </body>
 </html>
