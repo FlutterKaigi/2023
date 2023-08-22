@@ -10,7 +10,7 @@ class SectionHeader extends StatelessWidget {
   });
 
   /// ブラーのぼかし範囲
-  static const double blurRadius = 20;
+  static const double _blurRadius = 20;
 
   /// The text to display.
   final String text;
@@ -21,7 +21,7 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform.translate(
       // NOTE: ブラーのぼかし範囲を考慮してオフセットを設定する
-      offset: const Offset(-SectionHeader.blurRadius, 0),
+      offset: const Offset(-SectionHeader._blurRadius, 0),
       child: ShaderMask(
         shaderCallback: (Rect bounds) {
           // NOTE: bounds から取得するとグラデーションが想定どおりかからないため、テキストサイズを別途取得する
@@ -33,7 +33,7 @@ class SectionHeader extends StatelessWidget {
         blendMode: BlendMode.srcIn,
         child: Padding(
           // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
-          padding: const EdgeInsets.all(blurRadius),
+          padding: const EdgeInsets.all(_blurRadius),
           child: Text(
             text,
             style: style.copyWith(
