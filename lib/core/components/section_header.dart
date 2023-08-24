@@ -10,7 +10,7 @@ class SectionHeader extends StatelessWidget {
   });
 
   /// ブラーのぼかし範囲
-  static const double blurRadius = 20;
+  static const double _blurRadius = 20;
 
   /// The text to display.
   final String text;
@@ -19,19 +19,45 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (Rect bounds) =>
-          GradientConstant.accent.primary.createShader(bounds),
-      child: Padding(
-        // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
-        padding: const EdgeInsets.all(blurRadius),
-        child: Text(
-          text,
-          style: style.copyWith(
-            color: Colors.white,
+    return Transform.translate(
+      // NOTE: ブラーのぼかし範囲を考慮してオフセットを設定する
+      offset: const Offset(-SectionHeader._blurRadius, 0),
+      child: ShaderMask(
+        shaderCallback: (Rect bounds) {
+          // NOTE: bounds から取得するとグラデーションが想定どおりかからないため、テキストサイズを別途取得する
+          final textSize = _getTextSize(maxWidth: bounds.width);
+          return GradientConstant.accent.primary.createShader(
+            Rect.fromLTWH(0, 0, textSize.width, textSize.height),
+          );
+        },
+        blendMode: BlendMode.srcIn,
+        child: Padding(
+          // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
+          padding: const EdgeInsets.all(_blurRadius),
+          child: Text(
+            text,
+            style: style.copyWith(
+              color: Colors.white,
+            ),
           ),
         ),
       ),
     );
+  }
+
+  /// 描画するテキストのサイズを取得する
+  Size _getTextSize({
+    required double maxWidth,
+  }) {
+    final textPainter = TextPainter(
+      text: TextSpan(
+        text: text,
+        style: style,
+      ),
+      textDirection: TextDirection.ltr,
+    )..layout(
+        maxWidth: maxWidth,
+      );
+    return textPainter.size;
   }
 }

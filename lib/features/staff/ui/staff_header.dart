@@ -8,22 +8,15 @@ class StaffHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Transform.translate(
-          offset: const Offset(-SectionHeader.blurRadius, 0),
-          child: ResponsiveWidget(
-            largeWidget: SectionHeader(
-              text: 'Staff',
-              style: AppTextStyle.pcHeading1,
-            ),
-            smallWidget: SectionHeader(
-              text: 'Staff',
-              style: AppTextStyle.spHeading1,
-            ),
-          ),
-        ),
-      ],
+    return ResponsiveWidget(
+      largeWidget: SectionHeader(
+        text: 'Staff',
+        style: AppTextStyle.pcHeading1,
+      ),
+      smallWidget: SectionHeader(
+        text: 'Staff',
+        style: AppTextStyle.spHeading1,
+      ),
     );
   }
 }

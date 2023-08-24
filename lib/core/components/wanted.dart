@@ -72,16 +72,13 @@ class WantedDesktop extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Transform.translate(
-          offset: const Offset(-SectionHeader.blurRadius, 0),
-          child: SectionHeader(
-            text: title,
-            style: GoogleFonts.poppins(
-              fontSize: 60,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w700,
-              height: 1.1,
-            ),
+        SectionHeader(
+          text: title,
+          style: GoogleFonts.poppins(
+            fontSize: 60,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w700,
+            height: 1.1,
           ),
         ),
         Spaces.vertical_24,
@@ -185,16 +182,13 @@ class WantedMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Transform.translate(
-          offset: const Offset(-SectionHeader.blurRadius, 0),
-          child: SectionHeader(
-            text: title,
-            style: GoogleFonts.poppins(
-              fontSize: 48,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w700,
-              height: 1.1,
-            ),
+        SectionHeader(
+          text: title,
+          style: GoogleFonts.poppins(
+            fontSize: 48,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w700,
+            height: 1.1,
           ),
         ),
         Spaces.vertical_24,
