@@ -2,17 +2,20 @@ import 'dart:math';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
+import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
-import 'package:confwebsite2023/features/session/wanted/session_wanted.dart';
 import 'package:confwebsite2023/features/sponsor_wanted/sponsor_wanted.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:js/js_util.dart' as js_util;
 
 class MainPage extends HookWidget {
   const MainPage({super.key});
@@ -69,6 +72,9 @@ class _MainPageBody extends StatelessWidget {
     final padding = EdgeInsets.symmetric(
       horizontal: horizontal,
     );
+
+    js_util.callMethod<void>(js_util.globalThis, '_show', []);
+
     return Stack(
       children: [
         const SizedBox(
@@ -108,19 +114,30 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const HeroSection(),
             ),
+            _Sliver(
+              padding: padding,
+              child: Consumer(
+                builder: (context, ref, child) {
+                  final now = ref.watch(nowProvider);
+                  return Visibility(
+                    visible: CountDownSection.isVisible(now),
+                    child: const Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Spaces.vertical_80,
+                        CountDownSection(),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,
             ),
             _Sliver(
               padding: padding,
               child: const NewsSection(),
-            ),
-            _Sliver(
-              padding: padding,
-              child: const SessionWanted(),
-            ),
-            const SliverToBoxAdapter(
-              child: Spaces.vertical_200,
             ),
             _Sliver(
               padding: padding,

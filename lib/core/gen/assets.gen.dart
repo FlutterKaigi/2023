@@ -22,6 +22,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/discord.svg
   String get discord => 'assets/icons/discord.svg';
 
+  /// File path: assets/icons/dot.svg
+  String get dot => 'assets/icons/dot.svg';
+
   /// File path: assets/icons/github.svg
   String get github => 'assets/icons/github.svg';
 
@@ -42,7 +45,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values =>
-      [discord, github, medium, note, qiita, twitter, zenn];
+      [discord, dot, github, medium, note, qiita, twitter, zenn];
 }
 
 class $AssetsDataNewsGen {
@@ -301,15 +304,10 @@ class Assets {
   static const String flutterkaigiLogoUnion =
       'assets/flutterkaigi_logo_union.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
-  static const String personalWanted = 'assets/personal_wanted.svg';
 
   /// List of all assets
-  List<String> get values => [
-        illustrationTeamwork,
-        flutterkaigiLogo,
-        flutterkaigiLogoUnion,
-        personalWanted
-      ];
+  List<String> get values =>
+      [illustrationTeamwork, flutterkaigiLogo, flutterkaigiLogoUnion];
 }
 
 class AssetGenImage {

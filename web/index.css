@@ -1,0 +1,35 @@
+:root {
+  --md-circular-progress-size: 32px;
+  --md-sys-color-primary: #d0bcff;
+  --md-circular-progress-active-indicator-width: 14;
+}
+
+body {
+  all: initial;
+  background-color: #1d192b;
+}
+
+main {
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  touch-action: none;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
