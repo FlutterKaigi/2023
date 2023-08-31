@@ -1,14 +1,15 @@
 import 'dart:math';
 
-import 'package:collection/collection.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
+import 'package:confwebsite2023/core/foundation/iterable_ex.dart';
+import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/data/staff_provider.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_item.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class StaffTable extends ConsumerWidget {
+class StaffTable extends HookConsumerWidget {
   const StaffTable({
     super.key,
   });
@@ -98,31 +99,30 @@ class StaffTable extends ConsumerWidget {
       largeScreenSize + ((width - largeScreenSize) / 2),
     );
     final crossAxisCount = calculateItemCount(maxWidth: maxWidth);
-    final itemWidth =
-        (maxWidth - spacing * (crossAxisCount - 1)) / crossAxisCount;
 
     return state.when(
       data: (data) {
-        final maxHeight = data
-            .map(
-              (staff) => calculateHeightByStaff(
-                context: context,
-                staff: staff,
-                width: itemWidth,
-              ),
-            )
-            .max;
-        return SliverGrid.builder(
-          itemCount: data.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisExtent: maxHeight,
-            mainAxisSpacing: spacing,
-            crossAxisSpacing: spacing,
-            crossAxisCount: crossAxisCount,
-          ),
+        return SliverList.builder(
+          itemCount: data.length ~/ crossAxisCount,
           itemBuilder: (context, index) {
-            return StaffItem(
-              staff: data[index],
+            final items =
+                data.skip(index * crossAxisCount).take(crossAxisCount);
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 24),
+              child: IntrinsicHeight(
+                child: Row(
+                  children: items
+                      .map<Widget>(
+                        (item) => Expanded(
+                          child: StaffItem(staff: item),
+                        ),
+                      )
+                      .insertingEach(
+                        () => Spaces.horizontal_16,
+                      )
+                      .toList(),
+                ),
+              ),
             );
           },
         );
