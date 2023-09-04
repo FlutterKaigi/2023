@@ -24,7 +24,7 @@ class DividerWithTitle extends StatelessWidget {
             fontSize: 24,
           ),
         ),
-        dividerLine
+        dividerLine,
       ],
     );
   }
