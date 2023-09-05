@@ -55,7 +55,7 @@ class HeroSectionMobile extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                   height: 1,
                 ),
-              )
+              ),
             ],
           ),
         ),

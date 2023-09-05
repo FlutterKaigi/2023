@@ -153,7 +153,7 @@ class _MainPageBody extends StatelessWidget {
               child: Footer(),
             ),
           ],
-        )
+        ),
       ],
     );
   }

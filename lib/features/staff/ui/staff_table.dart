@@ -40,7 +40,7 @@ class StaffTable extends ConsumerWidget {
 
     final contentWidth = width - horizontalPadding * 2;
     final theme = Theme.of(context);
-    final textScaleFactor = MediaQuery.textScaleFactorOf(context);
+    final textScaler = MediaQuery.textScalerOf(context);
     const iconHeight = 120;
     const betweenIconAndDisplayName = 16;
     const betweenDisplayNameAndIntroduction = 8;
@@ -50,14 +50,14 @@ class StaffTable extends ConsumerWidget {
       text: staff.displayName,
       style: theme.textTheme.titleLarge,
       maxWidth: contentWidth,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
     );
 
     final introductionHeight = calculateTextExtent(
       text: staff.introduction,
       style: theme.textTheme.bodyLarge,
       maxWidth: contentWidth,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
     );
 
     return iconHeight +
@@ -73,7 +73,7 @@ class StaffTable extends ConsumerWidget {
   static double calculateTextExtent({
     required String text,
     required double maxWidth,
-    required double textScaleFactor,
+    required TextScaler textScaler,
     TextStyle? style,
   }) {
     final textPainter = TextPainter(
@@ -83,7 +83,7 @@ class StaffTable extends ConsumerWidget {
       ),
       textDirection: TextDirection.ltr,
       textAlign: TextAlign.center,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
     )..layout(maxWidth: maxWidth);
     return textPainter.height;
   }
