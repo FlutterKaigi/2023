@@ -35,56 +35,61 @@ class HeroSectionTwitter extends StatelessWidget {
         uri: Uri.parse(url),
         target: LinkTarget.blank,
         builder: (context, openLink) {
-          return GestureDetector(
-            onTap: openLink,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Container(
-                width: isMobile ? 358 : 744,
-                padding: EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: isMobile ? 8 : 12,
-                ),
-                decoration: BoxDecoration(
-                  color: backgroundColor,
-                  borderRadius: BorderRadius.circular(100),
-                  border: Border.all(
-                    color: baselineColorScheme.ref.primary.primary90,
-                    width: 2,
+          return MouseRegion(
+            cursor: SystemMouseCursors.click,
+            hitTestBehavior: HitTestBehavior.deferToChild,
+            child: GestureDetector(
+              onTap: openLink,
+              behavior: HitTestBehavior.deferToChild,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Container(
+                  width: isMobile ? 358 : 744,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: isMobile ? 8 : 12,
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: baselineColorScheme.white.withOpacity(0.35),
-                      offset: const Offset(0, 2),
-                      blurRadius: 16,
+                  decoration: BoxDecoration(
+                    color: backgroundColor,
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border.all(
+                      color: baselineColorScheme.ref.primary.primary90,
+                      width: 2,
                     ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: SvgPicture.asset(
-                        icon,
-                        colorFilter: ColorFilter.mode(
-                          iconColor,
-                          BlendMode.srcIn,
+                    boxShadow: [
+                      BoxShadow(
+                        color: baselineColorScheme.white.withOpacity(0.35),
+                        offset: const Offset(0, 2),
+                        blurRadius: 16,
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: SvgPicture.asset(
+                          icon,
+                          colorFilter: ColorFilter.mode(
+                            iconColor,
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ),
-                    ),
-                    Spaces.horizontal_20,
-                    Text(
-                      title,
-                      style: titleTextStyle,
-                    ),
-                    if (isMobile) const SizedBox.shrink() else const Spacer(),
-                    Text(
-                      subTitle,
-                      style: subTitleTextStyle,
-                    ),
-                  ],
+                      Spaces.horizontal_20,
+                      Text(
+                        title,
+                        style: titleTextStyle,
+                      ),
+                      if (isMobile) const SizedBox.shrink() else const Spacer(),
+                      Text(
+                        subTitle,
+                        style: subTitleTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
