@@ -8,7 +8,7 @@ part of 'count_down_timer.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$nowHash() => r'7cc4b9d3e5f25a42a3f9983a89635792392c7c8a';
+String _$nowHash() => r'74757bda800201a8415a665d4792f55763ec0f10';
 
 /// See also [now].
 @ProviderFor(now)

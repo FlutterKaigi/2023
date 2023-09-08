@@ -9,7 +9,6 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
-import 'package:confwebsite2023/features/sponsor_wanted/sponsor_wanted.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
@@ -141,14 +140,6 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const SponsorWanted(),
-            ),
-            _Sliver(
-              padding: padding,
-              child: Spaces.vertical_200,
-            ),
-            _Sliver(
-              padding: padding,
               child: StaffHeader(
                 key: staffSectionKey,
               ),
@@ -162,7 +153,7 @@ class _MainPageBody extends StatelessWidget {
               child: Footer(),
             ),
           ],
-        )
+        ),
       ],
     );
   }
