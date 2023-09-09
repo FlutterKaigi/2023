@@ -179,7 +179,7 @@ class ProposalMobile extends StatelessWidget {
             Spaces.vertical_16,
             ForteeButton(onTap: () {
               //TODO ForteeのURLを追記する
-            }),
+            },),
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
