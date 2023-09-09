@@ -8,6 +8,7 @@ import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
+import 'package:confwebsite2023/features/session_page/session_detail/session_detail_button_dark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,11 +19,34 @@ class SessionDetailMobile extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final scrollController = useScrollController();
+
+    const sectionKeys = (
+      event: GlobalObjectKey('eventSectionKey'),
+      session: GlobalObjectKey('sessionSectionKey'),
+      sponsor: GlobalObjectKey('sponsorSectionKey'),
+      staff: GlobalObjectKey('staffSectionKey'),
+    );
+
+    final items = <HeaderItemButtonData>[
+      HeaderItemButtonData(
+        title: 'Staff',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.staff.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
+      HeaderItemButtonData(
+        title: 'Session',
+        onPressed: () {},
+      ),
+    ];
+
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: _MainPageBody(
         scrollController: scrollController,
-        items: [],
+        items: items,
       ),
     );
   }
@@ -43,9 +67,7 @@ class _MainPageBody extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
     final horizontal = max<double>(16, (width - largeScreenSize) / 4.0);
-    final padding = EdgeInsets.symmetric(
-      horizontal: horizontal,
-    );
+    final padding = EdgeInsets.symmetric(horizontal: horizontal);
     return Stack(
       children: [
         const SizedBox(
@@ -80,16 +102,14 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              // child: Transform.translate(
-              //   offset: const Offset(-SectionHeader.blurRadius, 0),
-                child: SectionHeader(
-                  text: 'Sessions',
-                  style: GoogleFonts.poppins(
-                    fontSize: 48,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w700,
-                    height: 1.1,
-                  // ),
+              child: SectionHeader(
+                //TODO 引数として、SessionかSponsor Sessionかを入れる必要がありそう
+                text: 'Sessions',
+                style: GoogleFonts.poppins(
+                  fontSize: 48,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w700,
+                  height: 1.1,
                 ),
               ),
             ),
@@ -97,11 +117,16 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: Spaces.vertical_80,
             ),
-            //TODO TwitterとURLのコピーを並べる。
-
             _Sliver(
               padding: padding,
-              child: Spaces.vertical_40,
+              child: const SessionDetailButton(
+                twitterUrl: '',
+                url: '',
+              ),
+            ),
+            _Sliver(
+              padding: padding,
+              child: Spaces.vertical_16,
             ),
             _Sliver(
               padding: padding,
@@ -115,20 +140,26 @@ class _MainPageBody extends StatelessWidget {
                 trackName: 'Track 1',
               ),
             ),
-
-            //TODO TwitterとURLのコピーを並べる。
-
             _Sliver(
               padding: padding,
-              child: Container(
-                height: 1000,
+              child: Spaces.vertical_16,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const SessionDetailButton(
+                twitterUrl: '',
+                url: '',
               ),
+            ),
+            _Sliver(
+              padding: padding,
+              child: Spaces.vertical_200,
             ),
             const SliverToBoxAdapter(
               child: Footer(),
             ),
           ],
-        )
+        ),
       ],
     );
   }

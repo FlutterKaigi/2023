@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/time_table.dart';
-import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
@@ -11,7 +11,6 @@ import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session_page/session_detail/session_detail_button_dark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SessionDetailDesktop extends HookWidget {
@@ -19,12 +18,28 @@ class SessionDetailDesktop extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final items = <HeaderItemButtonData>[
+      HeaderItemButtonData(
+        title: 'Staff',
+        onPressed: () async {
+          await Navigator.push<void>(
+            context,
+            MaterialPageRoute(builder: (context) => const MainPage()),
+          );
+        },
+      ),
+      HeaderItemButtonData(
+        title: 'Session',
+        onPressed: () async {},
+      ),
+    ];
+
     final scrollController = useScrollController();
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: _MainPageBody(
         scrollController: scrollController,
-        items: [],
+        items: items,
       ),
     );
   }
@@ -37,7 +52,6 @@ class _MainPageBody extends StatelessWidget {
   });
 
   final ScrollController scrollController;
-
   final List<HeaderItemButtonData> items;
 
   @override
@@ -45,11 +59,7 @@ class _MainPageBody extends StatelessWidget {
     final width = MediaQuery.sizeOf(context).width;
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
     final horizontal = max<double>(16, (width - largeScreenSize) / 4.0);
-    final padding = EdgeInsets.symmetric(
-      horizontal: horizontal,
-    );
-    final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
+    final padding = EdgeInsets.symmetric(horizontal: horizontal);
     return Stack(
       children: [
         const SizedBox(
@@ -88,16 +98,14 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              // child: Transform.translate(
-              //   offset: const Offset(-SectionHeader.blurRadius, 0),
-                child: SectionHeader(
-                  text: 'Sessions',
-                  style: GoogleFonts.poppins(
-                    fontSize: 48,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w700,
-                    height: 1.1,
-                  // ),
+              child: SectionHeader(
+                //TODO 引数として、SessionかSponsor Sessionかを入れる必要がありそう
+                text: 'Sessions',
+                style: GoogleFonts.poppins(
+                  fontSize: 48,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.w700,
+                  height: 1.1,
                 ),
               ),
             ),
@@ -107,40 +115,14 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SessionDetailButtonDark(
-                    icon: SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: SvgPicture.asset(
-                        Assets.icons.twitter,
-                        colorFilter: ColorFilter.mode(
-                          colorScheme.onPrimary,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                    title: 'ツイートする',
-                    url: '',
-                  ),
-                  Spaces.horizontal_10,
-                  SessionDetailButtonDark(
-                    icon: Icon(
-                      Icons.copy,
-                      size: 18,
-                      color: colorScheme.onPrimary,
-                    ),
-                    title: 'URLをコピー',
-                    url: '',
-                  ),
-                ],
+              child: const SessionDetailButton(
+                twitterUrl: '',
+                url: '',
               ),
             ),
             _Sliver(
               padding: padding,
-              child: Spaces.vertical_40,
+              child: Spaces.vertical_20,
             ),
             _Sliver(
               padding: padding,
@@ -160,35 +142,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  SessionDetailButtonDark(
-                    icon: SizedBox(
-                      width: 18,
-                      height: 18,
-                      child: SvgPicture.asset(
-                        Assets.icons.twitter,
-                        colorFilter: ColorFilter.mode(
-                          colorScheme.onPrimary,
-                          BlendMode.srcIn,
-                        ),
-                      ),
-                    ),
-                    title: 'ツイートする',
-                    url: '',
-                  ),
-                  Spaces.horizontal_10,
-                  SessionDetailButtonDark(
-                    icon: Icon(
-                      Icons.copy,
-                      size: 18,
-                      color: colorScheme.onPrimary,
-                    ),
-                    title: 'URLをコピー',
-                    url: '',
-                  ),
-                ],
+              child: const SessionDetailButton(
+                twitterUrl: '',
+                url: '',
               ),
             ),
             _Sliver(
@@ -199,7 +155,7 @@ class _MainPageBody extends StatelessWidget {
               child: Footer(),
             ),
           ],
-        )
+        ),
       ],
     );
   }
