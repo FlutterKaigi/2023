@@ -103,7 +103,7 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SectionHeader(
-                //TODO 引数として、SessionかSponsor Sessionかを入れる必要がありそう
+                //TODO SessionかSponsor Sessionの引数を追記する
                 text: 'Sessions',
                 style: GoogleFonts.poppins(
                   fontSize: 48,
@@ -120,7 +120,9 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SessionDetailButton(
+                //TODO シェアするURLの文章を考える
                 twitterUrl: '',
+                //TODO ForteeのURLを追記する
                 url: '',
               ),
             ),
@@ -132,11 +134,29 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const ProposalMobile(
                 sessionName: 'Session 1-1',
-                title: '大きいタイトル',
+                title: 'Flutterアプリ開発におけるモジュール分割戦略 〜dart15万行を100分割する〜',
                 userName: 'いせりゅー',
-                image:
-                    'https://www.yamaki.co.jp/recipe/wp-content/uploads/0179.jpg',
-                time: '11:00~11:55',
+                image: '',
+                contents:
+                    'Androidをはじめ、多くのプロジェクトではモジュール（PackageやServiceという場合も）を分割することで開発効率の向上を目指すのが、トレンドの一つです。\n\n'
+                    '個人的にこの方針での開発を「マイクロモジュール開発」と（サーバーサイドにおけるマイクロサービスのようなイメージで）呼んでいます。\n\n'
+                    '約一年前から始まった弊プロジェクトでは、その手法をflutterアプリに当てはめようとしましたが、いくつかの問題がありました。マイクロモジュール開発を進める中で突き当たった壁や、その解決方法（できたこと、できなかったこと）についてトークを行います。\n\n'
+                    'トーク内容予定：（トーク時間に収まらない場合は内容を一部変更/省略するかもしれません）\n\n'
+                    '・モノリシックじゃだめなのか\n'
+                    'プロジェクトの設計寿命と老後、新陳代謝\n'
+                    '・Flutter/dartの問題と解決\n'
+                    '  ・開発環境 \n'
+                    '  ・pubspec仕様\n'
+                    '  ・dart言語機能\n'
+                    '  ・依存ライブラリ管理\n'
+                    '  ・多言語対応の文字列の分割 \n'
+                    '  ・Unit Testとビルドオプション\n'
+                    '  ・CI\n'
+                    '・コードレビューの要所\n'
+                    '・発生した新陳代謝の例\n'
+                    '・モジュール分割の基準を考える\n'
+                    '・銀の弾丸ではない、この開発手法における先延ばしと諦め',
+                time: '2023年11月10日：11:10~11:15(40分)',
                 trackName: 'Track 1',
               ),
             ),
@@ -147,7 +167,9 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SessionDetailButton(
+                //TODO シェアするURLの文章を考える
                 twitterUrl: '',
+                //TODO ForteeのURLを追記する
                 url: '',
               ),
             ),

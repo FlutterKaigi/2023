@@ -8,6 +8,7 @@ class ProposalDeskTop extends StatelessWidget {
     required this.title,
     required this.userName,
     required this.image,
+    required this.time,
     required this.contents,
     required this.sessionName,
     required this.trackName,
@@ -17,6 +18,7 @@ class ProposalDeskTop extends StatelessWidget {
   final String title;
   final String userName;
   final String image;
+  final String time;
   final String contents;
   final String sessionName;
   final String trackName;
@@ -59,7 +61,7 @@ class ProposalDeskTop extends StatelessWidget {
             ),
             Spaces.vertical_16,
             Text(
-              '2023年11月10日：11:10~11:15(40分)',
+              time,
               style: textTheme.headlineSmall!.copyWith(
                 fontSize: 18,
                 height: 1.33,
@@ -70,25 +72,29 @@ class ProposalDeskTop extends StatelessWidget {
             Spaces.vertical_40,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_40,
-            Row(
+            Column(
               children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundImage: NetworkImage(image),
-                ),
-                Spaces.horizontal_8,
-                Text(
-                  userName,
-                  style: textTheme.titleMedium!.copyWith(
-                    fontSize: 16.5,
-                    height: 1.27,
-                  ),
+                //TODO スポンサーセッションの場合は、スポンサーの画像を載せる
+                //TODO スポンサーセッションの場合は、会社名や役職などを載せる
+                Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 20,
+                      backgroundImage: NetworkImage(image),
+                    ),
+                    Spaces.horizontal_8,
+                    Text(
+                      userName,
+                      style: textTheme.titleMedium!.copyWith(
+                        fontSize: 16.5,
+                        height: 1.27,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
-
             //TODO アカウントを並べる。
-
             Spaces.vertical_40,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_40,
@@ -112,6 +118,7 @@ class ProposalMobile extends StatelessWidget {
     required this.userName,
     required this.image,
     required this.time,
+    required this.contents,
     required this.sessionName,
     required this.trackName,
     super.key,
@@ -121,6 +128,7 @@ class ProposalMobile extends StatelessWidget {
   final String userName;
   final String image;
   final String time;
+  final String contents;
   final String sessionName;
   final String trackName;
 
@@ -162,14 +170,16 @@ class ProposalMobile extends StatelessWidget {
             ),
             Spaces.vertical_16,
             Text(
-              '2023年11月10日：11:10~11:15(40分)',
+              time,
               style: textTheme.headlineSmall!.copyWith(
                 fontSize: 24,
                 height: 1.33,
               ),
             ),
             Spaces.vertical_16,
-            ForteeButton(onTap: () {}),
+            ForteeButton(onTap: () {
+              //TODO ForteeのURLを追記する
+            }),
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
@@ -189,14 +199,12 @@ class ProposalMobile extends StatelessWidget {
                 ),
               ],
             ),
-
             //TODO アカウントを並べる。
-
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
             Text(
-              time,
+              contents,
               style: textTheme.bodyLarge!.copyWith(
                 fontSize: 16,
                 height: 1.5,
