@@ -24,7 +24,7 @@ class SessionDetailDesktop extends HookWidget {
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: _MainPageBody(
         scrollController: scrollController,
-        items: [],
+        items: const [],
       ),
     );
   }
@@ -199,7 +199,7 @@ class _MainPageBody extends StatelessWidget {
               child: Footer(),
             ),
           ],
-        )
+        ),
       ],
     );
   }
