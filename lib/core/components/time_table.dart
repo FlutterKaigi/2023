@@ -27,9 +27,7 @@ class ProposalDeskTop extends StatelessWidget {
     final textTheme = theme.textTheme;
     return Container(
       width: 1128,
-      //TODO 黒っぽい色を探す
-      // color: Colors.black,
-      color: baselineColorScheme.black,
+      color: theme.scaffoldBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
@@ -132,9 +130,7 @@ class ProposalMobile extends StatelessWidget {
     final textTheme = theme.textTheme;
     return Container(
       width: 1128,
-      //TODO 黒っぽい色を探す
-      color: Colors.black,
-      // color: colorScheme.secondary,
+      color: theme.scaffoldBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
