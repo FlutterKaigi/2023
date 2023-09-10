@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
-import 'package:confwebsite2023/core/theme/dimension.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -80,6 +80,7 @@ class WantedDesktop extends StatelessWidget {
             fontWeight: FontWeight.w700,
             height: 1.1,
           ),
+          gradient: GradientConstant.accent.primary,
         ),
         Spaces.vertical_24,
         Row(
@@ -190,6 +191,7 @@ class WantedMobile extends StatelessWidget {
             fontWeight: FontWeight.w700,
             height: 1.1,
           ),
+          gradient: GradientConstant.accent.primary,
         ),
         Spaces.vertical_24,
         Column(

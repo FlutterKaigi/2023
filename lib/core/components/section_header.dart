@@ -1,11 +1,11 @@
-import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
 /// A section header with a gradient.
-class SectionHeader extends StatelessWidget {
+final class SectionHeader extends StatelessWidget {
   const SectionHeader({
     required this.text,
     required this.style,
+    required this.gradient,
     super.key,
   });
 
@@ -17,6 +17,8 @@ class SectionHeader extends StatelessWidget {
 
   final TextStyle style;
 
+  final Gradient gradient;
+
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
@@ -26,7 +28,7 @@ class SectionHeader extends StatelessWidget {
         shaderCallback: (Rect bounds) {
           // NOTE: bounds から取得するとグラデーションが想定どおりかからないため、テキストサイズを別途取得する
           final textSize = _getTextSize(maxWidth: bounds.width);
-          return GradientConstant.accent.primary.createShader(
+          return gradient.createShader(
             Rect.fromLTWH(0, 0, textSize.width, textSize.height),
           );
         },
