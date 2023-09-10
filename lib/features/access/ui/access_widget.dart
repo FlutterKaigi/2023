@@ -21,7 +21,7 @@ class AccessWidget extends StatelessWidget {
         ),
         const _DetailsWidget(
           title: '所在地',
-          details: '東京都港区南青山3丁目8-38 1階',
+          details: '東京都港区南青山３丁目８-３８ １階',
         ),
       ].insertingEach(() => Spaces.vertical_16).toList(),
     );
