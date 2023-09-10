@@ -30,7 +30,7 @@ class AccessWidget extends StatelessWidget {
       details,
       const ClipRRect(
         borderRadius: BorderRadius.all(
-          Radius.circular(8),
+          Radius.circular(12),
         ),
         child: _MapWidget(),
       ),
