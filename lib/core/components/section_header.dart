@@ -2,7 +2,7 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
 /// A section header with a gradient.
-class SectionHeader extends StatelessWidget {
+final class SectionHeader extends StatelessWidget {
   const SectionHeader({
     required this.text,
     required this.style,
