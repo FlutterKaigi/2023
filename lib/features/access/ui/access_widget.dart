@@ -13,17 +13,18 @@ class AccessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final details = Column(
-      children: <Widget>[
-        const _DetailsWidget(
+    const details = Column(
+      children: [
+        _DetailsWidget(
           title: '開催場所',
           details: '株式会社ナビタイムジャパン',
         ),
-        const _DetailsWidget(
+        Spaces.vertical_16,
+        _DetailsWidget(
           title: '所在地',
           details: '東京都港区南青山３丁目８-３８ １階',
         ),
-      ].insertingEach(() => Spaces.vertical_16).toList(),
+      ],
     );
     final children = [
       details,
