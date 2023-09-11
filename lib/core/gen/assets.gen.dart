@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/copy.svg
+  String get copy => 'assets/icons/copy.svg';
+
   /// File path: assets/icons/discord.svg
   String get discord => 'assets/icons/discord.svg';
 
@@ -38,7 +41,7 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<String> get values =>
-      [discord, dot, github, medium, note, qiita, twitter, zenn];
+      [copy, discord, dot, github, medium, note, qiita, twitter, zenn];
 }
 
 class Assets {
