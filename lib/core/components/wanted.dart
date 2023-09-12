@@ -72,7 +72,7 @@ class WantedDesktop extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionHeader(
+        SectionHeader.leftAlignment(
           text: title,
           style: GoogleFonts.poppins(
             fontSize: 60,
@@ -183,7 +183,7 @@ class WantedMobile extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionHeader(
+        SectionHeader.leftAlignment(
           text: title,
           style: GoogleFonts.poppins(
             fontSize: 48,

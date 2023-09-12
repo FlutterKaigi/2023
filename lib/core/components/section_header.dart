@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 /// A section header with a gradient.
 final class SectionHeader extends StatelessWidget {
-  const SectionHeader({
+  const SectionHeader.leftAlignment({
     required this.text,
     required this.style,
     required this.gradient,
-    this.isNotTranslate = false,
     super.key,
-  });
+  }) : isNotTranslate = false;
+
+  const SectionHeader.centerAlignment({
+    required this.text,
+    required this.style,
+    required this.gradient,
+    super.key,
+  }) : isNotTranslate = true;
 
   /// ブラーのぼかし範囲
   static const double _blurRadius = 20;

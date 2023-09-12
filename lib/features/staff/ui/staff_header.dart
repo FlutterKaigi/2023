@@ -9,12 +9,12 @@ class StaffHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      largeWidget: SectionHeader(
+      largeWidget: SectionHeader.leftAlignment(
         text: 'Staff',
         style: AppTextStyle.pcHeading1,
         gradient: GradientConstant.accent.primary,
       ),
-      smallWidget: SectionHeader(
+      smallWidget: SectionHeader.leftAlignment(
         text: 'Staff',
         style: AppTextStyle.spHeading1,
         gradient: GradientConstant.accent.primary,
