@@ -7,19 +7,19 @@ final class SectionHeader extends StatelessWidget {
     required this.style,
     required this.gradient,
     super.key,
-  }) : isNotTranslate = false;
+  }) : isTranslate = true;
 
   const SectionHeader.centerAlignment({
     required this.text,
     required this.style,
     required this.gradient,
     super.key,
-  }) : isNotTranslate = true;
+  }) : isTranslate = false;
 
   /// ブラーのぼかし範囲
   static const double _blurRadius = 20;
 
-  final bool isNotTranslate;
+  final bool isTranslate;
 
   /// The text to display.
   final String text;
@@ -51,15 +51,15 @@ final class SectionHeader extends StatelessWidget {
       ),
     );
 
-    if (isNotTranslate) {
-      return component;
+    if (isTranslate) {
+      return Transform.translate(
+        // NOTE: ブラーのぼかし範囲を考慮してオフセットを設定する
+        offset: const Offset(-SectionHeader._blurRadius, 0),
+        child: component,
+      );
     }
 
-    return Transform.translate(
-      // NOTE: ブラーのぼかし範囲を考慮してオフセットを設定する
-      offset: const Offset(-SectionHeader._blurRadius, 0),
-      child: component,
-    );
+    return component;
   }
 
   /// 描画するテキストのサイズを取得する
