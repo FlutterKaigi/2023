@@ -101,7 +101,7 @@ class _AccessHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const text = 'Access';
-    return ResponsiveWidget(
+    return const ResponsiveWidget(
       largeWidget: SectionHeader(
         text: text,
         style: AppTextStyle.pcHeading1,
