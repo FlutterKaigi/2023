@@ -4,7 +4,6 @@ import 'dart:ui_web' as ui;
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
-import 'package:confwebsite2023/core/foundation/iterable_ex.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -13,46 +12,47 @@ class AccessWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const details = Column(
-      children: [
-        _DetailsWidget(
-          title: '開催場所',
-          details: '株式会社ナビタイムジャパン',
-        ),
-        Spaces.vertical_16,
-        _DetailsWidget(
-          title: '所在地',
-          details: '東京都港区南青山３丁目８-３８ １階',
-        ),
-      ],
-    );
-    final children = [
-      details,
-      const ClipRRect(
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
-        child: _MapWidget(),
+    const details = SelectionArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _DetailsWidget(
+            title: '開催場所',
+            details: '株式会社ナビタイムジャパン',
+          ),
+          Spaces.vertical_16,
+          _DetailsWidget(
+            title: '所在地',
+            details: '東京都港区南青山３丁目８-３８ １階',
+          ),
+        ],
       ),
-    ];
-    return Column(
+    );
+    const map = ClipRRect(
+      borderRadius: BorderRadius.all(
+        Radius.circular(12),
+      ),
+      child: _MapWidget(),
+    );
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _AccessHeader(),
+        _AccessHeader(),
         ResponsiveWidget(
           largeWidget: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: children
-                .map(
-                  (e) => Expanded(
-                    child: e,
-                  ),
-                )
-                .toList(),
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(child: details),
+              map,
+            ],
           ),
-          smallWidget: Column(
-            children: children.insertingEach(
-              () => Spaces.vertical_40,
-            ),
+          mediumWidget: Column(
+            children: [
+              details,
+              Spaces.vertical_40,
+              map,
+            ],
           ),
         ),
       ],
@@ -75,17 +75,19 @@ class _DetailsWidget extends StatelessWidget {
     final colorScheme = theme.colorScheme;
     return Row(
       children: [
-        SelectableText(
+        Text(
           title,
           style: textTheme.bodyLarge!.copyWith(
             color: colorScheme.primary,
           ),
         ),
         Spaces.horizontal_16,
-        SelectableText(
-          details,
-          style: textTheme.bodyLarge!.copyWith(
-            color: Colors.white,
+        Expanded(
+          child: Text(
+            details,
+            style: textTheme.bodyLarge!.copyWith(
+              color: Colors.white,
+            ),
           ),
         ),
       ],
@@ -117,18 +119,18 @@ class _MapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final height = switch (ResponsiveWidget.getScreenSizeType(context)) {
-      ScreenSizeType.large => 455.0,
-      _ => 270.0,
+    final screenType = ResponsiveWidget.getScreenSizeType(context);
+    final width = switch (screenType) {
+      ScreenSizeType.small => MediaQuery.sizeOf(context).width,
+      _ => 605.0,
+    };
+    final height = switch (screenType) {
+      ScreenSizeType.small => 270.0,
+      _ => 455.0,
     };
     const viewId = 'google-map';
     const url =
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12965.5814296842'
-        '82!2d139.70459727456262!3d35.66726596146568!2m3!1f0!2f0!3f0!3m2!1i1024'
-        '!2i768!4f13.1!3m3!1m2!1s0x60188c9e44b3a88d%3A0xd88abc149de2cf95!2z'
-        '5qCq5byP5Lya56S-44OK44OT44K_44Kk44Og44K444Oj44OR44Oz!5e0!3m2!1sja!2sjp'
-        '!4v1694069141055!5m2!1sja!2sjp';
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35023.816848727554!2d139.72182199851724!3d35.64977197574884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c9e44b3a88d%3A0xd88abc149de2cf95!2z5qCq5byP5Lya56S-44OK44OT44K_44Kk44Og44K444Oj44OR44Oz!5e0!3m2!1sja!2sjp!4v1694343604778!5m2!1sja!2sjp';
     ui.platformViewRegistry.registerViewFactory(
       viewId,
       (int viewId) => IFrameElement()
@@ -142,6 +144,7 @@ class _MapWidget extends StatelessWidget {
 
     return SizedBox(
       height: height,
+      width: width,
       child: const HtmlElementView(
         viewType: viewId,
       ),
