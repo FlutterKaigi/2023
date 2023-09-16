@@ -1,4 +1,6 @@
-import 'dart:ui';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html';
+import 'dart:ui_web' as ui;
 
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
@@ -39,72 +41,63 @@ class FlutterKaigiLogo extends StatelessWidget {
     final iconTheme = IconTheme.of(context);
     final iconSize = size ?? iconTheme.size ?? 24;
 
-    Widget baseIcon({
-      Color? color,
-    }) =>
-        SvgPicture.asset(
-          Assets.flutterkaigiLogoUnion,
-          width: iconSize,
-          height: iconSize,
-          colorFilter: ColorFilter.mode(color ?? iconColor, BlendMode.srcIn),
-        );
-    final shadowOffset = iconSize / 18;
-    final shadowedIcon = Stack(
-      children: [
-        // blur
-        Transform.translate(
-          offset: -Offset(shadowOffset, shadowOffset),
-          child: ImageFiltered(
-            imageFilter: ImageFilter.blur(
-              sigmaX: shadowOffset,
-              sigmaY: shadowOffset,
-            ),
-            child: baseIcon(color: const Color(0x7240D1FF)),
-          ),
-        ),
-        Transform.translate(
-          offset: Offset(shadowOffset, shadowOffset),
-          child: ImageFiltered(
-            imageFilter: ImageFilter.blur(
-              sigmaX: shadowOffset,
-              sigmaY: shadowOffset,
-            ),
-            child: baseIcon(color: const Color(0x668211B1)),
-          ),
-        ),
-        baseIcon(),
-      ],
+    final baseIcon = SvgPicture.asset(
+      Assets.flutterkaigiLogoUnion,
+      width: iconSize,
+      height: iconSize,
+      colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
     );
-    switch (style) {
-      case FlutterKaigiLogoStyle.markOnly when showGradient:
-        return shadowedIcon;
-      case FlutterKaigiLogoStyle.markOnly:
-        return baseIcon();
-      case FlutterKaigiLogoStyle.horizontal:
-        return Row(
+    final shadowedIcon = _FlutterKaigiShadowedLogo(size: iconSize);
+    return switch (style) {
+      FlutterKaigiLogoStyle.markOnly when showGradient => shadowedIcon,
+      FlutterKaigiLogoStyle.markOnly => baseIcon,
+      FlutterKaigiLogoStyle.horizontal => Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (showGradient) shadowedIcon else baseIcon(),
+            baseIcon,
             Spaces.horizontal_10,
             Text(
               'FlutterKaigi 2023',
               style: textStyle,
             ),
           ],
-        );
-      case FlutterKaigiLogoStyle.stacked:
-        return Column(
+        ),
+      FlutterKaigiLogoStyle.stacked => Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (showGradient) shadowedIcon else baseIcon(),
+            baseIcon,
             Spaces.vertical_10,
             Text(
               'FlutterKaigi 2023',
               style: textStyle,
             ),
           ],
-        );
-    }
+        ),
+    };
+  }
+}
+
+class _FlutterKaigiShadowedLogo extends StatelessWidget {
+  const _FlutterKaigiShadowedLogo({
+    required this.size,
+  });
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    const viewType = 'flutterkaigi-logo-shadow';
+    ui.platformViewRegistry.registerViewFactory(
+      viewType,
+      (int viewType) => ImageElement()..src = Assets.flutterkaigiLogoShadowed,
+    );
+    return SizedBox(
+      height: size,
+      width: size,
+      child: const HtmlElementView(
+        viewType: viewType,
+      ),
+    );
   }
 }
 
