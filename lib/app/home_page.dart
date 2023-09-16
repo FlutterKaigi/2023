@@ -150,8 +150,12 @@ class _MainPageBody extends StatelessWidget {
               ),
             ),
             SliverPadding(
-              padding:
-                  EdgeInsets.symmetric(horizontal: horizontal, vertical: 16),
+              padding: EdgeInsets.only(
+                left: horizontal,
+                right: horizontal,
+                top: 16,
+                bottom: 200,
+              ),
               sliver: const StaffTable(),
             ),
             const SliverToBoxAdapter(
