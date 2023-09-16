@@ -152,14 +152,15 @@ class _MainPageBody extends StatelessWidget {
                 key: staffSectionKey,
               ),
             ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_16,
+            ),
             SliverPadding(
-              padding: EdgeInsets.only(
-                left: horizontal,
-                right: horizontal,
-                top: 16,
-                bottom: 200,
-              ),
+              padding: padding,
               sliver: const StaffTable(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
             ),
             const SliverToBoxAdapter(
               child: Footer(),
