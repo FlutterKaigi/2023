@@ -101,13 +101,16 @@ class _AccessHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const text = 'Access';
-    return const ResponsiveWidget(
-      largeWidget: SectionHeader(
+    final gradient = GradientConstant.accent.primary;
+    return ResponsiveWidget(
+      largeWidget: SectionHeader.leftAlignment(
         text: text,
+        gradient: gradient,
         style: AppTextStyle.pcHeading1,
       ),
-      smallWidget: SectionHeader(
+      smallWidget: SectionHeader.leftAlignment(
         text: text,
+        gradient: gradient,
         style: AppTextStyle.spHeading1,
       ),
     );
