@@ -87,9 +87,10 @@ class _FlutterKaigiShadowedLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const viewType = 'flutterkaigi-logo-shadow';
+    const imageUrl = 'assets/${Assets.flutterkaigiLogoShadowed}';
     ui.platformViewRegistry.registerViewFactory(
       viewType,
-      (int viewType) => ImageElement()..src = Assets.flutterkaigiLogoShadowed,
+      (int viewType) => ImageElement()..src = imageUrl,
     );
     return SizedBox(
       height: size,
