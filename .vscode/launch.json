@@ -1,33 +1,36 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Mock debug",
-            "request": "launch",
-            "type": "dart",
-            "toolArgs": [
-                "--dart-define-from-file=flavor/mock.json"
-            ]
-        },
-        {
-            "name": "Production debug",
-            "request": "launch",
-            "type": "dart",
-            "toolArgs": [
-                "--dart-define-from-file=flavor/production.json"
-            ]
-        },
-        {
-            "name": "Production profile",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile",
-            "toolArgs": [
-                "--dart-define-from-file=flavor/production.json"
-            ]
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Mock debug",
+      "request": "launch",
+      "type": "dart",
+      "toolArgs": [
+        "--dart-define-from-file=flavor/mock.json",
+        "--web-renderer=html"
+      ]
+    },
+    {
+      "name": "Production debug",
+      "request": "launch",
+      "type": "dart",
+      "toolArgs": [
+        "--dart-define-from-file=flavor/production.json",
+        "--web-renderer=html"
+      ]
+    },
+    {
+      "name": "Production profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "toolArgs": [
+        "--dart-define-from-file=flavor/production.json",
+        "--web-renderer=html"
+      ]
+    }
+  ]
 }
