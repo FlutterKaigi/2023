@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 class Spaces {
   const Spaces._();
 
+  static const SizedBox horizontal_4 = SizedBox(width: 4);
   static const SizedBox horizontal_8 = SizedBox(width: 8);
   static const SizedBox horizontal_10 = SizedBox(width: 10);
   static const SizedBox horizontal_12 = SizedBox(width: 12);
