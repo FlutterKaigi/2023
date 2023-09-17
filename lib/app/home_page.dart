@@ -9,6 +9,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
+import 'package:confwebsite2023/features/session_page/session_detail/session_detail.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,15 @@ class MainPage extends HookWidget {
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
+      ),
+      HeaderItemButtonData(
+        title: 'Session',
+        onPressed: () async {
+          await Navigator.push<void>(
+            context,
+            MaterialPageRoute(builder: (context) => const SessionDetail()),
+          );
+        },
       ),
     ];
 
