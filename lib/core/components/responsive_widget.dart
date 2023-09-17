@@ -26,8 +26,8 @@ class ResponsiveWidget extends StatelessWidget {
   static ScreenSizeType getScreenSizeType(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
     return switch (screenWidth) {
-      > largeScreenSize => ScreenSizeType.large,
-      > mediumScreenSize => ScreenSizeType.medium,
+      >= largeScreenSize => ScreenSizeType.large,
+      >= mediumScreenSize => ScreenSizeType.medium,
       _ => ScreenSizeType.small,
     };
   }
@@ -37,6 +37,7 @@ class ResponsiveWidget extends StatelessWidget {
     final type = getScreenSizeType(context);
     return switch (type) {
       ScreenSizeType.small when smallWidget != null => smallWidget!,
+      ScreenSizeType.small when mediumWidget != null => mediumWidget!,
       ScreenSizeType.medium when mediumWidget != null => mediumWidget!,
       _ => largeWidget,
     };
