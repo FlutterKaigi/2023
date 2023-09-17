@@ -1,7 +1,10 @@
 import 'package:confwebsite2023/core/components/fortee_button.dart';
 import 'package:confwebsite2023/core/components/session_track.dart';
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/link.dart';
 
 class ProposalDeskTop extends StatelessWidget {
   const ProposalDeskTop({
@@ -12,6 +15,10 @@ class ProposalDeskTop extends StatelessWidget {
     required this.contents,
     required this.sessionName,
     required this.trackName,
+    required this.twitter,
+    required this.isSponsor,
+    this.sponsorImage,
+    this.sponsorName,
     super.key,
   });
 
@@ -22,6 +29,11 @@ class ProposalDeskTop extends StatelessWidget {
   final String contents;
   final String sessionName;
   final String trackName;
+  final String twitter;
+  /// スポンサー用
+  final bool isSponsor;
+  final String? sponsorImage;
+  final String? sponsorName;
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +86,17 @@ class ProposalDeskTop extends StatelessWidget {
             Spaces.vertical_40,
             Column(
               children: [
-                //TODO スポンサーセッションの場合は、スポンサーの画像を載せる
-                //TODO スポンサーセッションの場合は、会社名や役職などを載せる
+                if (isSponsor)
+                  SvgPicture.asset(sponsorImage!)
+                else
+                  const SizedBox(),
+                if (isSponsor)
+                  Text(
+                    sponsorName!,
+                    style: textTheme.bodyLarge,
+                  )
+                else
+                  const SizedBox(),
                 Row(
                   children: [
                     CircleAvatar(
@@ -94,7 +115,30 @@ class ProposalDeskTop extends StatelessWidget {
                 ),
               ],
             ),
-            //TODO アカウントを並べる。
+            Spaces.vertical_16,
+            Row(
+              children: [
+                SvgPicture.asset(
+                  Assets.icons.twitter,
+                  width: 24,
+                  height: 24,
+                ),
+                Spaces.horizontal_4,
+                Link(
+                  uri: Uri.tryParse('https://twitter.com/$twitter'),
+                  target: LinkTarget.blank,
+                  builder: (context, openLink) {
+                    return TextButton(
+                      onPressed: openLink,
+                      child: Text(
+                        twitter,
+                        style: textTheme.titleMedium,
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
             Spaces.vertical_40,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_40,
@@ -121,6 +165,10 @@ class ProposalMobile extends StatelessWidget {
     required this.contents,
     required this.sessionName,
     required this.trackName,
+    required this.twitter,
+    required this.isSponsor,
+    this.sponsorImage,
+    this.sponsorName,
     super.key,
   });
 
@@ -131,6 +179,11 @@ class ProposalMobile extends StatelessWidget {
   final String contents;
   final String sessionName;
   final String trackName;
+  final String twitter;
+  /// スポンサー用
+  final bool isSponsor;
+  final String? sponsorImage;
+  final String? sponsorName;
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +213,7 @@ class ProposalMobile extends StatelessWidget {
                 ),
               ],
             ),
-            Spaces.vertical_40,
+            Spaces.vertical_24,
             Text(
               title,
               style: textTheme.titleLarge!.copyWith(
@@ -185,6 +238,14 @@ class ProposalMobile extends StatelessWidget {
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
+            if (isSponsor)
+              SvgPicture.asset(sponsorImage!)
+            else
+              const SizedBox(),
+            if (isSponsor)
+              Text(sponsorName!, style: textTheme.bodyLarge)
+            else
+              const SizedBox(),
             Row(
               children: [
                 CircleAvatar(
@@ -201,7 +262,30 @@ class ProposalMobile extends StatelessWidget {
                 ),
               ],
             ),
-            //TODO アカウントを並べる。
+            Spaces.vertical_16,
+            Row(
+              children: [
+                SvgPicture.asset(
+                  Assets.icons.twitter,
+                  width: 24,
+                  height: 24,
+                ),
+                Spaces.horizontal_4,
+                Link(
+                  uri: Uri.tryParse('https://twitter.com/$twitter'),
+                  target: LinkTarget.blank,
+                  builder: (context, openLink) {
+                    return TextButton(
+                      onPressed: openLink,
+                      child: Text(
+                        twitter,
+                        style: textTheme.titleMedium,
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
