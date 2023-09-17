@@ -3,15 +3,14 @@ import 'dart:math';
 import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
+import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/components/time_table.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
-import 'package:confwebsite2023/features/session_page/session_detail/session_detail_button_dark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SessionDetailDesktop extends HookWidget {
   const SessionDetailDesktop({super.key});
@@ -60,6 +59,7 @@ class _MainPageBody extends StatelessWidget {
     final largeScreenSize = ResponsiveWidget.largeScreenSize.toDouble();
     final horizontal = max<double>(16, (width - largeScreenSize) / 4.0);
     final padding = EdgeInsets.symmetric(horizontal: horizontal);
+    final gradient = GradientConstant.accent.primary;
     return Stack(
       children: [
         const SizedBox(
@@ -98,15 +98,11 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SectionHeader(
+              child: SectionHeader.leftAlignment(
                 //TODO SessionかSponsor Sessionの引数を追記する
                 text: 'Sessions',
-                style: GoogleFonts.poppins(
-                  fontSize: 48,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.w700,
-                  height: 1.1,
-                ),
+                gradient: gradient,
+                style: AppTextStyle.pcHeading1,
               ),
             ),
             _Sliver(
@@ -115,11 +111,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const SessionDetailButton(
-                //TODO シェアするURLの文章を考える
-                twitterUrl: '',
-                //TODO ForteeのURLを追記する
-                url: '',
+              child: SocialShare(
+                onCopyUrlPressed: () {},
+                onTweetPressed: () {},
               ),
             ),
             _Sliver(
@@ -154,6 +148,8 @@ class _MainPageBody extends StatelessWidget {
                     '・銀の弾丸ではない、この開発手法における先延ばしと諦め',
                 time: '2023年11月10日：11:10~11:15(40分)',
                 trackName: 'Track 1',
+                twitter: 'isekiryu',
+                isSponsor: false,
               ),
             ),
             _Sliver(
@@ -162,11 +158,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const SessionDetailButton(
-                //TODO シェアするURLの文章を考える
-                twitterUrl: '',
-                //TODO ForteeのURLを追記する
-                url: '',
+              child: SocialShare(
+                onCopyUrlPressed: () {},
+                onTweetPressed: () {},
               ),
             ),
             _Sliver(
