@@ -25,6 +25,7 @@ class MainPage extends HookWidget {
     final scrollController = useScrollController();
 
     const sectionKeys = (
+      access: GlobalObjectKey('accessSectionKey'),
       event: GlobalObjectKey('eventSectionKey'),
       session: GlobalObjectKey('sessionSectionKey'),
       sponsor: GlobalObjectKey('sponsorSectionKey'),
@@ -32,6 +33,14 @@ class MainPage extends HookWidget {
     );
 
     final items = <HeaderItemButtonData>[
+      HeaderItemButtonData(
+        title: 'Access',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.access.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
       HeaderItemButtonData(
         title: 'Staff',
         onPressed: () async => Scrollable.ensureVisible(
@@ -46,7 +55,7 @@ class MainPage extends HookWidget {
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: _MainPageBody(
         scrollController: scrollController,
-        staffSectionKey: sectionKeys.staff,
+        sectionKeys: sectionKeys,
         items: items,
       ),
     );
@@ -56,12 +65,18 @@ class MainPage extends HookWidget {
 class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
     required this.scrollController,
-    required this.staffSectionKey,
+    required this.sectionKeys,
     required this.items,
   });
 
   final ScrollController scrollController;
-  final GlobalKey<State<StatefulWidget>> staffSectionKey;
+  final ({
+    GlobalObjectKey access,
+    GlobalObjectKey event,
+    GlobalObjectKey session,
+    GlobalObjectKey sponsor,
+    GlobalObjectKey staff
+  }) sectionKeys;
   final List<HeaderItemButtonData> items;
 
   @override
@@ -141,7 +156,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const AccessWidget(),
+              child: AccessWidget(
+                key: sectionKeys.access,
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
@@ -149,7 +166,7 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: StaffHeader(
-                key: staffSectionKey,
+                key: sectionKeys.staff,
               ),
             ),
             const SliverToBoxAdapter(
