@@ -29,7 +29,9 @@ class SessionDetailDesktop extends HookWidget {
       ),
       HeaderItemButtonData(
         title: 'Session',
-        onPressed: () async {},
+        onPressed: () async {
+          Navigator.pop(context);
+        },
       ),
     ];
 
@@ -99,7 +101,7 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SectionHeader.leftAlignment(
-                //TODO SessionかSponsor Sessionの引数を追記する
+                //TODO SessionかSponsor Sessionの引数を追記する。
                 text: 'Sessions',
                 gradient: gradient,
                 style: AppTextStyle.pcHeading1,
@@ -112,7 +114,9 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SocialShare(
+                //TODO リンクをコピーする処理を記載する
                 onCopyUrlPressed: () {},
+                //TODO ツイートできるする処理を記載する。
                 onTweetPressed: () {},
               ),
             ),
@@ -124,32 +128,34 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const ProposalDeskTop(
                 sessionName: 'Session 1-1',
-                title: 'Flutterアプリ開発におけるモジュール分割戦略 〜dart15万行を100分割する〜',
-                userName: 'いせりゅー',
-                image: '',
+                title: 'Dartのこれから',
+                userName: '岡山達哉',
+                image:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/260px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg',
                 contents:
-                    'Androidをはじめ、多くのプロジェクトではモジュール（PackageやServiceという場合も）を分割することで開発効率の向上を目指すのが、トレンドの一つです。\n\n'
-                    '個人的にこの方針での開発を「マイクロモジュール開発」と（サーバーサイドにおけるマイクロサービスのようなイメージで）呼んでいます。\n\n'
-                    '約一年前から始まった弊プロジェクトでは、その手法をflutterアプリに当てはめようとしましたが、いくつかの問題がありました。マイクロモジュール開発を進める中で突き当たった壁や、その解決方法（できたこと、できなかったこと）についてトークを行います。\n\n'
-                    'トーク内容予定：（トーク時間に収まらない場合は内容を一部変更/省略するかもしれません）\n\n'
-                    '・モノリシックじゃだめなのか\n'
-                    'プロジェクトの設計寿命と老後、新陳代謝\n'
-                    '・Flutter/dartの問題と解決\n'
-                    '  ・開発環境 \n'
-                    '  ・pubspec仕様\n'
-                    '  ・dart言語機能\n'
-                    '  ・依存ライブラリ管理\n'
-                    '  ・多言語対応の文字列の分割 \n'
-                    '  ・Unit Testとビルドオプション\n'
-                    '  ・CI\n'
-                    '・コードレビューの要所\n'
-                    '・発生した新陳代謝の例\n'
-                    '・モジュール分割の基準を考える\n'
-                    '・銀の弾丸ではない、この開発手法における先延ばしと諦め',
+                    '2021 年、Dart 2.12 で Null safety がデフォルトで有効になり、とても快適に開発できるようになってきました。\n\n'
+                    'Null safety 以降もさまざまな機能が追加され、Dart はまだまだ進化を続けています。\n\n'
+                    'このセッションでは、近年の進化の振り返りを簡単にした後、Dart の進化プロセスの紹介をして、これから Dart がどんな進化をしていくのかをできる限り詳しく紹介します。\n\n'
+                    'トーク内容\n\n'
+                    '01 近年、どのような進化を遂げてきたか\n'
+                    '02 Dart の進化プロセス\n'
+                    '03 仕様化を進めている新機能\n'
+                    '  ・Views on an object without a wrapper object\n'
+                    '  ・Static Metaprogramming\n'
+                    '  ・Sound declaration-site variance\n'
+                    '  ・Patterns and related features\n'
+                    '04 おわりに\n\n\n'
+                    '対象者\n'
+                    '・Dart の近年追加された機能について振り返りたい方\n'
+                    '・Dart の進化プロセスに興味のある方\n'
+                    '・Dart のこれからに興味のある方\n',
                 time: '2023年11月10日：11:10~11:15(40分)',
                 trackName: 'Track 1',
-                twitter: 'isekiryu',
-                isSponsor: false,
+                twitter: 'blendthink',
+                isSponsor: true,
+                sponsorImage:
+                    'https://yumemi.co.jp/grow-with-new-logo/img/common/logo_new.svg',
+                sponsorName: '株式会社ゆめみ',
               ),
             ),
             _Sliver(
@@ -159,7 +165,9 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SocialShare(
+                //TODO リンクをコピーする処理を記載する
                 onCopyUrlPressed: () {},
+                //TODO ツイートできるする処理を記載する。
                 onTweetPressed: () {},
               ),
             ),

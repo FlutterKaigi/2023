@@ -30,6 +30,7 @@ class ProposalDeskTop extends StatelessWidget {
   final String sessionName;
   final String trackName;
   final String twitter;
+
   /// スポンサー用
   final bool isSponsor;
   final String? sponsorImage;
@@ -80,17 +81,24 @@ class ProposalDeskTop extends StatelessWidget {
               ),
             ),
             Spaces.vertical_16,
-            ForteeButton(onTap: () {}),
+            ForteeButton(
+              onTap: () {
+                //TODO ForteeのURLを追記する
+              },
+            ),
             Spaces.vertical_40,
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_40,
             Column(
               children: [
                 if (isSponsor)
+                  //TODO 画像を表示できるか確認する
+                  //TODO 画像のサイズを調整する
                   SvgPicture.asset(sponsorImage!)
                 else
                   const SizedBox(),
                 if (isSponsor)
+                  //TODO 位置を真ん中にする
                   Text(
                     sponsorName!,
                     style: textTheme.bodyLarge,
@@ -180,6 +188,7 @@ class ProposalMobile extends StatelessWidget {
   final String sessionName;
   final String trackName;
   final String twitter;
+
   /// スポンサー用
   final bool isSponsor;
   final String? sponsorImage;
@@ -239,10 +248,13 @@ class ProposalMobile extends StatelessWidget {
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
             if (isSponsor)
+              //TODO 画像を表示できるか確認する
+              //TODO 画像のサイズを調整する
               SvgPicture.asset(sponsorImage!)
             else
               const SizedBox(),
             if (isSponsor)
+              //TODO Spaceをつける
               Text(sponsorName!, style: textTheme.bodyLarge)
             else
               const SizedBox(),
