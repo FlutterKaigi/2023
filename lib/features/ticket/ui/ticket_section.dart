@@ -47,7 +47,7 @@ class TicketSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const _TicketHeader(),
-        Spaces.horizontal_20,
+        Spaces.vertical_20,
         introduction,
         Spaces.vertical_20,
         ResponsiveWidget(
