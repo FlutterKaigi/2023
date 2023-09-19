@@ -54,7 +54,10 @@ final class SectionHeader extends StatelessWidget {
     if (isTranslate) {
       return Transform.translate(
         // NOTE: ブラーのぼかし範囲を考慮してオフセットを設定する
-        offset: const Offset(-SectionHeader._blurRadius, 0),
+        offset: const Offset(
+          -SectionHeader._blurRadius,
+          -SectionHeader._blurRadius,
+        ),
         child: component,
       );
     }
