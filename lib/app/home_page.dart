@@ -12,6 +12,7 @@ import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
+import 'package:confwebsite2023/features/ticket/ui/ticket_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -153,6 +154,13 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const NewsSection(),
+            ),
+            _Sliver(
+              padding: padding,
+              child: const TicketSection(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
             ),
             _Sliver(
               padding: padding,
