@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SponsorSession {
+  String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get scheduledAt => throw _privateConstructorUsedError;
@@ -31,7 +32,7 @@ abstract class $SponsorSessionCopyWith<$Res> {
           SponsorSession value, $Res Function(SponsorSession) then) =
       _$SponsorSessionCopyWithImpl<$Res, SponsorSession>;
   @useResult
-  $Res call({String title, String url, String scheduledAt});
+  $Res call({String id, String title, String url, String scheduledAt});
 }
 
 /// @nodoc
@@ -47,11 +48,16 @@ class _$SponsorSessionCopyWithImpl<$Res, $Val extends SponsorSession>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? url = null,
     Object? scheduledAt = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -76,7 +82,7 @@ abstract class _$$_SponsorSessionCopyWith<$Res>
       __$$_SponsorSessionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String url, String scheduledAt});
+  $Res call({String id, String title, String url, String scheduledAt});
 }
 
 /// @nodoc
@@ -90,11 +96,16 @@ class __$$_SponsorSessionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? url = null,
     Object? scheduledAt = null,
   }) {
     return _then(_$_SponsorSession(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -115,8 +126,13 @@ class __$$_SponsorSessionCopyWithImpl<$Res>
 
 class _$_SponsorSession implements _SponsorSession {
   const _$_SponsorSession(
-      {required this.title, required this.url, required this.scheduledAt});
+      {required this.id,
+      required this.title,
+      required this.url,
+      required this.scheduledAt});
 
+  @override
+  final String id;
   @override
   final String title;
   @override
@@ -126,7 +142,7 @@ class _$_SponsorSession implements _SponsorSession {
 
   @override
   String toString() {
-    return 'SponsorSession(title: $title, url: $url, scheduledAt: $scheduledAt)';
+    return 'SponsorSession(id: $id, title: $title, url: $url, scheduledAt: $scheduledAt)';
   }
 
   @override
@@ -134,6 +150,7 @@ class _$_SponsorSession implements _SponsorSession {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SponsorSession &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.scheduledAt, scheduledAt) ||
@@ -141,7 +158,7 @@ class _$_SponsorSession implements _SponsorSession {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, title, url, scheduledAt);
+  int get hashCode => Object.hash(runtimeType, id, title, url, scheduledAt);
 
   @JsonKey(ignore: true)
   @override
@@ -152,10 +169,13 @@ class _$_SponsorSession implements _SponsorSession {
 
 abstract class _SponsorSession implements SponsorSession {
   const factory _SponsorSession(
-      {required final String title,
+      {required final String id,
+      required final String title,
       required final String url,
       required final String scheduledAt}) = _$_SponsorSession;
 
+  @override
+  String get id;
   @override
   String get title;
   @override
