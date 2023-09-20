@@ -10,6 +10,7 @@ class Sponsor with _$Sponsor {
     required String name,
     required String displayName,
     required String url,
+    required String logoAssetName,
     required SponsorRank rank,
     required SponsorSession? session,
     @Default('') String introduction,
