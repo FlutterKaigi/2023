@@ -1,5 +1,3 @@
-// ignore_for_file: invalid_annotation_target
-
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
