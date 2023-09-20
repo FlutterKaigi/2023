@@ -19,6 +19,7 @@ mixin _$Sponsor {
   String get name => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  SponsorRank get rank => throw _privateConstructorUsedError;
   SponsorSession? get session => throw _privateConstructorUsedError;
   String get introduction => throw _privateConstructorUsedError;
 
@@ -35,6 +36,7 @@ abstract class $SponsorCopyWith<$Res> {
       {String name,
       String displayName,
       String url,
+      SponsorRank rank,
       SponsorSession? session,
       String introduction});
 
@@ -57,6 +59,7 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
     Object? name = null,
     Object? displayName = null,
     Object? url = null,
+    Object? rank = null,
     Object? session = freezed,
     Object? introduction = null,
   }) {
@@ -73,6 +76,10 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      rank: null == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
+              as SponsorRank,
       session: freezed == session
           ? _value.session
           : session // ignore: cast_nullable_to_non_nullable
@@ -108,6 +115,7 @@ abstract class _$$_SponsorCopyWith<$Res> implements $SponsorCopyWith<$Res> {
       {String name,
       String displayName,
       String url,
+      SponsorRank rank,
       SponsorSession? session,
       String introduction});
 
@@ -128,6 +136,7 @@ class __$$_SponsorCopyWithImpl<$Res>
     Object? name = null,
     Object? displayName = null,
     Object? url = null,
+    Object? rank = null,
     Object? session = freezed,
     Object? introduction = null,
   }) {
@@ -144,6 +153,10 @@ class __$$_SponsorCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      rank: null == rank
+          ? _value.rank
+          : rank // ignore: cast_nullable_to_non_nullable
+              as SponsorRank,
       session: freezed == session
           ? _value.session
           : session // ignore: cast_nullable_to_non_nullable
@@ -163,6 +176,7 @@ class _$_Sponsor implements _Sponsor {
       {required this.name,
       required this.displayName,
       required this.url,
+      required this.rank,
       required this.session,
       this.introduction = ''});
 
@@ -173,6 +187,8 @@ class _$_Sponsor implements _Sponsor {
   @override
   final String url;
   @override
+  final SponsorRank rank;
+  @override
   final SponsorSession? session;
   @override
   @JsonKey()
@@ -180,7 +196,7 @@ class _$_Sponsor implements _Sponsor {
 
   @override
   String toString() {
-    return 'Sponsor(name: $name, displayName: $displayName, url: $url, session: $session, introduction: $introduction)';
+    return 'Sponsor(name: $name, displayName: $displayName, url: $url, rank: $rank, session: $session, introduction: $introduction)';
   }
 
   @override
@@ -192,14 +208,15 @@ class _$_Sponsor implements _Sponsor {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.url, url) || other.url == url) &&
+            (identical(other.rank, rank) || other.rank == rank) &&
             (identical(other.session, session) || other.session == session) &&
             (identical(other.introduction, introduction) ||
                 other.introduction == introduction));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, displayName, url, session, introduction);
+  int get hashCode => Object.hash(
+      runtimeType, name, displayName, url, rank, session, introduction);
 
   @JsonKey(ignore: true)
   @override
@@ -213,6 +230,7 @@ abstract class _Sponsor implements Sponsor {
       {required final String name,
       required final String displayName,
       required final String url,
+      required final SponsorRank rank,
       required final SponsorSession? session,
       final String introduction}) = _$_Sponsor;
 
@@ -222,6 +240,8 @@ abstract class _Sponsor implements Sponsor {
   String get displayName;
   @override
   String get url;
+  @override
+  SponsorRank get rank;
   @override
   SponsorSession? get session;
   @override
