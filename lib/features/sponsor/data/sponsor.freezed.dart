@@ -19,7 +19,7 @@ mixin _$Sponsor {
   String get name => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  List<SponsorSession> get sessions => throw _privateConstructorUsedError;
+  SponsorSession? get session => throw _privateConstructorUsedError;
   String get introduction => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,8 +35,10 @@ abstract class $SponsorCopyWith<$Res> {
       {String name,
       String displayName,
       String url,
-      List<SponsorSession> sessions,
+      SponsorSession? session,
       String introduction});
+
+  $SponsorSessionCopyWith<$Res>? get session;
 }
 
 /// @nodoc
@@ -55,7 +57,7 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
     Object? name = null,
     Object? displayName = null,
     Object? url = null,
-    Object? sessions = null,
+    Object? session = freezed,
     Object? introduction = null,
   }) {
     return _then(_value.copyWith(
@@ -71,15 +73,27 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      sessions: null == sessions
-          ? _value.sessions
-          : sessions // ignore: cast_nullable_to_non_nullable
-              as List<SponsorSession>,
+      session: freezed == session
+          ? _value.session
+          : session // ignore: cast_nullable_to_non_nullable
+              as SponsorSession?,
       introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SponsorSessionCopyWith<$Res>? get session {
+    if (_value.session == null) {
+      return null;
+    }
+
+    return $SponsorSessionCopyWith<$Res>(_value.session!, (value) {
+      return _then(_value.copyWith(session: value) as $Val);
+    });
   }
 }
 
@@ -94,8 +108,11 @@ abstract class _$$_SponsorCopyWith<$Res> implements $SponsorCopyWith<$Res> {
       {String name,
       String displayName,
       String url,
-      List<SponsorSession> sessions,
+      SponsorSession? session,
       String introduction});
+
+  @override
+  $SponsorSessionCopyWith<$Res>? get session;
 }
 
 /// @nodoc
@@ -111,7 +128,7 @@ class __$$_SponsorCopyWithImpl<$Res>
     Object? name = null,
     Object? displayName = null,
     Object? url = null,
-    Object? sessions = null,
+    Object? session = freezed,
     Object? introduction = null,
   }) {
     return _then(_$_Sponsor(
@@ -127,10 +144,10 @@ class __$$_SponsorCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      sessions: null == sessions
-          ? _value._sessions
-          : sessions // ignore: cast_nullable_to_non_nullable
-              as List<SponsorSession>,
+      session: freezed == session
+          ? _value.session
+          : session // ignore: cast_nullable_to_non_nullable
+              as SponsorSession?,
       introduction: null == introduction
           ? _value.introduction
           : introduction // ignore: cast_nullable_to_non_nullable
@@ -146,9 +163,8 @@ class _$_Sponsor implements _Sponsor {
       {required this.name,
       required this.displayName,
       required this.url,
-      required final List<SponsorSession> sessions,
-      this.introduction = ''})
-      : _sessions = sessions;
+      required this.session,
+      this.introduction = ''});
 
   @override
   final String name;
@@ -156,21 +172,15 @@ class _$_Sponsor implements _Sponsor {
   final String displayName;
   @override
   final String url;
-  final List<SponsorSession> _sessions;
   @override
-  List<SponsorSession> get sessions {
-    if (_sessions is EqualUnmodifiableListView) return _sessions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sessions);
-  }
-
+  final SponsorSession? session;
   @override
   @JsonKey()
   final String introduction;
 
   @override
   String toString() {
-    return 'Sponsor(name: $name, displayName: $displayName, url: $url, sessions: $sessions, introduction: $introduction)';
+    return 'Sponsor(name: $name, displayName: $displayName, url: $url, session: $session, introduction: $introduction)';
   }
 
   @override
@@ -182,14 +192,14 @@ class _$_Sponsor implements _Sponsor {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.url, url) || other.url == url) &&
-            const DeepCollectionEquality().equals(other._sessions, _sessions) &&
+            (identical(other.session, session) || other.session == session) &&
             (identical(other.introduction, introduction) ||
                 other.introduction == introduction));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, displayName, url,
-      const DeepCollectionEquality().hash(_sessions), introduction);
+  int get hashCode =>
+      Object.hash(runtimeType, name, displayName, url, session, introduction);
 
   @JsonKey(ignore: true)
   @override
@@ -203,7 +213,7 @@ abstract class _Sponsor implements Sponsor {
       {required final String name,
       required final String displayName,
       required final String url,
-      required final List<SponsorSession> sessions,
+      required final SponsorSession? session,
       final String introduction}) = _$_Sponsor;
 
   @override
@@ -213,7 +223,7 @@ abstract class _Sponsor implements Sponsor {
   @override
   String get url;
   @override
-  List<SponsorSession> get sessions;
+  SponsorSession? get session;
   @override
   String get introduction;
   @override

@@ -9,7 +9,7 @@ class Sponsor with _$Sponsor {
     required String name,
     required String displayName,
     required String url,
-    required List<SponsorSession> sessions,
+    required SponsorSession? session,
     @Default('') String introduction,
   }) = _Sponsor;
 }
