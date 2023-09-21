@@ -5,6 +5,7 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
 import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
 import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
+import 'package:confwebsite2023/features/event/hands-on/ui/hands_on_event.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
@@ -28,6 +29,7 @@ class MainPage extends HookWidget {
     const sectionKeys = (
       access: GlobalObjectKey('accessSectionKey'),
       event: GlobalObjectKey('eventSectionKey'),
+      ticket: GlobalObjectKey('ticketSectionKey'),
       session: GlobalObjectKey('sessionSectionKey'),
       sponsor: GlobalObjectKey('sponsorSectionKey'),
       staff: GlobalObjectKey('staffSectionKey'),
@@ -38,6 +40,22 @@ class MainPage extends HookWidget {
         title: 'Access',
         onPressed: () async => Scrollable.ensureVisible(
           sectionKeys.access.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
+      HeaderItemButtonData(
+        title: 'Event',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.event.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
+      HeaderItemButtonData(
+        title: 'Ticket',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.ticket.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
@@ -74,6 +92,7 @@ class _MainPageBody extends StatelessWidget {
   final ({
     GlobalObjectKey access,
     GlobalObjectKey event,
+    GlobalObjectKey ticket,
     GlobalObjectKey session,
     GlobalObjectKey sponsor,
     GlobalObjectKey staff
@@ -155,10 +174,6 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const NewsSection(),
             ),
-            _Sliver(
-              padding: padding,
-              child: const TicketSection(),
-            ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
             ),
@@ -166,6 +181,24 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: AccessWidget(
                 key: sectionKeys.access,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: TicketSection(
+                key: sectionKeys.ticket,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: HandsOnEvent(
+                key: sectionKeys.event,
               ),
             ),
             const SliverToBoxAdapter(

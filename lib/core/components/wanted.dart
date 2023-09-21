@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/components/left_filled_icon_button.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
@@ -11,6 +12,7 @@ class WantedWidget extends StatelessWidget {
     required this.content,
     required this.buttonTitle,
     required this.onPressed,
+    this.child,
     this.image,
     this.subContent,
     super.key,
@@ -19,6 +21,7 @@ class WantedWidget extends StatelessWidget {
   final String title;
   final String content;
   final String? subContent;
+  final Widget? child;
   final String buttonTitle;
   final String? image;
   final VoidCallback onPressed;
@@ -26,41 +29,44 @@ class WantedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      largeWidget: WantedDesktop(
+      largeWidget: _WantedDesktop(
         title: title,
         content: content,
         subContent: subContent,
         buttonTitle: buttonTitle,
         image: image,
         onPressed: onPressed,
+        child: child,
       ),
-      smallWidget: WantedMobile(
+      smallWidget: _WantedMobile(
         title: title,
         content: content,
         subContent: subContent,
         buttonTitle: buttonTitle,
         image: image,
         onPressed: onPressed,
+        child: child,
       ),
     );
   }
 }
 
-class WantedDesktop extends StatelessWidget {
-  const WantedDesktop({
+class _WantedDesktop extends StatelessWidget {
+  const _WantedDesktop({
     required this.title,
     required this.content,
     required this.subContent,
     required this.buttonTitle,
     required this.image,
     required this.onPressed,
-    super.key,
+    this.child,
   });
 
   final String title;
   final String content;
   final String? subContent;
   final String buttonTitle;
+  final Widget? child;
   final String? image;
   final VoidCallback onPressed;
 
@@ -98,45 +104,23 @@ class WantedDesktop extends StatelessWidget {
                     ),
                   ),
                   Spaces.vertical_24,
-                  ...switch (subContent) {
-                    final String body => [
-                        Text(
-                          body,
-                          style: textTheme.bodyMedium!.copyWith(
-                            color: colorScheme.secondary,
-                          ),
-                        ),
-                        Spaces.vertical_24,
-                      ],
-                    null => [],
-                  },
-                  SizedBox(
-                    height: 40,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: colorScheme.primary,
-                      ),
-                      onPressed: onPressed,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Spaces.horizontal_8,
-                          Text(
-                            buttonTitle,
-                            style: textTheme.labelLarge?.copyWith(
-                              color: colorScheme.onPrimary,
-                            ),
-                          ),
-                          Spaces.horizontal_8,
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            size: 9,
-                            color: colorScheme.onPrimary,
-                          ),
-                        ],
+                  if (subContent != null) ...[
+                    Text(
+                      subContent!,
+                      style: textTheme.bodyMedium!.copyWith(
+                        color: colorScheme.secondary,
                       ),
                     ),
+                    Spaces.vertical_24,
+                  ],
+                  if (child != null) ...[
+                    child!,
+                    Spaces.vertical_24,
+                  ],
+                  LeftFilledIconButton(
+                    onPressed: onPressed,
+                    buttonTitle: buttonTitle,
+                    icon: Icons.arrow_forward_ios,
                   ),
                 ],
               ),
@@ -158,15 +142,15 @@ class WantedDesktop extends StatelessWidget {
   }
 }
 
-class WantedMobile extends StatelessWidget {
-  const WantedMobile({
+class _WantedMobile extends StatelessWidget {
+  const _WantedMobile({
     required this.title,
     required this.content,
     required this.subContent,
     required this.buttonTitle,
     required this.image,
     required this.onPressed,
-    super.key,
+    this.child,
   });
 
   final String title;
@@ -174,6 +158,7 @@ class WantedMobile extends StatelessWidget {
   final String? subContent;
   final String buttonTitle;
   final String? image;
+  final Widget? child;
   final VoidCallback onPressed;
 
   @override
@@ -205,42 +190,23 @@ class WantedMobile extends StatelessWidget {
               ),
             ),
             Spaces.vertical_24,
-            ...switch (subContent) {
-              final String body => [
-                  Text(
-                    body,
-                    style: textTheme.bodyMedium!.copyWith(
-                      color: colorScheme.secondary,
-                    ),
-                  ),
-                  Spaces.vertical_24,
-                ],
-              null => [],
-            },
-            SizedBox(
-              height: 40,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: colorScheme.primary,
-                ),
-                onPressed: onPressed,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      buttonTitle,
-                      style: textTheme.labelLarge?.copyWith(
-                        color: colorScheme.onPrimary,
-                      ),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 9,
-                      color: colorScheme.onPrimary,
-                    ),
-                  ],
+            if (subContent != null) ...[
+              Text(
+                subContent!,
+                style: textTheme.bodyMedium!.copyWith(
+                  color: colorScheme.secondary,
                 ),
               ),
+              Spaces.vertical_24,
+            ],
+            if (child != null) ...[
+              child!,
+              Spaces.vertical_24,
+            ],
+            LeftFilledIconButton(
+              onPressed: onPressed,
+              buttonTitle: buttonTitle,
+              icon: Icons.arrow_forward_ios,
             ),
           ],
         ),
