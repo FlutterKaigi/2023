@@ -11,9 +11,9 @@ class WantedWidget extends StatelessWidget {
     required this.title,
     required this.content,
     required this.buttonTitle,
-    required this.image,
     required this.onPressed,
     this.child,
+    this.image,
     this.subContent,
     super.key,
   });
@@ -23,7 +23,7 @@ class WantedWidget extends StatelessWidget {
   final String? subContent;
   final Widget? child;
   final String buttonTitle;
-  final String image;
+  final String? image;
   final VoidCallback onPressed;
 
   @override
@@ -67,7 +67,7 @@ class _WantedDesktop extends StatelessWidget {
   final String? subContent;
   final String buttonTitle;
   final Widget? child;
-  final String image;
+  final String? image;
   final VoidCallback onPressed;
 
   @override
@@ -126,14 +126,15 @@ class _WantedDesktop extends StatelessWidget {
               ),
             ),
             Spaces.horizontal_60,
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: SvgPicture.asset(
-                image,
-                width: 360,
-                height: 360,
+            if (image != null)
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SvgPicture.asset(
+                  image!,
+                  width: 360,
+                  height: 360,
+                ),
               ),
-            ),
           ],
         ),
       ],
@@ -156,7 +157,7 @@ class _WantedMobile extends StatelessWidget {
   final String content;
   final String? subContent;
   final String buttonTitle;
-  final String image;
+  final String? image;
   final Widget? child;
   final VoidCallback onPressed;
 
@@ -209,16 +210,17 @@ class _WantedMobile extends StatelessWidget {
           ],
         ),
         Spaces.vertical_40,
-        Center(
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: SvgPicture.asset(
-              image,
-              width: 200,
-              height: 200,
+        if (image != null)
+          Center(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: SvgPicture.asset(
+                image!,
+                width: 200,
+                height: 200,
+              ),
             ),
           ),
-        ),
       ],
     );
   }
