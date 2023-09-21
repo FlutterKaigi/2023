@@ -156,10 +156,6 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const NewsSection(),
             ),
-            _Sliver(
-              padding: padding,
-              child: const TicketSection(),
-            ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
             ),
@@ -168,6 +164,13 @@ class _MainPageBody extends StatelessWidget {
               child: AccessWidget(
                 key: sectionKeys.access,
               ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const TicketSection(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
