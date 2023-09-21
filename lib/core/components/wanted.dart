@@ -190,18 +190,19 @@ class _WantedMobile extends StatelessWidget {
               ),
             ),
             Spaces.vertical_24,
-            ...switch (subContent) {
-              final String body => [
-                  Text(
-                    body,
-                    style: textTheme.bodyMedium!.copyWith(
-                      color: colorScheme.secondary,
-                    ),
-                  ),
-                  Spaces.vertical_24,
-                ],
-              null => [],
-            },
+            if (subContent != null) ...[
+              Text(
+                subContent!,
+                style: textTheme.bodyMedium!.copyWith(
+                  color: colorScheme.secondary,
+                ),
+              ),
+              Spaces.vertical_24,
+            ],
+            if (child != null) ...[
+              child!,
+              Spaces.vertical_24,
+            ],
             LeftFilledIconButton(
               onPressed: onPressed,
               buttonTitle: buttonTitle,
