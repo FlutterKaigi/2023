@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/core/components/profile_image.dart';
 import 'package:confwebsite2023/core/components/wanted.dart';
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/event/hands-on/data/hands_on_staffs_provider.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class HandsOnEvent extends StatelessWidget {
         'https://flutterkaigi.connpass.com/event/293847/',
         mode: LaunchMode.externalApplication,
       ),
+      image: Assets.illustrationConference,
       child: const _HandsOnStaffsIcon(),
     );
   }
