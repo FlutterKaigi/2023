@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
@@ -45,17 +46,17 @@ class MainPage extends HookWidget {
         ),
       ),
       HeaderItemButtonData(
-        title: 'Event',
+        title: 'Ticket',
         onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.event.currentContext!,
+          sectionKeys.ticket.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
       ),
       HeaderItemButtonData(
-        title: 'Ticket',
+        title: 'Event',
         onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.ticket.currentContext!,
+          sectionKeys.event.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
@@ -131,19 +132,8 @@ class _MainPageBody extends StatelessWidget {
         CustomScrollView(
           controller: scrollController,
           slivers: [
-            _Sliver(
-              padding: padding,
-              child: HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
-                ),
-              ),
-            ),
             const SliverToBoxAdapter(
-              child: Spaces.vertical_30,
+              child: Spaces.vertical_40,
             ),
             _Sliver(
               padding: padding,
@@ -224,6 +214,27 @@ class _MainPageBody extends StatelessWidget {
               child: Footer(),
             ),
           ],
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: ClipRRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 16,
+                sigmaY: 16,
+              ),
+              child: HeaderBar(
+                items: items,
+                onTitleTap: () async => scrollController.animateTo(
+                  0,
+                  duration: const Duration(milliseconds: 750),
+                  curve: Curves.easeOutCirc,
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );
