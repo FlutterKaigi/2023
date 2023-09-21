@@ -5,6 +5,7 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
 import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
 import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
+import 'package:confwebsite2023/features/event/hands-on/ui/hands_on_event.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
@@ -142,6 +143,13 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const AccessWidget(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const HandsOnEvent(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
