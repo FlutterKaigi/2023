@@ -29,6 +29,7 @@ class MainPage extends HookWidget {
     const sectionKeys = (
       access: GlobalObjectKey('accessSectionKey'),
       event: GlobalObjectKey('eventSectionKey'),
+      ticket: GlobalObjectKey('ticketSectionKey'),
       session: GlobalObjectKey('sessionSectionKey'),
       sponsor: GlobalObjectKey('sponsorSectionKey'),
       staff: GlobalObjectKey('staffSectionKey'),
@@ -39,6 +40,22 @@ class MainPage extends HookWidget {
         title: 'Access',
         onPressed: () async => Scrollable.ensureVisible(
           sectionKeys.access.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
+      HeaderItemButtonData(
+        title: 'Event',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.event.currentContext!,
+          curve: Curves.easeOutCirc,
+          duration: const Duration(milliseconds: 750),
+        ),
+      ),
+      HeaderItemButtonData(
+        title: 'Ticket',
+        onPressed: () async => Scrollable.ensureVisible(
+          sectionKeys.ticket.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
@@ -75,6 +92,7 @@ class _MainPageBody extends StatelessWidget {
   final ({
     GlobalObjectKey access,
     GlobalObjectKey event,
+    GlobalObjectKey ticket,
     GlobalObjectKey session,
     GlobalObjectKey sponsor,
     GlobalObjectKey staff
@@ -170,14 +188,18 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const TicketSection(),
+              child: TicketSection(
+                key: sectionKeys.ticket,
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
             ),
             _Sliver(
               padding: padding,
-              child: const HandsOnEvent(),
+              child: HandsOnEvent(
+                key: sectionKeys.event,
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
