@@ -21,5 +21,6 @@ class Spaces {
   static const SizedBox vertical_40 = SizedBox(height: 40);
   static const SizedBox vertical_80 = SizedBox(height: 80);
   static const SizedBox vertical_82 = SizedBox(height: 82);
+  static const SizedBox vertical_100 = SizedBox(height: 100);
   static const SizedBox vertical_200 = SizedBox(height: 200);
 }
