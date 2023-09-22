@@ -35,7 +35,7 @@ final class SponsorPlanHeader extends StatelessWidget {
 
   final String text;
 
-  late final TextStyle style;
+  final TextStyle style;
 
   final Gradient gradient;
 
