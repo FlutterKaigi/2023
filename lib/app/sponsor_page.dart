@@ -5,6 +5,7 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
+import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:js/js_util.dart' as js_util;
@@ -104,8 +105,7 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              // TODO: スポンサー詳細の内容を実装
-              child: const SizedBox(),
+              child: const SponsorDetail(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
