@@ -1,36 +1,25 @@
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:flutter/material.dart';
 
-final class SponsorRankHeader extends StatelessWidget {
-  SponsorRankHeader.platinum({
+/// スポンサープランのヘッダー
+final class SponsorPlanHeader extends StatelessWidget {
+  SponsorPlanHeader({
     required String text,
     required TextStyle style,
+    required SponsorPlan plan,
   }) : this._(
           text: text,
           style: style,
-          gradient: GradientConstant.sponsor.platinum,
+          gradient: switch (plan) {
+            SponsorPlan.platinum => GradientConstant.sponsor.platinum,
+            SponsorPlan.gold => GradientConstant.sponsor.gold,
+            SponsorPlan.silver => GradientConstant.sponsor.silver,
+          },
         );
 
-  SponsorRankHeader.gold({
-    required String text,
-    required TextStyle style,
-  }) : this._(
-          text: text,
-          style: style,
-          gradient: GradientConstant.sponsor.gold,
-        );
-
-  SponsorRankHeader.silver({
-    required String text,
-    required TextStyle style,
-  }) : this._(
-          text: text,
-          style: style,
-          gradient: GradientConstant.sponsor.silver,
-        );
-
-  SponsorRankHeader._({
+  SponsorPlanHeader._({
     required this.text,
     required TextStyle style,
     required this.gradient,
