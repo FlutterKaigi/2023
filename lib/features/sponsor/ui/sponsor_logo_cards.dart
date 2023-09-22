@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
@@ -17,6 +18,7 @@ final class SponsorLogoCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final sponsors = allSponsors.where((s) => s.plan == _plan);
 
     final cardSize = switch (_plan) {
@@ -39,6 +41,7 @@ final class SponsorLogoCards extends StatelessWidget {
         _ => BoxFit.fitWidth,
       };
       return Card(
+        color: theme.colorScheme.surfaceVariant,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
