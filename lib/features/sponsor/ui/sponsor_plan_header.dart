@@ -6,21 +6,26 @@ import 'package:flutter/material.dart';
 
 /// スポンサープランのヘッダー
 final class SponsorPlanHeader extends StatelessWidget {
-  const SponsorPlanHeader.platinum({super.key}) : _plan = SponsorPlan.platinum;
+  const SponsorPlanHeader.platinum({
+    required this.text,
+    super.key,
+  }) : _plan = SponsorPlan.platinum;
 
-  const SponsorPlanHeader.gold({super.key}) : _plan = SponsorPlan.gold;
+  const SponsorPlanHeader.gold({
+    required this.text,
+    super.key,
+  }) : _plan = SponsorPlan.gold;
 
-  const SponsorPlanHeader.silver({super.key}) : _plan = SponsorPlan.silver;
+  const SponsorPlanHeader.silver({
+    required this.text,
+    super.key,
+  }) : _plan = SponsorPlan.silver;
 
+  final String text;
   final SponsorPlan _plan;
 
   @override
   Widget build(BuildContext context) {
-    final text = switch (_plan) {
-      SponsorPlan.platinum => 'Platinum',
-      SponsorPlan.gold => 'Gold',
-      SponsorPlan.silver => 'Silver',
-    };
     final gradient = switch (_plan) {
       SponsorPlan.platinum => GradientConstant.sponsor.platinum,
       SponsorPlan.gold => GradientConstant.sponsor.gold,

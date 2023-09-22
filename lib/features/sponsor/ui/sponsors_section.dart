@@ -23,15 +23,15 @@ final class SponsorsSection extends ConsumerWidget {
 
     const child = Column(
       children: [
-        SponsorPlanHeader.platinum(),
+        SponsorPlanHeader.platinum(text: 'Platinum'),
         verticalGapBelowTitles,
         SponsorLogoCards.platinum(),
         verticalGapBetweenPlans,
-        SponsorPlanHeader.gold(),
+        SponsorPlanHeader.gold(text: 'Gold'),
         verticalGapBelowTitles,
         SponsorLogoCards.gold(),
         verticalGapBetweenPlans,
-        SponsorPlanHeader.silver(),
+        SponsorPlanHeader.silver(text: 'Silver'),
         verticalGapBelowTitles,
         SponsorLogoCards.silver(),
       ],
