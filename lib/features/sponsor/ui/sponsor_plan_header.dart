@@ -2,8 +2,8 @@ import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
-final class SponsorRankHeader extends StatelessWidget {
-  SponsorRankHeader.platinum({
+final class SponsorPlanHeader extends StatelessWidget {
+  SponsorPlanHeader.platinum({
     required String text,
     required TextStyle style,
   }) : this._(
@@ -12,7 +12,7 @@ final class SponsorRankHeader extends StatelessWidget {
           gradient: GradientConstant.sponsor.platinum,
         );
 
-  SponsorRankHeader.gold({
+  SponsorPlanHeader.gold({
     required String text,
     required TextStyle style,
   }) : this._(
@@ -21,7 +21,7 @@ final class SponsorRankHeader extends StatelessWidget {
           gradient: GradientConstant.sponsor.gold,
         );
 
-  SponsorRankHeader.silver({
+  SponsorPlanHeader.silver({
     required String text,
     required TextStyle style,
   }) : this._(
@@ -30,7 +30,7 @@ final class SponsorRankHeader extends StatelessWidget {
           gradient: GradientConstant.sponsor.silver,
         );
 
-  SponsorRankHeader._({
+  SponsorPlanHeader._({
     required this.text,
     required TextStyle style,
     required this.gradient,
