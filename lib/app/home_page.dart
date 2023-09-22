@@ -210,6 +210,9 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: const SponsorsSection(),
             ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
             _Sliver(
               padding: padding,
               child: StaffHeader(
