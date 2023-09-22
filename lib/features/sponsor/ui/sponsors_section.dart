@@ -53,15 +53,21 @@ final class SponsorsSection extends ConsumerWidget {
     return ResponsiveWidget(
       largeWidget: _SponsorsSectionContent(
         platinumSponsors: platinumSponsors,
+        platinumSponsorsCrossAxisCount: 2,
         goldSponsors: goldSponsors,
+        goldSponsorsCrossAxisCount: 3,
         silverSponsors: silverSponsors,
+        silverSponsorsCrossAxisCount: 5,
         h1TextStyle: AppTextStyle.pcHeading1,
         h2TextStyle: AppTextStyle.pcHeading2,
       ),
       smallWidget: _SponsorsSectionContent(
         platinumSponsors: platinumSponsors,
+        platinumSponsorsCrossAxisCount: 1,
         goldSponsors: goldSponsors,
+        goldSponsorsCrossAxisCount: 1,
         silverSponsors: silverSponsors,
+        silverSponsorsCrossAxisCount: 2,
         h1TextStyle: AppTextStyle.spHeading1,
         h2TextStyle: AppTextStyle.spHeading2,
       ),
@@ -72,15 +78,21 @@ final class SponsorsSection extends ConsumerWidget {
 final class _SponsorsSectionContent extends StatelessWidget {
   const _SponsorsSectionContent({
     required this.platinumSponsors,
+    required this.platinumSponsorsCrossAxisCount,
     required this.goldSponsors,
+    required this.goldSponsorsCrossAxisCount,
     required this.silverSponsors,
+    required this.silverSponsorsCrossAxisCount,
     required this.h1TextStyle,
     required this.h2TextStyle,
   });
 
   final List<Sponsor> platinumSponsors;
+  final int platinumSponsorsCrossAxisCount;
   final List<Sponsor> goldSponsors;
+  final int goldSponsorsCrossAxisCount;
   final List<Sponsor> silverSponsors;
+  final int silverSponsorsCrossAxisCount;
   final TextStyle h1TextStyle;
   final TextStyle h2TextStyle;
 
