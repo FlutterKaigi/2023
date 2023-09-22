@@ -7,6 +7,7 @@ import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:confwebsite2023/features/sponsor/ui/sponsor_plan_header.dart';
 import 'package:confwebsite2023/features/sponsor/ui/sponsors_header.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final class SponsorsSection extends ConsumerWidget {
@@ -112,11 +113,41 @@ final class _SponsorsSectionContent extends StatelessWidget {
           style: h2TextStyle,
           plan: SponsorPlan.platinum,
         ),
+        GridView.builder(
+          itemCount: platinumSponsors.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: platinumSponsorsCrossAxisCount,
+          ),
+          itemBuilder: (context, index) {
+            final sponsor = platinumSponsors[index];
+            return SvgPicture.asset(
+              sponsor.logoAssetName,
+              width: 400,
+              height: 200,
+              fit: BoxFit.fitWidth,
+            );
+          },
+        ),
         SponsorPlanHeader(
           text: 'Gold',
           style: h2TextStyle,
           plan: SponsorPlan.gold,
         ),
+        // SliverGrid.builder(
+        //   itemCount: goldSponsors.length,
+        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //     crossAxisCount: goldSponsorsCrossAxisCount,
+        //   ),
+        //   itemBuilder: (context, index) {
+        //     final sponsor = goldSponsors[index];
+        //     return SvgPicture.asset(
+        //       sponsor.logoAssetName,
+        //       width: 400,
+        //       height: 200,
+        //       fit: BoxFit.fitWidth,
+        //     );
+        //   },
+        // ),
         SponsorPlanHeader(
           text: 'Silver',
           style: h2TextStyle,
