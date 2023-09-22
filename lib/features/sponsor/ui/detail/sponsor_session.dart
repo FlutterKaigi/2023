@@ -49,7 +49,7 @@ final class SponsorSessionSection extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
