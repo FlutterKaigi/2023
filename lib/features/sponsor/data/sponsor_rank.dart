@@ -1,4 +1,4 @@
-enum SponsorRank {
+enum SponsorPlan {
   platinum,
   gold,
   silver;

@@ -11,7 +11,7 @@ class Sponsor with _$Sponsor {
     required String displayName,
     required String url,
     required String logoAssetName,
-    required SponsorRank rank,
+    required SponsorPlan plan,
     required SponsorSession? session,
     @Default('') String introduction,
   }) = _Sponsor;

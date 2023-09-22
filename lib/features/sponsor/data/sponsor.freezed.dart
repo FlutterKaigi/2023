@@ -20,7 +20,7 @@ mixin _$Sponsor {
   String get displayName => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get logoAssetName => throw _privateConstructorUsedError;
-  SponsorRank get rank => throw _privateConstructorUsedError;
+  SponsorPlan get plan => throw _privateConstructorUsedError;
   SponsorSession? get session => throw _privateConstructorUsedError;
   String get introduction => throw _privateConstructorUsedError;
 
@@ -38,7 +38,7 @@ abstract class $SponsorCopyWith<$Res> {
       String displayName,
       String url,
       String logoAssetName,
-      SponsorRank rank,
+      SponsorPlan plan,
       SponsorSession? session,
       String introduction});
 
@@ -62,7 +62,7 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
     Object? displayName = null,
     Object? url = null,
     Object? logoAssetName = null,
-    Object? rank = null,
+    Object? plan = null,
     Object? session = freezed,
     Object? introduction = null,
   }) {
@@ -83,10 +83,10 @@ class _$SponsorCopyWithImpl<$Res, $Val extends Sponsor>
           ? _value.logoAssetName
           : logoAssetName // ignore: cast_nullable_to_non_nullable
               as String,
-      rank: null == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
-              as SponsorRank,
+      plan: null == plan
+          ? _value.plan
+          : plan // ignore: cast_nullable_to_non_nullable
+              as SponsorPlan,
       session: freezed == session
           ? _value.session
           : session // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$$_SponsorCopyWith<$Res> implements $SponsorCopyWith<$Res> {
       String displayName,
       String url,
       String logoAssetName,
-      SponsorRank rank,
+      SponsorPlan plan,
       SponsorSession? session,
       String introduction});
 
@@ -145,7 +145,7 @@ class __$$_SponsorCopyWithImpl<$Res>
     Object? displayName = null,
     Object? url = null,
     Object? logoAssetName = null,
-    Object? rank = null,
+    Object? plan = null,
     Object? session = freezed,
     Object? introduction = null,
   }) {
@@ -166,10 +166,10 @@ class __$$_SponsorCopyWithImpl<$Res>
           ? _value.logoAssetName
           : logoAssetName // ignore: cast_nullable_to_non_nullable
               as String,
-      rank: null == rank
-          ? _value.rank
-          : rank // ignore: cast_nullable_to_non_nullable
-              as SponsorRank,
+      plan: null == plan
+          ? _value.plan
+          : plan // ignore: cast_nullable_to_non_nullable
+              as SponsorPlan,
       session: freezed == session
           ? _value.session
           : session // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ class _$_Sponsor implements _Sponsor {
       required this.displayName,
       required this.url,
       required this.logoAssetName,
-      required this.rank,
+      required this.plan,
       required this.session,
       this.introduction = ''});
 
@@ -203,7 +203,7 @@ class _$_Sponsor implements _Sponsor {
   @override
   final String logoAssetName;
   @override
-  final SponsorRank rank;
+  final SponsorPlan plan;
   @override
   final SponsorSession? session;
   @override
@@ -212,7 +212,7 @@ class _$_Sponsor implements _Sponsor {
 
   @override
   String toString() {
-    return 'Sponsor(name: $name, displayName: $displayName, url: $url, logoAssetName: $logoAssetName, rank: $rank, session: $session, introduction: $introduction)';
+    return 'Sponsor(name: $name, displayName: $displayName, url: $url, logoAssetName: $logoAssetName, plan: $plan, session: $session, introduction: $introduction)';
   }
 
   @override
@@ -226,7 +226,7 @@ class _$_Sponsor implements _Sponsor {
             (identical(other.url, url) || other.url == url) &&
             (identical(other.logoAssetName, logoAssetName) ||
                 other.logoAssetName == logoAssetName) &&
-            (identical(other.rank, rank) || other.rank == rank) &&
+            (identical(other.plan, plan) || other.plan == plan) &&
             (identical(other.session, session) || other.session == session) &&
             (identical(other.introduction, introduction) ||
                 other.introduction == introduction));
@@ -234,7 +234,7 @@ class _$_Sponsor implements _Sponsor {
 
   @override
   int get hashCode => Object.hash(runtimeType, name, displayName, url,
-      logoAssetName, rank, session, introduction);
+      logoAssetName, plan, session, introduction);
 
   @JsonKey(ignore: true)
   @override
@@ -249,7 +249,7 @@ abstract class _Sponsor implements Sponsor {
       required final String displayName,
       required final String url,
       required final String logoAssetName,
-      required final SponsorRank rank,
+      required final SponsorPlan plan,
       required final SponsorSession? session,
       final String introduction}) = _$_Sponsor;
 
@@ -262,7 +262,7 @@ abstract class _Sponsor implements Sponsor {
   @override
   String get logoAssetName;
   @override
-  SponsorRank get rank;
+  SponsorPlan get plan;
   @override
   SponsorSession? get session;
   @override
