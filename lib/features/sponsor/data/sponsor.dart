@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/sponsor/data/sponsor_rank.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

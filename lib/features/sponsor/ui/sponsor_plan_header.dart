@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
-import 'package:confwebsite2023/features/sponsor/data/sponsor_rank.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:flutter/material.dart';
 
 /// スポンサープランのヘッダー
