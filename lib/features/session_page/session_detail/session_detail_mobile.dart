@@ -12,11 +12,19 @@ import 'package:confwebsite2023/core/theme/gradient.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
+import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SessionDetailMobile extends HookWidget {
-  const SessionDetailMobile({super.key});
+  const SessionDetailMobile({
+    required this.sessionModel,
+    super.key,
+  });
+
+  final SessionModel sessionModel;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +52,7 @@ class SessionDetailMobile extends HookWidget {
       body: _MainPageBody(
         scrollController: scrollController,
         items: items,
+        sessionModel: sessionModel,
       ),
     );
   }
@@ -53,11 +62,12 @@ class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
     required this.scrollController,
     required this.items,
+    required this.sessionModel,
   });
 
   final ScrollController scrollController;
-
   final List<HeaderItemButtonData> items;
+  final SessionModel sessionModel;
 
   @override
   Widget build(BuildContext context) {
@@ -101,8 +111,7 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SectionHeader.leftAlignment(
-                //TODO SessionかSponsor Sessionの引数を追記する
-                text: 'Sessions',
+                text: sessionModel.isSponsor ? 'Sponsor Sessions' : 'Sessions',
                 gradient: gradient,
                 style: AppTextStyle.spHeading1,
               ),
@@ -114,10 +123,14 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SocialShare(
-                //TODO リンクをコピーする処理を記載する
-                onCopyUrlPressed: () {},
-                //TODO ツイートできるする処理を記載する。
-                onTweetPressed: () {},
+                onCopyUrlPressed: () async {
+                  final url = sessionModel.forteeUrl;
+                  await Clipboard.setData(ClipboardData(text: url));
+                },
+                onTweetPressed: () async {
+                  final url = Uri.parse(sessionModel.tweet);
+                  await launchUrl(url);
+                },
               ),
             ),
             _Sliver(
@@ -126,36 +139,8 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: const ProposalMobile(
-                sessionName: 'Session 1-1',
-                title: 'Dartのこれから',
-                userName: '岡山達哉',
-                image:
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/260px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg',
-                contents:
-                    '2021 年、Dart 2.12 で Null safety がデフォルトで有効になり、とても快適に開発できるようになってきました。\n\n'
-                    'Null safety 以降もさまざまな機能が追加され、Dart はまだまだ進化を続けています。\n\n'
-                    'このセッションでは、近年の進化の振り返りを簡単にした後、Dart の進化プロセスの紹介をして、これから Dart がどんな進化をしていくのかをできる限り詳しく紹介します。\n\n'
-                    'トーク内容\n\n'
-                    '01 近年、どのような進化を遂げてきたか\n'
-                    '02 Dart の進化プロセス\n'
-                    '03 仕様化を進めている新機能\n'
-                    '  ・Views on an object without a wrapper object\n'
-                    '  ・Static Metaprogramming\n'
-                    '  ・Sound declaration-site variance\n'
-                    '  ・Patterns and related features\n'
-                    '04 おわりに\n\n\n'
-                    '対象者\n'
-                    '・Dart の近年追加された機能について振り返りたい方\n'
-                    '・Dart の進化プロセスに興味のある方\n'
-                    '・Dart のこれからに興味のある方\n',
-                time: '2023年11月10日：11:10~11:15(40分)',
-                trackName: 'Track 1',
-                twitter: 'blendthink',
-                isSponsor: true,
-                sponsorImage:
-                    'https://yumemi.co.jp/grow-with-new-logo/img/common/logo_new.svg',
-                sponsorName: '株式会社ゆめみ',
+              child: ProposalMobile(
+                sessionModel: sessionModel,
               ),
             ),
             _Sliver(
@@ -165,10 +150,14 @@ class _MainPageBody extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: SocialShare(
-                //TODO リンクをコピーする処理を記載する
-                onCopyUrlPressed: () {},
-                //TODO ツイートできるする処理を記載する。
-                onTweetPressed: () {},
+                onCopyUrlPressed: () async {
+                  final url = sessionModel.forteeUrl;
+                  await Clipboard.setData(ClipboardData(text: url));
+                },
+                onTweetPressed: () async {
+                  final url = Uri.parse(sessionModel.tweet);
+                  await launchUrl(url);
+                },
               ),
             ),
             _Sliver(
