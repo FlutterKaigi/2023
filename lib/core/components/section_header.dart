@@ -32,16 +32,18 @@ final class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final component = Align(
       alignment: Alignment.centerLeft,
-      child: ShaderMask(
-        shaderCallback: gradient.createShader,
-        blendMode: BlendMode.srcIn,
-        child: Padding(
-          // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
-          padding: const EdgeInsets.all(_blurRadius),
-          child: Text(
-            text,
-            style: style.copyWith(
-              color: Colors.white,
+      child: RepaintBoundary(
+        child: ShaderMask(
+          shaderCallback: gradient.createShader,
+          blendMode: BlendMode.srcIn,
+          child: Padding(
+            // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
+            padding: const EdgeInsets.all(_blurRadius),
+            child: Text(
+              text,
+              style: style.copyWith(
+                color: Colors.white,
+              ),
             ),
           ),
         ),
