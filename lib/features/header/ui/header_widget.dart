@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:animations/animations.dart';
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
@@ -96,11 +98,19 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         ],
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-      child: ResponsiveWidget(
-        largeWidget: desktopBar,
-        smallWidget: mobileBar,
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 16,
+          sigmaY: 16,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ResponsiveWidget(
+            largeWidget: desktopBar,
+            smallWidget: mobileBar,
+          ),
+        ),
       ),
     );
   }
