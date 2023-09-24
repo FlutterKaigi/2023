@@ -77,6 +77,15 @@ class MainPage extends HookWidget {
         sectionKeys: sectionKeys,
         items: items,
       ),
+      appBar: HeaderBar(
+        items: items,
+        onTitleTap: () async => scrollController.animateTo(
+          0,
+          duration: const Duration(milliseconds: 750),
+          curve: Curves.easeOutCirc,
+        ),
+      ),
+      extendBodyBehindAppBar: true,
     );
   }
 }
@@ -131,19 +140,8 @@ class _MainPageBody extends StatelessWidget {
         CustomScrollView(
           controller: scrollController,
           slivers: [
-            _Sliver(
-              padding: padding,
-              child: HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
-                ),
-              ),
-            ),
             const SliverToBoxAdapter(
-              child: Spaces.vertical_30,
+              child: Spaces.vertical_40,
             ),
             _Sliver(
               padding: padding,
