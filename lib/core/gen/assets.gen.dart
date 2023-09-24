@@ -44,6 +44,86 @@ class $AssetsIconsGen {
       [copy, discord, dot, github, medium, note, qiita, twitter, zenn];
 }
 
+class $AssetsSponsorsGen {
+  const $AssetsSponsorsGen();
+
+  /// File path: assets/sponsors/bitkey.svg
+  String get bitkey => 'assets/sponsors/bitkey.svg';
+
+  /// File path: assets/sponsors/cyberagent.svg
+  String get cyberagent => 'assets/sponsors/cyberagent.svg';
+
+  /// File path: assets/sponsors/demaecan.svg
+  String get demaecan => 'assets/sponsors/demaecan.svg';
+
+  /// File path: assets/sponsors/diverse.svg
+  String get diverse => 'assets/sponsors/diverse.svg';
+
+  /// File path: assets/sponsors/enechain.svg
+  String get enechain => 'assets/sponsors/enechain.svg';
+
+  /// File path: assets/sponsors/flutter.svg
+  String get flutter => 'assets/sponsors/flutter.svg';
+
+  /// File path: assets/sponsors/harmo.svg
+  String get harmo => 'assets/sponsors/harmo.svg';
+
+  /// File path: assets/sponsors/layerx.svg
+  String get layerx => 'assets/sponsors/layerx.svg';
+
+  /// File path: assets/sponsors/m3.svg
+  String get m3 => 'assets/sponsors/m3.svg';
+
+  /// File path: assets/sponsors/magicpod.svg
+  String get magicpod => 'assets/sponsors/magicpod.svg';
+
+  /// File path: assets/sponsors/navitime.svg
+  String get navitime => 'assets/sponsors/navitime.svg';
+
+  /// File path: assets/sponsors/pioneer.svg
+  String get pioneer => 'assets/sponsors/pioneer.svg';
+
+  /// File path: assets/sponsors/recruit.svg
+  String get recruit => 'assets/sponsors/recruit.svg';
+
+  /// File path: assets/sponsors/studyplus.svg
+  String get studyplus => 'assets/sponsors/studyplus.svg';
+
+  /// File path: assets/sponsors/tenx.svg
+  String get tenx => 'assets/sponsors/tenx.svg';
+
+  /// File path: assets/sponsors/tokyu.svg
+  String get tokyu => 'assets/sponsors/tokyu.svg';
+
+  /// File path: assets/sponsors/youtrust.svg
+  String get youtrust => 'assets/sponsors/youtrust.svg';
+
+  /// File path: assets/sponsors/yumemi.svg
+  String get yumemi => 'assets/sponsors/yumemi.svg';
+
+  /// List of all assets
+  List<String> get values => [
+        bitkey,
+        cyberagent,
+        demaecan,
+        diverse,
+        enechain,
+        flutter,
+        harmo,
+        layerx,
+        m3,
+        magicpod,
+        navitime,
+        pioneer,
+        recruit,
+        studyplus,
+        tenx,
+        tokyu,
+        youtrust,
+        yumemi
+      ];
+}
+
 class Assets {
   Assets._();
 
@@ -54,6 +134,7 @@ class Assets {
   static const String flutterkaigiLogoUnion =
       'assets/flutterkaigi_logo_union.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsSponsorsGen sponsors = $AssetsSponsorsGen();
 
   /// List of all assets
   List<String> get values =>
