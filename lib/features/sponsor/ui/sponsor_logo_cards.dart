@@ -4,9 +4,10 @@ import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// スポンサーのロゴカード一覧
-final class SponsorLogoCards extends StatelessWidget {
+final class SponsorLogoCards extends ConsumerWidget {
   const SponsorLogoCards.platinum({super.key}) : _plan = SponsorPlan.platinum;
 
   const SponsorLogoCards.gold({super.key}) : _plan = SponsorPlan.gold;
@@ -16,9 +17,8 @@ final class SponsorLogoCards extends StatelessWidget {
   final SponsorPlan _plan;
 
   @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final sponsors = allSponsors.where((s) => s.plan == _plan);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final sponsors = allSponsors.where((s) => s.plan == _plan).toList();
 
     final cardSize = switch (_plan) {
       SponsorPlan.platinum => const Size(320, 160),
@@ -30,6 +30,29 @@ final class SponsorLogoCards extends StatelessWidget {
       SponsorPlan.gold => 24.0,
       SponsorPlan.silver => 16.0,
     };
+
+    return _StatelessSponsorLogoCards(
+      sponsors: sponsors,
+      cardSize: cardSize,
+      cardPadding: cardPadding,
+    );
+  }
+}
+
+final class _StatelessSponsorLogoCards extends StatelessWidget {
+  const _StatelessSponsorLogoCards({
+    required this.sponsors,
+    required this.cardSize,
+    required this.cardPadding,
+  });
+
+  final List<Sponsor> sponsors;
+  final Size cardSize;
+  final double cardPadding;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
 
     final sponsorCards = sponsors.map((s) {
       // スポンサーによってロゴの縦横比が異なるため、どちらに合わせるかは調整が必要
