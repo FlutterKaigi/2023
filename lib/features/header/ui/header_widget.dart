@@ -27,10 +27,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         // SiteName
         TextButton(
           onPressed: onTitleTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: logo,
-          ),
+          child: logo,
         );
 
     final mobileBar = Row(
@@ -76,9 +73,9 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
               iconColor: baselineColorScheme.ref.secondary.secondary80,
               textStyle: GoogleFonts.poppins(
                 color: baselineColorScheme.ref.secondary.secondary80,
-                fontSize: 18,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
-                height: 1.5,
+                height: 1.2,
               ),
             ),
           ),
