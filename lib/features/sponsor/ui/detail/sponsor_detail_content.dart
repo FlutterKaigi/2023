@@ -30,9 +30,7 @@ final class SponsorDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SponsorsHeader(
-          style: h1TextStyle,
-        ),
+        const SponsorsHeader(),
         SizedBox(
           width: double.infinity,
           child: SocialShare(
@@ -51,15 +49,17 @@ final class SponsorDetailContent extends StatelessWidget {
             padding: const EdgeInsets.all(40),
             child: Column(
               children: [
-                SponsorPlanHeader(
-                  text: switch (sponsor.plan) {
-                    SponsorPlan.platinum => 'Platinum Sponsor',
-                    SponsorPlan.gold => 'Gold Sponsor',
-                    SponsorPlan.silver => 'Silver Sponsor',
-                  },
-                  style: h2TextStyle,
-                  plan: sponsor.plan,
-                ),
+                switch (sponsor.plan) {
+                  SponsorPlan.platinum => const SponsorPlanHeader.platinum(
+                      text: 'Platinum Sponsor',
+                    ),
+                  SponsorPlan.gold => const SponsorPlanHeader.gold(
+                      text: 'Gold Sponsor',
+                    ),
+                  SponsorPlan.silver => const SponsorPlanHeader.silver(
+                      text: 'Silver Sponsor',
+                    ),
+                },
                 Column(
                   children: [
                     SponsorIntroduction(
