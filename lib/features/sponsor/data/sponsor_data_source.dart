@@ -15,6 +15,7 @@ final class SponsorDataSource {
     return [
       ..._platinumSponsors,
       ..._goldSponsors,
+      ..._silverSponsors,
     ];
   }
 }
@@ -114,5 +115,102 @@ final _goldSponsors = [
     session: null,
     introduction:
         '「日本のモメンタムを上げる偉大な会社を創る」を掲げ、次世代のキャリア形成の文化を創っています。 信頼やつながりによって起こるコミュニケーションを通じて副業・転職といった機会につなげられるキャリアSNS『YOUTRUST』を開発しています。',
+  ),
+];
+
+final _silverSponsors = [
+  Sponsor(
+    name: 'cyberagent',
+    displayName: '株式会社サイバーエージェント',
+    url: 'https://www.cyberagent.co.jp/',
+    logoAssetName: Assets.sponsors.cyberagent,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        'サイバーエージェントは「21世紀を代表する会社を創る」をビジョンに掲げ、新しい未来のテレビ「ABEMA」の運営や国内トップシェアを誇るインターネット広告事業、ゲーム事業などITを主軸にしたビジネスを多角的に展開しています',
+  ),
+  Sponsor(
+    name: 'diverse',
+    displayName: '株式会社Diverse',
+    url: 'https://diverse-inc.co.jp/',
+    logoAssetName: Assets.sponsors.diverse,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        '累計1900万人が利用するマッチングサービス「YYC」を開発しています。YYCのiOSとAndroidはFlutterで開発しており、マッチング機能だけでなくライブ配信機能などもDartで実装しています。興味のある方はカジュアル面談まで！',
+  ),
+  Sponsor(
+    name: 'enechain',
+    displayName: '株式会社enechain',
+    url: 'https://enechain.co.jp',
+    logoAssetName: Assets.sponsors.enechain,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        'enechainは国内最大のエネルギーマーケットプレイスを運営するスタートアップです。誰もが参加でき、あらゆるエネルギーの価値を交換できるフェアなマーケットを創ることで社会が秘めたる可能性を掘り起こし、人々の豊かさと世界の平和に貢献します。',
+  ),
+  Sponsor(
+    name: 'harmo',
+    displayName: 'harmo株式会社',
+    url: 'https://www.harmo.biz/',
+    logoAssetName: Assets.sponsors.harmo,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        '私たちは個々人のヘルスデータを活用した新サービスを生み出している会社です。 「harmoおくすり手帳」は、Flutter/Dartで現在、開発中。よりユーザーに使いやすい姿でリリース予定です。ご興味ありましたら是非ご連絡ください！',
+  ),
+  Sponsor(
+    name: 'layerx',
+    displayName: '株式会社LayerX',
+    url: 'https://layerx.co.jp/',
+    logoAssetName: Assets.sponsors.layerx,
+    plan: SponsorPlan.silver,
+    session: null,
+  ),
+  Sponsor(
+    name: 'm3',
+    displayName: 'エムスリー株式会社',
+    url: 'https://corporate.m3.com/',
+    logoAssetName: Assets.sponsors.m3,
+    plan: SponsorPlan.silver,
+    session: null,
+  ),
+  Sponsor(
+    name: 'pioneer',
+    displayName: 'パイオニア株式会社',
+    url: 'https://jpn.pioneer/ja/',
+    logoAssetName: Assets.sponsors.pioneer,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        'パイオニアは「より多くの人と、感動を」という企業理念のもと、数々の世界初、業界初の商品を展開しています。現在、企業ビジョン“未来の移動体験を創ります”の実現に向け、モビリティ領域におけるソリューションサービス企業への変革に取り組んでいます。',
+  ),
+  Sponsor(
+    name: 'recruit',
+    displayName: '株式会社リクルート',
+    url: 'https://www.recruit.co.jp/',
+    logoAssetName: Assets.sponsors.recruit,
+    plan: SponsorPlan.silver,
+    session: null,
+  ),
+  Sponsor(
+    name: 'studyplus',
+    displayName: 'スタディプラス株式会社',
+    url: 'https://tech.studyplus.co.jp/recruit',
+    logoAssetName: Assets.sponsors.studyplus,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        'スタディプラス株式会社は「学ぶ喜びをすべての人へ」をミッションに掲げています Studyplusは学習内容を記録・可視化・共有することによりモチベーション維持、 学習の習慣化を補助します 私たちは学びに寄り添うプラットフォームを作ります',
+  ),
+  Sponsor(
+    name: 'tokyu',
+    displayName: '東急株式会社',
+    url: 'https://10q89s.jp/',
+    logoAssetName: Assets.sponsors.tokyu,
+    plan: SponsorPlan.silver,
+    session: null,
+    introduction:
+        '東急URBAN HACKSは「街づくりのDX」を実現するための内製開発チームです。東急グループの次の100年を変革する大プロジェクト。あなたの技術や知識を活かし、一緒に世界一の街づくりを目指してみませんか？',
   ),
 ];
