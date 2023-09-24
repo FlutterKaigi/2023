@@ -6,6 +6,7 @@ import 'package:url_launcher/link.dart';
 final class SponsorIntroduction extends StatelessWidget {
   const SponsorIntroduction({
     required this.assetName,
+    required this.logoWidth,
     required this.name,
     required this.url,
     required this.introduction,
@@ -13,6 +14,7 @@ final class SponsorIntroduction extends StatelessWidget {
   });
 
   final String assetName;
+  final double logoWidth;
   final String name;
   final String url;
   final String introduction;
@@ -25,9 +27,7 @@ final class SponsorIntroduction extends StatelessWidget {
       children: [
         SvgPicture.asset(
           assetName,
-          width: 400,
-          height: 200,
-          fit: BoxFit.fitHeight,
+          width: logoWidth,
         ),
         SizedBox(
           width: double.infinity,
