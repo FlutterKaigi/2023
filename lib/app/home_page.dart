@@ -45,17 +45,17 @@ class MainPage extends HookWidget {
         ),
       ),
       HeaderItemButtonData(
-        title: 'Event',
+        title: 'Ticket',
         onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.event.currentContext!,
+          sectionKeys.ticket.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
       ),
       HeaderItemButtonData(
-        title: 'Ticket',
+        title: 'Event',
         onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.ticket.currentContext!,
+          sectionKeys.event.currentContext!,
           curve: Curves.easeOutCirc,
           duration: const Duration(milliseconds: 750),
         ),
