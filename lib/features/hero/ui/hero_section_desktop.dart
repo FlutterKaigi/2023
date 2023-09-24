@@ -59,24 +59,29 @@ class HeroSectionDesktop extends StatelessWidget {
             ],
           ),
         ),
+        Spaces.vertical_24,
         FittedBox(
           fit: BoxFit.scaleDown,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 24,
-            ),
-            child: Text(
-              'November 10, 2023',
-              style: GoogleFonts.poppins(
-                color: baselineColorScheme.white,
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
-                height: 1.5,
-                letterSpacing: 0.16,
-              ),
+          child: Text(
+            'November 10, 2023',
+            style: GoogleFonts.poppins(
+              color: baselineColorScheme.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              height: 1.5,
+              letterSpacing: 0.16,
             ),
           ),
         ),
+        Spaces.vertical_24,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'in 株式会社ナビタイムジャパン',
+            style: textTheme.titleLarge,
+          ),
+        ),
+        Spaces.vertical_24,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
