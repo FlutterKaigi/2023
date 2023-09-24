@@ -14,6 +14,7 @@ final class SponsorDataSource {
   Future<List<Sponsor>> fetchSponsors() async {
     return [
       ..._platinumSponsors,
+      ..._goldSponsors,
     ];
   }
 }
@@ -62,5 +63,56 @@ final _platinumSponsors = [
     ),
     introduction:
         '6000万人のみんな知ってるあのサービスも、ゆめみが一緒に作ってます。大手企業や急成長スタートアップと共創型でWeb/スマホのサービス作りや内製化支援を行っています。【エンジニアが最も成長できる会社No.1】を目標にしています。',
+  ),
+];
+
+final _goldSponsors = [
+  Sponsor(
+    name: 'bitkey',
+    displayName: '株式会社ビットキー',
+    url: 'https://bitkey.co.jp/',
+    logoAssetName: Assets.sponsors.bitkey,
+    plan: SponsorPlan.gold,
+    session: null,
+    introduction:
+        'ビットキーは、独自開発のデジタルコネクトプラットフォームを通して、人と「暮らし」や「仕事」の間にある分断を解消するスーパーアプリ/SaaSを開発しています。 あらゆるサービスやモノを柔軟につなげることで、体験のアップデートを進めています。',
+  ),
+  Sponsor(
+    name: 'flutter',
+    displayName: 'Flutter',
+    url: 'https://flutter.dev/',
+    logoAssetName: Assets.sponsors.flutter,
+    plan: SponsorPlan.gold,
+    session: null,
+  ),
+  Sponsor(
+    name: 'magicpod',
+    displayName: '株式会社MagicPod',
+    url: 'https://magicpod.com/',
+    logoAssetName: Assets.sponsors.magicpod,
+    plan: SponsorPlan.gold,
+    session: null,
+    introduction:
+        'MagicPodは、モバイルアプリテスト、ブラウザ(ウェブアプリ)テストの両方に対応した AIテスト自動化クラウドサービスです。 豊富な機能と高いメンテナンス性でリリースサイクルの高速化を支援します。',
+  ),
+  Sponsor(
+    name: '10x',
+    displayName: '株式会社10X',
+    url: 'https://10x.co.jp/',
+    logoAssetName: Assets.sponsors.tenx,
+    plan: SponsorPlan.gold,
+    session: null,
+    introduction:
+        '10Xではモバイル・WebアプリでFlutterを、サーバーサイドではDartを利用しています。このように10XはFlutter・Dartに支えられており、今後も価値あるプロダクトを作り続ける上で重要な技術への支援・還元を行っていきます。',
+  ),
+  Sponsor(
+    name: 'youtrust',
+    displayName: '株式会社YOUTRUST',
+    url: 'https://youtrust.co.jp/',
+    logoAssetName: Assets.sponsors.youtrust,
+    plan: SponsorPlan.gold,
+    session: null,
+    introduction:
+        '「日本のモメンタムを上げる偉大な会社を創る」を掲げ、次世代のキャリア形成の文化を創っています。 信頼やつながりによって起こるコミュニケーションを通じて副業・転職といった機会につなげられるキャリアSNS『YOUTRUST』を開発しています。',
   ),
 ];
