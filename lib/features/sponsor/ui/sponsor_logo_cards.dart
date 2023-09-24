@@ -55,13 +55,6 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
     final theme = Theme.of(context);
 
     final sponsorCards = sponsors.map((s) {
-      // スポンサーによってロゴの縦横比が異なるため、どちらに合わせるかは調整が必要
-      // bitkey のみ fixHeight
-      // TODO: flutterkaigi1, flutterkaigi2 は後ほど削除
-      final boxFit = switch (s.name) {
-        'bitkey' || 'flutterkaigi1' || 'flutterkaigi2' => BoxFit.fitHeight,
-        _ => BoxFit.fitWidth,
-      };
       return Card(
         color: theme.colorScheme.surfaceVariant,
         shape: RoundedRectangleBorder(
@@ -71,10 +64,7 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
           size: cardSize,
           child: Padding(
             padding: EdgeInsets.all(cardPadding),
-            child: SvgPicture.asset(
-              s.logoAssetName,
-              fit: boxFit,
-            ),
+            child: SvgPicture.asset(s.logoAssetName),
           ),
         ),
       );
