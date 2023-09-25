@@ -35,11 +35,11 @@ const RESOURCES = {"favicon.ico": "5bb5b9cc0617d85844c6c767cd6cbfc3",
 "version.json": "960c0c5a17550c0c055dcc8d0f8e86d8",
 "icons/apple-touch-icon.png": "e91a2ee33d2ee490134bd73a5c9aec2e",
 "flutter.js": "0b19a3d1d54c58174c41cd35acdd9388",
-"index.html": "a8b77c96b3b143f05bbdd9151b568a13",
-"/": "a8b77c96b3b143f05bbdd9151b568a13",
+"index.html": "45dffacb78848a8da8353cae59379209",
+"/": "45dffacb78848a8da8353cae59379209",
 "favicon.svg": "e3705092462d2b2496639de952f5f58a",
 "index.css": "aa72abe99f1f3be3fe3c418b6019a845",
-"main.dart.js": "74ffcbb4ceca6f6e0c08423b25f794f8",
+"main.dart.js": "e870c3bcc341deff6b5ea3f533d9e34d",
 "index.mjs": "b7d21967ddeecce567fd8098acbb70df"};
 // The application shell files that are downloaded before a service worker can
 // start.
