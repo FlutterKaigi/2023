@@ -1,5 +1,4 @@
 import 'package:confwebsite2023/core/components/social_share.dart';
-import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_introduction.dart';
@@ -13,6 +12,10 @@ final class SponsorDetailContent extends StatelessWidget {
     required this.sponsor,
     required this.h1TextStyle,
     required this.h2TextStyle,
+    required this.logoWidth,
+    required this.padding,
+    required this.contentGap,
+    required this.sectionGap,
     required this.onTweetPressed,
     required this.onCopyUrlPressed,
     super.key,
@@ -22,11 +25,18 @@ final class SponsorDetailContent extends StatelessWidget {
 
   final TextStyle h1TextStyle;
   final TextStyle h2TextStyle;
+  final double logoWidth;
+  final double padding;
+  final double contentGap;
+  final double sectionGap;
   final VoidCallback? onTweetPressed;
   final VoidCallback? onCopyUrlPressed;
 
   @override
   Widget build(BuildContext context) {
+    final contentVerticalGap = SizedBox(height: contentGap);
+    final sectionVerticalGap = SizedBox(height: sectionGap);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -38,7 +48,7 @@ final class SponsorDetailContent extends StatelessWidget {
             onCopyUrlPressed: onCopyUrlPressed,
           ),
         ),
-        Spaces.vertical_20,
+        contentVerticalGap,
         Container(
           width: double.infinity,
           decoration: const BoxDecoration(
@@ -46,7 +56,7 @@ final class SponsorDetailContent extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(12)),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(40),
+            padding: EdgeInsets.all(padding),
             child: Column(
               children: [
                 switch (sponsor.plan) {
@@ -60,18 +70,20 @@ final class SponsorDetailContent extends StatelessWidget {
                       text: 'Silver Sponsor',
                     ),
                 },
+                sectionVerticalGap,
                 Column(
                   children: [
                     SponsorIntroduction(
                       assetName: sponsor.logoAssetName,
+                      logoWidth: logoWidth,
                       name: sponsor.displayName,
                       url: sponsor.url,
                       introduction: sponsor.introduction,
                     ),
-                    Spaces.vertical_40,
+                    sectionVerticalGap,
                     if (sponsor.session != null) ...[
                       const Divider(height: 1),
-                      Spaces.vertical_40,
+                      sectionVerticalGap,
                       SponsorSessionSection(session: sponsor.session!),
                     ],
                   ],
@@ -80,7 +92,7 @@ final class SponsorDetailContent extends StatelessWidget {
             ),
           ),
         ),
-        Spaces.vertical_20,
+        contentVerticalGap,
         SizedBox(
           width: double.infinity,
           child: SocialShare(
