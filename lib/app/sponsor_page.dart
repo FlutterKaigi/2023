@@ -8,13 +8,20 @@ import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:js/js_util.dart' as js_util;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final class SponsorPage extends HookWidget {
+part 'sponsor_page.g.dart';
+
+@riverpod
+String sponsorName(SponsorNameRef ref) => throw UnimplementedError();
+
+final class SponsorPage extends HookConsumerWidget {
   const SponsorPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
 
     const sectionKeys = (
