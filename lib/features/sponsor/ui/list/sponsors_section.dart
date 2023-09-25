@@ -1,8 +1,8 @@
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme/dimension.dart';
-import 'package:confwebsite2023/features/sponsor/ui/sponsor_logo_cards.dart';
+import 'package:confwebsite2023/features/sponsor/ui/list/sponsor_logo_cards.dart';
 import 'package:confwebsite2023/features/sponsor/ui/sponsor_plan_header.dart';
-import 'package:confwebsite2023/features/sponsor/ui/sponsors_header.dart';
+import 'package:confwebsite2023/features/sponsor/ui/list/sponsors_header.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

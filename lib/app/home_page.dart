@@ -11,7 +11,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
-import 'package:confwebsite2023/features/sponsor/ui/sponsors_section.dart';
+import 'package:confwebsite2023/features/sponsor/ui/list/sponsors_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:confwebsite2023/features/ticket/ui/ticket_section.dart';
