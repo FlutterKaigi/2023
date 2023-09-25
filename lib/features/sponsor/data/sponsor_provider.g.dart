@@ -8,21 +8,7 @@ part of 'sponsor_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sponsorsHash() => r'a6254993ff1fc8e671a043c8aa2a0eb9df3c648e';
-
-/// See also [sponsors].
-@ProviderFor(sponsors)
-final sponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
-  sponsors,
-  name: r'sponsorsProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$sponsorsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef SponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
-String _$sponsorHash() => r'5417463db69173e5648d78be4ca790e14a145423';
+String _$sponsorHash() => r'7836857d08c69dcd95a337122f26f729a48d481b';
 
 /// Copied from Dart SDK
 class _SystemHash {
