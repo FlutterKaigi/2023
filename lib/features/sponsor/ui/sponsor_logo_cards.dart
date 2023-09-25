@@ -1,3 +1,5 @@
+import 'package:confwebsite2023/core/gen/assets.gen.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
@@ -51,11 +53,20 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     final sponsorCards = sponsors.map((s) {
+      final Widget logo;
+      if (s.logoAssetName == Assets.sponsors.cyberagent.keyName ||
+          s.logoAssetName == Assets.sponsors.harmo.keyName ||
+          s.logoAssetName == Assets.sponsors.recruit.keyName) {
+        logo = Image.asset(
+          s.logoAssetName,
+          fit: BoxFit.contain,
+        );
+      } else {
+        logo = SvgPicture.asset(s.logoAssetName);
+      }
       return Card(
-        color: theme.colorScheme.surfaceVariant,
+        color: baselineColorScheme.black,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
@@ -63,7 +74,7 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
           size: cardSize,
           child: Padding(
             padding: EdgeInsets.all(cardPadding),
-            child: SvgPicture.asset(s.logoAssetName),
+            child: logo,
           ),
         ),
       );

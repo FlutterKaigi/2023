@@ -134,7 +134,7 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         name: 'cyberagent',
         displayName: '株式会社サイバーエージェント',
         url: 'https://www.cyberagent.co.jp/',
-        logoAssetName: Assets.sponsors.cyberagent,
+        logoAssetName: Assets.sponsors.cyberagent.keyName,
         plan: SponsorPlan.silver,
         session: null,
         introduction:
@@ -164,7 +164,7 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         name: 'harmo',
         displayName: 'harmo株式会社',
         url: 'https://www.harmo.biz/',
-        logoAssetName: Assets.sponsors.harmo,
+        logoAssetName: Assets.sponsors.harmo.keyName,
         plan: SponsorPlan.silver,
         session: null,
         introduction:
@@ -200,7 +200,7 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         name: 'recruit',
         displayName: '株式会社リクルート',
         url: 'https://www.recruit.co.jp/',
-        logoAssetName: Assets.sponsors.recruit,
+        logoAssetName: Assets.sponsors.recruit.keyName,
         plan: SponsorPlan.silver,
         session: null,
       ),

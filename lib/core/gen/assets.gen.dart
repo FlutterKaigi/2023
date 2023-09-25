@@ -50,8 +50,9 @@ class $AssetsSponsorsGen {
   /// File path: assets/sponsors/bitkey.svg
   String get bitkey => 'assets/sponsors/bitkey.svg';
 
-  /// File path: assets/sponsors/cyberagent.svg
-  String get cyberagent => 'assets/sponsors/cyberagent.svg';
+  /// File path: assets/sponsors/cyberagent.png
+  AssetGenImage get cyberagent =>
+      const AssetGenImage('assets/sponsors/cyberagent.png');
 
   /// File path: assets/sponsors/demaecan.svg
   String get demaecan => 'assets/sponsors/demaecan.svg';
@@ -65,8 +66,8 @@ class $AssetsSponsorsGen {
   /// File path: assets/sponsors/flutter.svg
   String get flutter => 'assets/sponsors/flutter.svg';
 
-  /// File path: assets/sponsors/harmo.svg
-  String get harmo => 'assets/sponsors/harmo.svg';
+  /// File path: assets/sponsors/harmo.png
+  AssetGenImage get harmo => const AssetGenImage('assets/sponsors/harmo.png');
 
   /// File path: assets/sponsors/layerx.svg
   String get layerx => 'assets/sponsors/layerx.svg';
@@ -83,8 +84,9 @@ class $AssetsSponsorsGen {
   /// File path: assets/sponsors/pioneer.svg
   String get pioneer => 'assets/sponsors/pioneer.svg';
 
-  /// File path: assets/sponsors/recruit.svg
-  String get recruit => 'assets/sponsors/recruit.svg';
+  /// File path: assets/sponsors/recruit.png
+  AssetGenImage get recruit =>
+      const AssetGenImage('assets/sponsors/recruit.png');
 
   /// File path: assets/sponsors/studyplus.svg
   String get studyplus => 'assets/sponsors/studyplus.svg';
@@ -102,7 +104,7 @@ class $AssetsSponsorsGen {
   String get yumemi => 'assets/sponsors/yumemi.svg';
 
   /// List of all assets
-  List<String> get values => [
+  List<dynamic> get values => [
         bitkey,
         cyberagent,
         demaecan,
