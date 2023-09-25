@@ -1,8 +1,6 @@
-import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
-import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
