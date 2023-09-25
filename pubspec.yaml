@@ -50,6 +50,7 @@ flutter:
   assets:
     - .env
     - assets/icons/
+    - assets/sponsors/
     - assets/
 
 flutter_gen:
