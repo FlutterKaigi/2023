@@ -36,6 +36,7 @@ jobs:
             --web-renderer html \
             --dart-define-from-file flavor/production.json \
             --base-href "/2023/" \
+            -o build/web/2023
             --release
 
       - name: Publish to Cloudflare Pages
