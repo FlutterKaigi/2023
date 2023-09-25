@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ final class SponsorLogoCards extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final sponsors = allSponsors.where((s) => s.plan == _plan).toList();
+    final sponsors = ref.watch(sponsorsProvider(_plan));
 
     final cardSize = switch (_plan) {
       SponsorPlan.platinum => const Size(320, 160),

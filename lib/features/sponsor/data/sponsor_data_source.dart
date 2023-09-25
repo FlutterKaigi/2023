@@ -8,21 +8,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'sponsor_data_source.g.dart';
 
-@Riverpod(keepAlive: true)
-SponsorDataSource sponsorDataSource(SponsorDataSourceRef ref) =>
-    SponsorDataSource();
-
-final class SponsorDataSource {
-  List<Sponsor> fetchSponsors() {
-    return [
-      ..._platinumSponsors,
-      ..._goldSponsors,
-      ..._silverSponsors,
-    ];
-  }
+@riverpod
+List<Sponsor> sponsors(SponsorsRef ref, SponsorPlan plan) {
+  return switch (plan) {
+    SponsorPlan.platinum => ref.watch(_platinumSponsorsProvider),
+    SponsorPlan.gold => ref.watch(_goldSponsorsProvider),
+    SponsorPlan.silver => ref.watch(_silverSponsorsProvider),
+  };
 }
 
-final _platinumSponsors = [
+@riverpod
+List<Sponsor> _platinumSponsors(_PlatinumSponsorsRef ref) => [
   Sponsor(
     name: 'demaecan',
     displayName: '株式会社出前館',
@@ -69,7 +65,8 @@ final _platinumSponsors = [
   ),
 ];
 
-final _goldSponsors = [
+@riverpod
+List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
   Sponsor(
     name: 'bitkey',
     displayName: '株式会社ビットキー',
@@ -120,7 +117,8 @@ final _goldSponsors = [
   ),
 ];
 
-final _silverSponsors = [
+@riverpod
+List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
   Sponsor(
     name: 'cyberagent',
     displayName: '株式会社サイバーエージェント',
