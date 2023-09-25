@@ -1,3 +1,4 @@
+name: Publish to Cloudflare Pages
 on:
   push:
     branches:
