@@ -8,11 +8,11 @@ part of 'sponsor_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sponsorsHash() => r'd918d840139ddd7ed5a2a2fdad722095fe3c46e6';
+String _$sponsorsHash() => r'a6254993ff1fc8e671a043c8aa2a0eb9df3c648e';
 
 /// See also [sponsors].
 @ProviderFor(sponsors)
-final sponsorsProvider = AutoDisposeFutureProvider<List<Sponsor>>.internal(
+final sponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
   sponsors,
   name: r'sponsorsProvider',
   debugGetCreateSourceHash:
@@ -21,8 +21,8 @@ final sponsorsProvider = AutoDisposeFutureProvider<List<Sponsor>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef SponsorsRef = AutoDisposeFutureProviderRef<List<Sponsor>>;
-String _$sponsorHash() => r'd258b678c979c5c0d98a9e6a62d5d29e1489105a';
+typedef SponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
+String _$sponsorHash() => r'5417463db69173e5648d78be4ca790e14a145423';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -45,14 +45,14 @@ class _SystemHash {
   }
 }
 
-typedef SponsorRef = AutoDisposeFutureProviderRef<Sponsor?>;
+typedef SponsorRef = AutoDisposeProviderRef<Sponsor?>;
 
 /// See also [sponsor].
 @ProviderFor(sponsor)
 const sponsorProvider = SponsorFamily();
 
 /// See also [sponsor].
-class SponsorFamily extends Family<AsyncValue<Sponsor?>> {
+class SponsorFamily extends Family<Sponsor?> {
   /// See also [sponsor].
   const SponsorFamily();
 
@@ -90,7 +90,7 @@ class SponsorFamily extends Family<AsyncValue<Sponsor?>> {
 }
 
 /// See also [sponsor].
-class SponsorProvider extends AutoDisposeFutureProvider<Sponsor?> {
+class SponsorProvider extends AutoDisposeProvider<Sponsor?> {
   /// See also [sponsor].
   SponsorProvider(
     this.name,

@@ -11,7 +11,7 @@ SponsorDataSource sponsorDataSource(SponsorDataSourceRef ref) =>
     SponsorDataSource();
 
 final class SponsorDataSource {
-  Future<List<Sponsor>> fetchSponsors() async {
+  List<Sponsor> fetchSponsors() {
     return [
       ..._platinumSponsors,
       ..._goldSponsors,

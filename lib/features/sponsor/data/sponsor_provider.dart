@@ -6,11 +6,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'sponsor_provider.g.dart';
 
 @riverpod
-Future<List<Sponsor>> sponsors(SponsorsRef ref) =>
+List<Sponsor> sponsors(SponsorsRef ref) =>
     ref.watch(sponsorDataSourceProvider).fetchSponsors();
 
 @riverpod
-Future<Sponsor?> sponsor(SponsorRef ref, String name) async {
-  final sponsors = await ref.watch(sponsorsProvider.future);
+Sponsor? sponsor(SponsorRef ref, String name) {
+  final sponsors = ref.watch(sponsorsProvider);
   return sponsors.firstWhereOrNull((element) => name == element.name);
 }
