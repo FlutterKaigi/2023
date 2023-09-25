@@ -71,11 +71,11 @@ class $AssetsSponsorsGen {
   /// File path: assets/sponsors/layerx.svg
   String get layerx => 'assets/sponsors/layerx.svg';
 
-  /// File path: assets/sponsors/m3.svg
-  String get m3 => 'assets/sponsors/m3.svg';
-
   /// File path: assets/sponsors/magicpod.svg
   String get magicpod => 'assets/sponsors/magicpod.svg';
+
+  /// File path: assets/sponsors/mthree.svg
+  String get mthree => 'assets/sponsors/mthree.svg';
 
   /// File path: assets/sponsors/navitime.svg
   String get navitime => 'assets/sponsors/navitime.svg';
@@ -111,8 +111,8 @@ class $AssetsSponsorsGen {
         flutter,
         harmo,
         layerx,
-        m3,
         magicpod,
+        mthree,
         navitime,
         pioneer,
         recruit,

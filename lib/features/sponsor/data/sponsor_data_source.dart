@@ -173,7 +173,7 @@ final _silverSponsors = [
     name: 'm3',
     displayName: 'エムスリー株式会社',
     url: 'https://corporate.m3.com/',
-    logoAssetName: Assets.sponsors.m3,
+    logoAssetName: Assets.sponsors.mthree,
     plan: SponsorPlan.silver,
     session: null,
   ),
