@@ -14,7 +14,7 @@ final class TweetButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Link(
         uri: Uri.parse(
-          'https://twitter.com/share?text=$shareUrl&hashtags=flutterkaigi&via=FlutterKaigi',
+          'https://twitter.com/share?url=$shareUrl&hashtags=flutterkaigi&via=FlutterKaigi',
         ),
         target: LinkTarget.blank,
         builder: (context, openLink) {
