@@ -46,6 +46,7 @@ final class SponsorsSection extends ConsumerWidget {
     );
 
     return const Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SponsorSectionHeader('Sponsors'),
         verticalGapBelowTitles,
