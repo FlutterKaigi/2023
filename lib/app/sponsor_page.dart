@@ -3,13 +3,9 @@ import 'dart:math';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
-import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
-import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:js/js_util.dart' as js_util;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'sponsor_page.g.dart';
@@ -22,47 +18,15 @@ final class SponsorPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final scrollController = useScrollController();
-
-    const sectionKeys = (
-      event: GlobalObjectKey('eventSectionKey'),
-      session: GlobalObjectKey('sessionSectionKey'),
-      sponsor: GlobalObjectKey('sponsorSectionKey'),
-      staff: GlobalObjectKey('staffSectionKey'),
-    );
-
-    final items = <HeaderItemButtonData>[
-      HeaderItemButtonData(
-        title: 'Staff',
-        onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.staff.currentContext!,
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 750),
-        ),
-      ),
-    ];
-
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
-      body: _MainPageBody(
-        scrollController: scrollController,
-        staffSectionKey: sectionKeys.staff,
-        items: items,
-      ),
+      body: const _MainPageBody(),
     );
   }
 }
 
 class _MainPageBody extends StatelessWidget {
-  const _MainPageBody({
-    required this.scrollController,
-    required this.staffSectionKey,
-    required this.items,
-  });
-
-  final ScrollController scrollController;
-  final GlobalKey<State<StatefulWidget>> staffSectionKey;
-  final List<HeaderItemButtonData> items;
+  const _MainPageBody();
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +36,6 @@ class _MainPageBody extends StatelessWidget {
     final padding = EdgeInsets.symmetric(
       horizontal: horizontal,
     );
-
-    js_util.callMethod<void>(js_util.globalThis, '_show', []);
 
     return Stack(
       children: [
@@ -94,18 +56,10 @@ class _MainPageBody extends StatelessWidget {
           ),
         ),
         CustomScrollView(
-          controller: scrollController,
           slivers: [
             _Sliver(
               padding: padding,
-              child: HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
-                ),
-              ),
+              child: const Placeholder(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_30,
