@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
@@ -65,16 +66,24 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
       } else {
         logo = SvgPicture.asset(s.logoAssetName);
       }
+
+      final cardBorderRadius = BorderRadius.circular(8);
       return Card(
         color: baselineColorScheme.black,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: cardBorderRadius,
         ),
-        child: SizedBox.fromSize(
-          size: cardSize,
-          child: Padding(
-            padding: EdgeInsets.all(cardPadding),
-            child: logo,
+        child: InkWell(
+          borderRadius: cardBorderRadius,
+          onTap: () {
+            SponsorPageRoute(name: s.name).go(context);
+          },
+          child: SizedBox.fromSize(
+            size: cardSize,
+            child: Padding(
+              padding: EdgeInsets.all(cardPadding),
+              child: logo,
+            ),
           ),
         ),
       );

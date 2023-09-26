@@ -4,7 +4,7 @@ import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_introduction.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_session.dart';
 import 'package:confwebsite2023/features/sponsor/ui/sponsor_plan_header.dart';
-import 'package:confwebsite2023/features/sponsor/ui/sponsors_header.dart';
+import 'package:confwebsite2023/features/sponsor/ui/sponsor_section_header.dart';
 import 'package:flutter/material.dart';
 
 final class SponsorDetailContent extends StatelessWidget {
@@ -40,7 +40,7 @@ final class SponsorDetailContent extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SponsorsHeader(),
+        const SponsorSectionHeader('Sponsor'),
         SizedBox(
           width: double.infinity,
           child: SocialShare(

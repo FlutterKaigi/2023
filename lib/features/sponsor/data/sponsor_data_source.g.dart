@@ -155,7 +155,7 @@ final _goldSponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
 );
 
 typedef _GoldSponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
-String _$silverSponsorsHash() => r'ccfaeeb98446f2c906ea28f63e381774ab4bd97c';
+String _$silverSponsorsHash() => r'00ce24d35dba5fe132f6cf9f7695aa8b4c075cb9';
 
 /// See also [_silverSponsors].
 @ProviderFor(_silverSponsors)

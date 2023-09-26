@@ -1,5 +1,5 @@
 import 'package:confwebsite2023/app/config.dart';
-import 'package:confwebsite2023/app/home_page.dart';
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -11,14 +11,15 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final config = ref.watch(configProvider);
-    return MaterialApp(
+    final router = ref.watch(routerProvider);
+    return MaterialApp.router(
       title: config.appTitle,
       theme: lightTheme, // Specified but not used
       darkTheme: darkTheme,
       themeMode: ThemeMode.dark,
-      home: const MainPage(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      routerConfig: router,
     );
   }
 }
