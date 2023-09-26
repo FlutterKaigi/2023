@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
@@ -35,7 +36,8 @@ final class SponsorDetailContent extends StatelessWidget {
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
 
-    final currentUrl = Uri.base.toString();
+    final route = SponsorPageRoute(name: sponsor.name);
+    final shareUrl = Uri.base.origin + route.location;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +46,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            shareUrl: currentUrl,
+            shareUrl: shareUrl,
           ),
         ),
         contentVerticalGap,
@@ -96,7 +98,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            shareUrl: currentUrl,
+            shareUrl: shareUrl,
           ),
         ),
       ],
