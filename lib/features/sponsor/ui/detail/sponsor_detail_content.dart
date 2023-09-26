@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
@@ -17,8 +18,6 @@ final class SponsorDetailContent extends StatelessWidget {
     required this.padding,
     required this.contentGap,
     required this.sectionGap,
-    required this.onTweetPressed,
-    required this.onCopyUrlPressed,
     super.key,
   });
 
@@ -31,13 +30,14 @@ final class SponsorDetailContent extends StatelessWidget {
   final double padding;
   final double contentGap;
   final double sectionGap;
-  final VoidCallback? onTweetPressed;
-  final VoidCallback? onCopyUrlPressed;
 
   @override
   Widget build(BuildContext context) {
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
+
+    final route = SponsorPageRoute(name: sponsor.name);
+    final shareUrl = Uri.base.origin + route.location;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,8 +46,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            onTweetPressed: onTweetPressed,
-            onCopyUrlPressed: onCopyUrlPressed,
+            shareUrl: shareUrl,
           ),
         ),
         contentVerticalGap,
@@ -99,8 +98,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            onTweetPressed: onTweetPressed,
-            onCopyUrlPressed: onCopyUrlPressed,
+            shareUrl: shareUrl,
           ),
         ),
       ],
