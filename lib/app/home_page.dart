@@ -37,14 +37,13 @@ class MainPage extends HookWidget {
     const headerBarKey = GlobalObjectKey('headerBarKey');
 
     Future<void> scrollToSection(GlobalKey key) async {
-      final height = MediaQuery.sizeOf(context).height;
-      // headerbar の高さ
-      final headerBarHeight = headerBarKey.currentContext!.size!.height;
-      // 画面全体に対する HeaderBarの高さの割合
-      final ratioOfHeaderBar = headerBarHeight / height;
+      final displayHeight = MediaQuery.sizeOf(context).height;
+      final targetWidgetHeight = key.currentContext!.size!.height;
+      final alignment = kToolbarHeight / (displayHeight - targetWidgetHeight);
+
       return Scrollable.ensureVisible(
         key.currentContext!,
-        alignment: ratioOfHeaderBar,
+        alignment: alignment,
         curve: Curves.easeOutCirc,
         duration: const Duration(milliseconds: 750),
       );
