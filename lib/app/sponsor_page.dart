@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
+import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -59,7 +60,7 @@ class _MainPageBody extends StatelessWidget {
           slivers: [
             _Sliver(
               padding: padding,
-              child: const Placeholder(),
+              child: const LogoOnlyHeaderBar(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_30,
