@@ -13,6 +13,7 @@ final class SponsorDetailContent extends StatelessWidget {
     required this.h1TextStyle,
     required this.h2TextStyle,
     required this.cardWidth,
+    required this.cardPadding,
     required this.padding,
     required this.contentGap,
     required this.sectionGap,
@@ -26,6 +27,7 @@ final class SponsorDetailContent extends StatelessWidget {
   final TextStyle h1TextStyle;
   final TextStyle h2TextStyle;
   final double cardWidth;
+  final double cardPadding;
   final double padding;
   final double contentGap;
   final double sectionGap;
@@ -76,6 +78,7 @@ final class SponsorDetailContent extends StatelessWidget {
                     SponsorIntroduction(
                       assetName: sponsor.logoAssetName,
                       cardWidth: cardWidth,
+                      cardPadding: cardPadding,
                       name: sponsor.displayName,
                       url: sponsor.url,
                       introduction: sponsor.introduction,

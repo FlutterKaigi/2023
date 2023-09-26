@@ -7,6 +7,7 @@ final class SponsorIntroduction extends StatelessWidget {
   const SponsorIntroduction({
     required this.assetName,
     required this.cardWidth,
+    required this.cardPadding,
     required this.name,
     required this.url,
     required this.introduction,
@@ -15,6 +16,7 @@ final class SponsorIntroduction extends StatelessWidget {
 
   final String assetName;
   final double cardWidth;
+  final double cardPadding;
   final String name;
   final String url;
   final String introduction;
