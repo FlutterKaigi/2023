@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "wrangler pages dev --compatibility-date=2023-09-04 ./pages",
+    "deploy": "flutter build web --dart-define-from-file=flavor/production.json --web-renderer html --release -o api/pages/ && wrangler pages deploy ./pages"
+  },
+  "dependencies": {
+    "hono": "^3.7.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230914.0",
+    "wrangler": "^3.9.0"
+  }
+}
