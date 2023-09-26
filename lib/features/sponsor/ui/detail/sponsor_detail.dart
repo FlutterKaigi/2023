@@ -43,8 +43,6 @@ final class SponsorDetail extends ConsumerWidget {
         padding: 40,
         contentGap: 20,
         sectionGap: 40,
-        onTweetPressed: () {},
-        onCopyUrlPressed: () {},
       ),
       smallWidget: SponsorDetailContent(
         sponsor: sponsor,
@@ -55,8 +53,6 @@ final class SponsorDetail extends ConsumerWidget {
         padding: 16,
         contentGap: 16,
         sectionGap: 24,
-        onTweetPressed: () {},
-        onCopyUrlPressed: () {},
       ),
     );
   }

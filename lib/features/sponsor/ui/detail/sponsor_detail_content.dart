@@ -17,8 +17,6 @@ final class SponsorDetailContent extends StatelessWidget {
     required this.padding,
     required this.contentGap,
     required this.sectionGap,
-    required this.onTweetPressed,
-    required this.onCopyUrlPressed,
     super.key,
   });
 
@@ -31,13 +29,13 @@ final class SponsorDetailContent extends StatelessWidget {
   final double padding;
   final double contentGap;
   final double sectionGap;
-  final VoidCallback? onTweetPressed;
-  final VoidCallback? onCopyUrlPressed;
 
   @override
   Widget build(BuildContext context) {
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
+
+    final currentUrl = Uri.base.toString();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,8 +44,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            onTweetPressed: onTweetPressed,
-            onCopyUrlPressed: onCopyUrlPressed,
+            shareUrl: currentUrl,
           ),
         ),
         contentVerticalGap,
@@ -99,8 +96,7 @@ final class SponsorDetailContent extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: SocialShare(
-            onTweetPressed: onTweetPressed,
-            onCopyUrlPressed: onCopyUrlPressed,
+            shareUrl: currentUrl,
           ),
         ),
       ],

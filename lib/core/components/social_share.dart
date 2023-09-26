@@ -4,15 +4,13 @@ import 'package:flutter/material.dart';
 
 final class SocialShare extends StatelessWidget {
   const SocialShare({
-    required this.onTweetPressed,
-    required this.onCopyUrlPressed,
+    required this.shareUrl,
     this.alignment = WrapAlignment.end,
     super.key,
   });
 
   final WrapAlignment alignment;
-  final VoidCallback? onTweetPressed;
-  final VoidCallback? onCopyUrlPressed;
+  final String shareUrl;
 
   @override
   Widget build(BuildContext context) => Wrap(
@@ -21,10 +19,10 @@ final class SocialShare extends StatelessWidget {
         runSpacing: 10,
         children: [
           TweetButton(
-            onPressed: onTweetPressed,
+            shareUrl: shareUrl,
           ),
           CopyUrlButton(
-            onPressed: onCopyUrlPressed,
+            shareUrl: shareUrl,
           ),
         ],
       );
