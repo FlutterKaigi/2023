@@ -6,6 +6,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/flutter_kaigi_sns_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HeaderBar extends HookWidget implements PreferredSizeWidget {
@@ -229,4 +230,51 @@ class _DrawerScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class LogoOnlyHeaderBar extends StatelessWidget implements PreferredSizeWidget {
+  const LogoOnlyHeaderBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final logo = TextButton(
+      onPressed: () => context.pop(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: ResponsiveWidget(
+          largeWidget: FlutterKaigiLogo(
+            style: FlutterKaigiLogoStyle.horizontal,
+            size: 36,
+            iconColor: baselineColorScheme.ref.secondary.secondary80,
+            textStyle: GoogleFonts.poppins(
+              color: baselineColorScheme.ref.secondary.secondary80,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              height: 1.5,
+            ),
+          ),
+          smallWidget: FlutterKaigiLogo(
+            style: FlutterKaigiLogoStyle.markOnly,
+            size: 36,
+            showGradient: false,
+            iconColor: baselineColorScheme.ref.secondary.secondary80,
+          ),
+        ),
+      ),
+    );
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
+      child: Center(
+        child: Row(
+          children: [
+            logo,
+            const Spacer(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size(double.infinity, kToolbarHeight);
 }
