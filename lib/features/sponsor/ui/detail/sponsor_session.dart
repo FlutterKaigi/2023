@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_session.dart';
@@ -18,11 +19,7 @@ final class SponsorSessionSection extends StatelessWidget {
 
     return Column(
       children: [
-        SectionHeader.leftAlignment(
-          text: 'Sponsor Session',
-          style: AppTextStyle.pcHeading2,
-          gradient: GradientConstant.accent.secoundary,
-        ),
+        const _SponsorSessionHeader(),
         Link(
           uri: Uri.parse(session.url),
           target: LinkTarget.blank,
@@ -51,6 +48,28 @@ final class SponsorSessionSection extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+final class _SponsorSessionHeader extends StatelessWidget {
+  const _SponsorSessionHeader();
+
+  @override
+  Widget build(BuildContext context) {
+    const title = 'Sponsor Session';
+    final gradient = GradientConstant.accent.secoundary;
+    return ResponsiveWidget(
+      largeWidget: SectionHeader.centerAlignment(
+        text: title,
+        style: AppTextStyle.pcHeading2,
+        gradient: gradient,
+      ),
+      smallWidget: SectionHeader.centerAlignment(
+        text: title,
+        style: AppTextStyle.spHeading2,
+        gradient: gradient,
+      ),
     );
   }
 }
