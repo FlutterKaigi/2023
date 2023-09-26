@@ -269,14 +269,22 @@ class LogoOnlyHeaderBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-      child: Center(
-        child: Row(
-          children: [
-            logo,
-            const Spacer(),
-          ],
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 16,
+          sigmaY: 16,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Center(
+            child: Row(
+              children: [
+                logo,
+                const Spacer(),
+              ],
+            ),
+          ),
         ),
       ),
     );
