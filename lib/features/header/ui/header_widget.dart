@@ -246,26 +246,23 @@ class LogoOnlyHeaderBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     final logo = TextButton(
       onPressed: () => context.pop(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: ResponsiveWidget(
-          largeWidget: FlutterKaigiLogo(
-            style: FlutterKaigiLogoStyle.horizontal,
-            size: 36,
-            iconColor: baselineColorScheme.ref.secondary.secondary80,
-            textStyle: GoogleFonts.poppins(
-              color: baselineColorScheme.ref.secondary.secondary80,
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-              height: 1.2,
-            ),
+      child: ResponsiveWidget(
+        largeWidget: FlutterKaigiLogo(
+          style: FlutterKaigiLogoStyle.horizontal,
+          size: 36,
+          iconColor: baselineColorScheme.ref.secondary.secondary80,
+          textStyle: GoogleFonts.poppins(
+            color: baselineColorScheme.ref.secondary.secondary80,
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            height: 1.2,
           ),
-          smallWidget: FlutterKaigiLogo(
-            style: FlutterKaigiLogoStyle.markOnly,
-            size: 36,
-            showGradient: false,
-            iconColor: baselineColorScheme.ref.secondary.secondary80,
-          ),
+        ),
+        smallWidget: FlutterKaigiLogo(
+          style: FlutterKaigiLogoStyle.markOnly,
+          size: 36,
+          showGradient: false,
+          iconColor: baselineColorScheme.ref.secondary.secondary80,
         ),
       ),
     );
