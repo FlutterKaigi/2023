@@ -1,6 +1,6 @@
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/link.dart';
 
 final class SponsorIntroduction extends StatelessWidget {
@@ -27,9 +27,10 @@ final class SponsorIntroduction extends StatelessWidget {
 
     return Column(
       children: [
-        SvgPicture.asset(
-          assetName,
-          width: cardWidth,
+        SponsorDetailLogoCard(
+          assetName: assetName,
+          cardWidth: cardWidth,
+          cardPadding: cardPadding,
         ),
         SizedBox(
           width: double.infinity,
