@@ -40,7 +40,8 @@ jobs:
           flutter build web \
             --web-renderer html \
             --dart-define-from-file flavor/production.json \
-            --release
+            --release \
+            -o api/pages/
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
@@ -48,5 +49,5 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: cdd8f59359fe226645e7b541cdc53b57
           projectName: flutterkaigi-2023
-          directory: build/web
+          directory: api/pages
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
