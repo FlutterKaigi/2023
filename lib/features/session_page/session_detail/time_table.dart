@@ -1,4 +1,3 @@
-import 'package:confwebsite2023/core/components/fortee_button.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
@@ -19,6 +18,7 @@ class ProposalDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
     return ColoredBox(
       color: theme.scaffoldBackgroundColor,
       child: Padding(
@@ -64,11 +64,27 @@ class ProposalDesktop extends StatelessWidget {
               ),
             ),
             Spaces.vertical_16,
-            ForteeButton(
-              onTap: () async {
-                final url = Uri.parse(sessionModel.forteeUrl);
-                await launchUrl(url);
-              },
+            SizedBox(
+              width: 132,
+              height: 40,
+              child: OutlinedButton(
+                onPressed: () async {
+                  final url = Uri.parse(sessionModel.forteeUrl);
+                  await launchUrl(url);
+                },
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
+                ),
+                child: Text(
+                  'Forteeで見る',
+                  style: textTheme.labelLarge!.copyWith(
+                    color: colorScheme.primary,
+                  ),
+                ),
+              ),
             ),
             Spaces.vertical_40,
             Divider(color: baselineColorScheme.ref.primary.primary50),
@@ -168,6 +184,7 @@ class ProposalMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
     return ColoredBox(
       color: theme.scaffoldBackgroundColor,
       child: Padding(
@@ -213,11 +230,27 @@ class ProposalMobile extends StatelessWidget {
               ),
             ),
             Spaces.vertical_16,
-            ForteeButton(
-              onTap: () async {
-                final url = Uri.parse(sessionModel.forteeUrl);
-                await launchUrl(url);
-              },
+            SizedBox(
+              width: 132,
+              height: 40,
+              child: OutlinedButton(
+                onPressed: () async {
+                  final url = Uri.parse(sessionModel.forteeUrl);
+                  await launchUrl(url);
+                },
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 10,
+                  ),
+                ),
+                child: Text(
+                  'Forteeで見る',
+                  style: textTheme.labelLarge!.copyWith(
+                    color: colorScheme.primary,
+                  ),
+                ),
+              ),
             ),
             Spaces.vertical_24,
             Divider(color: baselineColorScheme.ref.primary.primary50),
