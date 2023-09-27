@@ -11,9 +11,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SessionDetailDesktop extends HookWidget {
   const SessionDetailDesktop({
@@ -123,16 +121,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShare(
-                onCopyUrlPressed: () async {
-                  //TODO リンクを確認する
-                  final url = sessionModel.forteeUrl;
-                  await Clipboard.setData(ClipboardData(text: url));
-                },
-                onTweetPressed: () async {
-                  final url = Uri.parse(sessionModel.tweet);
-                  await launchUrl(url);
-                },
+              child: SocialShareWidget(
+                forteeUrl: sessionModel.forteeUrl,
+                tweetUrl: sessionModel.tweet,
               ),
             ),
             _Sliver(
@@ -151,16 +142,9 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShare(
-                onCopyUrlPressed: () async {
-                  //TODO リンクを確認する
-                  final url = sessionModel.forteeUrl;
-                  await Clipboard.setData(ClipboardData(text: url));
-                },
-                onTweetPressed: () async {
-                  final url = Uri.parse(sessionModel.tweet);
-                  await launchUrl(url);
-                },
+              child: SocialShareWidget(
+                forteeUrl: sessionModel.forteeUrl,
+                tweetUrl: sessionModel.tweet,
               ),
             ),
             _Sliver(
