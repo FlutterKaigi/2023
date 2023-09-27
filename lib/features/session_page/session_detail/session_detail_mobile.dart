@@ -4,7 +4,6 @@ import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
-import 'package:confwebsite2023/core/components/time_table.dart';
 import 'package:confwebsite2023/core/theme/app_text_style.dart';
 import 'package:confwebsite2023/core/theme/baseline_color_scheme.dart';
 import 'package:confwebsite2023/core/theme/dimension.dart';
@@ -13,6 +12,7 @@ import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
+import 'package:confwebsite2023/features/session_page/session_detail/time_table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
