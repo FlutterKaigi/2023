@@ -45,20 +45,6 @@ List<Sponsor> _platinumSponsors(_PlatinumSponsorsRef ref) => [
         ),
       ),
       Sponsor(
-        name: 'navitime',
-        displayName: '株式会社ナビタイムジャパン',
-        url: 'https://corporate.navitime.co.jp/',
-        logoAssetName: Assets.sponsors.navitime,
-        plan: SponsorPlan.platinum,
-        session: const SponsorSession(
-          id: '21abbd32-6864-487a-8066-c9d7f7e5e9be',
-          title: 'Add Material touch ripples',
-          url:
-              'https://fortee.jp/flutterkaigi-2023/proposal/21abbd32-6864-487a-8066-c9d7f7e5e9be',
-          scheduledAt: '2023年11月10日',
-        ),
-      ),
-      Sponsor(
         name: 'yumemi',
         displayName: '株式会社ゆめみ',
         url: 'https://www.yumemi.co.jp/',
@@ -73,6 +59,20 @@ List<Sponsor> _platinumSponsors(_PlatinumSponsorsRef ref) => [
         ),
         introduction:
             '6000万人のみんな知ってるあのサービスも、ゆめみが一緒に作ってます。大手企業や急成長スタートアップと共創型でWeb/スマホのサービス作りや内製化支援を行っています。【エンジニアが最も成長できる会社No.1】を目標にしています。',
+      ),
+      Sponsor(
+        name: 'navitime',
+        displayName: '株式会社ナビタイムジャパン',
+        url: 'https://corporate.navitime.co.jp/',
+        logoAssetName: Assets.sponsors.navitime,
+        plan: SponsorPlan.platinum,
+        session: const SponsorSession(
+          id: '21abbd32-6864-487a-8066-c9d7f7e5e9be',
+          title: 'Add Material touch ripples',
+          url:
+              'https://fortee.jp/flutterkaigi-2023/proposal/21abbd32-6864-487a-8066-c9d7f7e5e9be',
+          scheduledAt: '2023年11月10日',
+        ),
       ),
     ];
 
