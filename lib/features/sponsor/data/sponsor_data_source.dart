@@ -79,16 +79,6 @@ List<Sponsor> _platinumSponsors(_PlatinumSponsorsRef ref) => [
 @riverpod
 List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
       Sponsor(
-        name: 'bitkey',
-        displayName: '株式会社ビットキー',
-        url: 'https://bitkey.co.jp/',
-        logoAssetName: Assets.sponsors.bitkey,
-        plan: SponsorPlan.gold,
-        session: null,
-        introduction:
-            'ビットキーは、独自開発のデジタルコネクトプラットフォームを通して、人と「暮らし」や「仕事」の間にある分断を解消するスーパーアプリ/SaaSを開発しています。 あらゆるサービスやモノを柔軟につなげることで、体験のアップデートを進めています。',
-      ),
-      Sponsor(
         name: 'flutter',
         displayName: 'Flutter',
         url: 'https://flutter.dev/',
@@ -107,14 +97,14 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
             'MagicPodは、モバイルアプリテスト、ブラウザ(ウェブアプリ)テストの両方に対応した AIテスト自動化クラウドサービスです。 豊富な機能と高いメンテナンス性でリリースサイクルの高速化を支援します。',
       ),
       Sponsor(
-        name: '10x',
-        displayName: '株式会社10X',
-        url: 'https://10x.co.jp/',
-        logoAssetName: Assets.sponsors.tenx,
+        name: 'bitkey',
+        displayName: '株式会社ビットキー',
+        url: 'https://bitkey.co.jp/',
+        logoAssetName: Assets.sponsors.bitkey,
         plan: SponsorPlan.gold,
         session: null,
         introduction:
-            '10Xではモバイル・WebアプリでFlutterを、サーバーサイドではDartを利用しています。このように10XはFlutter・Dartに支えられており、今後も価値あるプロダクトを作り続ける上で重要な技術への支援・還元を行っていきます。',
+            'ビットキーは、独自開発のデジタルコネクトプラットフォームを通して、人と「暮らし」や「仕事」の間にある分断を解消するスーパーアプリ/SaaSを開発しています。 あらゆるサービスやモノを柔軟につなげることで、体験のアップデートを進めています。',
       ),
       Sponsor(
         name: 'youtrust',
@@ -125,6 +115,16 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         session: null,
         introduction:
             '「日本のモメンタムを上げる偉大な会社を創る」を掲げ、次世代のキャリア形成の文化を創っています。 信頼やつながりによって起こるコミュニケーションを通じて副業・転職といった機会につなげられるキャリアSNS『YOUTRUST』を開発しています。',
+      ),
+      Sponsor(
+        name: '10x',
+        displayName: '株式会社10X',
+        url: 'https://10x.co.jp/',
+        logoAssetName: Assets.sponsors.tenx,
+        plan: SponsorPlan.gold,
+        session: null,
+        introduction:
+            '10Xではモバイル・WebアプリでFlutterを、サーバーサイドではDartを利用しています。このように10XはFlutter・Dartに支えられており、今後も価値あるプロダクトを作り続ける上で重要な技術への支援・還元を行っていきます。',
       ),
     ];
 
