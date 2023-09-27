@@ -1,5 +1,4 @@
 import 'package:confwebsite2023/core/components/fortee_button.dart';
-import 'package:confwebsite2023/core/components/session_track.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
@@ -29,9 +28,14 @@ class ProposalDesktop extends StatelessWidget {
           children: [
             Row(
               children: [
-                SessionTrack(
-                  title: sessionModel.trackName,
-                  isMobile: true,
+                Chip(
+                  label: Text(
+                    sessionModel.trackName,
+                    style: textTheme.labelLarge!.copyWith(
+                      color: theme.colorScheme.onBackground,
+                    ),
+                  ),
+                  backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
                 Spaces.horizontal_16,
                 Text(
@@ -173,9 +177,14 @@ class ProposalMobile extends StatelessWidget {
           children: [
             Row(
               children: [
-                SessionTrack(
-                  title: sessionModel.trackName,
-                  isMobile: true,
+                Chip(
+                  label: Text(
+                    sessionModel.trackName,
+                    style: textTheme.labelLarge!.copyWith(
+                      color: theme.colorScheme.onBackground,
+                    ),
+                  ),
+                  backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
                 Spaces.horizontal_16,
                 Text(
