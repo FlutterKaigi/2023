@@ -20,8 +20,7 @@ class ProposalDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    return Container(
-      width: 1128,
+    return ColoredBox(
       color: theme.scaffoldBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(40),
@@ -165,9 +164,8 @@ class ProposalMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    return Container(
-      width: 1128,
-      color: Colors.black.withOpacity(0.35),
+    return ColoredBox(
+      color: theme.scaffoldBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
