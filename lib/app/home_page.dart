@@ -64,6 +64,10 @@ class MainPage extends HookWidget {
         onPressed: () async => scrollToSection(sectionKeys.event),
       ),
       HeaderItemButtonData(
+        title: 'Sponsor',
+        onPressed: () async => scrollToSection(sectionKeys.sponsor),
+      ),
+      HeaderItemButtonData(
         title: 'Staff',
         onPressed: () async => scrollToSection(sectionKeys.staff),
       ),
@@ -202,10 +206,11 @@ class _MainPageBody extends StatelessWidget {
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
             ),
-            // TODO: 公開日前の段階ではコメントアウトしておき、公開日にコメントインする
             _Sliver(
               padding: padding,
-              child: const SponsorsSection(),
+              child: SponsorsSection(
+                key: sectionKeys.sponsor,
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
