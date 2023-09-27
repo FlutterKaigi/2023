@@ -167,7 +167,7 @@ class ProposalMobile extends StatelessWidget {
     final textTheme = theme.textTheme;
     return Container(
       width: 1128,
-      color: theme.scaffoldBackgroundColor,
+      color: Colors.black.withOpacity(0.35),
       child: Padding(
         padding: const EdgeInsets.all(40),
         child: Column(
