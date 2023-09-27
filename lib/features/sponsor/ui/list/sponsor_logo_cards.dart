@@ -93,7 +93,7 @@ final class _StatelessSponsorLogoCards extends StatelessWidget {
       alignment: WrapAlignment.center,
       spacing: 24,
       runSpacing: 24,
-      children: sponsorCards,
+      children: RepaintBoundary.wrapAll(sponsorCards),
     );
   }
 }
