@@ -132,7 +132,7 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: ProposalDeskTop(
+              child: ProposalDesktop(
                 sessionModel: sessionModel,
               ),
             ),

@@ -8,8 +8,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProposalDeskTop extends StatelessWidget {
-  const ProposalDeskTop({
+class ProposalDesktop extends StatelessWidget {
+  const ProposalDesktop({
     required this.sessionModel,
     super.key,
   });
