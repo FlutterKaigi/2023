@@ -35,39 +35,37 @@ class MainPage extends HookWidget {
       sponsor: GlobalObjectKey('sponsorSectionKey'),
       staff: GlobalObjectKey('staffSectionKey'),
     );
+    const headerBarKey = GlobalObjectKey('headerBarKey');
+
+    Future<void> scrollToSection(GlobalKey key) async {
+      final displayHeight = MediaQuery.sizeOf(context).height;
+      final targetWidgetHeight = key.currentContext!.size!.height;
+      final alignment = kToolbarHeight / (displayHeight - targetWidgetHeight);
+
+      return Scrollable.ensureVisible(
+        key.currentContext!,
+        alignment: alignment,
+        curve: Curves.easeOutCirc,
+        duration: const Duration(milliseconds: 750),
+      );
+    }
 
     final items = <HeaderItemButtonData>[
       HeaderItemButtonData(
         title: 'Access',
-        onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.access.currentContext!,
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 750),
-        ),
-      ),
-      HeaderItemButtonData(
-        title: 'Event',
-        onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.event.currentContext!,
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 750),
-        ),
+        onPressed: () async => scrollToSection(sectionKeys.access),
       ),
       HeaderItemButtonData(
         title: 'Ticket',
-        onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.ticket.currentContext!,
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 750),
-        ),
+        onPressed: () async => scrollToSection(sectionKeys.ticket),
+      ),
+      HeaderItemButtonData(
+        title: 'Event',
+        onPressed: () async => scrollToSection(sectionKeys.event),
       ),
       HeaderItemButtonData(
         title: 'Staff',
-        onPressed: () async => Scrollable.ensureVisible(
-          sectionKeys.staff.currentContext!,
-          curve: Curves.easeOutCirc,
-          duration: const Duration(milliseconds: 750),
-        ),
+        onPressed: () async => scrollToSection(sectionKeys.staff),
       ),
     ];
 
@@ -78,6 +76,16 @@ class MainPage extends HookWidget {
         sectionKeys: sectionKeys,
         items: items,
       ),
+      appBar: HeaderBar(
+        items: items,
+        onTitleTap: () async => scrollController.animateTo(
+          0,
+          duration: const Duration(milliseconds: 750),
+          curve: Curves.easeOutCirc,
+        ),
+        key: headerBarKey,
+      ),
+      extendBodyBehindAppBar: true,
     );
   }
 }
@@ -132,19 +140,8 @@ class _MainPageBody extends StatelessWidget {
         CustomScrollView(
           controller: scrollController,
           slivers: [
-            _Sliver(
-              padding: padding,
-              child: HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
-                ),
-              ),
-            ),
             const SliverToBoxAdapter(
-              child: Spaces.vertical_30,
+              child: Spaces.vertical_40,
             ),
             _Sliver(
               padding: padding,

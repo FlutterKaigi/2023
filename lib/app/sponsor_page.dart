@@ -22,6 +22,8 @@ final class SponsorPage extends HookConsumerWidget {
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: const _MainPageBody(),
+      appBar: const LogoOnlyHeaderBar(),
+      extendBodyBehindAppBar: true,
     );
   }
 }
@@ -58,12 +60,8 @@ class _MainPageBody extends StatelessWidget {
         ),
         CustomScrollView(
           slivers: [
-            _Sliver(
-              padding: padding,
-              child: const LogoOnlyHeaderBar(),
-            ),
             const SliverToBoxAdapter(
-              child: Spaces.vertical_30,
+              child: Spaces.vertical_80,
             ),
             _Sliver(
               padding: padding,
