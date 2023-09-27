@@ -95,9 +95,7 @@ class ProposalDesktop extends StatelessWidget {
                 if (sessionModel.isSponsor)
                   //TODO 画像を表示できるか確認する
                   //TODO 画像のサイズを調整する
-                  SvgPicture.asset(sessionModel.sponsorImage!)
-                else
-                  const SizedBox(),
+                  SvgPicture.asset(sessionModel.sponsorImage!),
                 if (sessionModel.isSponsor)
                   Column(
                     children: [
@@ -107,9 +105,7 @@ class ProposalDesktop extends StatelessWidget {
                       ),
                       Spaces.vertical_16,
                     ],
-                  )
-                else
-                  const SizedBox(),
+                  ),
                 Row(
                   children: [
                     CircleAvatar(
@@ -258,9 +254,7 @@ class ProposalMobile extends StatelessWidget {
             if (sessionModel.isSponsor)
               //TODO 画像を表示できるか確認する
               //TODO 画像のサイズを調整する
-              SvgPicture.asset(sessionModel.sponsorImage!)
-            else
-              const SizedBox(),
+              SvgPicture.asset(sessionModel.sponsorImage!),
             if (sessionModel.isSponsor)
               Column(
                 children: [
@@ -270,9 +264,7 @@ class ProposalMobile extends StatelessWidget {
                   ),
                   Spaces.vertical_16,
                 ],
-              )
-            else
-              const SizedBox(),
+              ),
             Row(
               children: [
                 CircleAvatar(
