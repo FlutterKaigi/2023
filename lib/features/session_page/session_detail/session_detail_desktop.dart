@@ -8,30 +8,11 @@ import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:confwebsite2023/features/session_page/session_detail/time_table.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class SessionDetailDesktop extends HookWidget {
+class SessionDetailDesktop extends StatelessWidget {
   const SessionDetailDesktop({
     required this.sessionModel,
     super.key,
-  });
-
-  final SessionModel sessionModel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: baselineColorScheme.ref.secondary.secondary10,
-      body: _MainPageBody(
-        sessionModel: sessionModel,
-      ),
-    );
-  }
-}
-
-class _MainPageBody extends StatelessWidget {
-  const _MainPageBody({
-    required this.sessionModel,
   });
 
   final SessionModel sessionModel;
@@ -80,8 +61,10 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShare(
-                shareUrl: sessionModel.tweet,
+              child: const SocialShare(
+                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
+                //TODO 現在のページを設定する
+                shareUrl: '',
               ),
             ),
             _Sliver(
@@ -100,8 +83,10 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShare(
-                shareUrl: sessionModel.tweet,
+              child: const SocialShare(
+                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
+                //TODO 現在のページを設定する
+                shareUrl: '',
               ),
             ),
             _Sliver(
