@@ -113,7 +113,7 @@ class SessionPageRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return ProviderScope(
       overrides: [
-        sessionNameProvider.overrideWithValue(name),
+        sessionIdProvider.overrideWithValue(name),
       ],
       child: const SessionPage(),
     );

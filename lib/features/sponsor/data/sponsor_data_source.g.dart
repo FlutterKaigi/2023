@@ -126,7 +126,7 @@ final allSponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
 );
 
 typedef AllSponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
-String _$platinumSponsorsHash() => r'c9f61a7b3cd6128884d88c44f4f175dca9e7b3e1';
+String _$platinumSponsorsHash() => r'756f2f7e6630cd242ba4fd3514dae994f7102fa6';
 
 /// See also [_platinumSponsors].
 @ProviderFor(_platinumSponsors)
@@ -141,7 +141,7 @@ final _platinumSponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
 );
 
 typedef _PlatinumSponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
-String _$goldSponsorsHash() => r'f82802dbf8f547bddf061c622f042335e433f38d';
+String _$goldSponsorsHash() => r'e3407a4aa9413d5a3db7bc3fc4685f2f27fecfd9';
 
 /// See also [_goldSponsors].
 @ProviderFor(_goldSponsors)
@@ -155,7 +155,7 @@ final _goldSponsorsProvider = AutoDisposeProvider<List<Sponsor>>.internal(
 );
 
 typedef _GoldSponsorsRef = AutoDisposeProviderRef<List<Sponsor>>;
-String _$silverSponsorsHash() => r'00ce24d35dba5fe132f6cf9f7695aa8b4c075cb9';
+String _$silverSponsorsHash() => r'0a73049d49e5a78f852b39a7e424faf0ea191a76';
 
 /// See also [_silverSponsors].
 @ProviderFor(_silverSponsors)
