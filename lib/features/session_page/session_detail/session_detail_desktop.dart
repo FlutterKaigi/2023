@@ -1,13 +1,10 @@
 import 'dart:math';
 
-import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
-import 'package:confwebsite2023/features/header/data/header_item_button_data.dart';
-import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:confwebsite2023/features/session_page/session_detail/time_table.dart';
 import 'package:flutter/material.dart';
@@ -23,30 +20,9 @@ class SessionDetailDesktop extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = <HeaderItemButtonData>[
-      HeaderItemButtonData(
-        title: 'Staff',
-        onPressed: () async {
-          await Navigator.push<void>(
-            context,
-            MaterialPageRoute(builder: (context) => const MainPage()),
-          );
-        },
-      ),
-      HeaderItemButtonData(
-        title: 'Session',
-        onPressed: () async {
-          Navigator.pop(context);
-        },
-      ),
-    ];
-
-    final scrollController = useScrollController();
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: _MainPageBody(
-        scrollController: scrollController,
-        items: items,
         sessionModel: sessionModel,
       ),
     );
@@ -55,13 +31,9 @@ class SessionDetailDesktop extends HookWidget {
 
 class _MainPageBody extends StatelessWidget {
   const _MainPageBody({
-    required this.scrollController,
-    required this.items,
     required this.sessionModel,
   });
 
-  final ScrollController scrollController;
-  final List<HeaderItemButtonData> items;
   final SessionModel sessionModel;
 
   @override
@@ -90,22 +62,9 @@ class _MainPageBody extends StatelessWidget {
           ),
         ),
         CustomScrollView(
-          controller: scrollController,
           slivers: [
-            _Sliver(
-              padding: padding,
-              child: HeaderBar(
-                items: items,
-                onTitleTap: () async => scrollController.animateTo(
-                  0,
-                  duration: const Duration(milliseconds: 750),
-                  curve: Curves.easeOutCirc,
-                ),
-              ),
-            ),
-            _Sliver(
-              padding: padding,
-              child: Spaces.vertical_40,
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
             ),
             _Sliver(
               padding: padding,

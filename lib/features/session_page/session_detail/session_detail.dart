@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
+import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:confwebsite2023/features/session_page/session_detail/session_detail_desktop.dart';
 import 'package:confwebsite2023/features/session_page/session_detail/session_detail_mobile.dart';
@@ -14,9 +15,13 @@ class SessionDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget(
-      largeWidget: SessionDetailDesktop(sessionModel: sessionModel),
-      smallWidget: SessionDetailMobile(sessionModel: sessionModel),
+    return Scaffold(
+      appBar: const LogoOnlyHeaderBar(),
+      extendBodyBehindAppBar: true,
+      body: ResponsiveWidget(
+        largeWidget: SessionDetailDesktop(sessionModel: sessionModel),
+        smallWidget: SessionDetailMobile(sessionModel: sessionModel),
+      ),
     );
   }
 }
