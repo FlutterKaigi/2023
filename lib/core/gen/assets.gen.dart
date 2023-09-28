@@ -44,17 +44,103 @@ class $AssetsIconsGen {
       [copy, discord, dot, github, medium, note, qiita, twitter, zenn];
 }
 
+class $AssetsSponsorsGen {
+  const $AssetsSponsorsGen();
+
+  /// File path: assets/sponsors/bitkey.svg
+  String get bitkey => 'assets/sponsors/bitkey.svg';
+
+  /// File path: assets/sponsors/cyberagent.png
+  AssetGenImage get cyberagent =>
+      const AssetGenImage('assets/sponsors/cyberagent.png');
+
+  /// File path: assets/sponsors/demaecan.svg
+  String get demaecan => 'assets/sponsors/demaecan.svg';
+
+  /// File path: assets/sponsors/diverse.svg
+  String get diverse => 'assets/sponsors/diverse.svg';
+
+  /// File path: assets/sponsors/enechain.svg
+  String get enechain => 'assets/sponsors/enechain.svg';
+
+  /// File path: assets/sponsors/flutter.svg
+  String get flutter => 'assets/sponsors/flutter.svg';
+
+  /// File path: assets/sponsors/harmo.png
+  AssetGenImage get harmo => const AssetGenImage('assets/sponsors/harmo.png');
+
+  /// File path: assets/sponsors/layerx.svg
+  String get layerx => 'assets/sponsors/layerx.svg';
+
+  /// File path: assets/sponsors/magicpod.svg
+  String get magicpod => 'assets/sponsors/magicpod.svg';
+
+  /// File path: assets/sponsors/mthree.svg
+  String get mthree => 'assets/sponsors/mthree.svg';
+
+  /// File path: assets/sponsors/navitime.svg
+  String get navitime => 'assets/sponsors/navitime.svg';
+
+  /// File path: assets/sponsors/pioneer.svg
+  String get pioneer => 'assets/sponsors/pioneer.svg';
+
+  /// File path: assets/sponsors/recruit.png
+  AssetGenImage get recruit =>
+      const AssetGenImage('assets/sponsors/recruit.png');
+
+  /// File path: assets/sponsors/studyplus.svg
+  String get studyplus => 'assets/sponsors/studyplus.svg';
+
+  /// File path: assets/sponsors/tenx.svg
+  String get tenx => 'assets/sponsors/tenx.svg';
+
+  /// File path: assets/sponsors/tokyu.svg
+  String get tokyu => 'assets/sponsors/tokyu.svg';
+
+  /// File path: assets/sponsors/youtrust.svg
+  String get youtrust => 'assets/sponsors/youtrust.svg';
+
+  /// File path: assets/sponsors/yumemi.svg
+  String get yumemi => 'assets/sponsors/yumemi.svg';
+
+  /// List of all assets
+  List<dynamic> get values => [
+        bitkey,
+        cyberagent,
+        demaecan,
+        diverse,
+        enechain,
+        flutter,
+        harmo,
+        layerx,
+        magicpod,
+        mthree,
+        navitime,
+        pioneer,
+        recruit,
+        studyplus,
+        tenx,
+        tokyu,
+        youtrust,
+        yumemi
+      ];
+}
+
 class Assets {
   Assets._();
 
+  static const String illustrationConference =
+      'assets/Illustration-Conference.svg';
   static const String flutterkaigiLogoShadowed =
       'assets/flutterkaigi_logo_shadowed.svg';
   static const String flutterkaigiLogoUnion =
       'assets/flutterkaigi_logo_union.svg';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsSponsorsGen sponsors = $AssetsSponsorsGen();
 
   /// List of all assets
-  List<String> get values => [flutterkaigiLogoShadowed, flutterkaigiLogoUnion];
+  List<String> get values =>
+      [illustrationConference, flutterkaigiLogoShadowed, flutterkaigiLogoUnion];
 }
 
 class AssetGenImage {

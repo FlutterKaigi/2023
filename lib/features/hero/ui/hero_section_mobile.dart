@@ -74,6 +74,14 @@ class HeroSectionMobile extends StatelessWidget {
           ),
         ),
         Spaces.vertical_24,
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'in 株式会社ナビタイムジャパン',
+            style: textTheme.titleLarge,
+          ),
+        ),
+        Spaces.vertical_24,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(

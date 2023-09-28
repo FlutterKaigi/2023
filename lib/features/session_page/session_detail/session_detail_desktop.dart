@@ -121,9 +121,8 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShareWidget(
-                forteeUrl: sessionModel.forteeUrl,
-                tweetUrl: sessionModel.tweet,
+              child: SocialShare(
+                shareUrl: sessionModel.tweet,
               ),
             ),
             _Sliver(
@@ -142,9 +141,8 @@ class _MainPageBody extends StatelessWidget {
             ),
             _Sliver(
               padding: padding,
-              child: SocialShareWidget(
-                forteeUrl: sessionModel.forteeUrl,
-                tweetUrl: sessionModel.tweet,
+              child: SocialShare(
+                shareUrl: sessionModel.tweet,
               ),
             ),
             _Sliver(

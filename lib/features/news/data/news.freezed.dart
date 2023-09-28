@@ -41,7 +41,7 @@ abstract class $NewsCopyWith<$Res> {
       String? url,
       DateTime startedAt,
       @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-          DateTime? endedAt});
+      DateTime? endedAt});
 }
 
 /// @nodoc
@@ -94,7 +94,7 @@ abstract class _$$_NewsCopyWith<$Res> implements $NewsCopyWith<$Res> {
       String? url,
       DateTime startedAt,
       @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-          DateTime? endedAt});
+      DateTime? endedAt});
 }
 
 /// @nodoc
@@ -140,7 +140,7 @@ class _$_News implements _News {
       required this.url,
       required this.startedAt,
       @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-          required this.endedAt});
+      required this.endedAt});
 
   factory _$_News.fromJson(Map<String, dynamic> json) => _$$_NewsFromJson(json);
 
@@ -195,7 +195,7 @@ abstract class _News implements News {
       required final String? url,
       required final DateTime startedAt,
       @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-          required final DateTime? endedAt}) = _$_News;
+      required final DateTime? endedAt}) = _$_News;
 
   factory _News.fromJson(Map<String, dynamic> json) = _$_News.fromJson;
 

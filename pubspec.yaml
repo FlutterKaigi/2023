@@ -23,6 +23,7 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   freezed_annotation: ^2.2.0
+  go_router: ^11.0.0
   google_fonts: ^5.1.0
   hooks_riverpod: ^2.3.6
   http: ^1.0.0
@@ -40,6 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.3.5
+  go_router_builder: ^2.3.3
   json_serializable: ^6.7.0
   riverpod_generator: ^2.2.3
   riverpod_lint: ^1.3.2
@@ -50,6 +52,7 @@ flutter:
   assets:
     - .env
     - assets/icons/
+    - assets/sponsors/
     - assets/
 
 flutter_gen:

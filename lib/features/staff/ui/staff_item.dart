@@ -1,9 +1,9 @@
+import 'package:confwebsite2023/core/components/profile_image.dart';
 import 'package:confwebsite2023/core/foundation/iterable_ex.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/staff/data/staff.dart';
 import 'package:confwebsite2023/features/staff/ui/sns_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:url_launcher/link.dart';
 
 /// ! StaffItemのレイアウト変更時は、`features/staff/ui/staff_table.dart`の
@@ -19,23 +19,9 @@ class StaffItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final icon = SizedBox(
-      height: 120,
-      width: 120,
-      child: FittedBox(
-        child: ClipOval(
-          child: FadeInImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(staff.image.src),
-            placeholder: MemoryImage(kTransparentImage),
-            imageErrorBuilder: (_, __, ___) => const FittedBox(
-              child: Icon(
-                Icons.error,
-              ),
-            ),
-          ),
-        ),
-      ),
+    final icon = ProfileImage(
+      imageUrl: staff.image.src,
+      size: 120,
     );
     // IconButtonでは Material Designに基づいて 押しやすいサイズになっているが
     // ここでは ボタンの押しやすさより 1行に収めることを優先する

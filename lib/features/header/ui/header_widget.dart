@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:animations/animations.dart';
 import 'package:confwebsite2023/core/components/flutter_kaigi_logo.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
@@ -6,6 +8,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/flutter_kaigi_sns_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HeaderBar extends HookWidget implements PreferredSizeWidget {
@@ -27,10 +30,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         // SiteName
         TextButton(
           onPressed: onTitleTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4),
-            child: logo,
-          ),
+          child: logo,
         );
 
     final mobileBar = Row(
@@ -76,9 +76,9 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
               iconColor: baselineColorScheme.ref.secondary.secondary80,
               textStyle: GoogleFonts.poppins(
                 color: baselineColorScheme.ref.secondary.secondary80,
-                fontSize: 18,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
-                height: 1.5,
+                height: 1.2,
               ),
             ),
           ),
@@ -99,11 +99,19 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         ],
       ),
     );
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
-      child: ResponsiveWidget(
-        largeWidget: desktopBar,
-        smallWidget: mobileBar,
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 16,
+          sigmaY: 16,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: ResponsiveWidget(
+            largeWidget: desktopBar,
+            smallWidget: mobileBar,
+          ),
+        ),
       ),
     );
   }
@@ -229,4 +237,56 @@ class _DrawerScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class LogoOnlyHeaderBar extends StatelessWidget implements PreferredSizeWidget {
+  const LogoOnlyHeaderBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final logo = TextButton(
+      onPressed: () => context.pop(),
+      child: ResponsiveWidget(
+        largeWidget: FlutterKaigiLogo(
+          style: FlutterKaigiLogoStyle.horizontal,
+          size: 36,
+          iconColor: baselineColorScheme.ref.secondary.secondary80,
+          textStyle: GoogleFonts.poppins(
+            color: baselineColorScheme.ref.secondary.secondary80,
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            height: 1.2,
+          ),
+        ),
+        smallWidget: FlutterKaigiLogo(
+          style: FlutterKaigiLogoStyle.markOnly,
+          size: 36,
+          showGradient: false,
+          iconColor: baselineColorScheme.ref.secondary.secondary80,
+        ),
+      ),
+    );
+    return ClipRRect(
+      child: BackdropFilter(
+        filter: ImageFilter.blur(
+          sigmaX: 16,
+          sigmaY: 16,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Center(
+            child: Row(
+              children: [
+                logo,
+                const Spacer(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size(double.infinity, kToolbarHeight);
 }
