@@ -64,8 +64,7 @@ class SessionDetailMobile extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SocialShare(
-                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
-                //TODO 現在のページで良さそう
+                //TODO http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigiのようなURLを取得する
                 shareUrl: '',
               ),
             ),
@@ -86,8 +85,7 @@ class SessionDetailMobile extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SocialShare(
-                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
-                //TODO 現在のページで良さそう
+                //TODO http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigiのようなURLを取得する
                 shareUrl: '',
               ),
             ),

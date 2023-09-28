@@ -62,8 +62,7 @@ class SessionDetailDesktop extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SocialShare(
-                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
-                //TODO 現在のページを設定する
+                //TODO http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigiのようなURLを取得する
                 shareUrl: '',
               ),
             ),
@@ -84,8 +83,7 @@ class SessionDetailDesktop extends StatelessWidget {
             _Sliver(
               padding: padding,
               child: const SocialShare(
-                //http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigi
-                //TODO 現在のページを設定する
+                //TODO http://localhost:55796/sponsors/yumemi #flutterkaigi via @FlutterKaigiのようなURLを取得する
                 shareUrl: '',
               ),
             ),
