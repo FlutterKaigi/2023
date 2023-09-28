@@ -7,6 +7,7 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,6 +20,7 @@ class SessionDetailContent extends StatelessWidget {
     required this.contentGap,
     required this.sectionGap,
     required this.cardPadding,
+    required this.bodyVerticalMargin,
     super.key,
   });
 
@@ -28,15 +30,17 @@ class SessionDetailContent extends StatelessWidget {
   final double cardPadding;
   final double contentGap;
   final double sectionGap;
+  final double bodyVerticalMargin;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final colorScheme = theme.colorScheme;
 
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
+    final bodyVerticalGap = SizedBox(height: bodyVerticalMargin);
+
     final headerTitle = session.isSponsor ? 'Sponsor Session' : 'Session';
     final headerGradient = GradientConstant.accent.primary;
     final header = ResponsiveWidget(
@@ -52,7 +56,7 @@ class SessionDetailContent extends StatelessWidget {
       ),
     );
     final route = SessionPageRoute(id: session.id);
-    final shareUrl = Uri.base.origin + route.id;
+    final shareUrl = Uri.base.origin + route.location;
 
     final profileBody = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,10 +85,7 @@ class SessionDetailContent extends StatelessWidget {
             Spaces.horizontal_8,
             Text(
               session.user.name,
-              style: textTheme.titleMedium!.copyWith(
-                fontSize: 22,
-                height: 1.27,
-              ),
+              style: textTheme.titleMedium,
             ),
           ],
         ),
@@ -158,30 +159,34 @@ class SessionDetailContent extends StatelessWidget {
               },
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: 24,
                   vertical: 10,
                 ),
               ),
-              child: const Text(
+              child: Text(
                 'Forteeで見る',
+                style: textTheme.labelLarge,
               ),
             ),
             contentVerticalGap,
-            Divider(color: baselineColorScheme.ref.primary.primary50),
+            Divider(color: baselineColorScheme.ref.secondary.secondary50),
             contentVerticalGap,
             profileBody,
             contentVerticalGap,
-            Divider(color: baselineColorScheme.ref.primary.primary50),
+            Divider(color: baselineColorScheme.ref.secondary.secondary50),
             contentVerticalGap,
-            Text(
-              session.contents,
-              style: textTheme.bodyLarge!.copyWith(
-                fontSize: 16,
-                height: 1.5,
-              ),
+            MarkdownBody(
+              data: session.contents,
             ),
           ],
         ),
+      ),
+    );
+
+    final shareWidget = SizedBox(
+      width: double.infinity,
+      child: SocialShare(
+        shareUrl: shareUrl,
       ),
     );
 
@@ -189,14 +194,11 @@ class SessionDetailContent extends StatelessWidget {
       children: [
         header,
         sectionVerticalGap,
-        SizedBox(
-          width: double.infinity,
-          child: SocialShare(
-            shareUrl: shareUrl,
-          ),
-        ),
-        contentVerticalGap,
+        shareWidget,
+        bodyVerticalGap,
         body,
+        bodyVerticalGap,
+        shareWidget,
       ],
     );
   }
