@@ -64,7 +64,7 @@ extension $SponsorPageRouteExtension on SponsorPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'2aa0fdb66566703b28aa97560a369a2043367863';
+String _$routerHash() => r'2329faf8efa0f8e1fb2e35cebfc061cebc700d5d';
 
 /// See also [router].
 @ProviderFor(router)

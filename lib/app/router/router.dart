@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/app/home_page.dart';
+import 'package:confwebsite2023/app/session_page.dart';
 import 'package:confwebsite2023/app/sponsor_page.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
 import 'package:flutter/foundation.dart';
@@ -34,6 +35,17 @@ GoRouter router(RouterRef ref) => GoRouter(
             return MainPageRoute.path;
           }
         }
+        if (state.fullPath == '/${SessionPageRoute.path}') {
+          final sessionName = state.pathParameters['name'];
+          if (sessionName == null) {
+            // Session name is null.
+            return MainPageRoute.path;
+          }
+
+          // TODO: allSessionsProviderからsessionNameを検索して
+          // 存在しない場合はMainPageRoute.pathにリダイレクトする
+        }
+
         return null;
       },
       errorPageBuilder: (context, state) => MaterialPage(
@@ -51,6 +63,9 @@ GoRouter router(RouterRef ref) => GoRouter(
   routes: [
     TypedGoRoute<SponsorPageRoute>(
       path: SponsorPageRoute.path,
+    ),
+    TypedGoRoute<SessionPageRoute>(
+      path: SessionPageRoute.path,
     ),
   ],
 )
@@ -81,6 +96,26 @@ class SponsorPageRoute extends GoRouteData {
         sponsorNameProvider.overrideWithValue(name),
       ],
       child: const SponsorPage(),
+    );
+  }
+}
+
+class SessionPageRoute extends GoRouteData {
+  const SessionPageRoute({required this.name});
+
+  final String name;
+
+  static const path = 'sessions/:name';
+
+  static final $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return ProviderScope(
+      overrides: [
+        sessionNameProvider.overrideWithValue(name),
+      ],
+      child: const SessionPage(),
     );
   }
 }
