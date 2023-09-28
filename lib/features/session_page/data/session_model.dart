@@ -14,7 +14,6 @@ class SessionModel with _$SessionModel {
     required String trackName,
     required String twitter,
     required bool isSponsor,
-    required String tweet,
     required String forteeUrl,
     String? sponsorImage,
     String? sponsorName,

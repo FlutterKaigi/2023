@@ -24,7 +24,6 @@ mixin _$SessionModel {
   String get trackName => throw _privateConstructorUsedError;
   String get twitter => throw _privateConstructorUsedError;
   bool get isSponsor => throw _privateConstructorUsedError;
-  String get tweet => throw _privateConstructorUsedError;
   String get forteeUrl => throw _privateConstructorUsedError;
   String? get sponsorImage => throw _privateConstructorUsedError;
   String? get sponsorName => throw _privateConstructorUsedError;
@@ -49,7 +48,6 @@ abstract class $SessionModelCopyWith<$Res> {
       String trackName,
       String twitter,
       bool isSponsor,
-      String tweet,
       String forteeUrl,
       String? sponsorImage,
       String? sponsorName});
@@ -78,7 +76,6 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
     Object? trackName = null,
     Object? twitter = null,
     Object? isSponsor = null,
-    Object? tweet = null,
     Object? forteeUrl = null,
     Object? sponsorImage = freezed,
     Object? sponsorName = freezed,
@@ -116,10 +113,6 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
           ? _value.isSponsor
           : isSponsor // ignore: cast_nullable_to_non_nullable
               as bool,
-      tweet: null == tweet
-          ? _value.tweet
-          : tweet // ignore: cast_nullable_to_non_nullable
-              as String,
       forteeUrl: null == forteeUrl
           ? _value.forteeUrl
           : forteeUrl // ignore: cast_nullable_to_non_nullable
@@ -161,7 +154,6 @@ abstract class _$$_SessionModelCopyWith<$Res>
       String trackName,
       String twitter,
       bool isSponsor,
-      String tweet,
       String forteeUrl,
       String? sponsorImage,
       String? sponsorName});
@@ -189,7 +181,6 @@ class __$$_SessionModelCopyWithImpl<$Res>
     Object? trackName = null,
     Object? twitter = null,
     Object? isSponsor = null,
-    Object? tweet = null,
     Object? forteeUrl = null,
     Object? sponsorImage = freezed,
     Object? sponsorName = freezed,
@@ -227,10 +218,6 @@ class __$$_SessionModelCopyWithImpl<$Res>
           ? _value.isSponsor
           : isSponsor // ignore: cast_nullable_to_non_nullable
               as bool,
-      tweet: null == tweet
-          ? _value.tweet
-          : tweet // ignore: cast_nullable_to_non_nullable
-              as String,
       forteeUrl: null == forteeUrl
           ? _value.forteeUrl
           : forteeUrl // ignore: cast_nullable_to_non_nullable
@@ -259,7 +246,6 @@ class _$_SessionModel implements _SessionModel {
       required this.trackName,
       required this.twitter,
       required this.isSponsor,
-      required this.tweet,
       required this.forteeUrl,
       this.sponsorImage,
       this.sponsorName});
@@ -281,8 +267,6 @@ class _$_SessionModel implements _SessionModel {
   @override
   final bool isSponsor;
   @override
-  final String tweet;
-  @override
   final String forteeUrl;
   @override
   final String? sponsorImage;
@@ -291,7 +275,7 @@ class _$_SessionModel implements _SessionModel {
 
   @override
   String toString() {
-    return 'SessionModel(sessionName: $sessionName, title: $title, user: $user, contents: $contents, time: $time, trackName: $trackName, twitter: $twitter, isSponsor: $isSponsor, tweet: $tweet, forteeUrl: $forteeUrl, sponsorImage: $sponsorImage, sponsorName: $sponsorName)';
+    return 'SessionModel(sessionName: $sessionName, title: $title, user: $user, contents: $contents, time: $time, trackName: $trackName, twitter: $twitter, isSponsor: $isSponsor, forteeUrl: $forteeUrl, sponsorImage: $sponsorImage, sponsorName: $sponsorName)';
   }
 
   @override
@@ -311,7 +295,6 @@ class _$_SessionModel implements _SessionModel {
             (identical(other.twitter, twitter) || other.twitter == twitter) &&
             (identical(other.isSponsor, isSponsor) ||
                 other.isSponsor == isSponsor) &&
-            (identical(other.tweet, tweet) || other.tweet == tweet) &&
             (identical(other.forteeUrl, forteeUrl) ||
                 other.forteeUrl == forteeUrl) &&
             (identical(other.sponsorImage, sponsorImage) ||
@@ -331,7 +314,6 @@ class _$_SessionModel implements _SessionModel {
       trackName,
       twitter,
       isSponsor,
-      tweet,
       forteeUrl,
       sponsorImage,
       sponsorName);
@@ -353,7 +335,6 @@ abstract class _SessionModel implements SessionModel {
       required final String trackName,
       required final String twitter,
       required final bool isSponsor,
-      required final String tweet,
       required final String forteeUrl,
       final String? sponsorImage,
       final String? sponsorName}) = _$_SessionModel;
@@ -374,8 +355,6 @@ abstract class _SessionModel implements SessionModel {
   String get twitter;
   @override
   bool get isSponsor;
-  @override
-  String get tweet;
   @override
   String get forteeUrl;
   @override

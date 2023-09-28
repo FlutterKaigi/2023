@@ -98,11 +98,9 @@ class MainPage extends HookWidget {
             time: '2023年11月10日：11:10~11:15(40分)',
             trackName: 'Track 1',
             twitter: 'YumNumm',
-            isSponsor: false,
-            // sponsorName: '株式会社ゆめみ',
-            // sponsorImage:'https://yumemi.co.jp/grow-with-new-logo/img/common/logo_new.svg',
-            tweet:
-                'https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Ffortee.jp%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&text=Dart%E3%81%AB%E3%82%88%E3%82%8BBFF%E6%A7%8B%E7%AF%89%E3%83%BB%E9%81%8B%E7%94%A8%20%E3%80%9Cdart_frog%C3%97melos%E3%80%9C%20by%20%E3%82%82%E3%81%90%E3%82%82%E3%81%90%20%7C%20%E3%83%88%E3%83%BC%E3%82%AF%20%7C%20FlutterKaigi%202023%20%23FlutterKaigi%20-%20fortee.jp&url=https%3A%2F%2Ffortee.jp%2Fflutterkaigi-2023%2Fproposal%2F972ffbac-422b-4d4b-9686-f59c4438da04',
+            isSponsor: true,
+            sponsorName: '株式会社ゆめみ',
+            sponsorImage:'assets/sponsors/demaecan.svg',
             forteeUrl:
                 'https://fortee.jp/flutterkaigi-2023/proposal/972ffbac-422b-4d4b-9686-f59c4438da04',
           );

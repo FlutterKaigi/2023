@@ -1,6 +1,7 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
+import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
@@ -96,9 +97,16 @@ class ProposalDesktop extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (sessionModel.isSponsor)
-                  //TODO 画像を表示できるか確認する
-                  //TODO 画像のサイズを調整する
-                  SvgPicture.asset(sessionModel.sponsorImage!),
+                  Column(
+                    children: [
+                      SponsorDetailLogoCard(
+                        assetName: sessionModel.sponsorImage!,
+                        cardWidth: 240,
+                        cardPadding: 24,
+                      ),
+                      Spaces.vertical_16,
+                    ],
+                  ),
                 if (sessionModel.isSponsor)
                   Column(
                     children: [
@@ -258,9 +266,16 @@ class ProposalMobile extends StatelessWidget {
             Divider(color: baselineColorScheme.ref.primary.primary50),
             Spaces.vertical_24,
             if (sessionModel.isSponsor)
-              //TODO 画像を表示できるか確認する
-              //TODO 画像のサイズを調整する
-              SvgPicture.asset(sessionModel.sponsorImage!),
+              Column(
+                children: [
+                  SponsorDetailLogoCard(
+                    assetName: sessionModel.sponsorImage!,
+                    cardWidth: 240,
+                    cardPadding: 24,
+                  ),
+                  Spaces.vertical_16,
+                ],
+              ),
             if (sessionModel.isSponsor)
               Column(
                 children: [
