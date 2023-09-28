@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SessionModel {
+  String get id => throw _privateConstructorUsedError;
   String get sessionName => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   TalkUser get user => throw _privateConstructorUsedError;
@@ -40,7 +41,8 @@ abstract class $SessionModelCopyWith<$Res> {
       _$SessionModelCopyWithImpl<$Res, SessionModel>;
   @useResult
   $Res call(
-      {String sessionName,
+      {String id,
+      String sessionName,
       String title,
       TalkUser user,
       String contents,
@@ -68,6 +70,7 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? sessionName = null,
     Object? title = null,
     Object? user = null,
@@ -81,6 +84,10 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
     Object? sponsorName = freezed,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
@@ -146,7 +153,8 @@ abstract class _$$_SessionModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String sessionName,
+      {String id,
+      String sessionName,
       String title,
       TalkUser user,
       String contents,
@@ -173,6 +181,7 @@ class __$$_SessionModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? sessionName = null,
     Object? title = null,
     Object? user = null,
@@ -186,6 +195,10 @@ class __$$_SessionModelCopyWithImpl<$Res>
     Object? sponsorName = freezed,
   }) {
     return _then(_$_SessionModel(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       sessionName: null == sessionName
           ? _value.sessionName
           : sessionName // ignore: cast_nullable_to_non_nullable
@@ -238,7 +251,8 @@ class __$$_SessionModelCopyWithImpl<$Res>
 
 class _$_SessionModel implements _SessionModel {
   const _$_SessionModel(
-      {required this.sessionName,
+      {required this.id,
+      required this.sessionName,
       required this.title,
       required this.user,
       required this.contents,
@@ -250,6 +264,8 @@ class _$_SessionModel implements _SessionModel {
       this.sponsorImage,
       this.sponsorName});
 
+  @override
+  final String id;
   @override
   final String sessionName;
   @override
@@ -275,7 +291,7 @@ class _$_SessionModel implements _SessionModel {
 
   @override
   String toString() {
-    return 'SessionModel(sessionName: $sessionName, title: $title, user: $user, contents: $contents, time: $time, trackName: $trackName, twitter: $twitter, isSponsor: $isSponsor, forteeUrl: $forteeUrl, sponsorImage: $sponsorImage, sponsorName: $sponsorName)';
+    return 'SessionModel(id: $id, sessionName: $sessionName, title: $title, user: $user, contents: $contents, time: $time, trackName: $trackName, twitter: $twitter, isSponsor: $isSponsor, forteeUrl: $forteeUrl, sponsorImage: $sponsorImage, sponsorName: $sponsorName)';
   }
 
   @override
@@ -283,6 +299,7 @@ class _$_SessionModel implements _SessionModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_SessionModel &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.sessionName, sessionName) ||
                 other.sessionName == sessionName) &&
             (identical(other.title, title) || other.title == title) &&
@@ -306,6 +323,7 @@ class _$_SessionModel implements _SessionModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       sessionName,
       title,
       user,
@@ -327,7 +345,8 @@ class _$_SessionModel implements _SessionModel {
 
 abstract class _SessionModel implements SessionModel {
   const factory _SessionModel(
-      {required final String sessionName,
+      {required final String id,
+      required final String sessionName,
       required final String title,
       required final TalkUser user,
       required final String contents,
@@ -339,6 +358,8 @@ abstract class _SessionModel implements SessionModel {
       final String? sponsorImage,
       final String? sponsorName}) = _$_SessionModel;
 
+  @override
+  String get id;
   @override
   String get sessionName;
   @override

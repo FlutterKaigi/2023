@@ -6,6 +6,7 @@ part 'session_model.freezed.dart';
 @freezed
 class SessionModel with _$SessionModel {
   const factory SessionModel({
+    required String id,
     required String sessionName,
     required String title,
     required TalkUser user,
