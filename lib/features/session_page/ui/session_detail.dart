@@ -16,7 +16,7 @@ part 'session_detail.g.dart';
   ],
 )
 SessionModel _session(_SessionRef ref) {
-  final sessionName = ref.watch(sessionIdProvider);
+  // final sessionName = ref.watch(sessionIdProvider);
   // 仮でSessionModelを返す
   return const SessionModel(
     id: '972ffbac-422b-4d4b-9686-f59c4438da04',
