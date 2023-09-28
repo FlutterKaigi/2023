@@ -1,6 +1,11 @@
 import 'package:confwebsite2023/app/session_page.dart';
+import 'package:confwebsite2023/core/components/responsive_widget.dart';
+import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/model/talk_user.dart';
 import 'package:confwebsite2023/features/session_page/data/session_model.dart';
+import 'package:confwebsite2023/features/session_page/ui/session_detail_content.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'session_detail.g.dart';
@@ -41,4 +46,33 @@ SessionModel _session(_SessionRef ref) {
     forteeUrl:
         'https://fortee.jp/flutterkaigi-2023/proposal/972ffbac-422b-4d4b-9686-f59c4438da04',
   );
+}
+
+class SessionDetail extends ConsumerWidget {
+  const SessionDetail({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final session = ref.watch(_sessionProvider);
+
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
+    return ResponsiveWidget(
+      largeWidget: SessionDetailContent(
+        sessionModel: session,
+        cardPadding: 40,
+        contentGap: 40,
+        sectionHeaderTextStyle: AppTextStyle.pcHeading1,
+        sessionTitleTextStyle: textTheme.displayMedium!,
+      ),
+      smallWidget: SessionDetailContent(
+        sessionModel: session,
+        cardPadding: 24,
+        contentGap: 16,
+        sectionHeaderTextStyle: AppTextStyle.spHeading1,
+        sessionTitleTextStyle: textTheme.displaySmall!,
+      ),
+    );
+  }
 }

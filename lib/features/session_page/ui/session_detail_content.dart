@@ -10,10 +10,18 @@ import 'package:url_launcher/url_launcher.dart';
 class SessionDetailContent extends StatelessWidget {
   const SessionDetailContent({
     required this.sessionModel,
+    required this.sessionTitleTextStyle,
+    required this.sectionHeaderTextStyle,
+    required this.contentGap,
+    required this.cardPadding,
     super.key,
   });
 
   final SessionModel sessionModel;
+  final TextStyle sectionHeaderTextStyle;
+  final TextStyle sessionTitleTextStyle;
+  final double cardPadding;
+  final double contentGap;
 
   @override
   Widget build(BuildContext context) {
