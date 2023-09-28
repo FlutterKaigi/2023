@@ -52,7 +52,138 @@ class SessionDetailContent extends StatelessWidget {
       ),
     );
     final route = SessionPageRoute(id: session.id);
-    final shareUrl = Uri.base.origin + route.location;
+    final shareUrl = Uri.base.origin + route.id;
+
+    final profileBody = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (session.isSponsor) ...[
+          SponsorDetailLogoCard(
+            assetName: session.sponsorImage!,
+            cardWidth: 240,
+            cardPadding: 24,
+          ),
+          Spaces.vertical_16,
+        ],
+        if (session.isSponsor) ...[
+          Text(
+            session.sponsorName!,
+            style: textTheme.bodyLarge,
+          ),
+          Spaces.vertical_16,
+        ],
+        Row(
+          children: [
+            CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(session.user.thumbnailUrl),
+            ),
+            Spaces.horizontal_8,
+            Text(
+              session.user.name,
+              style: textTheme.titleMedium!.copyWith(
+                fontSize: 22,
+                height: 1.27,
+              ),
+            ),
+          ],
+        ),
+        Spaces.vertical_16,
+        Link(
+          uri: Uri.tryParse(
+            'https://twitter.com/${session.twitter}',
+          ),
+          builder: (context, followLink) => TextButton(
+            onPressed: followLink,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(
+                  Assets.icons.twitter,
+                  width: 24,
+                  height: 24,
+                ),
+                Spaces.horizontal_8,
+                Text(
+                  session.twitter,
+                  style: textTheme.titleMedium,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+
+    final body = DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.35),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(contentGap),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Chip(
+                  label: Text(
+                    session.trackName,
+                  ),
+                  backgroundColor: baselineColorScheme.ref.primary.primary40,
+                ),
+                Spaces.horizontal_16,
+                Text(
+                  session.sessionName,
+                  style: textTheme.headlineSmall,
+                ),
+              ],
+            ),
+            Spaces.vertical_16,
+            Text(
+              session.title,
+              style: sessionTitleTextStyle,
+            ),
+            Spaces.vertical_16,
+            Text(
+              session.time,
+              style: textTheme.headlineSmall,
+            ),
+            Spaces.vertical_16,
+            OutlinedButton(
+              onPressed: () async {
+                final url = Uri.parse(session.forteeUrl);
+                await launchUrl(url);
+              },
+              style: OutlinedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+              ),
+              child: const Text(
+                'Forteeで見る',
+              ),
+            ),
+            contentVerticalGap,
+            Divider(color: baselineColorScheme.ref.primary.primary50),
+            contentVerticalGap,
+            profileBody,
+            contentVerticalGap,
+            Divider(color: baselineColorScheme.ref.primary.primary50),
+            contentVerticalGap,
+            Text(
+              session.contents,
+              style: textTheme.bodyLarge!.copyWith(
+                fontSize: 16,
+                height: 1.5,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
 
     return Column(
       children: [
@@ -65,154 +196,7 @@ class SessionDetailContent extends StatelessWidget {
           ),
         ),
         contentVerticalGap,
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.35),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(contentGap),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Chip(
-                      label: Text(
-                        session.trackName,
-                      ),
-                      backgroundColor:
-                          baselineColorScheme.ref.primary.primary40,
-                    ),
-                    Spaces.horizontal_16,
-                    Text(
-                      session.sessionName,
-                      style: textTheme.bodyLarge!.copyWith(
-                        fontSize: 24,
-                        height: 1.33,
-                      ),
-                    ),
-                  ],
-                ),
-                Spaces.vertical_24,
-                Text(
-                  session.title,
-                  style: textTheme.titleLarge!.copyWith(
-                    fontSize: 36,
-                    height: 1.15,
-                  ),
-                ),
-                Spaces.vertical_16,
-                Text(
-                  session.time,
-                  style: textTheme.headlineSmall!.copyWith(
-                    fontSize: 24,
-                    height: 1.33,
-                  ),
-                ),
-                Spaces.vertical_16,
-                SizedBox(
-                  width: 132,
-                  height: 40,
-                  child: OutlinedButton(
-                    onPressed: () async {
-                      final url = Uri.parse(session.forteeUrl);
-                      await launchUrl(url);
-                    },
-                    style: OutlinedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 10,
-                      ),
-                    ),
-                    child: Text(
-                      'Forteeで見る',
-                      style: textTheme.labelLarge!.copyWith(
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                  ),
-                ),
-                Spaces.vertical_24,
-                Divider(color: baselineColorScheme.ref.primary.primary50),
-                Spaces.vertical_24,
-                if (session.isSponsor)
-                  Column(
-                    children: [
-                      SponsorDetailLogoCard(
-                        assetName: session.sponsorImage!,
-                        cardWidth: 240,
-                        cardPadding: 24,
-                      ),
-                      Spaces.vertical_16,
-                    ],
-                  ),
-                if (session.isSponsor)
-                  Column(
-                    children: [
-                      Text(
-                        session.sponsorName!,
-                        style: textTheme.bodyLarge,
-                      ),
-                      Spaces.vertical_16,
-                    ],
-                  ),
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 20,
-                      backgroundImage: NetworkImage(session.user.thumbnailUrl),
-                    ),
-                    Spaces.horizontal_8,
-                    Text(
-                      session.user.name,
-                      style: textTheme.titleMedium!.copyWith(
-                        fontSize: 22,
-                        height: 1.27,
-                      ),
-                    ),
-                  ],
-                ),
-                Spaces.vertical_16,
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      Assets.icons.twitter,
-                      width: 24,
-                      height: 24,
-                    ),
-                    Spaces.horizontal_4,
-                    Link(
-                      uri: Uri.tryParse(
-                        'https://twitter.com/${session.twitter}',
-                      ),
-                      target: LinkTarget.blank,
-                      builder: (context, openLink) {
-                        return TextButton(
-                          onPressed: openLink,
-                          child: Text(
-                            session.twitter,
-                            style: textTheme.titleMedium,
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Spaces.vertical_24,
-                Divider(color: baselineColorScheme.ref.primary.primary50),
-                Spaces.vertical_24,
-                Text(
-                  session.contents,
-                  style: textTheme.bodyLarge!.copyWith(
-                    fontSize: 16,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        body,
       ],
     );
   }
