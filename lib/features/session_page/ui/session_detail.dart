@@ -60,16 +60,18 @@ class SessionDetail extends ConsumerWidget {
 
     return ResponsiveWidget(
       largeWidget: SessionDetailContent(
-        sessionModel: session,
+        session: session,
         cardPadding: 40,
         contentGap: 40,
+        sectionGap: 80,
         sectionHeaderTextStyle: AppTextStyle.pcHeading1,
         sessionTitleTextStyle: textTheme.displayMedium!,
       ),
       smallWidget: SessionDetailContent(
-        sessionModel: session,
+        session: session,
         cardPadding: 24,
         contentGap: 16,
+        sectionGap: 80,
         sectionHeaderTextStyle: AppTextStyle.spHeading1,
         sessionTitleTextStyle: textTheme.displaySmall!,
       ),

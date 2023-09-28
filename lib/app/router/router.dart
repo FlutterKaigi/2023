@@ -36,7 +36,7 @@ GoRouter router(RouterRef ref) => GoRouter(
           }
         }
         if (state.fullPath == '/${SessionPageRoute.path}') {
-          final sessionName = state.pathParameters['name'];
+          final sessionName = state.pathParameters['id'];
           if (sessionName == null) {
             // Session name is null.
             return MainPageRoute.path;
@@ -101,11 +101,11 @@ class SponsorPageRoute extends GoRouteData {
 }
 
 class SessionPageRoute extends GoRouteData {
-  const SessionPageRoute({required this.name});
+  const SessionPageRoute({required this.id});
 
-  final String name;
+  final String id;
 
-  static const path = 'sessions/:name';
+  static const path = 'sessions/:id';
 
   static final $parentNavigatorKey = rootNavigatorKey;
 
@@ -113,7 +113,7 @@ class SessionPageRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) {
     return ProviderScope(
       overrides: [
-        sessionIdProvider.overrideWithValue(name),
+        sessionIdProvider.overrideWithValue(id),
       ],
       child: const SessionPage(),
     );

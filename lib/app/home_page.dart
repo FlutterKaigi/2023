@@ -75,7 +75,7 @@ class MainPage extends HookWidget {
       HeaderItemButtonData(
         title: 'Session',
         onPressed: () async =>
-            const SessionPageRoute(name: 'Sample').go(context),
+            const SessionPageRoute(id: 'Sample').go(context),
       ),
     ];
 

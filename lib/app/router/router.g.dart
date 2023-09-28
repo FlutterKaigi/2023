@@ -22,7 +22,7 @@ RouteBase get $mainPageRoute => GoRouteData.$route(
           factory: $SponsorPageRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'sessions/:name',
+          path: 'sessions/:id',
           parentNavigatorKey: SessionPageRoute.$parentNavigatorKey,
           factory: $SessionPageRouteExtension._fromState,
         ),
@@ -67,11 +67,11 @@ extension $SponsorPageRouteExtension on SponsorPageRoute {
 
 extension $SessionPageRouteExtension on SessionPageRoute {
   static SessionPageRoute _fromState(GoRouterState state) => SessionPageRoute(
-        name: state.pathParameters['name']!,
+        id: state.pathParameters['id']!,
       );
 
   String get location => GoRouteData.$location(
-        '/sessions/${Uri.encodeComponent(name)}',
+        '/sessions/${Uri.encodeComponent(id)}',
       );
 
   void go(BuildContext context) => context.go(location);
