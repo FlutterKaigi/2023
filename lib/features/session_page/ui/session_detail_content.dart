@@ -177,6 +177,7 @@ class SessionDetailContent extends StatelessWidget {
             contentVerticalGap,
             MarkdownBody(
               data: session.contents,
+              softLineBreak: true,
             ),
           ],
         ),
