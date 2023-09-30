@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/session/model/talk_user.dart';
+import 'package:confwebsite2023/features/session/data/talk_user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'session_model.freezed.dart';
