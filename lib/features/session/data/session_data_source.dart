@@ -18,7 +18,9 @@ class SessionDataSource {
     final result = await http.get(
       Uri.parse('https://fortee.jp/$conferenceId/api/timetable'),
     );
-    final jsonResult = json.decode(result.body) as Map<String, dynamic>;
+    // Prevent garbled characters
+    final body = utf8.decode(result.bodyBytes);
+    final jsonResult = json.decode(body) as Map<String, dynamic>;
     final itemsJson = jsonResult['timetable'] as List<dynamic>;
     return itemsJson
         .map(
