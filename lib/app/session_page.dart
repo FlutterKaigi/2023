@@ -4,7 +4,7 @@ import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
-import 'package:confwebsite2023/features/session_page/ui/session_detail.dart';
+import 'package:confwebsite2023/features/session/ui/detail/session_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
