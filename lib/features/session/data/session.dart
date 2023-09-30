@@ -37,3 +37,9 @@ sealed class Session with _$Session {
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
 }
+
+extension TalkSessionIsSponsored on TalkSession {
+  bool get isSponsored {
+    return tags.any((tag) => tag.name == 'Sponsored');
+  }
+}
