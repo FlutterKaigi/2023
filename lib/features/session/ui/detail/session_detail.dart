@@ -2,7 +2,7 @@ import 'package:confwebsite2023/app/session_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session_model.dart';
-import 'package:confwebsite2023/features/session/data/talk_user.dart';
+import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:confwebsite2023/features/session/ui/detail/session_detail_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -22,9 +22,9 @@ SessionModel _session(_SessionRef ref) {
     id: '972ffbac-422b-4d4b-9686-f59c4438da04',
     sessionName: 'Session 1-1',
     title: 'DartによるBFF構築・運用 〜dart_frog×melos〜',
-    user: TalkUser(
+    user: Speaker(
       name: 'もぐもぐ',
-      thumbnailUrl:
+      avatarUrl:
           'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg/260px-Shoyu_ramen%2C_at_Kasukabe_Station_%282014.05.05%29_1.jpg',
     ),
     contents: '''

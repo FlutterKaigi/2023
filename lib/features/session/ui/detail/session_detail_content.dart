@@ -80,7 +80,7 @@ class SessionDetailContent extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(session.user.thumbnailUrl),
+              backgroundImage: NetworkImage(session.user.avatarUrl),
             ),
             Spaces.horizontal_8,
             Text(

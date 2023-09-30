@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/features/session/data/talk_user.dart';
+import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'session_model.freezed.dart';
@@ -9,7 +9,7 @@ class SessionModel with _$SessionModel {
     required String id,
     required String sessionName,
     required String title,
-    required TalkUser user,
+    required Speaker user,
     required String contents,
     required String time,
     required String trackName,

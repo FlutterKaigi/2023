@@ -19,7 +19,7 @@ mixin _$SessionModel {
   String get id => throw _privateConstructorUsedError;
   String get sessionName => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  TalkUser get user => throw _privateConstructorUsedError;
+  Speaker get user => throw _privateConstructorUsedError;
   String get contents => throw _privateConstructorUsedError;
   String get time => throw _privateConstructorUsedError;
   String get trackName => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $SessionModelCopyWith<$Res> {
       {String id,
       String sessionName,
       String title,
-      TalkUser user,
+      Speaker user,
       String contents,
       String time,
       String trackName,
@@ -54,7 +54,7 @@ abstract class $SessionModelCopyWith<$Res> {
       String? sponsorImage,
       String? sponsorName});
 
-  $TalkUserCopyWith<$Res> get user;
+  $SpeakerCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as TalkUser,
+              as Speaker,
       contents: null == contents
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
@@ -137,8 +137,8 @@ class _$SessionModelCopyWithImpl<$Res, $Val extends SessionModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $TalkUserCopyWith<$Res> get user {
-    return $TalkUserCopyWith<$Res>(_value.user, (value) {
+  $SpeakerCopyWith<$Res> get user {
+    return $SpeakerCopyWith<$Res>(_value.user, (value) {
       return _then(_value.copyWith(user: value) as $Val);
     });
   }
@@ -156,7 +156,7 @@ abstract class _$$_SessionModelCopyWith<$Res>
       {String id,
       String sessionName,
       String title,
-      TalkUser user,
+      Speaker user,
       String contents,
       String time,
       String trackName,
@@ -167,7 +167,7 @@ abstract class _$$_SessionModelCopyWith<$Res>
       String? sponsorName});
 
   @override
-  $TalkUserCopyWith<$Res> get user;
+  $SpeakerCopyWith<$Res> get user;
 }
 
 /// @nodoc
@@ -210,7 +210,7 @@ class __$$_SessionModelCopyWithImpl<$Res>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as TalkUser,
+              as Speaker,
       contents: null == contents
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
@@ -271,7 +271,7 @@ class _$_SessionModel implements _SessionModel {
   @override
   final String title;
   @override
-  final TalkUser user;
+  final Speaker user;
   @override
   final String contents;
   @override
@@ -348,7 +348,7 @@ abstract class _SessionModel implements SessionModel {
       {required final String id,
       required final String sessionName,
       required final String title,
-      required final TalkUser user,
+      required final Speaker user,
       required final String contents,
       required final String time,
       required final String trackName,
@@ -365,7 +365,7 @@ abstract class _SessionModel implements SessionModel {
   @override
   String get title;
   @override
-  TalkUser get user;
+  Speaker get user;
   @override
   String get contents;
   @override
