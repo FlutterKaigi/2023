@@ -102,8 +102,18 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.magicpod,
         plan: SponsorPlan.gold,
         session: null,
-        introduction:
-            'MagicPodは、モバイルアプリテスト、ブラウザ(ウェブアプリ)テストの両方に対応した AIテスト自動化クラウドサービスです。 豊富な機能と高いメンテナンス性でリリースサイクルの高速化を支援します。',
+        introduction: '''
+AIテスト自動化プラットフォーム「MagicPod」について
+「MagicPod」は、モバイルアプリテスト、ブラウザ(ウェブアプリ)テストの両方に対応したAIテスト自動化プラットフォームです。プログラミングなどの特別なスキルがなくても直感的に使うことのできるデザイン、クラウドでのサービス提供によるメンテナンス性の高さ、AI技術を活用した自動修正によるテストプログラム修正の手間削減などによりリリースサイクルの高速化を支援します。IT業界のリーディングカンパニーを中心にすでに500社以上の企業が導入しています。
+Flutterアプリも正式にサポートを開始しており、MagicPodの公開している「E2EテストのためのFlutterアプリ実装ガイドライン」に沿ってFlutterアプリを実装することで、テストの自動化が可能です！
+ ２週間の無料トライアルも実施していますので、まずはぜひ一度お試しください！
+・「MagicPod」公式サイト
+https://magicpod.com/
+・「MagicPod」コンセプト動画
+https://magicpod.com/resources/introduction-movie/
+・導入相談・2週間無料トライアルのお申込み
+https://magicpod.com/consulting/
+''',
       ),
       Sponsor(
         name: 'bitkey',
@@ -112,8 +122,16 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.bitkey,
         plan: SponsorPlan.gold,
         session: null,
-        introduction:
-            'ビットキーは、独自開発のデジタルコネクトプラットフォームを通して、人と「暮らし」や「仕事」の間にある分断を解消するスーパーアプリ/SaaSを開発しています。 あらゆるサービスやモノを柔軟につなげることで、体験のアップデートを進めています。',
+        introduction: '''
+　私たちは、スマートロックの会社ではありません。私たちが解決するのはサービス毎のID/システム、リアルとデジタルといった「分断」です。あらゆる分断を独自開発のデジタルコネクトプラットフォームを通してシームレスな体験にアップデートする。このためのアプローチとしてビットキーは「コネクト」を進めます。テクノロジーの力で、あらゆるものを安全で便利で気持ちよく「つなげる」。これがビットキーのミッションです。
+
+
+
+　私たちが創るのは「コネクトプラットフォーム」というインフラです。インフラといっても、ひとつのブランド/システムが全てのサービスの仕様をコントロールするような「統合」という思想ではありません。コネクトプラットフォームはあくまで窓口として、サービス提供者に必要な機能群を提供します。サービスを提供する各社の実現したいことはそのままに、ユーザーの体験価値は分断されることなくシームレスに。これがビットキーが実現する、オープン型の「コネクト」を軸とする未来のコラボレーションの在り方です。
+
+
+　ビットキーは、　事業領域をHome（暮らし）、Work（仕事/働く）、Experience（非日常体験）の3つに分類しており、それぞれhomehub・workhub・exphubという、3つの中核となる「hubアプリケーション」を開発し、「コネクト」の価値提供を進めています。
+''',
       ),
       Sponsor(
         name: 'youtrust',
@@ -122,8 +140,11 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.youtrust,
         plan: SponsorPlan.gold,
         session: null,
-        introduction:
-            '「日本のモメンタムを上げる偉大な会社を創る」を掲げ、次世代のキャリア形成の文化を創っています。 信頼やつながりによって起こるコミュニケーションを通じて副業・転職といった機会につなげられるキャリアSNS『YOUTRUST』を開発しています。',
+        introduction: '''
+「日本のモメンタムを上げる偉大な会社を創る」をビジョンに掲げ、次世代のキャリア市場・キャリア形成の文化を創っています。信頼やつながりによって起こるコミュニケーションを通じて副業・転職といった機会につなげられるキャリアSNS『YOUTRUST』や、法人向けHR Tech SaaSを開発しています。
+キャリアSNS『YOUTRUST』のiOS/Androidアプリは全面的にFlutterで開発されており、少人数での開発ながらユーザーに喜んでいただけるプロダクト開発を心がけ取り組んでいます。Flutterにまつわる勉強会の主催も行っており、今後もFlutterコミュニティへの貢献に努めてまいります。
+https://lp.youtrust.jp/
+''',
       ),
       Sponsor(
         name: '10x',
@@ -132,8 +153,10 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.tenx,
         plan: SponsorPlan.gold,
         session: null,
-        introduction:
-            '10Xではモバイル・WebアプリでFlutterを、サーバーサイドではDartを利用しています。このように10XはFlutter・Dartに支えられており、今後も価値あるプロダクトを作り続ける上で重要な技術への支援・還元を行っていきます。',
+        introduction: '''
+株式会社10Xは、そのミッションとして「10xを創る」を掲げ、直面する日常の課題を技術の力で解決し、社会の構造そのものを変革することを目指しています。現在はリテール領域におけるデジタル変革に注力しており、スーパーマーケット・ドラッグストアなどのチェーンストア向けのDXプラットフォーム「Stailer（ステイラー）」を提供しています。
+Stailerは、ECサイト構築、商品管理、配送管理、決済処理など、ネットスーパー事業に必要なすべての機能をワンストップで提供するプラットフォームです。開発言語にはDartを採用し、Flutterの採用はもちろんのことサーバーサイドも含めほぼフルDartで開発されています。
+''',
       ),
     ];
 
