@@ -4,7 +4,7 @@ import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
-import 'package:confwebsite2023/features/session_page/data/session_model.dart';
+import 'package:confwebsite2023/features/session/data/session_model.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';

@@ -1,8 +1,8 @@
 import 'package:confwebsite2023/app/session_page.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/session/data/session_model.dart';
 import 'package:confwebsite2023/features/session/data/talk_user.dart';
-import 'package:confwebsite2023/features/session_page/data/session_model.dart';
 import 'package:confwebsite2023/features/session_page/ui/session_detail_content.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
