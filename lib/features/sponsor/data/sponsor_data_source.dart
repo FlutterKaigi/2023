@@ -169,8 +169,11 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.enechain,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            'enechainは国内最大のエネルギーマーケットプレイスを運営するスタートアップです。誰もが参加でき、あらゆるエネルギーの価値を交換できるフェアなマーケットを創ることで社会が秘めたる可能性を掘り起こし、人々の豊かさと世界の平和に貢献します。',
+        introduction: '''
+enechainは、国内最大のエネルギーのマーケットプレイスを運営するスタートアップです。誰もが参加でき、あらゆるエネルギーの価値を交換できるフェアなマーケットを創ることで、社会が秘めたる可能性を掘り起こし、人々の豊かさと世界の平和に貢献します。
+あらゆる企業が、さまざまなエネルギー商品を売り買いできるオンライントレーディングプラットフォームプロダクト「eSquare」ではFlutterを採用しモバイルアプリの提供を行っております。
+また、同アプリ内でチャート描画に用いている内製ライブラリは「echart_flutter」とネーミングし、pub.devへのパブリッシュを行いOSSとして運用を行っております。
+''',
       ),
       Sponsor(
         name: 'studyplus',
@@ -179,8 +182,11 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.studyplus,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            'スタディプラス株式会社は「学ぶ喜びをすべての人へ」をミッションに掲げています Studyplusは学習内容を記録・可視化・共有することによりモチベーション維持、 学習の習慣化を補助します 私たちは学びに寄り添うプラットフォームを作ります',
+        introduction: '''
+スタディプラス株式会社は「学ぶ喜びをすべての人へ」をミッションに掲げています。
+当社が提供するStudyplusは学習内容を記録・可視化・共有する学習管理プラットフォームです。学習の記録をデータとして残すことで、モチベーションの維持や学習の習慣化をサポートします。Studyplusは今年の6月に累計ユーザー数が800万人を突破し、その数は日々増加しています。今や大学受験生の2人に1人が利用するなど、幅広い層に愛されています。
+私たちは学習のデジタル化を促進し、そこから得られる学習データを適切に活用できるプラットフォームをつくることで、もっと多様で個別最適な学びを実現できると思っています。学びをもっと自由で楽しいものにする仕組みを、一緒につくりませんか？
+''',
       ),
       Sponsor(
         name: 'pioneer',
@@ -189,8 +195,10 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.pioneer,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            'パイオニアは「より多くの人と、感動を」という企業理念のもと、数々の世界初、業界初の商品を展開しています。現在、企業ビジョン“未来の移動体験を創ります”の実現に向け、モビリティ領域におけるソリューションサービス企業への変革に取り組んでいます。',
+        introduction: '''
+パイオニアは「より多くの人と、感動を」という企業理念のもと、数々の世界初、業界初の商品を展開しています。
+現在、企業ビジョン“未来の移動体験を創ります”の実現に向け、モビリティ領域におけるソリューションサービス企業への変革に取り組んでいます。
+''',
       ),
       Sponsor(
         name: 'diverse',
@@ -199,8 +207,13 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.diverse,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            '累計1900万人が利用するマッチングサービス「YYC」を開発しています。YYCのiOSとAndroidはFlutterで開発しており、マッチング機能だけでなくライブ配信機能などもDartで実装しています。興味のある方はカジュアル面談まで！',
+        introduction: '''
+株式会社Diverseは恋活マッチングサービス『YYC』を運営しています。Diverseは会社ビジョンを22年7月にアップデートし、第二創業期を迎えています。「コミュニケーションを創造する」ことをミッションに掲げ、恋愛コミュニケーションをハックしながら、いつでも誰かと話ができる居場所をつくろうとしています。
+
+現在、Diverseは恋活マッチングサービス『YYC』のFlutterエンジニアを募集中です。YYCのiOSとAndroidはFlutterで開発しています。Flutterの導入はAdd-to-appから開始して、現在は9割のコードがDartで実装されています。マッチングやメッセージの機能だけでなく、ライブ配信の機能もDartで実装しています。
+
+恋愛に関わる課題を解決するビジネスに興味のある方、Flutterで恋愛の課題を解決したい方は、https://diverse-inc.co.jp/recruit のカジュアル面談応募フォームまで！
+''',
       ),
       Sponsor(
         name: 'tokyu',
@@ -209,8 +222,12 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.tokyu,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            '東急URBAN HACKSは「街づくりのDX」を実現するための内製開発チームです。東急グループの次の100年を変革する大プロジェクト。あなたの技術や知識を活かし、一緒に世界一の街づくりを目指してみませんか？',
+        introduction: '''
+2021年に東急のデジタル内製化を担う組織「URBAN HACKS」を立ち上げました。
+我々が取り組んでいるのは"City as a Service"構想です。これまでのリアルビジネスにデジタルを組み合わせることで、一人ひとりに最適なサービスを提供できるような街づくりを目指しています。
+具体的には東急線アプリや東急カード、ホテルアプリなどを開発しています。それらの開発を通して発覚したバックエンドや既存システムの課題を解決しつつ、共通基盤の開発を進めているといったスタイルです。
+東急グループの次の100年を変革する大プロジェクト。あなたの技術や知識を活かし、一緒に世界一の街づくりを目指してみませんか？
+''',
       ),
       Sponsor(
         name: 'm3',
@@ -219,6 +236,9 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.mthree,
         plan: SponsorPlan.silver,
         session: null,
+        introduction: '''
+エムスリー株式会社は、"インターネットを活用し、健康で楽しく長生きする人を１人でも増やし、不必要な医療コストを１円でも減らすこと" をミッションに、テクノロジーの力で日本および世界の医療の変革にチャレンジしています
+''',
       ),
       Sponsor(
         name: 'cyberagent',
@@ -227,8 +247,10 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.cyberagent.keyName,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            'サイバーエージェントは「21世紀を代表する会社を創る」をビジョンに掲げ、新しい未来のテレビ「ABEMA」の運営や国内トップシェアを誇るインターネット広告事業、ゲーム事業などITを主軸にしたビジネスを多角的に展開しています',
+        introduction: '''
+https://www.cyberagent.co.jp/
+サイバーエージェントは「21世紀を代表する会社を創る」をビジョンに掲げ、新しい未来のテレビ「ABEMA」の運営や国内トップシェアを誇るインターネット広告事業、ゲーム事業などITを主軸にしたビジネスを多角的に展開しています。当社では2018年からクロスプラットフォーム技術を採用しはじめ、現在もFlutterを導入しているプロダクトが多数存在しています。
+''',
       ),
       Sponsor(
         name: 'harmo',
@@ -237,8 +259,20 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.harmo.keyName,
         plan: SponsorPlan.silver,
         session: null,
-        introduction:
-            '私たちは個々人のヘルスデータを活用した新サービスを生み出している会社です。 「harmoおくすり手帳」は、Flutter/Dartで現在、開発中。よりユーザーに使いやすい姿でリリース予定です。ご興味ありましたら是非ご連絡ください！',
+        introduction: '''
+私たちharmoでは、「大切な人をもっと大切にする」アプリ、harmoおくすり手帳とharmoワクチンケアを開発しています。
+「harmoおくすり手帳」では、通院時・業務時に使いやすいお薬手帳の普及を目指して
+「一般の方」「薬局の方」「医療機関の方」向けにそれぞれサービスを提供しています。
+紙のお薬手帳は病院や薬局に持っていくのを忘れてしまったり、紛失した場合は再生できません。
+また、何冊にもなる履歴を把握するのが困難で併用薬のチェックが困難になります。
+アプリなら受診時に忘れにくく、長期にわたる服薬歴管理が可能になります。家族全員分のお薬の情報共有が可能で、飲み忘れアラームや健康記録など便利な機能を備えています。
+また、オフラインでも用いることができるため、災害時などにも役立ちます。
+Flutterはプラットフォームを問わず、開発を一本化し、サービスの変化を加速させることができます。
+私たちは「医療」という複雑なユーザーニーズの変化へ柔軟に対応することに価値があると信じ、Flutterを用いています。
+医療に興味のあるFlutterエンジニア、募集中です。
+詳細はこちらから。
+https://www.wantedly.com/projects/1315544
+''',
       ),
       Sponsor(
         name: 'recruit',
@@ -247,6 +281,9 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.recruit.keyName,
         plan: SponsorPlan.silver,
         session: null,
+        introduction: '''
+リクルートグループについて 1960年の創業以来、リクルートグループは、就職・結婚・進学・住宅・自動車・旅行・飲食・美容などの領域において、一 人ひとりのライフスタイルに応じたより最適な選択肢を提供してきました。現在、HRテクノロジー、マッチング＆ソ リューション、人材派遣の３事業を軸に、60を超える国・地域で事業を展開しています。リクルートグループは、新しい価 値の創造を通じ、社会からの期待に応え、一人ひとりが輝く豊かな世界の実現に向けて、より多くの『まだ、ここにない、 出会い。』を提供していきます。 
+''',
       ),
       Sponsor(
         name: 'layerx',
@@ -255,5 +292,8 @@ List<Sponsor> _silverSponsors(_SilverSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.layerx,
         plan: SponsorPlan.silver,
         session: null,
+        introduction: '''
+LayerXは、「すべての経済活動を、デジタル化する。」をミッションに掲げるスタートアップです。 支出管理を一本化するサービス「バクラク」を中心に、三井物産らとの合弁会社「三井物産デジタル・アセットマネジメント」、プライバシー保護技術「Anonify」の活用を目指すPrivacyTech事業、大規模言語モデル（LLM）関連技術の実用化を目指す LayerX LLM Labsを運営しています。
+''',
       ),
     ];
