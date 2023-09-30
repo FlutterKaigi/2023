@@ -10,7 +10,7 @@ part of 'speaker.dart';
 
 _$_Speaker _$$_SpeakerFromJson(Map<String, dynamic> json) => _$_Speaker(
       name: json['name'] as String,
-      avatarUrl: json['avatar_url'] as String,
+      avatarUrl: json['avatar_url'] as String? ?? '',
       twitter: json['twitter'] as String?,
     );
 

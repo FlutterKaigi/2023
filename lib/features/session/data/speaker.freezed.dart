@@ -116,7 +116,7 @@ class __$$_SpeakerCopyWithImpl<$Res>
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class _$_Speaker implements _Speaker {
-  const _$_Speaker({required this.name, required this.avatarUrl, this.twitter});
+  const _$_Speaker({required this.name, this.avatarUrl = '', this.twitter});
 
   factory _$_Speaker.fromJson(Map<String, dynamic> json) =>
       _$$_SpeakerFromJson(json);
@@ -124,6 +124,7 @@ class _$_Speaker implements _Speaker {
   @override
   final String name;
   @override
+  @JsonKey()
   final String avatarUrl;
   @override
   final String? twitter;
@@ -165,7 +166,7 @@ class _$_Speaker implements _Speaker {
 abstract class _Speaker implements Speaker {
   const factory _Speaker(
       {required final String name,
-      required final String avatarUrl,
+      final String avatarUrl,
       final String? twitter}) = _$_Speaker;
 
   factory _Speaker.fromJson(Map<String, dynamic> json) = _$_Speaker.fromJson;
