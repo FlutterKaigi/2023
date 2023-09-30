@@ -39,6 +39,9 @@ _$TalkSession _$$TalkSessionFromJson(Map<String, dynamic> json) =>
       track: Track.fromJson(json['track'] as Map<String, dynamic>),
       startsAt: DateTime.parse(json['starts_at'] as String),
       lengthMin: json['length_min'] as int,
+      tags: (json['tags'] as List<dynamic>)
+          .map((e) => Tag.fromJson(e as Map<String, dynamic>))
+          .toList(),
       speaker: Speaker.fromJson(json['speaker'] as Map<String, dynamic>),
       $type: json['type'] as String?,
     );
@@ -52,6 +55,7 @@ Map<String, dynamic> _$$TalkSessionToJson(_$TalkSession instance) =>
       'track': instance.track,
       'starts_at': instance.startsAt.toIso8601String(),
       'length_min': instance.lengthMin,
+      'tags': instance.tags,
       'speaker': instance.speaker,
       'type': instance.$type,
     };

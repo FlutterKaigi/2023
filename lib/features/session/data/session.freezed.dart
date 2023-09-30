@@ -44,6 +44,7 @@ mixin _$Session {
             Track track,
             DateTime startsAt,
             int lengthMin,
+            List<Tag> tags,
             Speaker speaker)
         talk,
     required TResult Function() lunch,
@@ -54,8 +55,16 @@ mixin _$Session {
     TResult? Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult? Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult? Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult? Function()? lunch,
   }) =>
@@ -65,8 +74,16 @@ mixin _$Session {
     TResult Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult Function()? lunch,
     required TResult orElse(),
@@ -265,6 +282,7 @@ class _$TimeslotSession implements TimeslotSession {
             Track track,
             DateTime startsAt,
             int lengthMin,
+            List<Tag> tags,
             Speaker speaker)
         talk,
     required TResult Function() lunch,
@@ -278,8 +296,16 @@ class _$TimeslotSession implements TimeslotSession {
     TResult? Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult? Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult? Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult? Function()? lunch,
   }) {
@@ -292,8 +318,16 @@ class _$TimeslotSession implements TimeslotSession {
     TResult Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult Function()? lunch,
     required TResult orElse(),
@@ -383,6 +417,7 @@ abstract class _$$TalkSessionCopyWith<$Res> {
       Track track,
       DateTime startsAt,
       int lengthMin,
+      List<Tag> tags,
       Speaker speaker});
 
   $TrackCopyWith<$Res> get track;
@@ -407,6 +442,7 @@ class __$$TalkSessionCopyWithImpl<$Res>
     Object? track = null,
     Object? startsAt = null,
     Object? lengthMin = null,
+    Object? tags = null,
     Object? speaker = null,
   }) {
     return _then(_$TalkSession(
@@ -438,6 +474,10 @@ class __$$TalkSessionCopyWithImpl<$Res>
           ? _value.lengthMin
           : lengthMin // ignore: cast_nullable_to_non_nullable
               as int,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<Tag>,
       speaker: null == speaker
           ? _value.speaker
           : speaker // ignore: cast_nullable_to_non_nullable
@@ -474,9 +514,11 @@ class _$TalkSession implements TalkSession {
       required this.track,
       required this.startsAt,
       required this.lengthMin,
+      required final List<Tag> tags,
       required this.speaker,
       final String? $type})
-      : $type = $type ?? 'talk';
+      : _tags = tags,
+        $type = $type ?? 'talk';
 
   factory _$TalkSession.fromJson(Map<String, dynamic> json) =>
       _$$TalkSessionFromJson(json);
@@ -495,6 +537,14 @@ class _$TalkSession implements TalkSession {
   final DateTime startsAt;
   @override
   final int lengthMin;
+  final List<Tag> _tags;
+  @override
+  List<Tag> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
   @override
   final Speaker speaker;
 
@@ -503,7 +553,7 @@ class _$TalkSession implements TalkSession {
 
   @override
   String toString() {
-    return 'Session.talk(uuid: $uuid, url: $url, title: $title, abstract: $abstract, track: $track, startsAt: $startsAt, lengthMin: $lengthMin, speaker: $speaker)';
+    return 'Session.talk(uuid: $uuid, url: $url, title: $title, abstract: $abstract, track: $track, startsAt: $startsAt, lengthMin: $lengthMin, tags: $tags, speaker: $speaker)';
   }
 
   @override
@@ -521,13 +571,23 @@ class _$TalkSession implements TalkSession {
                 other.startsAt == startsAt) &&
             (identical(other.lengthMin, lengthMin) ||
                 other.lengthMin == lengthMin) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.speaker, speaker) || other.speaker == speaker));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uuid, url, title, abstract,
-      track, startsAt, lengthMin, speaker);
+  int get hashCode => Object.hash(
+      runtimeType,
+      uuid,
+      url,
+      title,
+      abstract,
+      track,
+      startsAt,
+      lengthMin,
+      const DeepCollectionEquality().hash(_tags),
+      speaker);
 
   @JsonKey(ignore: true)
   @override
@@ -549,12 +609,13 @@ class _$TalkSession implements TalkSession {
             Track track,
             DateTime startsAt,
             int lengthMin,
+            List<Tag> tags,
             Speaker speaker)
         talk,
     required TResult Function() lunch,
   }) {
     return talk(
-        uuid, url, title, abstract, track, startsAt, lengthMin, speaker);
+        uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
   }
 
   @override
@@ -563,13 +624,21 @@ class _$TalkSession implements TalkSession {
     TResult? Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult? Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult? Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult? Function()? lunch,
   }) {
     return talk?.call(
-        uuid, url, title, abstract, track, startsAt, lengthMin, speaker);
+        uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
   }
 
   @override
@@ -578,15 +647,23 @@ class _$TalkSession implements TalkSession {
     TResult Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult Function()? lunch,
     required TResult orElse(),
   }) {
     if (talk != null) {
-      return talk(
-          uuid, url, title, abstract, track, startsAt, lengthMin, speaker);
+      return talk(uuid, url, title, abstract, track, startsAt, lengthMin, tags,
+          speaker);
     }
     return orElse();
   }
@@ -642,6 +719,7 @@ abstract class TalkSession implements Session {
       required final Track track,
       required final DateTime startsAt,
       required final int lengthMin,
+      required final List<Tag> tags,
       required final Speaker speaker}) = _$TalkSession;
 
   factory TalkSession.fromJson(Map<String, dynamic> json) =
@@ -654,6 +732,7 @@ abstract class TalkSession implements Session {
   Track get track;
   DateTime get startsAt;
   int get lengthMin;
+  List<Tag> get tags;
   Speaker get speaker;
   @JsonKey(ignore: true)
   _$$TalkSessionCopyWith<_$TalkSession> get copyWith =>
@@ -716,6 +795,7 @@ class _$LunchSession implements LunchSession {
             Track track,
             DateTime startsAt,
             int lengthMin,
+            List<Tag> tags,
             Speaker speaker)
         talk,
     required TResult Function() lunch,
@@ -729,8 +809,16 @@ class _$LunchSession implements LunchSession {
     TResult? Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult? Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult? Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult? Function()? lunch,
   }) {
@@ -743,8 +831,16 @@ class _$LunchSession implements LunchSession {
     TResult Function(String uuid, String title, DateTime startsAt,
             int lengthMin, Track track, String? abstract)?
         timeslot,
-    TResult Function(String uuid, String url, String title, String abstract,
-            Track track, DateTime startsAt, int lengthMin, Speaker speaker)?
+    TResult Function(
+            String uuid,
+            String url,
+            String title,
+            String abstract,
+            Track track,
+            DateTime startsAt,
+            int lengthMin,
+            List<Tag> tags,
+            Speaker speaker)?
         talk,
     TResult Function()? lunch,
     required TResult orElse(),

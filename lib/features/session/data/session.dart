@@ -1,4 +1,5 @@
 import 'package:confwebsite2023/features/session/data/speaker.dart';
+import 'package:confwebsite2023/features/session/data/tag.dart';
 import 'package:confwebsite2023/features/session/data/track.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,6 +28,7 @@ sealed class Session with _$Session {
     required Track track,
     required DateTime startsAt,
     required int lengthMin,
+    required List<Tag> tags,
     required Speaker speaker,
   }) = TalkSession;
 
