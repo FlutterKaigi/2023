@@ -21,6 +21,11 @@ RouteBase get $mainPageRoute => GoRouteData.$route(
           parentNavigatorKey: SponsorPageRoute.$parentNavigatorKey,
           factory: $SponsorPageRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'sessions/:id',
+          parentNavigatorKey: SessionPageRoute.$parentNavigatorKey,
+          factory: $SessionPageRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -60,11 +65,30 @@ extension $SponsorPageRouteExtension on SponsorPageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $SessionPageRouteExtension on SessionPageRoute {
+  static SessionPageRoute _fromState(GoRouterState state) => SessionPageRoute(
+        id: state.pathParameters['id']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/sessions/${Uri.encodeComponent(id)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'2aa0fdb66566703b28aa97560a369a2043367863';
+String _$routerHash() => r'4b968e74de44b70e76953d443f6eea819ca83aa3';
 
 /// See also [router].
 @ProviderFor(router)

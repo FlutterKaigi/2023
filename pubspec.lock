@@ -323,6 +323,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_markdown:
+    dependency: "direct main"
+    description:
+      name: flutter_markdown
+      sha256: a10979814c5f4ddbe2b6143fba25d927599e21e3ba65b3862995960606fae78f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.17+3"
   flutter_riverpod:
     dependency: transitive
     description:
@@ -501,6 +509,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  markdown:
+    dependency: transitive
+    description:
+      name: markdown
+      sha256: acf35edccc0463a9d7384e437c015a3535772e09714cf60e07eeef3a15870dcd
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.1.1"
   matcher:
     dependency: transitive
     description:
