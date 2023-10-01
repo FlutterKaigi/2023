@@ -11,8 +11,7 @@ SessionDataSource sessionDataSource(SessionDataSourceRef ref) =>
     SessionDataSource();
 
 class SessionDataSource {
-  // TODO: flutterkaigi-2023 へ変更
-  static const conferenceId = 'flutterkaigi-2022';
+  static const conferenceId = 'flutterkaigi-2023';
 
   Future<List<Session>> fetchSessions() async {
     final result = await http.get(
