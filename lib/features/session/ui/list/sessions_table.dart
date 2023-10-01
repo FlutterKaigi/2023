@@ -8,6 +8,7 @@ final class SessionsTable extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // ignore: unused_local_variable
     final sessions = ref.watch(sessionsProvider);
     return SliverList.separated(
       itemBuilder: (context, index) {
