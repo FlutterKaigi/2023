@@ -9,14 +9,28 @@ part of 'session.dart';
 // **************************************************************************
 
 _$TimeslotSession _$$TimeslotSessionFromJson(Map<String, dynamic> json) =>
-    _$TimeslotSession(
-      uuid: json['uuid'] as String,
-      title: json['title'] as String,
-      startsAt: DateTime.parse(json['starts_at'] as String),
-      lengthMin: json['length_min'] as int,
-      track: Track.fromJson(json['track'] as Map<String, dynamic>),
-      abstract: json['abstract'] as String?,
-      $type: json['type'] as String?,
+    $checkedCreate(
+      r'_$TimeslotSession',
+      json,
+      ($checkedConvert) {
+        final val = _$TimeslotSession(
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String),
+          startsAt:
+              $checkedConvert('starts_at', (v) => DateTime.parse(v as String)),
+          lengthMin: $checkedConvert('length_min', (v) => v as int),
+          track: $checkedConvert(
+              'track', (v) => Track.fromJson(v as Map<String, dynamic>)),
+          abstract: $checkedConvert('abstract', (v) => v as String?),
+          $type: $checkedConvert('type', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'startsAt': 'starts_at',
+        'lengthMin': 'length_min',
+        r'$type': 'type'
+      },
     );
 
 Map<String, dynamic> _$$TimeslotSessionToJson(_$TimeslotSession instance) =>
@@ -31,19 +45,36 @@ Map<String, dynamic> _$$TimeslotSessionToJson(_$TimeslotSession instance) =>
     };
 
 _$TalkSession _$$TalkSessionFromJson(Map<String, dynamic> json) =>
-    _$TalkSession(
-      uuid: json['uuid'] as String,
-      url: json['url'] as String,
-      title: json['title'] as String,
-      abstract: json['abstract'] as String,
-      track: Track.fromJson(json['track'] as Map<String, dynamic>),
-      startsAt: DateTime.parse(json['starts_at'] as String),
-      lengthMin: json['length_min'] as int,
-      tags: (json['tags'] as List<dynamic>)
-          .map((e) => Tag.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      speaker: Speaker.fromJson(json['speaker'] as Map<String, dynamic>),
-      $type: json['type'] as String?,
+    $checkedCreate(
+      r'_$TalkSession',
+      json,
+      ($checkedConvert) {
+        final val = _$TalkSession(
+          uuid: $checkedConvert('uuid', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String),
+          abstract: $checkedConvert('abstract', (v) => v as String),
+          track: $checkedConvert(
+              'track', (v) => Track.fromJson(v as Map<String, dynamic>)),
+          startsAt:
+              $checkedConvert('starts_at', (v) => DateTime.parse(v as String)),
+          lengthMin: $checkedConvert('length_min', (v) => v as int),
+          tags: $checkedConvert(
+              'tags',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Tag.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          speaker: $checkedConvert(
+              'speaker', (v) => Speaker.fromJson(v as Map<String, dynamic>)),
+          $type: $checkedConvert('type', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'startsAt': 'starts_at',
+        'lengthMin': 'length_min',
+        r'$type': 'type'
+      },
     );
 
 Map<String, dynamic> _$$TalkSessionToJson(_$TalkSession instance) =>
@@ -61,8 +92,16 @@ Map<String, dynamic> _$$TalkSessionToJson(_$TalkSession instance) =>
     };
 
 _$LunchSession _$$LunchSessionFromJson(Map<String, dynamic> json) =>
-    _$LunchSession(
-      $type: json['type'] as String?,
+    $checkedCreate(
+      r'_$LunchSession',
+      json,
+      ($checkedConvert) {
+        final val = _$LunchSession(
+          $type: $checkedConvert('type', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {r'$type': 'type'},
     );
 
 Map<String, dynamic> _$$LunchSessionToJson(_$LunchSession instance) =>

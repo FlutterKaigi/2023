@@ -8,10 +8,18 @@ part of 'speaker.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Speaker _$$_SpeakerFromJson(Map<String, dynamic> json) => _$_Speaker(
-      name: json['name'] as String,
-      avatarUrl: json['avatar_url'] as String? ?? '',
-      twitter: json['twitter'] as String?,
+_$_Speaker _$$_SpeakerFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Speaker',
+      json,
+      ($checkedConvert) {
+        final val = _$_Speaker(
+          name: $checkedConvert('name', (v) => v as String),
+          avatarUrl: $checkedConvert('avatar_url', (v) => v as String? ?? ''),
+          twitter: $checkedConvert('twitter', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'avatarUrl': 'avatar_url'},
     );
 
 Map<String, dynamic> _$$_SpeakerToJson(_$_Speaker instance) =>
