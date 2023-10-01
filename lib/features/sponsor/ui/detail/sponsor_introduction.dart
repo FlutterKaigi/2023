@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final class SponsorIntroduction extends StatelessWidget {
   const SponsorIntroduction({
@@ -23,7 +27,8 @@ final class SponsorIntroduction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
 
     return Column(
       children: [
@@ -68,9 +73,15 @@ final class SponsorIntroduction extends StatelessWidget {
                   ),
                 ),
                 Spaces.vertical_16,
-                Text(
-                  introduction,
+                Linkify(
+                  text: introduction,
+                  onOpen: (link) async => launchUrl(Uri.parse(link.url)),
+                  options: const LinkifyOptions(humanize: false),
                   style: textTheme.bodyLarge,
+                  linkStyle: textTheme.bodyLarge?.copyWith(
+                    color: theme.colorScheme.primary,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ],
             ),
