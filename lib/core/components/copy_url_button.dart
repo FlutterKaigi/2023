@@ -4,17 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 final class CopyUrlButton extends StatelessWidget {
-  const CopyUrlButton({
-    required this.shareUrl,
-    super.key,
-  });
-
-  final String shareUrl;
+  const CopyUrlButton({super.key});
 
   @override
   Widget build(BuildContext context) => FilledButton.icon(
         onPressed: () async {
-          final data = ClipboardData(text: shareUrl);
+          final data = ClipboardData(text: Uri.base.toString());
           await Clipboard.setData(data);
 
           if (!context.mounted) {

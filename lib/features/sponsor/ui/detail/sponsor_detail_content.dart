@@ -1,4 +1,3 @@
-import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
@@ -35,19 +34,13 @@ final class SponsorDetailContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
-
-    final route = SponsorPageRoute(name: sponsor.name);
-    final shareUrl = Uri.base.origin + route.location;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SponsorSectionHeader('Sponsor'),
-        SizedBox(
+        const SizedBox(
           width: double.infinity,
-          child: SocialShare(
-            shareUrl: shareUrl,
-          ),
+          child: SocialShare(),
         ),
         contentVerticalGap,
         Container(
@@ -95,11 +88,9 @@ final class SponsorDetailContent extends StatelessWidget {
           ),
         ),
         contentVerticalGap,
-        SizedBox(
+        const SizedBox(
           width: double.infinity,
-          child: SocialShare(
-            shareUrl: shareUrl,
-          ),
+          child: SocialShare(),
         ),
       ],
     );
