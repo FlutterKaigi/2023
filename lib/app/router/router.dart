@@ -45,14 +45,7 @@ GoRouter router(RouterRef ref) => GoRouter(
             return MainPageRoute.path;
           }
 
-          final List<Session> sessions;
-          try {
-            sessions = await ref.read(sessionsProvider.future);
-          } on Exception catch (_) {
-            // Failed to fetch sessions.
-            return MainPageRoute.path;
-          }
-
+          final sessions = ref.read(sessionsProvider);
           final existsSession = sessions.any(
             (s) => s is TalkSession && s.uuid == sessionId,
           );

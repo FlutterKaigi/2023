@@ -9,31 +9,14 @@ final class SessionsTable extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final sessions = ref.watch(sessionsProvider);
-
-    return sessions.when(
-      data: (sessions) {
-        return SliverList.separated(
-          itemBuilder: (context, index) {
-            return const _SessionsTableRow();
-          },
-          separatorBuilder: (context, index) {
-            return Spaces.vertical_40;
-          },
-          itemCount: 10,
-        );
+    return SliverList.separated(
+      itemBuilder: (context, index) {
+        return const _SessionsTableRow();
       },
-      error: (error, _) {
-        return SliverToBoxAdapter(
-          child: Center(child: Text('エラーが発生しました: $error')),
-        );
+      separatorBuilder: (context, index) {
+        return Spaces.vertical_40;
       },
-      loading: () {
-        return const SliverToBoxAdapter(
-          child: Center(
-            child: CircularProgressIndicator.adaptive(),
-          ),
-        );
-      },
+      itemCount: 10,
     );
   }
 }

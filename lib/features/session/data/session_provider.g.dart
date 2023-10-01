@@ -8,11 +8,11 @@ part of 'session_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$sessionsHash() => r'ce60cc19f17e9060ac39eab72bb7e5e0af24ea0c';
+String _$sessionsHash() => r'8f4cd24410dc4d6b00bdeed643557c421995edaa';
 
 /// See also [sessions].
 @ProviderFor(sessions)
-final sessionsProvider = FutureProvider<List<Session>>.internal(
+final sessionsProvider = Provider<List<Session>>.internal(
   sessions,
   name: r'sessionsProvider',
   debugGetCreateSourceHash:
@@ -21,7 +21,25 @@ final sessionsProvider = FutureProvider<List<Session>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef SessionsRef = FutureProviderRef<List<Session>>;
+typedef SessionsRef = ProviderRef<List<Session>>;
+String _$tracksHash() => r'dc17a37b9f186742392257cf591451bdef58f321';
+
+/// See also [tracks].
+@ProviderFor(tracks)
+final tracksProvider =
+    AutoDisposeProvider<({Track left, Track right})>.internal(
+  tracks,
+  name: r'tracksProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$tracksHash,
+  dependencies: <ProviderOrFamily>[sessionsProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    sessionsProvider,
+    ...?sessionsProvider.allTransitiveDependencies
+  },
+);
+
+typedef TracksRef = AutoDisposeProviderRef<({Track left, Track right})>;
 String _$sessionIdHash() => r'804eae58580885a5bfebe0d2d0530c303b8eb467';
 
 /// See also [sessionId].
@@ -36,11 +54,11 @@ final sessionIdProvider = AutoDisposeProvider<String>.internal(
 );
 
 typedef SessionIdRef = AutoDisposeProviderRef<String>;
-String _$sessionHash() => r'76c52568131a17db5cf0fe493665101dff3677d6';
+String _$sessionHash() => r'7bde63b87a6b4b990c35fccffd7720e015582a17';
 
 /// See also [session].
 @ProviderFor(session)
-final sessionProvider = AutoDisposeFutureProvider<Session>.internal(
+final sessionProvider = AutoDisposeProvider<Session>.internal(
   session,
   name: r'sessionProvider',
   debugGetCreateSourceHash:
@@ -54,7 +72,7 @@ final sessionProvider = AutoDisposeFutureProvider<Session>.internal(
   },
 );
 
-typedef SessionRef = AutoDisposeFutureProviderRef<Session>;
+typedef SessionRef = AutoDisposeProviderRef<Session>;
 String _$sessionSponsorHash() => r'2149eba5bf8f482ae106f19ff271c1a476dc59a6';
 
 /// Copied from Dart SDK

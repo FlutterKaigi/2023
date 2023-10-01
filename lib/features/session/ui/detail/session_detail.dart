@@ -12,49 +12,36 @@ class SessionDetail extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final session = ref.watch(sessionProvider);
+    if (session is! TalkSession) {
+      throw AssertionError('Session is not TalkSession');
+    }
 
-    return session.when(
-      data: (session) {
-        if (session is! TalkSession) {
-          throw AssertionError('Session is not TalkSession');
-        }
+    final sessionSponsor = ref.watch(sessionSponsorProvider(session));
 
-        final sessionSponsor = ref.watch(sessionSponsorProvider(session));
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
 
-        final theme = Theme.of(context);
-        final textTheme = theme.textTheme;
-
-        return ResponsiveWidget(
-          largeWidget: SessionDetailContent(
-            session: session,
-            sponsor: sessionSponsor,
-            cardPadding: 40,
-            contentGap: 40,
-            sectionGap: 80,
-            bodyVerticalMargin: 20,
-            sectionHeaderTextStyle: AppTextStyle.pcHeading1,
-            sessionTitleTextStyle: textTheme.displayMedium!,
-          ),
-          smallWidget: SessionDetailContent(
-            session: session,
-            sponsor: sessionSponsor,
-            cardPadding: 24,
-            contentGap: 16,
-            sectionGap: 80,
-            bodyVerticalMargin: 16,
-            sectionHeaderTextStyle: AppTextStyle.spHeading1,
-            sessionTitleTextStyle: textTheme.displaySmall!,
-          ),
-        );
-      },
-      error: (error, __) {
-        return Center(child: Text('エラーが発生しました: $error'));
-      },
-      loading: () {
-        return const Center(
-          child: CircularProgressIndicator.adaptive(),
-        );
-      },
+    return ResponsiveWidget(
+      largeWidget: SessionDetailContent(
+        session: session,
+        sponsor: sessionSponsor,
+        cardPadding: 40,
+        contentGap: 40,
+        sectionGap: 80,
+        bodyVerticalMargin: 20,
+        sectionHeaderTextStyle: AppTextStyle.pcHeading1,
+        sessionTitleTextStyle: textTheme.displayMedium!,
+      ),
+      smallWidget: SessionDetailContent(
+        session: session,
+        sponsor: sessionSponsor,
+        cardPadding: 24,
+        contentGap: 16,
+        sectionGap: 80,
+        bodyVerticalMargin: 16,
+        sectionHeaderTextStyle: AppTextStyle.spHeading1,
+        sessionTitleTextStyle: textTheme.displaySmall!,
+      ),
     );
   }
 }

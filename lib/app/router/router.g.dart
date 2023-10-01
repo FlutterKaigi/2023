@@ -112,7 +112,7 @@ extension $SessionPageRouteExtension on SessionPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'fe259cc0cce0fa7d1c180b4aa4e4cfdfafabc732';
+String _$routerHash() => r'089a5746eaeed3d44bae43e8b2a343742523e6e9';
 
 /// See also [router].
 @ProviderFor(router)
