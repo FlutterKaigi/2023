@@ -8,14 +8,26 @@ part of 'staff.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => _$_Staff(
-      id: json['_id'] as String,
-      displayName: json['displayName'] as String,
-      image: StaffImage.fromJson(json['image'] as Map<String, dynamic>),
-      sns: (json['sns'] as List<dynamic>)
-          .map((e) => Sns.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      introduction: json['introduction'] as String? ?? '',
+_$_Staff _$$_StaffFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Staff',
+      json,
+      ($checkedConvert) {
+        final val = _$_Staff(
+          id: $checkedConvert('_id', (v) => v as String),
+          displayName: $checkedConvert('displayName', (v) => v as String),
+          image: $checkedConvert(
+              'image', (v) => StaffImage.fromJson(v as Map<String, dynamic>)),
+          sns: $checkedConvert(
+              'sns',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Sns.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          introduction:
+              $checkedConvert('introduction', (v) => v as String? ?? ''),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'id': '_id'},
     );
 
 Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
@@ -27,12 +39,19 @@ Map<String, dynamic> _$$_StaffToJson(_$_Staff instance) => <String, dynamic>{
     };
 
 _$_StaffImage _$$_StaffImageFromJson(Map<String, dynamic> json) =>
-    _$_StaffImage(
-      altText: json['altText'] as String,
-      description: json['description'] as String,
-      height: json['height'] as int,
-      width: json['width'] as int,
-      src: json['src'] as String,
+    $checkedCreate(
+      r'_$_StaffImage',
+      json,
+      ($checkedConvert) {
+        final val = _$_StaffImage(
+          altText: $checkedConvert('altText', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          height: $checkedConvert('height', (v) => v as int),
+          width: $checkedConvert('width', (v) => v as int),
+          src: $checkedConvert('src', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_StaffImageToJson(_$_StaffImage instance) =>
@@ -44,9 +63,17 @@ Map<String, dynamic> _$$_StaffImageToJson(_$_StaffImage instance) =>
       'src': instance.src,
     };
 
-_$_Sns _$$_SnsFromJson(Map<String, dynamic> json) => _$_Sns(
-      type: $enumDecode(_$SnsTypeEnumMap, json['type']),
-      value: json['value'] as String,
+_$_Sns _$$_SnsFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_Sns',
+      json,
+      ($checkedConvert) {
+        final val = _$_Sns(
+          type:
+              $checkedConvert('type', (v) => $enumDecode(_$SnsTypeEnumMap, v)),
+          value: $checkedConvert('value', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_SnsToJson(_$_Sns instance) => <String, dynamic>{

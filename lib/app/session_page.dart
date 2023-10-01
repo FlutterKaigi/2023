@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
@@ -6,18 +7,24 @@ import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session/ui/detail/session_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'session_page.g.dart';
-
-@riverpod
-String sessionId(SessionIdRef ref) => throw UnimplementedError();
+import 'package:js/js_util.dart' as js_util;
 
 class SessionPage extends HookConsumerWidget {
   const SessionPage({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(() {
+      unawaited(
+        WidgetsBinding.instance.endOfFrame.then((_) {
+          js_util.callMethod<void>(js_util.globalThis, '_show', []);
+        }),
+      );
+      return null;
+    });
+
     return Scaffold(
       backgroundColor: baselineColorScheme.ref.secondary.secondary10,
       body: const _MainPageBody(),
