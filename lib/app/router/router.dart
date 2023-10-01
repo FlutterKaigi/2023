@@ -1,6 +1,8 @@
 import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/app/session_page.dart';
 import 'package:confwebsite2023/app/sponsor_page.dart';
+import 'package:confwebsite2023/features/session/data/session.dart';
+import 'package:confwebsite2023/features/session/data/session_provider.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,7 @@ GoRouter router(RouterRef ref) => GoRouter(
       debugLogDiagnostics: kDebugMode,
       navigatorKey: rootNavigatorKey,
       routes: $appRoutes,
-      redirect: (context, state) {
+      redirect: (context, state) async {
         if (state.fullPath == '/${SponsorPageRoute.path}') {
           final sponsorName = state.pathParameters['name'];
           if (sponsorName == null) {
@@ -36,14 +38,27 @@ GoRouter router(RouterRef ref) => GoRouter(
           }
         }
         if (state.fullPath == '/${SessionPageRoute.path}') {
-          final sessionName = state.pathParameters['id'];
-          if (sessionName == null) {
+          final sessionId = state.pathParameters['id'];
+          if (sessionId == null) {
             // Session name is null.
             return MainPageRoute.path;
           }
 
-          // TODO: allSessionsProviderからsessionNameを検索して
-          // 存在しない場合はMainPageRoute.pathにリダイレクトする
+          final List<Session> sessions;
+          try {
+            sessions = await ref.read(sessionsProvider.future);
+          } on Exception catch (_) {
+            // Failed to fetch sessions.
+            return MainPageRoute.path;
+          }
+
+          final existsSession = sessions.any(
+            (s) => s is TalkSession && s.uuid == sessionId,
+          );
+          if (!existsSession) {
+            // Not found session.
+            return MainPageRoute.path;
+          }
         }
 
         return null;
