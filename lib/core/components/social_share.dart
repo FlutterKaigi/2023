@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 
 final class SocialShare extends StatelessWidget {
   const SocialShare({
-    required this.shareUrl,
     this.alignment = WrapAlignment.end,
     super.key,
   });
 
   final WrapAlignment alignment;
-  final String shareUrl;
 
   @override
   Widget build(BuildContext context) => Wrap(
