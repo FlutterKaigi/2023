@@ -1,4 +1,3 @@
-import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
@@ -58,8 +57,6 @@ class SessionDetailContent extends StatelessWidget {
         gradient: headerGradient,
       ),
     );
-    final route = SessionPageRoute(id: session.uuid);
-    final shareUrl = Uri.base.origin + route.location;
 
     final profileBody = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,25 +88,24 @@ class SessionDetailContent extends StatelessWidget {
             uri: Uri.tryParse(
               'https://twitter.com/$twitter',
             ),
-            builder: (context, followLink) =>
-                TextButton(
-                  onPressed: followLink,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SvgPicture.asset(
-                        Assets.icons.twitter,
-                        width: 24,
-                        height: 24,
-                      ),
-                      Spaces.horizontal_8,
-                      Text(
-                        twitter,
-                        style: textTheme.titleMedium,
-                      ),
-                    ],
+            builder: (context, followLink) => TextButton(
+              onPressed: followLink,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SvgPicture.asset(
+                    Assets.icons.twitter,
+                    width: 24,
+                    height: 24,
                   ),
-                ),
+                  Spaces.horizontal_8,
+                  Text(
+                    twitter,
+                    style: textTheme.titleMedium,
+                  ),
+                ],
+              ),
+            ),
           ),
       ],
     );
@@ -177,11 +173,9 @@ class SessionDetailContent extends StatelessWidget {
       ),
     );
 
-    final shareWidget = SizedBox(
+    const shareWidget = SizedBox(
       width: double.infinity,
-      child: SocialShare(
-        shareUrl: shareUrl,
-      ),
+      child: SocialShare(),
     );
 
     return Column(
