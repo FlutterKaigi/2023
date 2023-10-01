@@ -1,5 +1,6 @@
 import 'package:confwebsite2023/app/home_page.dart';
 import 'package:confwebsite2023/app/session_page.dart';
+import 'package:confwebsite2023/app/sessions_page.dart';
 import 'package:confwebsite2023/app/sponsor_page.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/session_provider.dart';
@@ -79,8 +80,13 @@ GoRouter router(RouterRef ref) => GoRouter(
     TypedGoRoute<SponsorPageRoute>(
       path: SponsorPageRoute.path,
     ),
-    TypedGoRoute<SessionPageRoute>(
-      path: SessionPageRoute.path,
+    TypedGoRoute<SessionsPageRoute>(
+      path: SessionsPageRoute.path,
+      routes: [
+        TypedGoRoute<SessionPageRoute>(
+          path: SessionPageRoute.path,
+        ),
+      ],
     ),
   ],
 )
@@ -115,14 +121,25 @@ class SponsorPageRoute extends GoRouteData {
   }
 }
 
+class SessionsPageRoute extends GoRouteData {
+  const SessionsPageRoute();
+
+  static const path = 'sessions';
+
+  static final $parentNavigatorKey = rootNavigatorKey;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SessionsPage();
+  }
+}
+
 class SessionPageRoute extends GoRouteData {
   const SessionPageRoute({required this.id});
 
   final String id;
 
-  static const path = 'sessions/:id';
-
-  static final $parentNavigatorKey = rootNavigatorKey;
+  static const path = ':id';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {

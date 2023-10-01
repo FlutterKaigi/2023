@@ -55,7 +55,7 @@ final sessionProvider = AutoDisposeFutureProvider<Session>.internal(
 );
 
 typedef SessionRef = AutoDisposeFutureProviderRef<Session>;
-String _$sessionSponsorHash() => r'67ddf9eca6b9120655b0eee275d95e6174952f95';
+String _$sessionSponsorHash() => r'2149eba5bf8f482ae106f19ff271c1a476dc59a6';
 
 /// Copied from Dart SDK
 class _SystemHash {

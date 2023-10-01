@@ -22,9 +22,15 @@ RouteBase get $mainPageRoute => GoRouteData.$route(
           factory: $SponsorPageRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'sessions/:id',
-          parentNavigatorKey: SessionPageRoute.$parentNavigatorKey,
-          factory: $SessionPageRouteExtension._fromState,
+          path: 'sessions',
+          parentNavigatorKey: SessionsPageRoute.$parentNavigatorKey,
+          factory: $SessionsPageRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: ':id',
+              factory: $SessionPageRouteExtension._fromState,
+            ),
+          ],
         ),
       ],
     );
@@ -53,6 +59,24 @@ extension $SponsorPageRouteExtension on SponsorPageRoute {
 
   String get location => GoRouteData.$location(
         '/sponsors/${Uri.encodeComponent(name)}',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SessionsPageRouteExtension on SessionsPageRoute {
+  static SessionsPageRoute _fromState(GoRouterState state) =>
+      const SessionsPageRoute();
+
+  String get location => GoRouteData.$location(
+        '/sessions',
       );
 
   void go(BuildContext context) => context.go(location);
