@@ -132,11 +132,6 @@ class SessionDetailContent extends StatelessWidget {
                   ),
                   backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
-                Spaces.horizontal_16,
-                Text(
-                  session.title,
-                  style: textTheme.headlineSmall,
-                ),
               ],
             ),
             Spaces.vertical_16,
