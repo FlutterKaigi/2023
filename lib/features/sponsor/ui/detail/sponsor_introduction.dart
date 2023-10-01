@@ -1,3 +1,4 @@
+
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
