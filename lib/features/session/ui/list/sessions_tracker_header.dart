@@ -5,31 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final class SessionsTrackHeader extends StatelessWidget {
-  const SessionsTrackHeader({
-    required this.leftTrack,
-    required this.rightTrack,
-    super.key,
-  });
-
-  final Track leftTrack;
-  final Track rightTrack;
+  const SessionsTrackHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveWidget(
+    const leftTrack = Track(name: 'Track１', sort: 1);
+    const rightTrack = Track(name: 'Track２', sort: 2);
+
+    return const ResponsiveWidget(
       largeWidget: Column(
         children: [
           Row(
             children: [
-              _TrackCard(leftTrack),
+              Expanded(child: _TrackCard(leftTrack)),
               Spaces.horizontal_20,
-              _TrackCard(rightTrack),
+              Expanded(child: _TrackCard(rightTrack)),
             ],
           ),
           Spaces.vertical_40,
         ],
       ),
-      smallWidget: const SizedBox.shrink(),
+      smallWidget: SizedBox.shrink(),
     );
   }
 }

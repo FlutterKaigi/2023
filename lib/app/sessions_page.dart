@@ -5,7 +5,10 @@ import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/footer/ui/footer.dart';
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
-import 'package:confwebsite2023/features/session/ui/list/sessions_content.dart';
+import 'package:confwebsite2023/features/session/ui/list/sessions_caution.dart';
+import 'package:confwebsite2023/features/session/ui/list/sessions_section_header.dart';
+import 'package:confwebsite2023/features/session/ui/list/sessions_table.dart';
+import 'package:confwebsite2023/features/session/ui/list/sessions_tracker_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -69,9 +72,33 @@ class _MainPageBody extends StatelessWidget {
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,
             ),
-            _Sliver(
+            SliverPadding(
               padding: padding,
-              child: const SessionsContent(),
+              sliver: const SliverToBoxAdapter(
+                child: SessionsSectionHeader(),
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
+            ),
+            SliverPadding(
+              padding: padding,
+              sliver: const SliverToBoxAdapter(
+                child: SessionsTrackHeader(),
+              ),
+            ),
+            SliverPadding(
+              padding: padding,
+              sliver: const SessionsTable(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
+            ),
+            SliverPadding(
+              padding: padding,
+              sliver: const SliverToBoxAdapter(
+                child: SessionsCaution(),
+              ),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_200,
@@ -82,26 +109,6 @@ class _MainPageBody extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class _Sliver extends StatelessWidget {
-  const _Sliver({
-    required this.child,
-    required this.padding,
-  });
-
-  final Widget child;
-  final EdgeInsets padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverPadding(
-      padding: padding,
-      sliver: SliverToBoxAdapter(
-        child: child,
-      ),
     );
   }
 }
