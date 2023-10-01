@@ -71,11 +71,6 @@ class SessionDetailContent extends StatelessWidget {
             cardPadding: 24,
           ),
           Spaces.vertical_16,
-          Text(
-            sponsor.displayName,
-            style: textTheme.bodyLarge,
-          ),
-          Spaces.vertical_16,
         ],
         Row(
           children: [
