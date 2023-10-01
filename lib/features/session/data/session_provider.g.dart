@@ -22,7 +22,7 @@ final sessionsProvider = Provider<List<Session>>.internal(
 );
 
 typedef SessionsRef = ProviderRef<List<Session>>;
-String _$tracksHash() => r'dc17a37b9f186742392257cf591451bdef58f321';
+String _$tracksHash() => r'fdf51ed59859d02817a62442cf84bc0f1c5a7ef7';
 
 /// See also [tracks].
 @ProviderFor(tracks)
