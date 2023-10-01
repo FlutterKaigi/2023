@@ -17,13 +17,9 @@ final class SocialShare extends StatelessWidget {
         alignment: alignment,
         spacing: 10,
         runSpacing: 10,
-        children: [
-          TweetButton(
-            shareUrl: shareUrl,
-          ),
-          CopyUrlButton(
-            shareUrl: shareUrl,
-          ),
+        children: const [
+          TweetButton(),
+          CopyUrlButton(),
         ],
       );
 }
