@@ -22,9 +22,15 @@ RouteBase get $mainPageRoute => GoRouteData.$route(
           factory: $SponsorPageRouteExtension._fromState,
         ),
         GoRouteData.$route(
-          path: 'sessions/:id',
-          parentNavigatorKey: SessionPageRoute.$parentNavigatorKey,
-          factory: $SessionPageRouteExtension._fromState,
+          path: 'sessions',
+          parentNavigatorKey: SessionsPageRoute.$parentNavigatorKey,
+          factory: $SessionsPageRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: ':id',
+              factory: $SessionPageRouteExtension._fromState,
+            ),
+          ],
         ),
       ],
     );
@@ -65,6 +71,24 @@ extension $SponsorPageRouteExtension on SponsorPageRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $SessionsPageRouteExtension on SessionsPageRoute {
+  static SessionsPageRoute _fromState(GoRouterState state) =>
+      const SessionsPageRoute();
+
+  String get location => GoRouteData.$location(
+        '/sessions',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 extension $SessionPageRouteExtension on SessionPageRoute {
   static SessionPageRoute _fromState(GoRouterState state) => SessionPageRoute(
         id: state.pathParameters['id']!,
@@ -88,7 +112,7 @@ extension $SessionPageRouteExtension on SessionPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'fe259cc0cce0fa7d1c180b4aa4e4cfdfafabc732';
+String _$routerHash() => r'089a5746eaeed3d44bae43e8b2a343742523e6e9';
 
 /// See also [router].
 @ProviderFor(router)

@@ -3,13 +3,6 @@ import 'dart:convert';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'session_data_source.g.dart';
-
-@Riverpod(keepAlive: true)
-SessionDataSource sessionDataSource(SessionDataSourceRef ref) =>
-    SessionDataSource();
 
 class SessionDataSource {
   static const conferenceId = 'flutterkaigi-2023';

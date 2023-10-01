@@ -2,6 +2,8 @@ import 'package:confwebsite2023/app/app.dart';
 import 'package:confwebsite2023/app/config.dart';
 import 'package:confwebsite2023/features/news/data/mock_news_data_source.dart';
 import 'package:confwebsite2023/features/news/data/news_data_source.dart';
+import 'package:confwebsite2023/features/session/data/session_data_source.dart';
+import 'package:confwebsite2023/features/session/data/session_provider.dart';
 import 'package:confwebsite2023/features/staff/data/mock_staff_data_source.dart';
 import 'package:confwebsite2023/features/staff/data/staff_data_source.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +19,12 @@ void main() async {
 
   final config = Config();
 
+  final sessionDataSource = SessionDataSource();
+  final sessions = await sessionDataSource.fetchSessions();
+
   final overrides = <Override>[
     configProvider.overrideWithValue(config),
+    sessionsProvider.overrideWithValue(sessions),
   ];
 
   if (config.isMock) {
