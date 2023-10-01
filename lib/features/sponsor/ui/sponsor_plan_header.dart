@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
@@ -5,44 +6,42 @@ import 'package:flutter/material.dart';
 
 /// スポンサープランのヘッダー
 final class SponsorPlanHeader extends StatelessWidget {
-  SponsorPlanHeader({
-    required String text,
-    required TextStyle style,
-    required SponsorPlan plan,
-  }) : this._(
-          text: text,
-          style: style,
-          gradient: switch (plan) {
-            SponsorPlan.platinum => GradientConstant.sponsor.platinum,
-            SponsorPlan.gold => GradientConstant.sponsor.gold,
-            SponsorPlan.silver => GradientConstant.sponsor.silver,
-          },
-        );
-
-  SponsorPlanHeader._({
+  const SponsorPlanHeader.platinum({
     required this.text,
-    required TextStyle style,
-    required this.gradient,
-  }) : style = style.copyWith(
-          shadows: [
-            Shadow(
-              color: gradient.colors.first.withOpacity(0.25),
-              blurRadius: 10,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        );
+    super.key,
+  }) : _plan = SponsorPlan.platinum;
+
+  const SponsorPlanHeader.gold({
+    required this.text,
+    super.key,
+  }) : _plan = SponsorPlan.gold;
+
+  const SponsorPlanHeader.silver({
+    required this.text,
+    super.key,
+  }) : _plan = SponsorPlan.silver;
 
   final String text;
-
-  final TextStyle style;
-
-  final Gradient gradient;
+  final SponsorPlan _plan;
 
   @override
-  Widget build(BuildContext context) => SectionHeader.centerAlignment(
+  Widget build(BuildContext context) {
+    final gradient = switch (_plan) {
+      SponsorPlan.platinum => GradientConstant.sponsor.platinum,
+      SponsorPlan.gold => GradientConstant.sponsor.gold,
+      SponsorPlan.silver => GradientConstant.sponsor.silver,
+    };
+    return ResponsiveWidget(
+      largeWidget: SectionHeader.centerAlignment(
         text: text,
-        style: style,
+        style: AppTextStyle.pcHeading2,
         gradient: gradient,
-      );
+      ),
+      smallWidget: SectionHeader.centerAlignment(
+        text: text,
+        style: AppTextStyle.spHeading2,
+        gradient: gradient,
+      ),
+    );
+  }
 }

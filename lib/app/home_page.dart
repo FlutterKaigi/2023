@@ -11,6 +11,7 @@ import 'package:confwebsite2023/features/header/data/header_item_button_data.dar
 import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/hero/ui/hero_section.dart';
 import 'package:confwebsite2023/features/news/ui/news_section.dart';
+import 'package:confwebsite2023/features/sponsor/ui/list/sponsors_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
 import 'package:confwebsite2023/features/ticket/ui/ticket_section.dart';
@@ -61,6 +62,10 @@ class MainPage extends HookWidget {
       HeaderItemButtonData(
         title: 'Event',
         onPressed: () async => scrollToSection(sectionKeys.event),
+      ),
+      HeaderItemButtonData(
+        title: 'Sponsor',
+        onPressed: () async => scrollToSection(sectionKeys.sponsor),
       ),
       HeaderItemButtonData(
         title: 'Staff',
@@ -196,6 +201,15 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: HandsOnEvent(
                 key: sectionKeys.event,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: SponsorsSection(
+                key: sectionKeys.sponsor,
               ),
             ),
             const SliverToBoxAdapter(

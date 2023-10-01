@@ -1,18 +1,31 @@
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 final class CopyUrlButton extends StatelessWidget {
   const CopyUrlButton({
-    required this.onPressed,
+    required this.shareUrl,
     super.key,
   });
 
-  final VoidCallback? onPressed;
+  final String shareUrl;
 
   @override
   Widget build(BuildContext context) => FilledButton.icon(
-        onPressed: onPressed,
+        onPressed: () async {
+          final data = ClipboardData(text: shareUrl);
+          await Clipboard.setData(data);
+
+          if (!context.mounted) {
+            return;
+          }
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('URLをコピーしました'),
+            ),
+          );
+        },
         icon: SvgPicture.asset(
           Assets.icons.copy,
           width: 18,
