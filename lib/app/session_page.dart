@@ -7,12 +7,6 @@ import 'package:confwebsite2023/features/header/ui/header_widget.dart';
 import 'package:confwebsite2023/features/session/ui/detail/session_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'session_page.g.dart';
-
-@riverpod
-String sessionId(SessionIdRef ref) => throw UnimplementedError();
 
 class SessionPage extends HookConsumerWidget {
   const SessionPage({super.key});
