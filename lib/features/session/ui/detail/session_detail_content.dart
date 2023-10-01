@@ -4,7 +4,8 @@ import 'package:confwebsite2023/core/components/section_header.dart';
 import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
-import 'package:confwebsite2023/features/session/data/session_model.dart';
+import 'package:confwebsite2023/features/session/data/session.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -15,6 +16,7 @@ import 'package:url_launcher/url_launcher.dart';
 class SessionDetailContent extends StatelessWidget {
   const SessionDetailContent({
     required this.session,
+    required this.sponsor,
     required this.sessionTitleTextStyle,
     required this.sectionHeaderTextStyle,
     required this.contentGap,
@@ -24,7 +26,8 @@ class SessionDetailContent extends StatelessWidget {
     super.key,
   });
 
-  final SessionModel session;
+  final TalkSession session;
+  final Sponsor? sponsor;
   final TextStyle sectionHeaderTextStyle;
   final TextStyle sessionTitleTextStyle;
   final double cardPadding;
@@ -41,7 +44,7 @@ class SessionDetailContent extends StatelessWidget {
     final sectionVerticalGap = SizedBox(height: sectionGap);
     final bodyVerticalGap = SizedBox(height: bodyVerticalMargin);
 
-    final headerTitle = session.isSponsor ? 'Sponsor Session' : 'Session';
+    final headerTitle = session.isSponsored ? 'Sponsor Session' : 'Session';
     final headerGradient = GradientConstant.accent.primary;
     final header = ResponsiveWidget(
       largeWidget: SectionHeader.leftAlignment(
@@ -55,23 +58,21 @@ class SessionDetailContent extends StatelessWidget {
         gradient: headerGradient,
       ),
     );
-    final route = SessionPageRoute(id: session.id);
+    final route = SessionPageRoute(id: session.uuid);
     final shareUrl = Uri.base.origin + route.location;
 
     final profileBody = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (session.isSponsor) ...[
+        if (sponsor case final Sponsor sponsor) ...[
           SponsorDetailLogoCard(
-            assetName: session.sponsorImage!,
+            assetName: sponsor.logoAssetName,
             cardWidth: 240,
             cardPadding: 24,
           ),
           Spaces.vertical_16,
-        ],
-        if (session.isSponsor) ...[
           Text(
-            session.sponsorName!,
+            sponsor.displayName,
             style: textTheme.bodyLarge,
           ),
           Spaces.vertical_16,
@@ -80,39 +81,41 @@ class SessionDetailContent extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(session.user.avatarUrl),
+              backgroundImage: NetworkImage(session.speaker.avatarUrl),
             ),
             Spaces.horizontal_8,
             Text(
-              session.user.name,
+              session.speaker.name,
               style: textTheme.titleMedium,
             ),
           ],
         ),
         Spaces.vertical_16,
-        Link(
-          uri: Uri.tryParse(
-            'https://twitter.com/${session.twitter}',
-          ),
-          builder: (context, followLink) => TextButton(
-            onPressed: followLink,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SvgPicture.asset(
-                  Assets.icons.twitter,
-                  width: 24,
-                  height: 24,
-                ),
-                Spaces.horizontal_8,
-                Text(
-                  session.twitter,
-                  style: textTheme.titleMedium,
-                ),
-              ],
+        if (session.speaker.twitter case final String twitter)
+          Link(
+            uri: Uri.tryParse(
+              'https://twitter.com/$twitter',
             ),
+            builder: (context, followLink) =>
+                TextButton(
+                  onPressed: followLink,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        Assets.icons.twitter,
+                        width: 24,
+                        height: 24,
+                      ),
+                      Spaces.horizontal_8,
+                      Text(
+                        twitter,
+                        style: textTheme.titleMedium,
+                      ),
+                    ],
+                  ),
+                ),
           ),
-        ),
       ],
     );
 
@@ -130,13 +133,13 @@ class SessionDetailContent extends StatelessWidget {
               children: [
                 Chip(
                   label: Text(
-                    session.trackName,
+                    session.track.name,
                   ),
                   backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
                 Spaces.horizontal_16,
                 Text(
-                  session.sessionName,
+                  session.title,
                   style: textTheme.headlineSmall,
                 ),
               ],
@@ -148,13 +151,13 @@ class SessionDetailContent extends StatelessWidget {
             ),
             Spaces.vertical_16,
             Text(
-              session.time,
+              session.timeText,
               style: textTheme.headlineSmall,
             ),
             Spaces.vertical_16,
             OutlinedButton(
               onPressed: () async {
-                final url = Uri.parse(session.forteeUrl);
+                final url = Uri.parse(session.url);
                 await launchUrl(url);
               },
               style: OutlinedButton.styleFrom(
@@ -176,7 +179,7 @@ class SessionDetailContent extends StatelessWidget {
             Divider(color: baselineColorScheme.ref.secondary.secondary50),
             contentVerticalGap,
             MarkdownBody(
-              data: session.contents,
+              data: session.abstract,
               softLineBreak: true,
             ),
           ],
