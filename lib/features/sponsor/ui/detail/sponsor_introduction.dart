@@ -73,16 +73,17 @@ final class SponsorIntroduction extends StatelessWidget {
                   ),
                 ),
                 Spaces.vertical_16,
-                Linkify(
-                  text: introduction,
-                  onOpen: (link) async => launchUrl(Uri.parse(link.url)),
-                  options: const LinkifyOptions(humanize: false),
-                  style: textTheme.bodyLarge,
-                  linkStyle: textTheme.bodyLarge?.copyWith(
-                    color: theme.colorScheme.primary,
-                    decoration: TextDecoration.underline,
+                if (introduction.isNotEmpty)
+                  Linkify(
+                    text: introduction,
+                    onOpen: (link) async => launchUrl(Uri.parse(link.url)),
+                    options: const LinkifyOptions(humanize: false),
+                    style: textTheme.bodyLarge,
+                    linkStyle: textTheme.bodyLarge?.copyWith(
+                      color: theme.colorScheme.primary,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
