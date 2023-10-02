@@ -73,7 +73,7 @@ final sessionProvider = AutoDisposeProvider<Session>.internal(
 );
 
 typedef SessionRef = AutoDisposeProviderRef<Session>;
-String _$sessionSponsorHash() => r'2c7da81384ddbf9ff99bb7951ae009e5648d8cc6';
+String _$sessionSponsorHash() => r'79cc682ed941f1ed2009fd4ee92529ec2896347e';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -126,7 +126,7 @@ class SessionSponsorFamily extends Family<Sponsor?> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    allSponsorsProvider
+    planSponsorsProvider
   ];
 
   @override
@@ -134,8 +134,8 @@ class SessionSponsorFamily extends Family<Sponsor?> {
 
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
-    allSponsorsProvider,
-    ...?allSponsorsProvider.allTransitiveDependencies
+    planSponsorsProvider,
+    ...?planSponsorsProvider.allTransitiveDependencies
   };
 
   @override
