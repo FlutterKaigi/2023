@@ -1,5 +1,4 @@
 import 'package:confwebsite2023/core/theme.dart';
-import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +121,7 @@ final class _TalkCardContent extends StatelessWidget {
           side: BorderSide(color: colorScheme.outline),
           borderRadius: BorderRadius.circular(8),
         ),
-        color: baselineColorScheme.ref.primary.primary40
+        color: baselineColorScheme.ref.primary.primary40,
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(
