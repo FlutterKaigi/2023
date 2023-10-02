@@ -44,8 +44,61 @@ final class _TimeslotCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
+    final title = Text(
+      _timeslot.title,
+      style: textTheme.titleLarge?.copyWith(
+        color: colorScheme.onSecondaryContainer,
+      ),
+    );
+
+    final Widget profileBody;
+    if (_timeslot.speaker case final Speaker speaker) {
+      profileBody = Column(
+        children: [
+          Spaces.vertical_8,
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 16,
+                backgroundImage: NetworkImage(speaker.avatarUrl),
+              ),
+              Spaces.horizontal_8,
+              Text(
+                speaker.name,
+                style: textTheme.titleMedium?.copyWith(
+                  color: colorScheme.onSecondaryContainer,
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+    } else {
+      profileBody = const SizedBox.shrink();
+    }
+
+    final timeText = Center(
+      child: Text(
+        _timeslot.timeRangeShortText,
+        style: textTheme.bodyLarge?.copyWith(
+          color: colorScheme.onSecondaryContainer,
+        ),
+      ),
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        title,
+        profileBody,
+        Spaces.vertical_16,
+        timeText,
+      ],
+    );
   }
 }
 
