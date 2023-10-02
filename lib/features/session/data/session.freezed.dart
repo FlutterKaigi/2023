@@ -31,6 +31,8 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
+  DateTime get startsAt => throw _privateConstructorUsedError;
+  int get lengthMin => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
@@ -47,7 +49,7 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,7 +68,7 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,7 +87,7 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,12 +114,16 @@ mixin _$Session {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
+  @useResult
+  $Res call({DateTime startsAt, int lengthMin});
 }
 
 /// @nodoc
@@ -129,13 +135,33 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startsAt = null,
+    Object? lengthMin = null,
+  }) {
+    return _then(_value.copyWith(
+      startsAt: null == startsAt
+          ? _value.startsAt
+          : startsAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lengthMin: null == lengthMin
+          ? _value.lengthMin
+          : lengthMin // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$TimeslotSessionCopyWith<$Res> {
+abstract class _$$TimeslotSessionCopyWith<$Res>
+    implements $SessionCopyWith<$Res> {
   factory _$$TimeslotSessionCopyWith(
           _$TimeslotSession value, $Res Function(_$TimeslotSession) then) =
       __$$TimeslotSessionCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String uuid,
@@ -308,7 +334,7 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
     return timeslot(uuid, title, startsAt, lengthMin, track, abstract, speaker);
   }
@@ -330,7 +356,7 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
     return timeslot?.call(
         uuid, title, startsAt, lengthMin, track, abstract, speaker);
@@ -353,7 +379,7 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (timeslot != null) {
@@ -420,21 +446,25 @@ abstract class TimeslotSession implements Session {
 
   String get uuid;
   String get title;
+  @override
   DateTime get startsAt;
+  @override
   int get lengthMin;
   Track get track;
   String? get abstract;
   Speaker? get speaker;
+  @override
   @JsonKey(ignore: true)
   _$$TimeslotSessionCopyWith<_$TimeslotSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TalkSessionCopyWith<$Res> {
+abstract class _$$TalkSessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$$TalkSessionCopyWith(
           _$TalkSession value, $Res Function(_$TalkSession) then) =
       __$$TalkSessionCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String uuid,
@@ -639,7 +669,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
     return talk(
         uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
@@ -662,7 +692,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
     return talk?.call(
         uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
@@ -685,7 +715,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (talk != null) {
@@ -757,20 +787,26 @@ abstract class TalkSession implements Session {
   String get title;
   String get abstract;
   Track get track;
+  @override
   DateTime get startsAt;
+  @override
   int get lengthMin;
   List<Tag> get tags;
   Speaker get speaker;
+  @override
   @JsonKey(ignore: true)
   _$$TalkSessionCopyWith<_$TalkSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LunchSessionCopyWith<$Res> {
+abstract class _$$LunchSessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$$LunchSessionCopyWith(
           _$LunchSession value, $Res Function(_$LunchSession) then) =
       __$$LunchSessionCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime startsAt, int lengthMin});
 }
 
 /// @nodoc
@@ -780,33 +816,69 @@ class __$$LunchSessionCopyWithImpl<$Res>
   __$$LunchSessionCopyWithImpl(
       _$LunchSession _value, $Res Function(_$LunchSession) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startsAt = null,
+    Object? lengthMin = null,
+  }) {
+    return _then(_$LunchSession(
+      startsAt: null == startsAt
+          ? _value.startsAt
+          : startsAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lengthMin: null == lengthMin
+          ? _value.lengthMin
+          : lengthMin // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LunchSession implements LunchSession {
-  const _$LunchSession({final String? $type}) : $type = $type ?? 'lunch';
+  const _$LunchSession(
+      {required this.startsAt, required this.lengthMin, final String? $type})
+      : $type = $type ?? 'lunch';
 
   factory _$LunchSession.fromJson(Map<String, dynamic> json) =>
       _$$LunchSessionFromJson(json);
+
+  @override
+  final DateTime startsAt;
+  @override
+  final int lengthMin;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'Session.lunch()';
+    return 'Session.lunch(startsAt: $startsAt, lengthMin: $lengthMin)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LunchSession);
+        (other.runtimeType == runtimeType &&
+            other is _$LunchSession &&
+            (identical(other.startsAt, startsAt) ||
+                other.startsAt == startsAt) &&
+            (identical(other.lengthMin, lengthMin) ||
+                other.lengthMin == lengthMin));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, startsAt, lengthMin);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LunchSessionCopyWith<_$LunchSession> get copyWith =>
+      __$$LunchSessionCopyWithImpl<_$LunchSession>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -825,9 +897,9 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
-    return lunch();
+    return lunch(startsAt, lengthMin);
   }
 
   @override
@@ -847,9 +919,9 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
-    return lunch?.call();
+    return lunch?.call(startsAt, lengthMin);
   }
 
   @override
@@ -869,11 +941,11 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (lunch != null) {
-      return lunch();
+      return lunch(startsAt, lengthMin);
     }
     return orElse();
   }
@@ -921,8 +993,19 @@ class _$LunchSession implements LunchSession {
 }
 
 abstract class LunchSession implements Session {
-  const factory LunchSession() = _$LunchSession;
+  const factory LunchSession(
+      {required final DateTime startsAt,
+      required final int lengthMin}) = _$LunchSession;
 
   factory LunchSession.fromJson(Map<String, dynamic> json) =
       _$LunchSession.fromJson;
+
+  @override
+  DateTime get startsAt;
+  @override
+  int get lengthMin;
+  @override
+  @JsonKey(ignore: true)
+  _$$LunchSessionCopyWith<_$LunchSession> get copyWith =>
+      throw _privateConstructorUsedError;
 }

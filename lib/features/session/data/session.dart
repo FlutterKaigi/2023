@@ -34,7 +34,10 @@ sealed class Session with _$Session {
     required Speaker speaker,
   }) = TalkSession;
 
-  const factory Session.lunch() = LunchSession;
+  const factory Session.lunch({
+    required DateTime startsAt,
+    required int lengthMin,
+  }) = LunchSession;
 
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
@@ -49,7 +52,7 @@ extension TalkSessionIsSponsored on TalkSession {
 final _formatterLong = DateFormat('yyyy年MM月dd日 HH:mm');
 final _formatterShort = DateFormat('HH:mm');
 
-extension TalkSessionTimeText on TalkSession {
+extension SessionTimeText on Session {
   DateTime get _endsAt {
     return startsAt.add(Duration(minutes: lengthMin));
   }
