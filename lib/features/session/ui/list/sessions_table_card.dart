@@ -1,4 +1,7 @@
+import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
+import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -109,8 +112,76 @@ final class _TalkCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
+    final trackChip = DecoratedBox(
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: colorScheme.outline),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        color: baselineColorScheme.ref.primary.primary40
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 6,
+          horizontal: 8,
+        ),
+        child: Text(
+          _talk.track.name,
+          style: textTheme.labelLarge?.copyWith(
+            color: colorScheme.onBackground,
+          ),
+        ),
+      ),
+    );
+
+    final title = Text(
+      _talk.title,
+      style: textTheme.titleLarge?.copyWith(
+        color: colorScheme.onSecondaryContainer,
+      ),
+    );
+
+    final profileBody = Row(
+      children: [
+        CircleAvatar(
+          radius: 16,
+          backgroundImage: NetworkImage(_talk.speaker.avatarUrl),
+        ),
+        Spaces.horizontal_8,
+        Text(
+          _talk.speaker.name,
+          style: textTheme.titleMedium?.copyWith(
+            color: colorScheme.onSecondaryContainer,
+          ),
+        ),
+      ],
+    );
+
+    final timeText = Center(
+      child: Text(
+        _talk.timeRangeShortText,
+        style: textTheme.bodyLarge?.copyWith(
+          color: baselineColorScheme.ref.primary.primary80,
+        ),
+      ),
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        trackChip,
+        Spaces.vertical_8,
+        title,
+        Spaces.vertical_8,
+        profileBody,
+        Spaces.vertical_16,
+        timeText,
+      ],
+    );
   }
 }
 
