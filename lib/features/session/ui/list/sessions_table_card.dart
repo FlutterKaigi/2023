@@ -85,7 +85,7 @@ final class _TimeslotCardContent extends StatelessWidget {
       child: Text(
         _timeslot.timeRangeShortText,
         style: textTheme.bodyLarge?.copyWith(
-          color: colorScheme.onSecondaryContainer,
+          color: baselineColorScheme.ref.primary.primary80,
         ),
       ),
     );
