@@ -18,6 +18,7 @@ sealed class Session with _$Session {
     required int lengthMin,
     required Track track,
     String? abstract,
+    Speaker? speaker,
   }) = TimeslotSession;
 
   @JsonSerializable(fieldRename: FieldRename.snake)

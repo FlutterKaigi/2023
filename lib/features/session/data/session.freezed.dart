@@ -34,7 +34,7 @@ mixin _$Session {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -53,7 +53,7 @@ mixin _$Session {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -72,7 +72,7 @@ mixin _$Session {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -143,9 +143,11 @@ abstract class _$$TimeslotSessionCopyWith<$Res> {
       DateTime startsAt,
       int lengthMin,
       Track track,
-      String? abstract});
+      String? abstract,
+      Speaker? speaker});
 
   $TrackCopyWith<$Res> get track;
+  $SpeakerCopyWith<$Res>? get speaker;
 }
 
 /// @nodoc
@@ -165,6 +167,7 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
     Object? lengthMin = null,
     Object? track = null,
     Object? abstract = freezed,
+    Object? speaker = freezed,
   }) {
     return _then(_$TimeslotSession(
       uuid: null == uuid
@@ -191,6 +194,10 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
           ? _value.abstract
           : abstract // ignore: cast_nullable_to_non_nullable
               as String?,
+      speaker: freezed == speaker
+          ? _value.speaker
+          : speaker // ignore: cast_nullable_to_non_nullable
+              as Speaker?,
     ));
   }
 
@@ -199,6 +206,18 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
   $TrackCopyWith<$Res> get track {
     return $TrackCopyWith<$Res>(_value.track, (value) {
       return _then(_value.copyWith(track: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SpeakerCopyWith<$Res>? get speaker {
+    if (_value.speaker == null) {
+      return null;
+    }
+
+    return $SpeakerCopyWith<$Res>(_value.speaker!, (value) {
+      return _then(_value.copyWith(speaker: value));
     });
   }
 }
@@ -214,6 +233,7 @@ class _$TimeslotSession implements TimeslotSession {
       required this.lengthMin,
       required this.track,
       this.abstract,
+      this.speaker,
       final String? $type})
       : $type = $type ?? 'timeslot';
 
@@ -232,13 +252,15 @@ class _$TimeslotSession implements TimeslotSession {
   final Track track;
   @override
   final String? abstract;
+  @override
+  final Speaker? speaker;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'Session.timeslot(uuid: $uuid, title: $title, startsAt: $startsAt, lengthMin: $lengthMin, track: $track, abstract: $abstract)';
+    return 'Session.timeslot(uuid: $uuid, title: $title, startsAt: $startsAt, lengthMin: $lengthMin, track: $track, abstract: $abstract, speaker: $speaker)';
   }
 
   @override
@@ -254,13 +276,14 @@ class _$TimeslotSession implements TimeslotSession {
                 other.lengthMin == lengthMin) &&
             (identical(other.track, track) || other.track == track) &&
             (identical(other.abstract, abstract) ||
-                other.abstract == abstract));
+                other.abstract == abstract) &&
+            (identical(other.speaker, speaker) || other.speaker == speaker));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, uuid, title, startsAt, lengthMin, track, abstract);
+      runtimeType, uuid, title, startsAt, lengthMin, track, abstract, speaker);
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +295,7 @@ class _$TimeslotSession implements TimeslotSession {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -287,14 +310,14 @@ class _$TimeslotSession implements TimeslotSession {
         talk,
     required TResult Function() lunch,
   }) {
-    return timeslot(uuid, title, startsAt, lengthMin, track, abstract);
+    return timeslot(uuid, title, startsAt, lengthMin, track, abstract, speaker);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -309,14 +332,15 @@ class _$TimeslotSession implements TimeslotSession {
         talk,
     TResult? Function()? lunch,
   }) {
-    return timeslot?.call(uuid, title, startsAt, lengthMin, track, abstract);
+    return timeslot?.call(
+        uuid, title, startsAt, lengthMin, track, abstract, speaker);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -333,7 +357,8 @@ class _$TimeslotSession implements TimeslotSession {
     required TResult orElse(),
   }) {
     if (timeslot != null) {
-      return timeslot(uuid, title, startsAt, lengthMin, track, abstract);
+      return timeslot(
+          uuid, title, startsAt, lengthMin, track, abstract, speaker);
     }
     return orElse();
   }
@@ -387,7 +412,8 @@ abstract class TimeslotSession implements Session {
       required final DateTime startsAt,
       required final int lengthMin,
       required final Track track,
-      final String? abstract}) = _$TimeslotSession;
+      final String? abstract,
+      final Speaker? speaker}) = _$TimeslotSession;
 
   factory TimeslotSession.fromJson(Map<String, dynamic> json) =
       _$TimeslotSession.fromJson;
@@ -398,6 +424,7 @@ abstract class TimeslotSession implements Session {
   int get lengthMin;
   Track get track;
   String? get abstract;
+  Speaker? get speaker;
   @JsonKey(ignore: true)
   _$$TimeslotSessionCopyWith<_$TimeslotSession> get copyWith =>
       throw _privateConstructorUsedError;
@@ -599,7 +626,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -622,7 +649,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -645,7 +672,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -785,7 +812,7 @@ class _$LunchSession implements LunchSession {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -807,7 +834,7 @@ class _$LunchSession implements LunchSession {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -829,7 +856,7 @@ class _$LunchSession implements LunchSession {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,

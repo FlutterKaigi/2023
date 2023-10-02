@@ -22,6 +22,11 @@ _$TimeslotSession _$$TimeslotSessionFromJson(Map<String, dynamic> json) =>
           track: $checkedConvert(
               'track', (v) => Track.fromJson(v as Map<String, dynamic>)),
           abstract: $checkedConvert('abstract', (v) => v as String?),
+          speaker: $checkedConvert(
+              'speaker',
+              (v) => v == null
+                  ? null
+                  : Speaker.fromJson(v as Map<String, dynamic>)),
           $type: $checkedConvert('type', (v) => v as String?),
         );
         return val;
@@ -41,6 +46,7 @@ Map<String, dynamic> _$$TimeslotSessionToJson(_$TimeslotSession instance) =>
       'length_min': instance.lengthMin,
       'track': instance.track,
       'abstract': instance.abstract,
+      'speaker': instance.speaker,
       'type': instance.$type,
     };
 
