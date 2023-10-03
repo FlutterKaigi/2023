@@ -16,11 +16,11 @@ List<Session> sessions(SessionsRef ref) => throw UnimplementedError();
     sessions,
   ],
 )
-Map<DateTime, List<Session>> sessionsGroupListsByStartsAt(
+Iterable<List<Session>> sessionsGroupListsByStartsAt(
   SessionsGroupListsByStartsAtRef ref,
 ) {
   final sessions = ref.watch(sessionsProvider);
-  return sessions.groupListsBy((s) => s.startsAt);
+  return sessions.groupListsBy((s) => s.startsAt).values;
 }
 
 typedef Tracks = ({Track left, Track right});
