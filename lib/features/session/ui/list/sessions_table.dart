@@ -1,5 +1,8 @@
+import 'package:collection/collection.dart';
 import 'package:confwebsite2023/core/theme.dart';
+import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/session_provider.dart';
+import 'package:confwebsite2023/features/session/ui/list/sessions_table_card.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -8,13 +11,30 @@ final class SessionsTable extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ignore: unused_local_variable
     final sessionsGroupListsByStartsAt = ref.watch(
       sessionsGroupListsByStartsAtProvider,
     );
     return SliverList.separated(
       itemBuilder: (context, index) {
-        return const _SessionsTableRow();
+        final sessions = sessionsGroupListsByStartsAt.elementAt(index);
+
+        final lunch = sessions.whereType<LunchSession>().firstOrNull;
+        if (lunch != null) {
+          return _SessionsTableRowLunch(lunch);
+        }
+
+        final timeslot = sessions.whereType<TimeslotSession>().firstOrNull;
+        if (timeslot != null) {
+          return _SessionsTableRowTimeSlot(timeslot);
+        }
+
+        final talkSessions = sessions.whereType<TalkSession>();
+        final track1Talk = talkSessions.firstWhere((s) => s.track.sort == 1);
+        final track2Talk = talkSessions.firstWhere((s) => s.track.sort == 2);
+        return _SessionsTableRowTalk(
+          track1Talk: track1Talk,
+          track2Talk: track2Talk,
+        );
       },
       separatorBuilder: (context, index) {
         return Spaces.vertical_40;
@@ -24,11 +44,41 @@ final class SessionsTable extends ConsumerWidget {
   }
 }
 
-final class _SessionsTableRow extends StatelessWidget {
-  const _SessionsTableRow();
+final class _SessionsTableRowTimeSlot extends StatelessWidget {
+  const _SessionsTableRowTimeSlot(this._timeslot);
+
+  final TimeslotSession _timeslot;
 
   @override
   Widget build(BuildContext context) {
+    return SessionsTableCard(_timeslot);
+  }
+}
+
+final class _SessionsTableRowLunch extends StatelessWidget {
+  const _SessionsTableRowLunch(this._lunch);
+
+  final LunchSession _lunch;
+
+  @override
+  Widget build(BuildContext context) {
+    return SessionsTableCard(_lunch);
+  }
+}
+
+final class _SessionsTableRowTalk extends StatelessWidget {
+  const _SessionsTableRowTalk({
+    required TalkSession track1Talk,
+    required TalkSession track2Talk,
+  })  : _track1Talk = track1Talk,
+        _track2Talk = track2Talk;
+
+  final TalkSession _track1Talk;
+  final TalkSession _track2Talk;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: レスポンシブ対応
     return const Placeholder();
   }
 }
