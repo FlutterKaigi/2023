@@ -11,6 +11,18 @@ part 'session_provider.g.dart';
 @Riverpod(keepAlive: true)
 List<Session> sessions(SessionsRef ref) => throw UnimplementedError();
 
+@Riverpod(
+  dependencies: [
+    sessions,
+  ],
+)
+Map<DateTime, List<Session>> sessionsGroupListsByStartsAt(
+  SessionsGroupListsByStartsAtRef ref,
+) {
+  final sessions = ref.watch(sessionsProvider);
+  return sessions.groupListsBy((s) => s.startsAt);
+}
+
 typedef Tracks = ({Track left, Track right});
 
 @Riverpod(

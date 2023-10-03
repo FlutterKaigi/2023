@@ -22,6 +22,27 @@ final sessionsProvider = Provider<List<Session>>.internal(
 );
 
 typedef SessionsRef = ProviderRef<List<Session>>;
+String _$sessionsGroupListsByStartsAtHash() =>
+    r'2345c4dc49c59a9968595c648704653fda727163';
+
+/// See also [sessionsGroupListsByStartsAt].
+@ProviderFor(sessionsGroupListsByStartsAt)
+final sessionsGroupListsByStartsAtProvider =
+    AutoDisposeProvider<Map<DateTime, List<Session>>>.internal(
+  sessionsGroupListsByStartsAt,
+  name: r'sessionsGroupListsByStartsAtProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$sessionsGroupListsByStartsAtHash,
+  dependencies: <ProviderOrFamily>[sessionsProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    sessionsProvider,
+    ...?sessionsProvider.allTransitiveDependencies
+  },
+);
+
+typedef SessionsGroupListsByStartsAtRef
+    = AutoDisposeProviderRef<Map<DateTime, List<Session>>>;
 String _$tracksHash() => r'fdf51ed59859d02817a62442cf84bc0f1c5a7ef7';
 
 /// See also [tracks].

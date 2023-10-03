@@ -9,7 +9,9 @@ final class SessionsTable extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // ignore: unused_local_variable
-    final sessions = ref.watch(sessionsProvider);
+    final sessionsGroupListsByStartsAt = ref.watch(
+      sessionsGroupListsByStartsAtProvider,
+    );
     return SliverList.separated(
       itemBuilder: (context, index) {
         return const _SessionsTableRow();
