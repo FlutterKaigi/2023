@@ -1,8 +1,13 @@
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+const _cartPadding = EdgeInsets.all(16);
+final _cardBorderRadius = BorderRadius.circular(12);
+const _circleAvatarRadius = 16.0;
 
 final class SessionsTableCard extends StatelessWidget {
   const SessionsTableCard(this._session, {super.key});
@@ -28,13 +33,10 @@ final class SessionsTableCard extends StatelessWidget {
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: _cardBorderRadius,
       ),
       color: theme.colorScheme.secondaryContainer,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: content,
-      ),
+      child: content,
     );
   }
 }
@@ -65,7 +67,7 @@ final class _TimeslotCardContent extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                radius: 16,
+                radius: _circleAvatarRadius,
                 backgroundImage: NetworkImage(speaker.avatarUrl),
               ),
               Spaces.horizontal_8,
@@ -94,14 +96,17 @@ final class _TimeslotCardContent extends StatelessWidget {
       ),
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        title,
-        profileBody,
-        Spaces.vertical_16,
-        timeText,
-      ],
+    return Padding(
+      padding: _cartPadding,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          title,
+          profileBody,
+          Spaces.vertical_16,
+          timeText,
+        ],
+      ),
     );
   }
 }
@@ -149,7 +154,7 @@ final class _TalkCardContent extends StatelessWidget {
     final profileBody = Row(
       children: [
         CircleAvatar(
-          radius: 16,
+          radius: _circleAvatarRadius,
           backgroundImage: NetworkImage(_talk.speaker.avatarUrl),
         ),
         Spaces.horizontal_8,
@@ -173,17 +178,26 @@ final class _TalkCardContent extends StatelessWidget {
       ),
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        trackChip,
-        Spaces.vertical_8,
-        title,
-        Spaces.vertical_8,
-        profileBody,
-        Spaces.vertical_16,
-        timeText,
-      ],
+    return InkWell(
+      borderRadius: _cardBorderRadius,
+      onTap: () {
+        SessionPageRoute(id: _talk.uuid).go(context);
+      },
+      child: Padding(
+        padding: _cartPadding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            trackChip,
+            Spaces.vertical_8,
+            title,
+            Spaces.vertical_8,
+            profileBody,
+            Spaces.vertical_16,
+            timeText,
+          ],
+        ),
+      ),
     );
   }
 }
@@ -193,14 +207,17 @@ final class _LunchCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Lunch Time',
-        style: GoogleFonts.poppins(
-          fontSize: 36,
-          fontStyle: FontStyle.italic,
-          fontWeight: FontWeight.w600,
-          height: 1.22,
+    return Padding(
+      padding: _cartPadding,
+      child: Center(
+        child: Text(
+          'Lunch Time',
+          style: GoogleFonts.poppins(
+            fontSize: 36,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w600,
+            height: 1.22,
+          ),
         ),
       ),
     );
