@@ -69,10 +69,12 @@ final class _TimeslotCardContent extends StatelessWidget {
                 backgroundImage: NetworkImage(speaker.avatarUrl),
               ),
               Spaces.horizontal_8,
-              Text(
-                speaker.name,
-                style: textTheme.titleMedium?.copyWith(
-                  color: colorScheme.onSecondaryContainer,
+              Flexible(
+                child: Text(
+                  speaker.name,
+                  style: textTheme.titleMedium?.copyWith(
+                    color: colorScheme.onSecondaryContainer,
+                  ),
                 ),
               ),
             ],
@@ -151,10 +153,12 @@ final class _TalkCardContent extends StatelessWidget {
           backgroundImage: NetworkImage(_talk.speaker.avatarUrl),
         ),
         Spaces.horizontal_8,
-        Text(
-          _talk.speaker.name,
-          style: textTheme.titleMedium?.copyWith(
-            color: colorScheme.onSecondaryContainer,
+        Flexible(
+          child: Text(
+            _talk.speaker.name,
+            style: textTheme.titleMedium?.copyWith(
+              color: colorScheme.onSecondaryContainer,
+            ),
           ),
         ),
       ],
