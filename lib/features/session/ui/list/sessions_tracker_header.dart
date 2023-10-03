@@ -48,13 +48,16 @@ final class _TrackCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
-          child: Text(
-            _track.name,
-            style: GoogleFonts.poppins(
-              fontSize: 36,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600,
-              height: 1.22,
+          child: FittedBox(
+            child: Text(
+              _track.name,
+              maxLines: 1,
+              style: GoogleFonts.poppins(
+                fontSize: 36,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.w600,
+                height: 1.22,
+              ),
             ),
           ),
         ),
