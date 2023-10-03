@@ -110,6 +110,11 @@ class SessionDetailContent extends StatelessWidget {
       ],
     );
 
+    final hPadding = EdgeInsets.only(
+      top: contentGap,
+      bottom: contentGap / 2,
+    );
+
     final body = DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.35),
@@ -163,9 +168,19 @@ class SessionDetailContent extends StatelessWidget {
             profileBody,
             contentVerticalGap,
             Divider(color: baselineColorScheme.ref.secondary.secondary50),
-            contentVerticalGap,
             MarkdownBody(
               data: session.abstract,
+              styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
+                p: textTheme.bodyLarge,
+                pPadding: const EdgeInsets.symmetric(vertical: 8),
+                h1: textTheme.headlineLarge,
+                h1Padding: hPadding,
+                h2: textTheme.headlineMedium,
+                h2Padding: hPadding,
+                h3: textTheme.headlineSmall,
+                h3Padding: hPadding,
+                blockSpacing: 8,
+              ),
               softLineBreak: true,
             ),
           ],
