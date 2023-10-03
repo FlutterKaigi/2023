@@ -3,7 +3,6 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/speaker.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 const _cartPadding = EdgeInsets.all(16);
 final _cardBorderRadius = BorderRadius.circular(12);
@@ -207,16 +206,15 @@ final class _LunchCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Padding(
       padding: _cartPadding,
       child: Center(
         child: Text(
           'Lunch Time',
-          style: GoogleFonts.poppins(
-            fontSize: 36,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w600,
-            height: 1.22,
+          style: textTheme.headlineMedium?.copyWith(
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),
