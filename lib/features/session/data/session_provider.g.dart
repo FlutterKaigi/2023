@@ -22,6 +22,27 @@ final sessionsProvider = Provider<List<Session>>.internal(
 );
 
 typedef SessionsRef = ProviderRef<List<Session>>;
+String _$sessionsGroupListsByStartsAtHash() =>
+    r'acc2ee9fd093ab8591dcced869307773f977b090';
+
+/// See also [sessionsGroupListsByStartsAt].
+@ProviderFor(sessionsGroupListsByStartsAt)
+final sessionsGroupListsByStartsAtProvider =
+    AutoDisposeProvider<Iterable<List<Session>>>.internal(
+  sessionsGroupListsByStartsAt,
+  name: r'sessionsGroupListsByStartsAtProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$sessionsGroupListsByStartsAtHash,
+  dependencies: <ProviderOrFamily>[sessionsProvider],
+  allTransitiveDependencies: <ProviderOrFamily>{
+    sessionsProvider,
+    ...?sessionsProvider.allTransitiveDependencies
+  },
+);
+
+typedef SessionsGroupListsByStartsAtRef
+    = AutoDisposeProviderRef<Iterable<List<Session>>>;
 String _$tracksHash() => r'fdf51ed59859d02817a62442cf84bc0f1c5a7ef7';
 
 /// See also [tracks].
@@ -73,7 +94,7 @@ final sessionProvider = AutoDisposeProvider<Session>.internal(
 );
 
 typedef SessionRef = AutoDisposeProviderRef<Session>;
-String _$sessionSponsorHash() => r'2149eba5bf8f482ae106f19ff271c1a476dc59a6';
+String _$sessionSponsorHash() => r'79cc682ed941f1ed2009fd4ee92529ec2896347e';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -126,7 +147,7 @@ class SessionSponsorFamily extends Family<Sponsor?> {
   }
 
   static final Iterable<ProviderOrFamily> _dependencies = <ProviderOrFamily>[
-    allSponsorsProvider
+    planSponsorsProvider
   ];
 
   @override
@@ -134,8 +155,8 @@ class SessionSponsorFamily extends Family<Sponsor?> {
 
   static final Iterable<ProviderOrFamily> _allTransitiveDependencies =
       <ProviderOrFamily>{
-    allSponsorsProvider,
-    ...?allSponsorsProvider.allTransitiveDependencies
+    planSponsorsProvider,
+    ...?planSponsorsProvider.allTransitiveDependencies
   };
 
   @override

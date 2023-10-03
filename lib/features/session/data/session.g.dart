@@ -22,6 +22,11 @@ _$TimeslotSession _$$TimeslotSessionFromJson(Map<String, dynamic> json) =>
           track: $checkedConvert(
               'track', (v) => Track.fromJson(v as Map<String, dynamic>)),
           abstract: $checkedConvert('abstract', (v) => v as String?),
+          speaker: $checkedConvert(
+              'speaker',
+              (v) => v == null
+                  ? null
+                  : Speaker.fromJson(v as Map<String, dynamic>)),
           $type: $checkedConvert('type', (v) => v as String?),
         );
         return val;
@@ -41,6 +46,7 @@ Map<String, dynamic> _$$TimeslotSessionToJson(_$TimeslotSession instance) =>
       'length_min': instance.lengthMin,
       'track': instance.track,
       'abstract': instance.abstract,
+      'speaker': instance.speaker,
       'type': instance.$type,
     };
 
@@ -97,6 +103,9 @@ _$LunchSession _$$LunchSessionFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$LunchSession(
+          startsAt:
+              $checkedConvert('startsAt', (v) => DateTime.parse(v as String)),
+          lengthMin: $checkedConvert('lengthMin', (v) => v as int),
           $type: $checkedConvert('type', (v) => v as String?),
         );
         return val;
@@ -106,5 +115,7 @@ _$LunchSession _$$LunchSessionFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$LunchSessionToJson(_$LunchSession instance) =>
     <String, dynamic>{
+      'startsAt': instance.startsAt.toIso8601String(),
+      'lengthMin': instance.lengthMin,
       'type': instance.$type,
     };

@@ -3,12 +3,25 @@ import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/track.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor_data_source.dart';
+import 'package:confwebsite2023/features/sponsor/data/sponsor_plan.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'session_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 List<Session> sessions(SessionsRef ref) => throw UnimplementedError();
+
+@Riverpod(
+  dependencies: [
+    sessions,
+  ],
+)
+Iterable<List<Session>> sessionsGroupListsByStartsAt(
+  SessionsGroupListsByStartsAtRef ref,
+) {
+  final sessions = ref.watch(sessionsProvider);
+  return sessions.groupListsBy((s) => s.startsAt).values;
+}
 
 typedef Tracks = ({Track left, Track right});
 
@@ -53,32 +66,25 @@ Session session(SessionRef ref) {
 
 @Riverpod(
   dependencies: [
-    allSponsors,
+    planSponsors,
   ],
 )
 Sponsor? sessionSponsor(SessionSponsorRef ref, Session session) {
-  final String? sponsorName;
   if (session is TalkSession && session.isSponsored) {
-    final speakerName = session.speaker.name;
-    if (speakerName.contains('ゆめみ')) {
-      sponsorName = 'yumemi';
-    } else if (speakerName.contains('出前館')) {
-      sponsorName = 'demaecan';
-    } else if (speakerName.contains('ナビタイムジャパン')) {
-      sponsorName = 'navitime';
-    } else {
-      throw AssertionError('Sponsor is not found');
-    }
+    return ref.watch(
+      planSponsorsProvider(SponsorPlan.platinum).select((sponsors) {
+        return sponsors.firstWhere(
+          (sponsor) {
+            final sponsorSession = sponsor.session;
+            if (sponsorSession == null) {
+              throw AssertionError('SponsorSession is not found');
+            }
+            return sponsorSession.id == session.uuid;
+          },
+        );
+      }),
+    );
   } else {
-    sponsorName = null;
-  }
-  if (sponsorName == null) {
     return null;
   }
-
-  return ref.watch(
-    allSponsorsProvider.select(
-      (sponsors) => sponsors.firstWhereOrNull((s) => s.name == sponsorName),
-    ),
-  );
 }

@@ -137,7 +137,7 @@ class SessionDetailContent extends StatelessWidget {
             ),
             Spaces.vertical_16,
             Text(
-              session.timeText,
+              session.timeRangeLongText,
               style: textTheme.headlineSmall,
             ),
             Spaces.vertical_16,

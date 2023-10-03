@@ -3,7 +3,6 @@ import 'package:confwebsite2023/core/theme/dimension.dart';
 import 'package:confwebsite2023/features/session/data/session_provider.dart';
 import 'package:confwebsite2023/features/session/data/track.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final class SessionsTrackHeader extends ConsumerWidget {
@@ -38,6 +37,7 @@ final class _TrackCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Card(
       elevation: 0,
       margin: EdgeInsets.zero,
@@ -48,13 +48,13 @@ final class _TrackCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
-          child: Text(
-            _track.name,
-            style: GoogleFonts.poppins(
-              fontSize: 36,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600,
-              height: 1.22,
+          child: FittedBox(
+            child: Text(
+              _track.name,
+              maxLines: 1,
+              style: textTheme.headlineMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

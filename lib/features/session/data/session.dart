@@ -18,6 +18,7 @@ sealed class Session with _$Session {
     required int lengthMin,
     required Track track,
     String? abstract,
+    Speaker? speaker,
   }) = TimeslotSession;
 
   @JsonSerializable(fieldRename: FieldRename.snake)
@@ -33,7 +34,10 @@ sealed class Session with _$Session {
     required Speaker speaker,
   }) = TalkSession;
 
-  const factory Session.lunch() = LunchSession;
+  const factory Session.lunch({
+    required DateTime startsAt,
+    required int lengthMin,
+  }) = LunchSession;
 
   factory Session.fromJson(Map<String, dynamic> json) =>
       _$SessionFromJson(json);
@@ -45,17 +49,24 @@ extension TalkSessionIsSponsored on TalkSession {
   }
 }
 
-final _formatterForStartsAt = DateFormat('yyyy年MM月dd日 HH:mm');
-final _formatterForEndsAt = DateFormat('HH:mm');
+final _formatterLong = DateFormat('yyyy年MM月dd日 HH:mm');
+final _formatterShort = DateFormat('HH:mm');
 
-extension TalkSessionTimeText on TalkSession {
-  String get timeText {
-    final endsAt = startsAt.add(Duration(minutes: lengthMin));
+extension SessionTimeText on Session {
+  DateTime get _endsAt {
+    return startsAt.add(Duration(minutes: lengthMin));
+  }
 
-    final startsAtText = _formatterForStartsAt.format(startsAt.toLocal());
-    final endsAtText = _formatterForEndsAt.format(endsAt.toLocal());
+  String get timeRangeLongText {
+    final startsAtText = _formatterLong.format(startsAt.toLocal());
+    final endsAtText = _formatterShort.format(_endsAt.toLocal());
     final lengthMinText = '$lengthMin分';
-
     return '$startsAtText〜$endsAtText（$lengthMinText）';
+  }
+
+  String get timeRangeShortText {
+    final startsAtText = _formatterShort.format(startsAt.toLocal());
+    final endsAtText = _formatterShort.format(_endsAt.toLocal());
+    return '$startsAtText〜$endsAtText';
   }
 }

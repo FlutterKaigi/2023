@@ -31,10 +31,12 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
+  DateTime get startsAt => throw _privateConstructorUsedError;
+  int get lengthMin => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -47,13 +49,13 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -66,13 +68,13 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -85,7 +87,7 @@ mixin _$Session {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,12 +114,16 @@ mixin _$Session {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SessionCopyWith<Session> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res, Session>;
+  @useResult
+  $Res call({DateTime startsAt, int lengthMin});
 }
 
 /// @nodoc
@@ -129,13 +135,33 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startsAt = null,
+    Object? lengthMin = null,
+  }) {
+    return _then(_value.copyWith(
+      startsAt: null == startsAt
+          ? _value.startsAt
+          : startsAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lengthMin: null == lengthMin
+          ? _value.lengthMin
+          : lengthMin // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$TimeslotSessionCopyWith<$Res> {
+abstract class _$$TimeslotSessionCopyWith<$Res>
+    implements $SessionCopyWith<$Res> {
   factory _$$TimeslotSessionCopyWith(
           _$TimeslotSession value, $Res Function(_$TimeslotSession) then) =
       __$$TimeslotSessionCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String uuid,
@@ -143,9 +169,11 @@ abstract class _$$TimeslotSessionCopyWith<$Res> {
       DateTime startsAt,
       int lengthMin,
       Track track,
-      String? abstract});
+      String? abstract,
+      Speaker? speaker});
 
   $TrackCopyWith<$Res> get track;
+  $SpeakerCopyWith<$Res>? get speaker;
 }
 
 /// @nodoc
@@ -165,6 +193,7 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
     Object? lengthMin = null,
     Object? track = null,
     Object? abstract = freezed,
+    Object? speaker = freezed,
   }) {
     return _then(_$TimeslotSession(
       uuid: null == uuid
@@ -191,6 +220,10 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
           ? _value.abstract
           : abstract // ignore: cast_nullable_to_non_nullable
               as String?,
+      speaker: freezed == speaker
+          ? _value.speaker
+          : speaker // ignore: cast_nullable_to_non_nullable
+              as Speaker?,
     ));
   }
 
@@ -199,6 +232,18 @@ class __$$TimeslotSessionCopyWithImpl<$Res>
   $TrackCopyWith<$Res> get track {
     return $TrackCopyWith<$Res>(_value.track, (value) {
       return _then(_value.copyWith(track: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SpeakerCopyWith<$Res>? get speaker {
+    if (_value.speaker == null) {
+      return null;
+    }
+
+    return $SpeakerCopyWith<$Res>(_value.speaker!, (value) {
+      return _then(_value.copyWith(speaker: value));
     });
   }
 }
@@ -214,6 +259,7 @@ class _$TimeslotSession implements TimeslotSession {
       required this.lengthMin,
       required this.track,
       this.abstract,
+      this.speaker,
       final String? $type})
       : $type = $type ?? 'timeslot';
 
@@ -232,13 +278,15 @@ class _$TimeslotSession implements TimeslotSession {
   final Track track;
   @override
   final String? abstract;
+  @override
+  final Speaker? speaker;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'Session.timeslot(uuid: $uuid, title: $title, startsAt: $startsAt, lengthMin: $lengthMin, track: $track, abstract: $abstract)';
+    return 'Session.timeslot(uuid: $uuid, title: $title, startsAt: $startsAt, lengthMin: $lengthMin, track: $track, abstract: $abstract, speaker: $speaker)';
   }
 
   @override
@@ -254,13 +302,14 @@ class _$TimeslotSession implements TimeslotSession {
                 other.lengthMin == lengthMin) &&
             (identical(other.track, track) || other.track == track) &&
             (identical(other.abstract, abstract) ||
-                other.abstract == abstract));
+                other.abstract == abstract) &&
+            (identical(other.speaker, speaker) || other.speaker == speaker));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, uuid, title, startsAt, lengthMin, track, abstract);
+      runtimeType, uuid, title, startsAt, lengthMin, track, abstract, speaker);
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +321,7 @@ class _$TimeslotSession implements TimeslotSession {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -285,16 +334,16 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
-    return timeslot(uuid, title, startsAt, lengthMin, track, abstract);
+    return timeslot(uuid, title, startsAt, lengthMin, track, abstract, speaker);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -307,16 +356,17 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
-    return timeslot?.call(uuid, title, startsAt, lengthMin, track, abstract);
+    return timeslot?.call(
+        uuid, title, startsAt, lengthMin, track, abstract, speaker);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -329,11 +379,12 @@ class _$TimeslotSession implements TimeslotSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (timeslot != null) {
-      return timeslot(uuid, title, startsAt, lengthMin, track, abstract);
+      return timeslot(
+          uuid, title, startsAt, lengthMin, track, abstract, speaker);
     }
     return orElse();
   }
@@ -387,27 +438,33 @@ abstract class TimeslotSession implements Session {
       required final DateTime startsAt,
       required final int lengthMin,
       required final Track track,
-      final String? abstract}) = _$TimeslotSession;
+      final String? abstract,
+      final Speaker? speaker}) = _$TimeslotSession;
 
   factory TimeslotSession.fromJson(Map<String, dynamic> json) =
       _$TimeslotSession.fromJson;
 
   String get uuid;
   String get title;
+  @override
   DateTime get startsAt;
+  @override
   int get lengthMin;
   Track get track;
   String? get abstract;
+  Speaker? get speaker;
+  @override
   @JsonKey(ignore: true)
   _$$TimeslotSessionCopyWith<_$TimeslotSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$TalkSessionCopyWith<$Res> {
+abstract class _$$TalkSessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$$TalkSessionCopyWith(
           _$TalkSession value, $Res Function(_$TalkSession) then) =
       __$$TalkSessionCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String uuid,
@@ -599,7 +656,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -612,7 +669,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
     return talk(
         uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
@@ -622,7 +679,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -635,7 +692,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
     return talk?.call(
         uuid, url, title, abstract, track, startsAt, lengthMin, tags, speaker);
@@ -645,7 +702,7 @@ class _$TalkSession implements TalkSession {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -658,7 +715,7 @@ class _$TalkSession implements TalkSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (talk != null) {
@@ -730,20 +787,26 @@ abstract class TalkSession implements Session {
   String get title;
   String get abstract;
   Track get track;
+  @override
   DateTime get startsAt;
+  @override
   int get lengthMin;
   List<Tag> get tags;
   Speaker get speaker;
+  @override
   @JsonKey(ignore: true)
   _$$TalkSessionCopyWith<_$TalkSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LunchSessionCopyWith<$Res> {
+abstract class _$$LunchSessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$$LunchSessionCopyWith(
           _$LunchSession value, $Res Function(_$LunchSession) then) =
       __$$LunchSessionCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({DateTime startsAt, int lengthMin});
 }
 
 /// @nodoc
@@ -753,39 +816,75 @@ class __$$LunchSessionCopyWithImpl<$Res>
   __$$LunchSessionCopyWithImpl(
       _$LunchSession _value, $Res Function(_$LunchSession) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? startsAt = null,
+    Object? lengthMin = null,
+  }) {
+    return _then(_$LunchSession(
+      startsAt: null == startsAt
+          ? _value.startsAt
+          : startsAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lengthMin: null == lengthMin
+          ? _value.lengthMin
+          : lengthMin // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LunchSession implements LunchSession {
-  const _$LunchSession({final String? $type}) : $type = $type ?? 'lunch';
+  const _$LunchSession(
+      {required this.startsAt, required this.lengthMin, final String? $type})
+      : $type = $type ?? 'lunch';
 
   factory _$LunchSession.fromJson(Map<String, dynamic> json) =>
       _$$LunchSessionFromJson(json);
+
+  @override
+  final DateTime startsAt;
+  @override
+  final int lengthMin;
 
   @JsonKey(name: 'type')
   final String $type;
 
   @override
   String toString() {
-    return 'Session.lunch()';
+    return 'Session.lunch(startsAt: $startsAt, lengthMin: $lengthMin)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LunchSession);
+        (other.runtimeType == runtimeType &&
+            other is _$LunchSession &&
+            (identical(other.startsAt, startsAt) ||
+                other.startsAt == startsAt) &&
+            (identical(other.lengthMin, lengthMin) ||
+                other.lengthMin == lengthMin));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, startsAt, lengthMin);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LunchSessionCopyWith<_$LunchSession> get copyWith =>
+      __$$LunchSessionCopyWithImpl<_$LunchSession>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)
+            int lengthMin, Track track, String? abstract, Speaker? speaker)
         timeslot,
     required TResult Function(
             String uuid,
@@ -798,16 +897,16 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)
         talk,
-    required TResult Function() lunch,
+    required TResult Function(DateTime startsAt, int lengthMin) lunch,
   }) {
-    return lunch();
+    return lunch(startsAt, lengthMin);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult? Function(
             String uuid,
@@ -820,16 +919,16 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult? Function()? lunch,
+    TResult? Function(DateTime startsAt, int lengthMin)? lunch,
   }) {
-    return lunch?.call();
+    return lunch?.call(startsAt, lengthMin);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String uuid, String title, DateTime startsAt,
-            int lengthMin, Track track, String? abstract)?
+            int lengthMin, Track track, String? abstract, Speaker? speaker)?
         timeslot,
     TResult Function(
             String uuid,
@@ -842,11 +941,11 @@ class _$LunchSession implements LunchSession {
             List<Tag> tags,
             Speaker speaker)?
         talk,
-    TResult Function()? lunch,
+    TResult Function(DateTime startsAt, int lengthMin)? lunch,
     required TResult orElse(),
   }) {
     if (lunch != null) {
-      return lunch();
+      return lunch(startsAt, lengthMin);
     }
     return orElse();
   }
@@ -894,8 +993,19 @@ class _$LunchSession implements LunchSession {
 }
 
 abstract class LunchSession implements Session {
-  const factory LunchSession() = _$LunchSession;
+  const factory LunchSession(
+      {required final DateTime startsAt,
+      required final int lengthMin}) = _$LunchSession;
 
   factory LunchSession.fromJson(Map<String, dynamic> json) =
       _$LunchSession.fromJson;
+
+  @override
+  DateTime get startsAt;
+  @override
+  int get lengthMin;
+  @override
+  @JsonKey(ignore: true)
+  _$$LunchSessionCopyWith<_$LunchSession> get copyWith =>
+      throw _privateConstructorUsedError;
 }
