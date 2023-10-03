@@ -1,3 +1,4 @@
+import 'package:confwebsite2023/core/components/circle_list_item_mark.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/news/data/news.dart';
 import 'package:confwebsite2023/features/news/data/news_provider.dart';
@@ -44,14 +45,7 @@ class _NewsItem extends StatelessWidget {
         ),
         // 紫丸ポチ
         Spaces.horizontal_16,
-        Container(
-          width: 8,
-          height: 8,
-          decoration: BoxDecoration(
-            color: baselineColorScheme.ref.primary.primary40,
-            shape: BoxShape.circle,
-          ),
-        ),
+        const CircleListItemMark(),
         Spaces.horizontal_16,
         // text
         Expanded(
