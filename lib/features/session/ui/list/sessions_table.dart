@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/session/data/session_provider.dart';
@@ -78,7 +79,29 @@ final class _SessionsTableRowTalk extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: レスポンシブ対応
-    return const Placeholder();
+    final largeWidget = IntrinsicHeight(
+      child: Row(
+        children: [
+          Expanded(
+            child: SessionsTableCard(_track1Talk),
+          ),
+          Spaces.horizontal_20,
+          Expanded(
+            child: SessionsTableCard(_track2Talk),
+          ),
+        ],
+      ),
+    );
+    final smallWidget = Column(
+      children: [
+        SessionsTableCard(_track1Talk),
+        Spaces.vertical_20,
+        SessionsTableCard(_track2Talk),
+      ],
+    );
+    return ResponsiveWidget(
+      largeWidget: largeWidget,
+      smallWidget: smallWidget,
+    );
   }
 }
