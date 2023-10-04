@@ -14,7 +14,7 @@ class HandsOnEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     const text =
         // ignore: lines_longer_than_80_chars
-        '今年のハンズオンでは、三目並べの制作を通してriverpodを学べることを目指します。また、そのチャレンジ企画として Firebase を利用したリアルタイム対戦機能も計画しています。現在、スタッフ一丸となってその準備に励んでおりますので、開催当日まで暫しお待ちいただければと思います。\n'
+        '今年のハンズオンでは、三目並べの制作を通して Riverpod を学べることを目指します。また、そのチャレンジ企画として Firebase を利用したリアルタイム対戦機能も計画しています。現在、スタッフ一丸となってその準備に励んでおりますので、開催当日まで暫しお待ちいただければと思います。\n'
         'なお、開催日は昨年と違い本編とは別日の10/26に開催予定ですので、こちらも合わせてご留意ください。';
     return WantedWidget(
       title: 'Join the hands-on event!',
