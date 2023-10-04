@@ -77,7 +77,7 @@ class HeroSectionMobile extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'in 株式会社ナビタイムジャパン',
+            '@ 株式会社ナビタイムジャパン',
             style: textTheme.titleLarge,
           ),
         ),
