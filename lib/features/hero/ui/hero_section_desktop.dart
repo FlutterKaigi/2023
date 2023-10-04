@@ -63,7 +63,7 @@ class HeroSectionDesktop extends StatelessWidget {
         FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            'November 10, 2023',
+            'November 10th, 2023',
             style: GoogleFonts.poppins(
               color: baselineColorScheme.white,
               fontSize: 24,
