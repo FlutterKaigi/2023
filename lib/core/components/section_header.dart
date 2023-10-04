@@ -35,6 +35,8 @@ final class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final view = WidgetsBinding.instance.platformDispatcher.views.first;
+    final size = view.physicalSize;
     final component = RepaintBoundary(
       child: ShaderMask(
         shaderCallback: gradient.createShader,
@@ -42,10 +44,13 @@ final class SectionHeader extends StatelessWidget {
         child: Padding(
           // NOTE: Text Widget の描画範囲から外れて文字やブラーが見切れてしまうため、現状は左右に余白を設けている
           padding: const EdgeInsets.all(_blurRadius),
-          child: Text(
-            text,
-            style: style.copyWith(
-              color: Colors.white,
+          child: SizedBox(
+            width: size.width,
+            child: Text(
+              text,
+              style: style.copyWith(
+                color: Colors.white,
+              ),
             ),
           ),
         ),
