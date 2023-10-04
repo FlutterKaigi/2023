@@ -96,7 +96,7 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         session: null,
         introduction: '''
 Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications. Transform your app development process to launch faster with less resources by building, testing, and deploying from a single codebase.
-'''
+''',
       ),
       Sponsor(
         name: 'magicpod',
