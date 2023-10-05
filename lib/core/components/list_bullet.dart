@@ -1,9 +1,9 @@
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
-/// [CircleListItemMark] is a primary color circle mark.
-final class CircleListItemMark extends StatelessWidget {
-  const CircleListItemMark({super.key});
+/// [ListBullet] is a primary color circle mark.
+final class ListBullet extends StatelessWidget {
+  const ListBullet({super.key});
 
   @override
   Widget build(BuildContext context) => Container(

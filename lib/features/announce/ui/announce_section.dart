@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/core/components/circle_list_item_mark.dart';
+import 'package:confwebsite2023/core/components/list_bullet.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/announce/ui/announce_section_header.dart';
@@ -72,7 +72,7 @@ final class _AnnounceItem extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 8),
-            child: CircleListItemMark(),
+            child: ListBullet(),
           ),
           Spaces.horizontal_16,
           // text

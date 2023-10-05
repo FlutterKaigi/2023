@@ -1,4 +1,4 @@
-import 'package:confwebsite2023/core/components/circle_list_item_mark.dart';
+import 'package:confwebsite2023/core/components/list_bullet.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/news/data/news.dart';
 import 'package:confwebsite2023/features/news/data/news_provider.dart';
@@ -45,7 +45,7 @@ class _NewsItem extends StatelessWidget {
         ),
         // 紫丸ポチ
         Spaces.horizontal_16,
-        const CircleListItemMark(),
+        const ListBullet(),
         Spaces.horizontal_16,
         // text
         Expanded(
