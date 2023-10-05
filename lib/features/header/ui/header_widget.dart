@@ -109,7 +109,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.all(10),
           child: ResponsiveWidget(
             largeWidget: desktopBar,
-            smallWidget: mobileBar,
+            mediumWidget: mobileBar,
           ),
         ),
       ),
