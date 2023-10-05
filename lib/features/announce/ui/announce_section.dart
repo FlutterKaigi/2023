@@ -39,15 +39,21 @@ final class _AnnounceSectionContent extends StatelessWidget {
 final class _AnnounceList extends StatelessWidget {
   const _AnnounceList();
 
+  static const _verticalGap = Spaces.vertical_16;
+
   @override
-  Widget build(BuildContext context) => const Wrap(
-        runSpacing: 16,
+  Widget build(BuildContext context) => const Column(
         children: [
           _AnnounceItem('会場は禁煙です。喫煙所はありません。'),
+          _verticalGap,
           _AnnounceItem('クローク／ロッカーなどの用意はございません。手荷物は各自の責任により管理してください。'),
+          _verticalGap,
           _AnnounceItem('会場内で発生したゴミのお持ち帰りにご協力ください。会場内ではゴミの分別にご協力ください。'),
+          _verticalGap,
           _AnnounceItem('駐車場の用意はございません。公共交通機関（電車・バスなど）をご利用ください。'),
+          _verticalGap,
           _AnnounceItem('会場内におけるトラブル、事故やケガ、盗難、紛失等につきましては、会場は一切の責任を負いかねます。'),
+          _verticalGap,
           _AnnounceItem(
             'イベントの模様は撮影される場合がございます。その場合、お客様が写り込む場合もございますので、予めご了承ください。',
           ),
