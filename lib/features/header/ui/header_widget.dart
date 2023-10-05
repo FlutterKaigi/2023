@@ -33,7 +33,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
           child: logo,
         );
 
-    final mobileBar = Row(
+    final mediumBar = Row(
       children: [
         const Column(),
         titleWidget(
@@ -65,7 +65,7 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
       ],
     );
 
-    final desktopBar = Center(
+    final largeBar = Center(
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -108,8 +108,8 @@ class HeaderBar extends HookWidget implements PreferredSizeWidget {
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: ResponsiveWidget(
-            largeWidget: desktopBar,
-            mediumWidget: mobileBar,
+            largeWidget: largeBar,
+            mediumWidget: mediumBar,
           ),
         ),
       ),
