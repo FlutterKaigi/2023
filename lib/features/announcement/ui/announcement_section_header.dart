@@ -4,10 +4,10 @@ import 'package:confwebsite2023/core/theme.dart';
 import 'package:flutter/material.dart';
 
 /// アナウンスセクションのヘッダー
-final class AnnounceSectionHeader extends StatelessWidget {
-  const AnnounceSectionHeader({super.key});
+final class AnnouncementSectionHeader extends StatelessWidget {
+  const AnnouncementSectionHeader({super.key});
 
-  static const _title = 'Announce';
+  static const _title = 'Announcement';
 
   @override
   Widget build(BuildContext context) {
