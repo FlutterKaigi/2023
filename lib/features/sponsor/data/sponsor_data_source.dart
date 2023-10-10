@@ -94,6 +94,9 @@ List<Sponsor> _goldSponsors(_GoldSponsorsRef ref) => [
         logoAssetName: Assets.sponsors.flutter,
         plan: SponsorPlan.gold,
         session: null,
+        introduction: '''
+Flutter is an open source framework by Google for building beautiful, natively compiled, multi-platform applications. Transform your app development process to launch faster with less resources by building, testing, and deploying from a single codebase.
+''',
       ),
       Sponsor(
         name: 'magicpod',
@@ -282,7 +285,7 @@ https://www.wantedly.com/projects/1315544
         plan: SponsorPlan.silver,
         session: null,
         introduction: '''
-リクルートグループについて 1960年の創業以来、リクルートグループは、就職・結婚・進学・住宅・自動車・旅行・飲食・美容などの領域において、一 人ひとりのライフスタイルに応じたより最適な選択肢を提供してきました。現在、HRテクノロジー、マッチング＆ソ リューション、人材派遣の３事業を軸に、60を超える国・地域で事業を展開しています。リクルートグループは、新しい価 値の創造を通じ、社会からの期待に応え、一人ひとりが輝く豊かな世界の実現に向けて、より多くの『まだ、ここにない、 出会い。』を提供していきます。 
+リクルートグループについて 1960年の創業以来、リクルートグループは、就職・結婚・進学・住宅・自動車・旅行・飲食・美容などの領域において、一 人ひとりのライフスタイルに応じたより最適な選択肢を提供してきました。現在、HRテクノロジー、マッチング＆ソリューション、人材派遣の３事業を軸に、60を超える国・地域で事業を展開しています。リクルートグループは、新しい価 値の創造を通じ、社会からの期待に応え、一人ひとりが輝く豊かな世界の実現に向けて、より多くの『まだ、ここにない、 出会い。』を提供していきます。 
 ''',
       ),
       Sponsor(
