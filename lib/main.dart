@@ -1,7 +1,11 @@
+import 'package:collection/collection.dart';
 import 'package:confwebsite2023/app/app.dart';
 import 'package:confwebsite2023/app/config.dart';
 import 'package:confwebsite2023/features/news/data/mock_news_data_source.dart';
 import 'package:confwebsite2023/features/news/data/news_data_source.dart';
+import 'package:confwebsite2023/features/session/data/session.dart';
+import 'package:confwebsite2023/features/session/data/session_data_source.dart';
+import 'package:confwebsite2023/features/session/data/session_provider.dart';
 import 'package:confwebsite2023/features/staff/data/mock_staff_data_source.dart';
 import 'package:confwebsite2023/features/staff/data/staff_data_source.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +21,21 @@ void main() async {
 
   final config = Config();
 
+  final sessionDataSource = SessionDataSource();
+  final sessions = await sessionDataSource.fetchSessions();
+
+  // Add lunch session
+  final lunchSession = Session.lunch(
+    startsAt: DateTime.parse('2023-11-10T12:00:00+09:00'),
+    lengthMin: 90,
+  );
+  sessions
+    ..add(lunchSession)
+    ..sortBy((element) => element.startsAt);
+
   final overrides = <Override>[
     configProvider.overrideWithValue(config),
+    sessionsProvider.overrideWithValue(sessions),
   ];
 
   if (config.isMock) {

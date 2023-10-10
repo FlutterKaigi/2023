@@ -20,6 +20,7 @@ dependencies:
   flutter_linkify: ^6.0.0
   flutter_localizations:
     sdk: flutter
+  flutter_markdown: ^0.6.17+3
   flutter_svg: ^2.0.7
   flutter_web_plugins:
     sdk: flutter

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
@@ -76,6 +77,10 @@ class MainPage extends HookWidget {
       HeaderItemButtonData(
         title: 'Staff',
         onPressed: () async => scrollToSection(sectionKeys.staff),
+      ),
+      HeaderItemButtonData(
+        title: 'Session',
+        onPressed: () async => const SessionsPageRoute().go(context),
       ),
     ];
 

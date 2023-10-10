@@ -258,7 +258,7 @@ class LogoOnlyHeaderBar extends StatelessWidget implements PreferredSizeWidget {
             height: 1.2,
           ),
         ),
-        smallWidget: FlutterKaigiLogo(
+        mediumWidget: FlutterKaigiLogo(
           style: FlutterKaigiLogoStyle.markOnly,
           size: 36,
           showGradient: false,
