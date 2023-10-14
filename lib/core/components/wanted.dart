@@ -129,20 +129,24 @@ class _WantedDesktop extends StatelessWidget {
                     child!,
                     Spaces.vertical_24,
                   ],
-                  Row(
-                    children: [
-                      LeftFilledIconButton(
-                        onPressed: ticketOnPressed,
-                        buttonTitle: ticketButtonTitle,
-                        icon: Icons.arrow_forward_ios,
-                      ),
-                      Spaces.horizontal_40,
-                      LeftFilledIconButton(
-                        onPressed: archiveOnPressed,
-                        buttonTitle: archiveButtonTitle,
-                        icon: Icons.arrow_forward_ios,
-                      ),
-                    ],
+                  FittedBox(
+                    child: Row(
+                      children: [
+                        LeftFilledIconButton(
+                          width: 193,
+                          onPressed: ticketOnPressed,
+                          buttonTitle: ticketButtonTitle,
+                          icon: Icons.arrow_forward_ios,
+                        ),
+                        Spaces.horizontal_40,
+                        LeftFilledIconButton(
+                          width: 193,
+                          onPressed: archiveOnPressed,
+                          buttonTitle: archiveButtonTitle,
+                          icon: Icons.arrow_forward_ios,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -230,12 +234,14 @@ class _WantedMobile extends StatelessWidget {
               Spaces.vertical_24,
             ],
             LeftFilledIconButton(
+              width: MediaQuery.of(context).size.width,
               onPressed: ticketOnPressed,
               buttonTitle: ticketButtonTitle,
               icon: Icons.arrow_forward_ios,
             ),
             Spaces.vertical_24,
             LeftFilledIconButton(
+              width: MediaQuery.of(context).size.width,
               onPressed: archiveOnPressed,
               buttonTitle: archiveButtonTitle,
               icon: Icons.arrow_forward_ios,
