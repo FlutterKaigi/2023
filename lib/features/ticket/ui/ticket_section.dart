@@ -14,11 +14,14 @@ class TicketSection extends StatelessWidget {
           'FlutterKaigi 2023のチケットをPassMarketにて販売・配布しています。\n'
           'オフライン会場チケット(ノベルティ・懇談会含む)は3,000円、オンライン配信視聴チケットは無料です。\n'
           'オンライン配信については、開催当日にライブ配信を行う予定です。配信方式について開催までに変更する可能性があります。',
-      buttonTitle: 'チケット詳細を確認する',
-      onPressed: () async => launchUrlString(
+      ticketButtonTitle: 'チケット詳細を確認する',
+      ticketOnPressed: () async => launchUrlString(
         'https://passmarket.yahoo.co.jp/event/show/detail/02feie4cn9831.html',
         mode: LaunchMode.externalApplication,
       ),
+      // このPRではチケットセッションは表示されないため、仮で記載している
+      archiveOnPressed: () {},
+      archiveButtonTitle: '',
     );
   }
 }
