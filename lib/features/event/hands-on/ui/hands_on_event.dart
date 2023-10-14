@@ -25,8 +25,7 @@ class HandsOnEvent extends StatelessWidget {
       ),
       archiveButtonTitle: 'アーカイブはこちら',
       archiveOnPressed: () async => launchUrlString(
-        //TODO URLはまだ決まっていないため、あとで記載
-        'https://flutterkaigi.connpass.com/event/293847/',
+        'https://www.youtube.com/watch?v=Kj-3UcIZc4Y',
         mode: LaunchMode.externalApplication,
       ),
       image: Assets.illustrationConference,
