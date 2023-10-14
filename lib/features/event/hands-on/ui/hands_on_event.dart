@@ -14,13 +14,18 @@ class HandsOnEvent extends StatelessWidget {
   Widget build(BuildContext context) {
     const text =
         // ignore: lines_longer_than_80_chars
-        '今年のハンズオンでは、三目並べの制作を通してriverpodを学べることを目指します。また、そのチャレンジ企画として Firebase を利用したリアルタイム対戦機能も計画しています。現在、スタッフ一丸となってその準備に励んでおりますので、開催当日まで暫しお待ちいただければと思います。\n'
-        'なお、開催日は昨年と違い本編とは別日の10/26に開催予定ですので、こちらも合わせてご留意ください。';
+        '今年のハンズオンは10月26日をもって終了しました。多くの皆様にご参加いただき誠にありがとうございました。FlutterKaigi本編にもご参加される方には先着15名の限定ノベルティを用意しております。ノベルティの配布は、受付とは別に会場内に設置した専用のコーナーで行いますのでご注意ください。';
     return WantedWidget(
-      title: 'Join the hands-on event!',
-      buttonTitle: 'イベント詳細',
+      title: 'Have a blast!',
+      ticketButtonTitle: 'イベント詳細',
       content: text,
-      onPressed: () async => launchUrlString(
+      ticketOnPressed: () async => launchUrlString(
+        'https://flutterkaigi.connpass.com/event/293847/',
+        mode: LaunchMode.externalApplication,
+      ),
+      archiveButtonTitle: 'アーカイブはこちら',
+      archiveOnPressed: () async => launchUrlString(
+        //TODO URLはまだ決まっていないため、あとで記載
         'https://flutterkaigi.connpass.com/event/293847/',
         mode: LaunchMode.externalApplication,
       ),
