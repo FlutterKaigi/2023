@@ -5,6 +5,7 @@ import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
 import 'package:confwebsite2023/features/announcement/ui/announcement_section.dart';
+import 'package:confwebsite2023/features/app_links/ui/app_links_section.dart';
 import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
 import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
 import 'package:confwebsite2023/features/event/hands-on/ui/hands_on_event.dart';
@@ -180,6 +181,13 @@ class _MainPageBody extends StatelessWidget {
                   );
                 },
               ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const AppLinksSection(),
             ),
             const SliverToBoxAdapter(
               child: Spaces.vertical_80,
