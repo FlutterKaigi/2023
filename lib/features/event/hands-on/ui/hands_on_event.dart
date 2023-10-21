@@ -17,7 +17,7 @@ class HandsOnEvent extends StatelessWidget {
         '今年のハンズオンは10月26日をもって終了しました。多くの皆様にご参加いただき誠にありがとうございました。FlutterKaigi本編にもご参加される方には先着15名の限定ノベルティを用意しております。ノベルティの配布は、受付とは別に会場内に設置した専用のコーナーで行いますのでご注意ください。';
     return WantedWidget(
       title: 'Have a blast!',
-      ticketButtonTitle: 'イベント詳細',
+      ticketButtonTitle: 'イベント詳細ページ',
       content: text,
       ticketOnPressed: () async => launchUrlString(
         'https://flutterkaigi.connpass.com/event/293847/',

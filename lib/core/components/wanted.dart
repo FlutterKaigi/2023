@@ -133,14 +133,12 @@ class _WantedDesktop extends StatelessWidget {
                     child: Row(
                       children: [
                         LeftFilledIconButton(
-                          width: 193,
                           onPressed: ticketOnPressed,
                           buttonTitle: ticketButtonTitle,
                           icon: Icons.arrow_forward_ios,
                         ),
                         Spaces.horizontal_40,
                         LeftFilledIconButton(
-                          width: 193,
                           onPressed: archiveOnPressed,
                           buttonTitle: archiveButtonTitle,
                           icon: Icons.arrow_forward_ios,
