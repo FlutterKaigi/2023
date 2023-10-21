@@ -30,14 +30,6 @@ class _Accent {
 class _Sponsor {
   const _Sponsor();
 
-  Gradient get diamond => const LinearGradient(
-        colors: [
-          Color.fromARGB(255, 155, 202, 240),
-          Color.fromARGB(255, 225, 253, 255),
-          Color.fromARGB(255, 155, 202, 240),
-        ],
-      );
-
   Gradient get platinum => const LinearGradient(
         colors: [
           Color.fromARGB(255, 225, 236, 255),
