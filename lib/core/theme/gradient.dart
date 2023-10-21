@@ -19,7 +19,7 @@ class _Accent {
         ],
       );
 
-  Gradient get secoundary => const LinearGradient(
+  Gradient get secondary => const LinearGradient(
         colors: [
           Color.fromARGB(255, 243, 239, 147),
           Color.fromARGB(255, 241, 122, 55),

@@ -58,7 +58,7 @@ final class _SponsorSessionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const title = 'Sponsor Session';
-    final gradient = GradientConstant.accent.secoundary;
+    final gradient = GradientConstant.accent.secondary;
     return ResponsiveWidget(
       largeWidget: SectionHeader.centerAlignment(
         text: title,

@@ -13,7 +13,7 @@ class AppTextStyle {
   );
 
   static final _shadowHeading2 = Shadow(
-    color: GradientConstant.accent.secoundary.colors.last.withOpacity(0.25),
+    color: GradientConstant.accent.secondary.colors.last.withOpacity(0.25),
     blurRadius: 10,
     offset: const Offset(0, 2),
   );
