@@ -19,7 +19,7 @@ class _Accent {
         ],
       );
 
-  Gradient get secoundary => const LinearGradient(
+  Gradient get secondary => const LinearGradient(
         colors: [
           Color.fromARGB(255, 243, 239, 147),
           Color.fromARGB(255, 241, 122, 55),
@@ -29,14 +29,6 @@ class _Accent {
 
 class _Sponsor {
   const _Sponsor();
-
-  Gradient get diamond => const LinearGradient(
-        colors: [
-          Color.fromARGB(255, 155, 202, 240),
-          Color.fromARGB(255, 225, 253, 255),
-          Color.fromARGB(255, 155, 202, 240),
-        ],
-      );
 
   Gradient get platinum => const LinearGradient(
         colors: [

@@ -53,6 +53,7 @@ flutter:
   generate: true
   assets:
     - .env
+    - assets/app_links/
     - assets/icons/
     - assets/sponsors/
     - assets/
