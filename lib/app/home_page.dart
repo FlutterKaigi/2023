@@ -4,6 +4,7 @@ import 'package:confwebsite2023/app/router/router.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
+import 'package:confwebsite2023/features/announcement/ui/announcement_section.dart';
 import 'package:confwebsite2023/features/app_links/ui/app_links_section.dart';
 import 'package:confwebsite2023/features/count_down/model/count_down_timer.dart';
 import 'package:confwebsite2023/features/count_down/ui/count_down_section.dart';
@@ -32,6 +33,7 @@ class MainPage extends HookWidget {
       access: GlobalObjectKey('accessSectionKey'),
       event: GlobalObjectKey('eventSectionKey'),
       session: GlobalObjectKey('sessionSectionKey'),
+      announcement: GlobalObjectKey('announcementSectionKey'),
       sponsor: GlobalObjectKey('sponsorSectionKey'),
       staff: GlobalObjectKey('staffSectionKey'),
     );
@@ -58,6 +60,10 @@ class MainPage extends HookWidget {
       HeaderItemButtonData(
         title: 'Event',
         onPressed: () async => scrollToSection(sectionKeys.event),
+      ),
+      HeaderItemButtonData(
+        title: 'Announcement',
+        onPressed: () async => scrollToSection(sectionKeys.announcement),
       ),
       HeaderItemButtonData(
         title: 'Sponsor',
@@ -106,6 +112,7 @@ class _MainPageBody extends StatelessWidget {
     GlobalObjectKey access,
     GlobalObjectKey event,
     GlobalObjectKey session,
+    GlobalObjectKey announcement,
     GlobalObjectKey sponsor,
     GlobalObjectKey staff
   }) sectionKeys;
@@ -198,6 +205,15 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: HandsOnEvent(
                 key: sectionKeys.event,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_200,
+            ),
+            _Sliver(
+              padding: padding,
+              child: AnnouncementSection(
+                key: sectionKeys.announcement,
               ),
             ),
             const SliverToBoxAdapter(
