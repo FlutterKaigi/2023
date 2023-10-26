@@ -9,6 +9,21 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsAppLinksGen {
+  const $AssetsAppLinksGen();
+
+  /// File path: assets/app_links/app_store.png
+  AssetGenImage get appStore =>
+      const AssetGenImage('assets/app_links/app_store.png');
+
+  /// File path: assets/app_links/google_play.png
+  AssetGenImage get googlePlay =>
+      const AssetGenImage('assets/app_links/google_play.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [appStore, googlePlay];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -131,6 +146,7 @@ class Assets {
 
   static const String illustrationConference =
       'assets/Illustration-Conference.svg';
+  static const $AssetsAppLinksGen appLinks = $AssetsAppLinksGen();
   static const String flutterkaigiLogoShadowed =
       'assets/flutterkaigi_logo_shadowed.svg';
   static const String flutterkaigiLogoUnion =
