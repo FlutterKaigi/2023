@@ -6,12 +6,14 @@ class LeftFilledIconButton extends StatelessWidget {
     required this.onPressed,
     required this.buttonTitle,
     required this.icon,
+    this.width,
     super.key,
   });
 
   final void Function() onPressed;
   final String buttonTitle;
   final IconData icon;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class LeftFilledIconButton extends StatelessWidget {
     final textTheme = theme.textTheme;
     final colorScheme = theme.colorScheme;
     return SizedBox(
+      width: width,
       height: 40,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

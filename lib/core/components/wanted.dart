@@ -10,8 +10,10 @@ class WantedWidget extends StatelessWidget {
   const WantedWidget({
     required this.title,
     required this.content,
-    required this.buttonTitle,
-    required this.onPressed,
+    required this.ticketButtonTitle,
+    required this.ticketOnPressed,
+    required this.archiveButtonTitle,
+    required this.archiveOnPressed,
     this.child,
     this.image,
     this.subContent,
@@ -22,9 +24,11 @@ class WantedWidget extends StatelessWidget {
   final String content;
   final String? subContent;
   final Widget? child;
-  final String buttonTitle;
+  final String ticketButtonTitle;
+  final VoidCallback ticketOnPressed;
+  final String archiveButtonTitle;
+  final VoidCallback archiveOnPressed;
   final String? image;
-  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +37,22 @@ class WantedWidget extends StatelessWidget {
         title: title,
         content: content,
         subContent: subContent,
-        buttonTitle: buttonTitle,
         image: image,
-        onPressed: onPressed,
+        ticketButtonTitle: ticketButtonTitle,
+        ticketOnPressed: ticketOnPressed,
+        archiveButtonTitle: archiveButtonTitle,
+        archiveOnPressed: archiveOnPressed,
         child: child,
       ),
       smallWidget: _WantedMobile(
         title: title,
         content: content,
         subContent: subContent,
-        buttonTitle: buttonTitle,
         image: image,
-        onPressed: onPressed,
+        ticketButtonTitle: ticketButtonTitle,
+        ticketOnPressed: ticketOnPressed,
+        archiveButtonTitle: archiveButtonTitle,
+        archiveOnPressed: archiveOnPressed,
         child: child,
       ),
     );
@@ -56,19 +64,23 @@ class _WantedDesktop extends StatelessWidget {
     required this.title,
     required this.content,
     required this.subContent,
-    required this.buttonTitle,
     required this.image,
-    required this.onPressed,
+    required this.ticketButtonTitle,
+    required this.ticketOnPressed,
+    required this.archiveButtonTitle,
+    required this.archiveOnPressed,
     this.child,
   });
 
   final String title;
   final String content;
   final String? subContent;
-  final String buttonTitle;
   final Widget? child;
   final String? image;
-  final VoidCallback onPressed;
+  final String ticketButtonTitle;
+  final VoidCallback ticketOnPressed;
+  final String archiveButtonTitle;
+  final VoidCallback archiveOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -117,10 +129,22 @@ class _WantedDesktop extends StatelessWidget {
                     child!,
                     Spaces.vertical_24,
                   ],
-                  LeftFilledIconButton(
-                    onPressed: onPressed,
-                    buttonTitle: buttonTitle,
-                    icon: Icons.arrow_forward_ios,
+                  FittedBox(
+                    child: Row(
+                      children: [
+                        LeftFilledIconButton(
+                          onPressed: ticketOnPressed,
+                          buttonTitle: ticketButtonTitle,
+                          icon: Icons.arrow_forward_ios,
+                        ),
+                        Spaces.horizontal_40,
+                        LeftFilledIconButton(
+                          onPressed: archiveOnPressed,
+                          buttonTitle: archiveButtonTitle,
+                          icon: Icons.arrow_forward_ios,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -147,19 +171,23 @@ class _WantedMobile extends StatelessWidget {
     required this.title,
     required this.content,
     required this.subContent,
-    required this.buttonTitle,
     required this.image,
-    required this.onPressed,
+    required this.ticketButtonTitle,
+    required this.ticketOnPressed,
+    required this.archiveButtonTitle,
+    required this.archiveOnPressed,
     this.child,
   });
 
   final String title;
   final String content;
   final String? subContent;
-  final String buttonTitle;
   final String? image;
   final Widget? child;
-  final VoidCallback onPressed;
+  final String ticketButtonTitle;
+  final VoidCallback ticketOnPressed;
+  final String archiveButtonTitle;
+  final VoidCallback archiveOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -204,8 +232,16 @@ class _WantedMobile extends StatelessWidget {
               Spaces.vertical_24,
             ],
             LeftFilledIconButton(
-              onPressed: onPressed,
-              buttonTitle: buttonTitle,
+              width: double.infinity,
+              onPressed: ticketOnPressed,
+              buttonTitle: ticketButtonTitle,
+              icon: Icons.arrow_forward_ios,
+            ),
+            Spaces.vertical_24,
+            LeftFilledIconButton(
+              width: double.infinity,
+              onPressed: archiveOnPressed,
+              buttonTitle: archiveButtonTitle,
               icon: Icons.arrow_forward_ios,
             ),
           ],

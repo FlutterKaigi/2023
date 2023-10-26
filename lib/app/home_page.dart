@@ -17,7 +17,6 @@ import 'package:confwebsite2023/features/news/ui/news_section.dart';
 import 'package:confwebsite2023/features/sponsor/ui/list/sponsors_section.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_header.dart';
 import 'package:confwebsite2023/features/staff/ui/staff_table.dart';
-import 'package:confwebsite2023/features/ticket/ui/ticket_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -33,7 +32,6 @@ class MainPage extends HookWidget {
     const sectionKeys = (
       access: GlobalObjectKey('accessSectionKey'),
       event: GlobalObjectKey('eventSectionKey'),
-      ticket: GlobalObjectKey('ticketSectionKey'),
       session: GlobalObjectKey('sessionSectionKey'),
       announcement: GlobalObjectKey('announcementSectionKey'),
       sponsor: GlobalObjectKey('sponsorSectionKey'),
@@ -58,10 +56,6 @@ class MainPage extends HookWidget {
       HeaderItemButtonData(
         title: 'Access',
         onPressed: () async => scrollToSection(sectionKeys.access),
-      ),
-      HeaderItemButtonData(
-        title: 'Ticket',
-        onPressed: () async => scrollToSection(sectionKeys.ticket),
       ),
       HeaderItemButtonData(
         title: 'Event',
@@ -117,7 +111,6 @@ class _MainPageBody extends StatelessWidget {
   final ({
     GlobalObjectKey access,
     GlobalObjectKey event,
-    GlobalObjectKey ticket,
     GlobalObjectKey session,
     GlobalObjectKey announcement,
     GlobalObjectKey sponsor,
@@ -203,15 +196,6 @@ class _MainPageBody extends StatelessWidget {
               padding: padding,
               child: AccessWidget(
                 key: sectionKeys.access,
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Spaces.vertical_200,
-            ),
-            _Sliver(
-              padding: padding,
-              child: TicketSection(
-                key: sectionKeys.ticket,
               ),
             ),
             const SliverToBoxAdapter(
