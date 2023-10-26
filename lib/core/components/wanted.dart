@@ -232,14 +232,14 @@ class _WantedMobile extends StatelessWidget {
               Spaces.vertical_24,
             ],
             LeftFilledIconButton(
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               onPressed: ticketOnPressed,
               buttonTitle: ticketButtonTitle,
               icon: Icons.arrow_forward_ios,
             ),
             Spaces.vertical_24,
             LeftFilledIconButton(
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
               onPressed: archiveOnPressed,
               buttonTitle: archiveButtonTitle,
               icon: Icons.arrow_forward_ios,
