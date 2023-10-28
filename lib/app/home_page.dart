@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:confwebsite2023/app/router/router.dart';
+import 'package:confwebsite2023/core/components/finish_snack_bar.dart';
 import 'package:confwebsite2023/core/components/responsive_widget.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/access/ui/access_widget.dart';
@@ -151,7 +152,14 @@ class _MainPageBody extends StatelessWidget {
           controller: scrollController,
           slivers: [
             const SliverToBoxAdapter(
-              child: Spaces.vertical_40,
+              child: Spaces.vertical_80,
+            ),
+            _Sliver(
+              padding: padding,
+              child: const FinishSnackBar(),
+            ),
+            const SliverToBoxAdapter(
+              child: Spaces.vertical_80,
             ),
             _Sliver(
               padding: padding,
