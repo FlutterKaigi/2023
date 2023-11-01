@@ -57,6 +57,14 @@ final class _AnnouncementList extends StatelessWidget {
           _AnnouncementItem(
             'イベントの模様は撮影される場合がございます。その場合、お客様が写り込む場合もございますので、予めご了承ください。',
           ),
+          _verticalGap,
+          _AnnouncementItem(
+            '''来場者向けの Wi-Fi の提供はございません。登壇者、スポンサー（出し物に関連した利用のみ）にのみ提供いたしますので、予めご了承ください。''',
+          ),
+          _verticalGap,
+          _AnnouncementItem(
+            '''昼食の提供はございません。会場周辺のお店をご利用ください。また、公式アプリにて会場周辺のお店を紹介しておりますので、ぜひご活用ください。''',
+          ),
         ],
       );
 }
