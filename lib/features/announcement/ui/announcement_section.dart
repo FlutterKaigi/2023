@@ -67,7 +67,7 @@ final class _AnnouncementList extends StatelessWidget {
           ),
           _verticalGap,
           _AnnouncementItem(
-            '''来場者向けの充電スペースは設けません。控室とスポンサーブースには電源タップを配置いたしますので、登壇者とスポンサーは充電可能です。''',
+            '''来場者向けの充電スペースは設けません。充電が必要な方はモバイルバッテリーなどをご持参ください。''',
           ),
         ],
       );
