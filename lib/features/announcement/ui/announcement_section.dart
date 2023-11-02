@@ -65,6 +65,10 @@ final class _AnnouncementList extends StatelessWidget {
           _AnnouncementItem(
             '''昼食の提供はございません。会場周辺のお店をご利用ください。また、公式アプリにて会場周辺のお店を紹介しておりますので、ぜひご活用ください。''',
           ),
+          _verticalGap,
+          _AnnouncementItem(
+            '''来場者向けの充電スペースは設けません。充電が必要な方はモバイルバッテリーなどをご持参ください。''',
+          ),
         ],
       );
 }
