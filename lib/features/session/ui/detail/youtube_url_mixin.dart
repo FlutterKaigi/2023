@@ -23,8 +23,6 @@ mixin YoutubeUrlMixin {
         return 'bKnvn-Orpd0';
       case 'DartによるBFF構築・運用 〜Dart Frog×melos〜':
         return 'jNmyr-TZVfU';
-      case 'Master of Flutter lifecycle':
-        return 'sznsAolD6dI';
       case 'ゆめみの Flutter エンジニア育成方法':
         return 'UGxzjYNHH90';
       default:
