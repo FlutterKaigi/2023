@@ -23,7 +23,7 @@ class SessionDetailContent extends StatelessWidget with YoutubeUrlMixin {
     required this.contentGap,
     required this.sectionGap,
     required this.cardPadding,
-    required this.youtubeGap,
+    required this.youtubeWidth,
     required this.bodyVerticalMargin,
     super.key,
   });
@@ -35,7 +35,7 @@ class SessionDetailContent extends StatelessWidget with YoutubeUrlMixin {
   final double cardPadding;
   final double contentGap;
   final double sectionGap;
-  final double youtubeGap;
+  final double youtubeWidth;
   final double bodyVerticalMargin;
 
   @override
@@ -121,7 +121,7 @@ class SessionDetailContent extends StatelessWidget with YoutubeUrlMixin {
 
     final youtubePlayer = Center(
       child: SizedBox(
-        width: youtubeGap,
+        width: youtubeWidth,
         child: YoutubePlayer(
           controller: YoutubePlayerController.fromVideoId(
             videoId: getUrl(session.title),
