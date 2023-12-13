@@ -28,7 +28,7 @@ class SessionDetail extends ConsumerWidget {
         cardPadding: 40,
         contentGap: 40,
         sectionGap: 80,
-        youtubeWidth: MediaQuery.of(context).size.width / 1.5,
+        youtubeWidth: MediaQuery.sizeOf(context).width / 1.5,
         bodyVerticalMargin: 20,
         sectionHeaderTextStyle: AppTextStyle.pcHeading1,
         sessionTitleTextStyle: textTheme.displayMedium!,
