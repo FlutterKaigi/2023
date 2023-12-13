@@ -4,16 +4,18 @@ import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
+import 'package:confwebsite2023/features/session/data/youtube_provider.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class SessionDetailContent extends StatelessWidget {
+class SessionDetailContent extends ConsumerWidget {
   const SessionDetailContent({
     required this.session,
     required this.sponsor,
@@ -38,7 +40,7 @@ class SessionDetailContent extends StatelessWidget {
   final double bodyVerticalMargin;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
@@ -122,9 +124,8 @@ class SessionDetailContent extends StatelessWidget {
       child: SizedBox(
         width: youtubeWidth,
         child: YoutubePlayer(
-          controller: YoutubePlayerController.fromVideoId(
-            videoId: session.youtubeUrl,
-            params: const YoutubePlayerParams(showFullscreenButton: true),
+          controller: ref.watch(
+            youtubePlayerControllerProvider(session.youtubeUrl),
           ),
         ),
       ),
