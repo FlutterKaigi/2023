@@ -7,13 +7,14 @@ import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class SessionDetailContent extends StatefulWidget {
+class SessionDetailContent extends HookWidget {
   const SessionDetailContent({
     required this.session,
     required this.sponsor,
@@ -38,38 +39,24 @@ class SessionDetailContent extends StatefulWidget {
   final double bodyVerticalMargin;
 
   @override
-  State<SessionDetailContent> createState() => _SessionDetailContentState();
-}
-
-class _SessionDetailContentState extends State<SessionDetailContent> {
-  late YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = YoutubePlayerController.fromVideoId(
-      videoId: widget.session.youtubeUrl,
-      params: const YoutubePlayerParams(showFullscreenButton: true),
-    );
-  }
-
-  @override
-  Future<void> dispose() async {
-    await _controller.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-
-    final contentVerticalGap = SizedBox(height: widget.contentGap);
-    final sectionVerticalGap = SizedBox(height: widget.sectionGap);
-    final bodyVerticalGap = SizedBox(height: widget.bodyVerticalMargin);
-
-    final headerTitle =
-        widget.session.isSponsored ? 'Sponsor Session' : 'Session';
+    late YoutubePlayerController controller;
+    useEffect(
+      () {
+        controller = YoutubePlayerController.fromVideoId(
+          videoId: session.youtubeUrl,
+          params: const YoutubePlayerParams(showFullscreenButton: true),
+        );
+        return controller.close;
+      },
+      [],
+    );
+    final contentVerticalGap = SizedBox(height: contentGap);
+    final sectionVerticalGap = SizedBox(height: sectionGap);
+    final bodyVerticalGap = SizedBox(height: bodyVerticalMargin);
+    final headerTitle = session.isSponsored ? 'Sponsor Session' : 'Session';
     final headerGradient = GradientConstant.accent.primary;
     final header = ResponsiveWidget(
       largeWidget: SectionHeader.leftAlignment(
@@ -87,7 +74,7 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
     final profileBody = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.sponsor case final Sponsor sponsor) ...[
+        if (sponsor case final Sponsor sponsor) ...[
           SponsorDetailLogoCard(
             assetName: sponsor.logoAssetName,
             cardWidth: 240,
@@ -99,17 +86,17 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(widget.session.speaker.avatarUrl),
+              backgroundImage: NetworkImage(session.speaker.avatarUrl),
             ),
             Spaces.horizontal_8,
             Text(
-              widget.session.speaker.name,
+              session.speaker.name,
               style: textTheme.titleMedium,
             ),
           ],
         ),
         Spaces.vertical_16,
-        if (widget.session.speaker.twitter case final String twitter)
+        if (session.speaker.twitter case final String twitter)
           Link(
             uri: Uri.tryParse(
               'https://twitter.com/$twitter',
@@ -137,15 +124,15 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
     );
 
     final hPadding = EdgeInsets.only(
-      top: widget.contentGap,
-      bottom: widget.contentGap / 2,
+      top: contentGap,
+      bottom: contentGap / 2,
     );
 
     final youtubePlayer = Center(
       child: SizedBox(
-        width: widget.youtubeWidth,
+        width: youtubeWidth,
         child: YoutubePlayer(
-          controller: _controller,
+          controller: controller,
         ),
       ),
     );
@@ -156,7 +143,7 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: EdgeInsets.all(widget.contentGap),
+        padding: EdgeInsets.all(contentGap),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -164,7 +151,7 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
               children: [
                 Chip(
                   label: Text(
-                    widget.session.track.name,
+                    session.track.name,
                   ),
                   backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
@@ -172,18 +159,18 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
             ),
             Spaces.vertical_16,
             Text(
-              widget.session.title,
-              style: widget.sessionTitleTextStyle,
+              session.title,
+              style: sessionTitleTextStyle,
             ),
             Spaces.vertical_16,
             Text(
-              widget.session.timeRangeLongText,
+              session.timeRangeLongText,
               style: textTheme.headlineSmall,
             ),
             Spaces.vertical_16,
             OutlinedButton(
               onPressed: () async {
-                final url = Uri.parse(widget.session.url);
+                final url = Uri.parse(session.url);
                 await launchUrl(url);
               },
               style: OutlinedButton.styleFrom(
@@ -206,7 +193,7 @@ class _SessionDetailContentState extends State<SessionDetailContent> {
             contentVerticalGap,
             youtubePlayer,
             MarkdownBody(
-              data: widget.session.abstract,
+              data: session.abstract,
               styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
                 p: textTheme.bodyLarge,
                 pPadding: const EdgeInsets.symmetric(vertical: 8),
