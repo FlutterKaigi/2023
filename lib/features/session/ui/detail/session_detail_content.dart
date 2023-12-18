@@ -4,18 +4,16 @@ import 'package:confwebsite2023/core/components/social_share.dart';
 import 'package:confwebsite2023/core/gen/assets.gen.dart';
 import 'package:confwebsite2023/core/theme.dart';
 import 'package:confwebsite2023/features/session/data/session.dart';
-import 'package:confwebsite2023/features/session/data/youtube_provider.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class SessionDetailContent extends ConsumerWidget {
+class SessionDetailContent extends StatefulWidget {
   const SessionDetailContent({
     required this.session,
     required this.sponsor,
@@ -40,15 +38,38 @@ class SessionDetailContent extends ConsumerWidget {
   final double bodyVerticalMargin;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  State<SessionDetailContent> createState() => _SessionDetailContentState();
+}
+
+class _SessionDetailContentState extends State<SessionDetailContent> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController.fromVideoId(
+      videoId: widget.session.youtubeUrl,
+      params: const YoutubePlayerParams(showFullscreenButton: true),
+    );
+  }
+
+  @override
+  Future<void> dispose() async {
+    await _controller.close();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
 
-    final contentVerticalGap = SizedBox(height: contentGap);
-    final sectionVerticalGap = SizedBox(height: sectionGap);
-    final bodyVerticalGap = SizedBox(height: bodyVerticalMargin);
+    final contentVerticalGap = SizedBox(height: widget.contentGap);
+    final sectionVerticalGap = SizedBox(height: widget.sectionGap);
+    final bodyVerticalGap = SizedBox(height: widget.bodyVerticalMargin);
 
-    final headerTitle = session.isSponsored ? 'Sponsor Session' : 'Session';
+    final headerTitle =
+        widget.session.isSponsored ? 'Sponsor Session' : 'Session';
     final headerGradient = GradientConstant.accent.primary;
     final header = ResponsiveWidget(
       largeWidget: SectionHeader.leftAlignment(
@@ -66,7 +87,7 @@ class SessionDetailContent extends ConsumerWidget {
     final profileBody = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (sponsor case final Sponsor sponsor) ...[
+        if (widget.sponsor case final Sponsor sponsor) ...[
           SponsorDetailLogoCard(
             assetName: sponsor.logoAssetName,
             cardWidth: 240,
@@ -78,17 +99,17 @@ class SessionDetailContent extends ConsumerWidget {
           children: [
             CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(session.speaker.avatarUrl),
+              backgroundImage: NetworkImage(widget.session.speaker.avatarUrl),
             ),
             Spaces.horizontal_8,
             Text(
-              session.speaker.name,
+              widget.session.speaker.name,
               style: textTheme.titleMedium,
             ),
           ],
         ),
         Spaces.vertical_16,
-        if (session.speaker.twitter case final String twitter)
+        if (widget.session.speaker.twitter case final String twitter)
           Link(
             uri: Uri.tryParse(
               'https://twitter.com/$twitter',
@@ -116,17 +137,15 @@ class SessionDetailContent extends ConsumerWidget {
     );
 
     final hPadding = EdgeInsets.only(
-      top: contentGap,
-      bottom: contentGap / 2,
+      top: widget.contentGap,
+      bottom: widget.contentGap / 2,
     );
 
     final youtubePlayer = Center(
       child: SizedBox(
-        width: youtubeWidth,
+        width: widget.youtubeWidth,
         child: YoutubePlayer(
-          controller: ref.watch(
-            youtubePlayerControllerProvider(session.youtubeUrl),
-          ),
+          controller: _controller,
         ),
       ),
     );
@@ -137,7 +156,7 @@ class SessionDetailContent extends ConsumerWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: EdgeInsets.all(contentGap),
+        padding: EdgeInsets.all(widget.contentGap),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -145,7 +164,7 @@ class SessionDetailContent extends ConsumerWidget {
               children: [
                 Chip(
                   label: Text(
-                    session.track.name,
+                    widget.session.track.name,
                   ),
                   backgroundColor: baselineColorScheme.ref.primary.primary40,
                 ),
@@ -153,18 +172,18 @@ class SessionDetailContent extends ConsumerWidget {
             ),
             Spaces.vertical_16,
             Text(
-              session.title,
-              style: sessionTitleTextStyle,
+              widget.session.title,
+              style: widget.sessionTitleTextStyle,
             ),
             Spaces.vertical_16,
             Text(
-              session.timeRangeLongText,
+              widget.session.timeRangeLongText,
               style: textTheme.headlineSmall,
             ),
             Spaces.vertical_16,
             OutlinedButton(
               onPressed: () async {
-                final url = Uri.parse(session.url);
+                final url = Uri.parse(widget.session.url);
                 await launchUrl(url);
               },
               style: OutlinedButton.styleFrom(
@@ -187,7 +206,7 @@ class SessionDetailContent extends ConsumerWidget {
             contentVerticalGap,
             youtubePlayer,
             MarkdownBody(
-              data: session.abstract,
+              data: widget.session.abstract,
               styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
                 p: textTheme.bodyLarge,
                 pPadding: const EdgeInsets.symmetric(vertical: 8),
