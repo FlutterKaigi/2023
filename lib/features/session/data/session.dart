@@ -9,9 +9,7 @@ part 'session.freezed.dart';
 part 'session.g.dart';
 
 @Freezed(unionKey: 'type')
-sealed
-
-class Session with _$Session {
+sealed class Session with _$Session {
   @JsonSerializable(fieldRename: FieldRename.snake)
   const factory Session.timeslot({
     required String uuid,
