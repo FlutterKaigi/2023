@@ -7,12 +7,14 @@ import 'package:confwebsite2023/features/session/data/session.dart';
 import 'package:confwebsite2023/features/sponsor/data/sponsor.dart';
 import 'package:confwebsite2023/features/sponsor/ui/detail/sponsor_detail_logo_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
-class SessionDetailContent extends StatelessWidget {
+class SessionDetailContent extends HookWidget {
   const SessionDetailContent({
     required this.session,
     required this.sponsor,
@@ -21,6 +23,7 @@ class SessionDetailContent extends StatelessWidget {
     required this.contentGap,
     required this.sectionGap,
     required this.cardPadding,
+    required this.youtubeWidth,
     required this.bodyVerticalMargin,
     super.key,
   });
@@ -32,17 +35,27 @@ class SessionDetailContent extends StatelessWidget {
   final double cardPadding;
   final double contentGap;
   final double sectionGap;
+  final double youtubeWidth;
   final double bodyVerticalMargin;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-
+    late YoutubePlayerController controller;
+    useEffect(
+      () {
+        controller = YoutubePlayerController.fromVideoId(
+          videoId: session.youtubeUrl,
+          params: const YoutubePlayerParams(showFullscreenButton: true),
+        );
+        return controller.close;
+      },
+      [],
+    );
     final contentVerticalGap = SizedBox(height: contentGap);
     final sectionVerticalGap = SizedBox(height: sectionGap);
     final bodyVerticalGap = SizedBox(height: bodyVerticalMargin);
-
     final headerTitle = session.isSponsored ? 'Sponsor Session' : 'Session';
     final headerGradient = GradientConstant.accent.primary;
     final header = ResponsiveWidget(
@@ -115,6 +128,15 @@ class SessionDetailContent extends StatelessWidget {
       bottom: contentGap / 2,
     );
 
+    final youtubePlayer = Center(
+      child: SizedBox(
+        width: youtubeWidth,
+        child: YoutubePlayer(
+          controller: controller,
+        ),
+      ),
+    );
+
     final body = DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.35),
@@ -168,6 +190,8 @@ class SessionDetailContent extends StatelessWidget {
             profileBody,
             contentVerticalGap,
             Divider(color: baselineColorScheme.ref.secondary.secondary50),
+            contentVerticalGap,
+            youtubePlayer,
             MarkdownBody(
               data: session.abstract,
               styleSheet: MarkdownStyleSheet.fromTheme(theme).copyWith(
